@@ -16,11 +16,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -40,4 +36,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role(){
+        return $this->belongsTo(Role::class, 'role', 'id');
+    }
+
+    public function hasPermission(Permission $permission){
+                echo $permission->name;
+        
+                $check = !!optional(optional($this->role)->permissions)->contains($permission);
+        //        var_dump($check);
+        //        die();
+                return $check;
+    }
 }

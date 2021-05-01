@@ -70,6 +70,14 @@ return [
         'array' => [
             'transport' => 'array',
         ],
+
+        'mailtrap' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_HOST', 'smtp.mailtrap.io'),
+            'port' => env('MAIL_PORT', 25),
+            'username' => env('MAIL_USERNAME','ef3760ecbcb754'),
+            'password' => env('MAIL_PASSWORD','f76e7fa1607d78')
+        ]
     ],
 
     /*
