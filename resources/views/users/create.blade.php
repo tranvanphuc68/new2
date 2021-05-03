@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{url('/users')}}">
+<form method="POST" action="{{ url("/users") }}">
 @csrf
 <input type="text" name="id">id
 <input type="text" name="name">name

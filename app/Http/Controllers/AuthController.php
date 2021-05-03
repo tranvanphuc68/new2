@@ -11,11 +11,11 @@ class AuthController extends Controller
 {
     public function index()
     {
-        return view('auth.login');
+        return Auth::check() ? view('welcome') : view('auth.login');
     }
 
     public function login(AuthRequest $request)
-    {
+    {   
         $email =  $request->input('email');
         $password = ($request->input('password'));
         if (Auth::attempt(['email' => $email, 'password' => $password])) {

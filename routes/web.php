@@ -26,16 +26,19 @@ Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
-
+//authenticate can do
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/users', [UserController::class, 'index']);
-    Route::get('/users/self-edit', [UserController::class, 'self_edit']);
-    Route::put('/users/self-update', [UserController::class, 'self_update']);
-    Route::group(['middleware'=>'admin'], function(){
-        Route::get('/users/create', [UserController::class, 'create']);
-        Route::post('/users', [UserController::class, 'store']);
-        Route::get('/users/{id}/edit', [UserController::class, 'edit']);
-        Route::put('/users', [UserController::class, 'update']);
-        Route::delete('/users/{id}/delete', [UserController::class, 'destroy']);
-    });
+    Route::get('/users/create', [UserController::class, 'create'])->middleware('admin');
+    Route::get('/users/{user}',[UserController::class, 'show']);
+    //update personal infomation
+    Route::get('/user/self_edit', [UserController::class, 'self_edit']);
+    Route::put('/users/{user}', [UserController::class, 'update']);
 });
+//admin can do
+Route::group(['middleware'=>'admin'], function(){
+    Route::post('/users', [UserController::class, 'store']);
+    Route::get('/users/{user}/edit', [UserController::class, 'edit']);
+    Route::delete('/users/{user}', [UserController::class, 'destroy']);
+});
+
