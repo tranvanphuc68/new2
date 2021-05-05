@@ -37,6 +37,14 @@ class UserController extends Controller
         $data = User::create([
             'id' => $request->input('id'),
             'name' => $request->input('name'),
+            'gender' => $request->input('gender'),
+            'dob' => $request->input('dob'),
+            'hometown' => $request->input('hometown'),
+            'id_card' => $request->input('id_card'),
+            'academic_level' => $request->input('academic_level'),
+            'accomplishment' => $request->input('accomplishment'),
+            'account' => $request->input('account'),
+            'phone' => $request->input('phone'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
             'role' => $request->input('role')

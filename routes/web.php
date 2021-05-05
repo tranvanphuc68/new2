@@ -28,14 +28,16 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 //authenticate can do
 Route::group(['middleware'=>'auth'], function(){
+    //
     Route::get('/users', [UserController::class, 'index']);
-    Route::get('/users/create', [UserController::class, 'create'])->middleware('admin');
+    Route::get('/users/create', [UserController::class, 'create'])->middleware('admin');   
     Route::get('/users/{user}',[UserController::class, 'show']);
     //update personal infomation
     Route::get('/user/self_edit', [UserController::class, 'self_edit']);
     Route::put('/users/{user}', [UserController::class, 'update']);
 });
 //admin can do
+
 Route::group(['middleware'=>'admin'], function(){
     Route::post('/users', [UserController::class, 'store']);
     Route::get('/users/{user}/edit', [UserController::class, 'edit']);

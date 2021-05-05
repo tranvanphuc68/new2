@@ -9,10 +9,20 @@
 <body>
 <form method="POST" action="{{ url("/users") }}">
 @csrf
-<input type="text" name="id">id
-<input type="text" name="name">name
-<input type="text" name="email">email
-<input type="text" name="password">password
+<div><input type="text" name="id">id</div>
+<div><input type="text" name="name">name</div>
+<div><input type="text" name="gender">gender</div>
+<div><input type="date" name="dob">dob</div>
+<div><input type="text" name="hometown">hometown</div>
+<div><input type="text" name="id_card">CCCD</div>
+<div><input type="text" name="academic_level">academic_level</div>
+<div><input type="text" name="accomplishment">accomplishment</div>
+<div><input type="text" name="account">account</div>
+<div><input type="text" name="phone">phone</div>
+
+<div><input type="text" name="email">email</div>
+<div><input type="text" name="password">password</div>
+
 <input type="text" name="role">role
 <button type="submit">OK</button>
 </form>
