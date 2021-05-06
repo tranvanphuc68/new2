@@ -18,6 +18,7 @@ class CreateFeesTable extends Migration
             $table->bigInteger('id_student')->unsigned();
             $table->integer('status');
             $table->timestamps();
+            $table->primary(['id_course', 'id_student']);
 
             $table->foreign('id_course')->references('id')->on('courses');
             $table->foreign('id_student')->references('id')->on('users');
