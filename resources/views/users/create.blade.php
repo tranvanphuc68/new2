@@ -23,7 +23,9 @@
 <div><input type="text" name="email">email</div>
 <div><input type="text" name="password">password</div>
 
-<input type="text" name="role">role
+<input type="radio" name="role" value="Admin">Admin
+<input type="radio" name="role" value="Teacher">Teacher
+<input type="radio" name="role" value="Student">Student
 <button type="submit">OK</button>
 </form>
 </body>

@@ -9,7 +9,7 @@
 <body>
 <a href="{{url('/logout')}}" >logout</a>
 
-<h1>jeelp</h1>
+<h1>USERS</h1>
 <a href="{{ url("/users/create") }}">create</a>
 <table>
 @if(Auth::check())
