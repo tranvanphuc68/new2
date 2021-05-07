@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {
     public function index()
     {
-        $courses = Course::where('id','>=', '0')->get();
+        $courses = DB::table('courses')
+        ->join('users', 'users.id', '=', 'courses.id_teacher')
+        ->select('courses.*', 'users.fullname')
+        ->get();
         return view('courses.index', [
             'courses' => $courses
         ]);

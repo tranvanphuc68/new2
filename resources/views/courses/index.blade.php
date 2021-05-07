@@ -19,7 +19,7 @@
 <tr>
     <td>{{ $course->id }}</td>
     <td>{{ $course->name }}</td>
-    <td>{{ $course->id_teacher }}</td>
+    <td>{{ $course->fullname }}</td>
     <td>{{ $course->description }}</td>
     <td>{{ $course->timetable }}</td>
     <td>{{ $course->max_students }}</td>
