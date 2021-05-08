@@ -15,8 +15,8 @@ class CreateReportPostsTable extends Migration
     {
         Schema::create('report_posts', function (Blueprint $table) {
             $table->id()->unsigned();
-            $table->id_user()->unsigned();
-            $table->id_post()->unsigned();
+            $table->bigInteger('id_user')->unsigned();
+            $table->bigInteger('id_post')->unsigned();
             $table->string('content');
             $table->timestamps();
             
