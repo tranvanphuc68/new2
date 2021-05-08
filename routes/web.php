@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 //authenticate can do
 Route::group(['middleware'=>'auth'], function(){
+    //
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/users/create',[UserController::class, 'create'])->middleware('admin');   
     Route::get('/users/{user}',[UserController::class, 'show']);
@@ -55,4 +57,20 @@ Route::group(['middleware'=>'admin'], function(){
     Route::put('/courses/{course}', [CourseController::class, 'update']);
     Route::delete('/courses/{course}', [CourseController::class, 'destroy']);
 });
-
+//----------------------------------------------------------------------- 
+//post
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/create',[PostController::class, 'create']); //-> auth 
+Route::get('/posts/{post}',[PostController::class, 'show']);
+Route::post('/posts', [PostController::class, 'store']);//-> auth
+Route::get('/posts/{post}/edit', [PostController::class, 'edit']);//->auth + $user = Auth::user();
+Route::put('/posts/{post}', [PostController::class, 'update']);
+Route::delete('/posts/{post}', [PostController::class, 'destroy']);//->auth + $user = Auth::user();
+//comment
+Route::get('/comments', [CommentController::class, 'index']);
+Route::get('/comments/create',[CommentController::class, 'create']);   
+Route::get('/comments/{comment}',[CommentController::class, 'show']);
+Route::post('/comments', [CommentController::class, 'store']);
+Route::get('/comments/{comment}/edit', [CommentController::class, 'edit']);//->auth + $user = Auth::user();
+Route::put('/comments/{comment}', [CommentController::class, 'update']);
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);//->auth + $user = Auth::user();

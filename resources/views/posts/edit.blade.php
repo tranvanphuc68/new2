@@ -10,7 +10,7 @@
 <form method="POST" action="{{url("/users/$user->id")}}">
 @csrf
 @method('PUT')
-<input type="text" name="name" value="{{ $user->fullname }}">name
+<input type="text" name="name" value="{{ $user->name }}">name
 
 <button type="submit">OK</button>
 </form>
