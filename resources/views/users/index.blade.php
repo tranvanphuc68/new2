@@ -41,7 +41,7 @@
     @foreach($teachers as $user)
     <tr>
         <td>{{ $user->id }}</td>
-        <td>{{ $user->name }}</td>
+        <td>{{ $user->fullname }}</td>
         <td>{{ $user->email }}</td>
         <td>{{ $user->role }}</td>
         <td><a href="{{ url("/users/{$user->id}") }}">SHOW</a></td>
@@ -61,7 +61,7 @@
     @foreach($students as $user)
     <tr>
         <td>{{ $user->id }}</td>
-        <td>{{ $user->name }}</td>
+        <td>{{ $user->fullname }}</td>
         <td>{{ $user->email }}</td>
         <td>{{ $user->role }}</td>
         <td><a href="{{ url("/users/{$user->id}") }}">SHOW</a></td>

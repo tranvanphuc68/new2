@@ -7,10 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{url("/posts/$post->id")}}">
+<form method="POST" action="{{ url("/comments") }}">
 @csrf
-@method('PUT')
-<input type="textarea" name="content" value="{{ $post->content }}">content
+<div><input type="text" name="id">id</div>
+<div><input type="text" name="id_post">id_post</div>
+<div><input type="text" name="content">Content</div>
 
 <button type="submit">OK</button>
 </form>
