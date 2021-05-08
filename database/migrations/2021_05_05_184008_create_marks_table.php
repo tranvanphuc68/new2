@@ -20,8 +20,8 @@ class CreateMarksTable extends Migration
             $table->timestamps();
             $table->primary(['id_course', 'id_student']);
 
-            $table->foreign('id_course')->references('id')->on('courses');
-            $table->foreign('id_student')->references('id')->on('users');
+            $table->foreign('id_course')->references('id')->on('courses')->onDelete('cascade');
+            $table->foreign('id_student')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
