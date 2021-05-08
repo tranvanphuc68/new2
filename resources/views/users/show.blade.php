@@ -8,7 +8,7 @@
 </head>
 <body>
         <div>{{ $user->id }}</div>
-        <div>{{ $user->name }}</div>
+        <div>{{ $user->fullname }}</div>
         <div>{{ $user->email }}</div>
 </body>
 </html>

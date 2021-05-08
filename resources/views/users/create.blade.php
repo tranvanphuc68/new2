@@ -10,7 +10,7 @@
 <form method="POST" action="{{ url("/users") }}">
 @csrf
 <div><input type="text" name="id">id</div>
-<div><input type="text" name="name">name</div>
+<div><input type="text" name="fullname">name</div>
 <div><input type="text" name="gender">gender</div>
 <div><input type="date" name="dob">dob</div>
 <div><input type="text" name="hometown">hometown</div>
