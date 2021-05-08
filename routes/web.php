@@ -56,3 +56,4 @@ Route::group(['middleware'=>'admin'], function(){
     Route::delete('/courses/{course}', [CourseController::class, 'destroy']);
 });
 
+RouteBlade::component('package-name', PackageNameComponent::class);
