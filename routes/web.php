@@ -37,7 +37,6 @@ Route::group(['middleware'=>'auth'], function(){
     Route::put('/users/{user}', [UserController::class, 'update']);
 });
 //admin can do
-
 Route::group(['middleware'=>'admin'], function(){
     Route::post('/users', [UserController::class, 'store']);
     Route::get('/users/{user}/edit', [UserController::class, 'edit']);
