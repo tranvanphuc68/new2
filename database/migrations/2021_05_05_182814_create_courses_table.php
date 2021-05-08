@@ -27,7 +27,7 @@ class CreateCoursesTable extends Migration
             $table->integer('status');
             $table->timestamps();
             
-            $table->foreign('id_teacher')->references('id')->on('users')->onDelete('null');
+            $table->foreign('id_teacher')->references('id')->on('users')->onDelete('set null');
             
         });
     }
