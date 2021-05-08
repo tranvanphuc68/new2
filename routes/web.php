@@ -36,7 +36,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/user/self_edit', [UserController::class, 'self_edit']);
     Route::put('/users/{user}', [UserController::class, 'update']);
 });
-//admin can do
+//admin can do it
 Route::group(['middleware'=>'admin'], function(){
     Route::post('/users', [UserController::class, 'store']);
     Route::get('/users/{user}/edit', [UserController::class, 'edit']);
