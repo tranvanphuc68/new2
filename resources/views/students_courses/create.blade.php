@@ -7,10 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{url("/users/$user->id")}}">
+<form method="POST" action="{{ url("/students_courses") }}">
 @csrf
-@method('PUT')
-<input type="text" name="fullname" value="{{ $user->fullname }}">name
+<div><input type="text" name="id_student">id_student</div>
+<div><input type="text" name="id_course">id_course</div>
 
 <button type="submit">OK</button>
 </form>

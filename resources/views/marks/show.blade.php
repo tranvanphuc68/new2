@@ -7,8 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-        <div>{{ $user->id }}</div>
-        <div>{{ $user->fullname }}</div>
-        <div>{{ $user->email }}</div>
+         <div>{{ $student_course->id_course }}</div>
+         <div>{{ $student_course->id_student }}</div>
 </body>
 </html>

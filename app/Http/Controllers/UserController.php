@@ -36,7 +36,7 @@ class UserController extends Controller
     {
         $data = User::create([
             'id' => $request->input('id'),
-            'name' => $request->input('name'),
+            'fullname' => $request->input('fullname'),
             'gender' => $request->input('gender'),
             'dob' => $request->input('dob'),
             'hometown' => $request->input('hometown'),
@@ -61,9 +61,9 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $user->update([
-            
-            'name' => $request->name
+        $user->update([  
+            'id' => $request->id,
+            'name' => $request->fullname
         ]);
         return redirect('users');
     }
