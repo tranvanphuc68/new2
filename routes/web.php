@@ -99,4 +99,3 @@ Route::group(['middleware'=>'admin'], function(){
     Route::put('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'update']);
     Route::delete('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'destroy']);
 });
-
