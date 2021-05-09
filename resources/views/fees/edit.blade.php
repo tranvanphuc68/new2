@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{url("/students_courses/$student_course->id_student")}}">
+<form method="POST" action="{{url("/fees/$fee->id_student")}}">
 @csrf
 @method('PUT')
 <h1>Fee</h1>
@@ -21,7 +21,7 @@
     <td>{{ $fee->fullname }}</td>
     <td>{{ $fee->name }}</td>
     <td>{{ $fee->fee }}</td>
-    <td>{{ if ($fee->status == 1)  }}</td>
+    <td>{{}}</td>
 </tr>
 @endforeach
 </table>

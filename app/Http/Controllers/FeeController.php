@@ -30,7 +30,9 @@ class FeeController extends Controller
     public function edit($id_student, $id_course)
     {
         return view('fees.edit', [
-            'fee' => $fee
+            'id_student' => $id_student,
+            'id_course' => $id_course
+
         ]);
     }
 
