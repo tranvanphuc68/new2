@@ -20,6 +20,7 @@
         
         <td><a href="{{ url("/comments") }}">ShowComment</a></td>
         
+        
         <td><a href="{{ url("/posts/{$post->id}/edit") }}">EDIT</a></td>
         <td>
             <form method="POST" action="{{ url("/posts/{$post->id}") }}">

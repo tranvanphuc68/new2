@@ -20,8 +20,8 @@ class CreateReportPostsTable extends Migration
             $table->string('content');
             $table->timestamps();
             
-            $table->foreign('id_post')->references('id')->on('posts');
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_post')->references('id')->on('posts')->onDelete('cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

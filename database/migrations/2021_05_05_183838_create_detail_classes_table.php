@@ -21,7 +21,7 @@ class CreateDetailClassesTable extends Migration
             $table->date('date');
             $table->timestamps();
 
-            $table->foreign('id_course')->references('id')->on('courses');
+            $table->foreign('id_course')->references('id')->on('courses')->onDelete('cascade');
         });
     }
 
