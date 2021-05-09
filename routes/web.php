@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
-use App\Http\Controllers\FeeController;
 use App\Http\Controllers\StudentCourseController;
+use App\Http\Controllers\FeeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -78,15 +78,12 @@ Route::group(['middleware'=>'admin'], function(){
 //Fee
 
 Route::group(['middleware'=>'auth'], function(){
-    Route::get('/fees', [FeeController::class, 'index']);
-    Route::get('/fees/create',[FeeController::class, 'create'])->middleware('admin');   
+    Route::get('/fees', [FeeController::class, 'index']);  
     Route::get('/fees/{fee}',[FeeController::class, 'show']);
 });
 
 Route::group(['middleware'=>'admin'], function(){
-    Route::post('/fees', [FeeController::class, 'store']);
     Route::get('/fees/{fee}/edit', [FeeController::class, 'edit']);
     Route::put('/fees/{fee}', [FeeController::class, 'update']);
-    Route::delete('/fees/{fee}', [FeeController::class, 'destroy']);
 });
 

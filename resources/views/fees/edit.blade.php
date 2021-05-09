@@ -7,17 +7,24 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{url("/students_courses/$student_course->id")}}">
+<form method="POST" action="{{url("/students_courses/$student_course->id_student")}}">
 @csrf
 @method('PUT')
-<div>
-    <label for="">id_student</label>
-    <input type="text" name="id_student" value="{{ $student_course->id_student }}">
-</div>
-<div>
-    <label for="">id_course</label>
-    <input type="text" name="id_course" value="{{ $student_course->id_course }}">
-</div>
+<h1>Fee</h1>
+<table>
+@if(Auth::check())
+<div>Hello {{ Auth::user()->email }}</div>
+@endif
+@foreach($fees as $fee)
+<tr>
+    <td>{{ $fee->id_student }}</td>
+    <td>{{ $fee->fullname }}</td>
+    <td>{{ $fee->name }}</td>
+    <td>{{ $fee->fee }}</td>
+    <td>{{ if ($fee->status == 1)  }}</td>
+</tr>
+@endforeach
+</table>
 
 <button type="submit">OK</button>
 </form>
