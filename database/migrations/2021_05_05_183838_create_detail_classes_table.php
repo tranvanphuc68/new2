@@ -14,14 +14,14 @@ class CreateDetailClassesTable extends Migration
     public function up()
     {
         Schema::create('detail_classes', function (Blueprint $table) {
-            $table->id();
             $table->bigInteger('id_course')->unsigned();
             $table->integer('number');
             $table->string('content');
             $table->date('date');
             $table->timestamps();
 
-            $table->foreign('id_course')->references('id')->on('courses');
+            $table->foreign('id_course')->references('id')->on('courses')->onDelete('cascade');
+            $table->primary(['id_course', 'number']);
         });
     }
 

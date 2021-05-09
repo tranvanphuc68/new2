@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\DetailCourseController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -54,4 +55,14 @@ Route::group(['middleware'=>'admin'], function(){
     Route::get('/courses/{course}/edit', [CourseController::class, 'edit']);
     Route::put('/courses/{course}', [CourseController::class, 'update']);
     Route::delete('/courses/{course}', [CourseController::class, 'destroy']);
+});
+
+//--------------------------------------------------------------------------
+// không có show và index-> courses.show
+Route::group(['middleware'=>'admin'], function(){
+    Route::get('/detail_course/create',[DetailCourseController::class, 'create']);
+    Route::post('/detail_course', [DetailCourseController::class, 'store']);
+    Route::get('/detail_course/{id_course}-{number}/edit', [DetailCourseController::class, 'edit']);
+    Route::put('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'update']);
+    Route::delete('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'destroy']);
 });
