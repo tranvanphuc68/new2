@@ -16,7 +16,7 @@ class CreateCoursesTable extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('id_teacher')->unsigned();
+            $table->bigInteger('id_teacher')->unsigned()->nullable();
             $table->string('description');
             $table->string('timetable');
             $table->integer('max_students');
@@ -27,7 +27,7 @@ class CreateCoursesTable extends Migration
             $table->integer('status');
             $table->timestamps();
             
-            $table->foreign('id_teacher')->references('id')->on('users');
+            $table->foreign('id_teacher')->references('id')->on('users')->onDelete('set null');
             
         });
     }
