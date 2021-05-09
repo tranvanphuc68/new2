@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentCourseController;
 use App\Http\Controllers\FeeController;
+use App\Http\Controllers\DetailCourseController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +42,9 @@ Route::group(['middleware'=>'auth'], function(){
 });
 //admin can do it
 
+
+
+
 Route::group(['middleware'=>'admin'], function(){
     Route::post('/users', [UserController::class, 'store']);
     Route::get('/users/{user}/edit', [UserController::class, 'edit']);
@@ -59,7 +63,6 @@ Route::group(['middleware'=>'admin'], function(){
     Route::put('/courses/{course}', [CourseController::class, 'update']);
     Route::delete('/courses/{course}', [CourseController::class, 'destroy']);
 });
-
 //Students Courses
 
 Route::group(['middleware'=>'auth'], function(){
@@ -79,11 +82,21 @@ Route::group(['middleware'=>'admin'], function(){
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/fees', [FeeController::class, 'index']);  
-    Route::get('/fees/{fee}',[FeeController::class, 'show']);
+    Route::get('/fees/{id_student}-{id_course}',[FeeController::class, 'show']);
 });
 
 Route::group(['middleware'=>'admin'], function(){
-    Route::get('/fees/{fee}/edit', [FeeController::class, 'edit']);
-    Route::put('/fees/{fee}', [FeeController::class, 'update']);
+    Route::get('/fees/{id_student}-{id_course}/edit', [FeeController::class, 'edit']);
+    Route::put('/fees/{id_student}-{id_course}', [FeeController::class, 'update']);
+});
+
+//--------------------------------------------------------------------------
+// không có show và index-> courses.show
+Route::group(['middleware'=>'admin'], function(){
+    Route::get('/detail_course/create',[DetailCourseController::class, 'create']);
+    Route::post('/detail_course', [DetailCourseController::class, 'store']);
+    Route::get('/detail_course/{id_course}-{number}/edit', [DetailCourseController::class, 'edit']);
+    Route::put('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'update']);
+    Route::delete('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'destroy']);
 });
 

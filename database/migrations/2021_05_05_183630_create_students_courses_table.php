@@ -21,6 +21,7 @@ class CreateStudentsCoursesTable extends Migration
 
             $table->foreign('id_course')->references('id')->on('courses')->onDelete('cascade');
             $table->foreign('id_student')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

@@ -20,9 +20,15 @@ class CourseController extends Controller
     }
 
     public function show(Course $course)
-    {
+    {   
+        $detail = DB::table('detail_classes')
+        ->join('courses', 'id_course', '=', 'id')
+        ->where('id_course', '=', "$course->id")
+        ->select('detail_classes.*', 'courses.name')
+        ->get();
+        
         return view('courses.show', [
-            'course' => $course
+            'detail' => $detail
         ]);
     }
 
