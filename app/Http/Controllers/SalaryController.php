@@ -13,7 +13,7 @@ class SalaryController extends Controller
     $salaries = DB::table('salaries')
         ->join('users', 'users.id', '=', 'salaries.id_teacher')
         ->join('courses', 'courses.id', '=', 'salaries.id_course')
-        ->select('id_teacher', 'users.fullname', 'courses.name','id_course', 'courses.salary','salaries.status')
+        ->select('salaries.*', 'users.fullname', 'courses.name', 'courses.salary')
         ->get();
     return view('salaries.index', [
             'salaries' => $salaries
@@ -40,10 +40,10 @@ class SalaryController extends Controller
 
     public function update(Request $request, $id_teacher, $id_course)
     {
-        $salary = Salary::where('id_student', '=', "$id_student")
+        $salary = Salary::where('id_teacher', '=', "$id_teacher")
         ->where('id_course', '=', "$id_course")
         ->update([
-            'id_student' => $request->id_student,
+            'id_teacher' => $request->id_teacher,
             'id_course' => $request->id_course,
             'status' => $request->status
         ]);

@@ -6,6 +6,7 @@ use App\Http\Controllers\StudentCourseController;
 use App\Http\Controllers\FeeController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\MarkController;
+use App\Http\Controllers\ReportTeacherController;
 use App\Http\Controllers\DetailCourseController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -113,6 +114,17 @@ Route::group(['middleware'=>'auth'], function(){
 Route::group(['middleware'=>'admin'], function(){
     Route::get('/marks/{id_student}-{id_course}/edit', [MarkController::class, 'edit']);
     Route::put('/marks/{id_student}-{id_course}', [MarkController::class, 'update']);
+});
+// Report Teacher
+
+Route::group(['middleware'=>'auth'], function(){
+    Route::get('/report_teachers', [ReportTeacherController::class, 'index']);  
+    Route::get('/report_teachers/{id_student}-{id_course}',[ReportTeacherController::class, 'show']);
+});
+
+Route::group(['middleware'=>'admin'], function(){
+    Route::get('/report_teachers/{id_student}-{id_course}/edit', [ReportTeacherController::class, 'edit']);
+    Route::put('/report_teachers/{id_student}-{id_course}', [ReportTeacherController::class, 'update']);
 });
 
 //--------------------------------------------------------------------------
