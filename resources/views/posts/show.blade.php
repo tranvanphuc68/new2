@@ -32,7 +32,7 @@
                 
                     <td><a href="{{ url("/comments/{$comment->id}/self_edit") }}">EDIT</a></td>
                     <td>
-                        <form method="comment" action="{{ url("/comments/{$comment->id}") }}">
+                        <form method="POST" action="{{ url("/comments/{$comment->id}") }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit">DELETE</button>
