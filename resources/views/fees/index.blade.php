@@ -20,7 +20,7 @@
     <td>{{ $fee->fullname }}</td>
     <td>{{ $fee->name }}</td>
     <td>{{ $fee->fee }}</td>
-    <td><?php if($fee->status == 1){echo 'Đã nộp';} ?></td>
+    <td><?php echo $fee->status == 1 ? 'Đã nộp': 'Chưa nộp'; ?></td>
     <td><a href="{{ url("/fees/{$fee->id_student}-{$fee->id_course}/edit") }}">EDIT</a></td>
 </tr>
 @endforeach

@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{url("/students_courses/$student_course->id")}}">
+<form method="POST" action="{{url("/students_courses/{$student_course->id_student}-{$student_course->id_course}")}}">
 @csrf
 @method('PUT')
 <div>

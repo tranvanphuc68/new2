@@ -20,10 +20,10 @@
     <td>{{ $student_course->id_student }}</td>
     <td>{{ $student_course->fullname }}</td>
     <td>{{ $student_course->name }}</td>
-    <td><a href="{{ url("/students_courses/{$student_course->id_student}") }}">SHOW</a></td>
-    <td><a href="{{ url("/students_courses/{$student_course->id_student}/edit") }}">EDIT</a></td>
+    <td><a href="{{ url("/students_courses/{$student_course->id_student}-{$student_course->id_course}") }}">SHOW</a></td>
+    <td><a href="{{ url("/students_courses/{$student_course->id_student}-{$student_course->id_course}/edit") }}">EDIT</a></td>
     <td>
-        <form method="POST" action="{{ url("/students_courses/{$student_course->id_student}") }}">
+        <form method="POST" action="{{ url("/students_courses/{$student_course->id_student}-{$student_course->id_course}") }}">
             @csrf
             @method('DELETE')
             <button type="submit">DELETE</button>

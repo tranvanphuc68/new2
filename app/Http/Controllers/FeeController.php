@@ -29,18 +29,25 @@ class FeeController extends Controller
 
     public function edit($id_student, $id_course)
     {
+        $data = Fee::where('id_student', '=', "$id_student")
+        ->where('id_course', '=', "$id_course")
+        ->get();
+        $fee = $data[0];
         return view('fees.edit', [
-            'id_student' => $id_student,
-            'id_course' => $id_course
-
+            'fee' => $fee
         ]);
     }
 
     public function update(Request $request, $id_student, $id_course)
     {
-        $fee->update([
+        $fee = Fee::where('id_student', '=', "$id_student")
+        ->where('id_course', '=', "$id_course")
+        ->update([
+            'id_student' => $request->id_student,
+            'id_course' => $request->id_course,
             'status' => $request->status
         ]);
         return redirect('fees');
+
     }
 }

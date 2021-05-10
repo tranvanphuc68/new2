@@ -7,24 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{url("/fees/$fee->id_student")}}">
+<form method="POST" action="{{url("/fees/{$fee->id_student}-{$fee->id_course}")}}">
 @csrf
 @method('PUT')
-<h1>Fee</h1>
-<table>
-@if(Auth::check())
-<div>Hello {{ Auth::user()->email }}</div>
-@endif
-@foreach($fees as $fee)
-<tr>
-    <td>{{ $fee->id_student }}</td>
-    <td>{{ $fee->fullname }}</td>
-    <td>{{ $fee->name }}</td>
-    <td>{{ $fee->fee }}</td>
-    <td>{{}}</td>
-</tr>
-@endforeach
-</table>
+<div>
+    <label for="">id_student</label>
+    <input type="text" name="id_student" value="{{ $fee->id_student }}">
+</div>
+<div>
+    <label for="">id_course</label>
+    <input type="text" name="id_course" value="{{ $fee->id_course }}">
+</div>
+<div>
+    <label for="">status</label>
+    <input type="text" name="status" value="{{ $fee->status }}">
+</div>
 
 <button type="submit">OK</button>
 </form>
