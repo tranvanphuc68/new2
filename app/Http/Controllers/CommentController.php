@@ -58,8 +58,15 @@ public function update(Request $request, Comment $comment)
 
 public function destroy(Comment $comment)
 {
-    $comment->delete();
-    return redirect('/posts/{post}');
+    $id_user = Auth::user()->id;
+    if($comment->id_user == $id_user)
+    {
+        $comment->delete();
+        return redirect('/posts/{post}');
+    }
+    else 
+    {
+        abort (401);
+    }
 }
-
 }

@@ -78,3 +78,4 @@ Route::get('/comments/{comment}/self_edit', [CommentController::class, 'self_edi
 Route::put('/comments/{comment}', [CommentController::class, 'update']);
 Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);//->auth + $user = Auth::user();
 });
+//report_post
