@@ -13,7 +13,7 @@ class CreateSalaryTable extends Migration
      */
     public function up()
     {
-        Schema::create('salary', function (Blueprint $table) {
+        Schema::create('salaries', function (Blueprint $table) {
             $table->bigInteger('id_course')->unsigned();
             $table->bigInteger('id_student')->unsigned();
             $table->integer('status');
