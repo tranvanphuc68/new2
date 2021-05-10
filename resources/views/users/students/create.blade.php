@@ -7,11 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{ url("/users") }}">
+<form method="POST" action="{{ url("/users/student") }}">
 @csrf
 <div><input type="text" name="id">id</div>
 <div><input type="text" name="fullname">name</div>
-<div><input type="text" name="gender">gender</div>
+<input type="radio" name="gender" value="Male">Male
+<input type="radio" name="gender" value="Female">Female
 <div><input type="date" name="dob">dob</div>
 <div><input type="text" name="hometown">hometown</div>
 <div><input type="text" name="id_card">CCCD</div>
@@ -23,9 +24,8 @@
 <div><input type="text" name="email">email</div>
 <div><input type="text" name="password">password</div>
 
-<input type="radio" name="role" value="Admin">Admin
-<input type="radio" name="role" value="Teacher">Teacher
-<input type="radio" name="role" value="Student">Student
+
+
 <button type="submit">OK</button>
 </form>
 </body>

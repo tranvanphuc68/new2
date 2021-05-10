@@ -9,7 +9,7 @@
 <body>
 <form method="POST" action="{{ url("/detail_course") }}">
 @csrf
-<div><input type="text" name="id_course">id</div>
+<div><input type="text" name="id_course">id_course</div>
 <div><input type="text" name="number">number</div>
 <div><input type="text" name="content">content</div>
 <div><input type="date" name="date">date</div>
