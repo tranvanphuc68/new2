@@ -9,8 +9,7 @@
 <body>
 <form method="POST" action="{{ url("/posts") }}">
 @csrf
-<div><input type="text" name="id">id</div>
-<div><input type="text" name="id_user">id_user</div>
+
 <div><input type="text" name="content">Content</div>
 
 <button type="submit">OK</button>

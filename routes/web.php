@@ -61,17 +61,20 @@ Route::group(['middleware'=>'admin'], function(){
 //----------------------------------------------------------------------- 
 //post
 Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/create',[PostController::class, 'create']); //-> auth 
+Route::get('/posts/create',[PostController::class, 'create'])->middleware('auth');
 Route::get('/posts/{post}',[PostController::class, 'show']);
+
+Route::group(['middleware'=>'auth'], function(){
+ //-> auth 
 Route::post('/posts', [PostController::class, 'store']);//-> auth
-Route::get('/posts/{post}/edit', [PostController::class, 'edit']);//->auth + $user = Auth::user();
+Route::get('/posts/{post}/self_edit', [PostController::class, 'self_edit']);//->auth + $user = Auth::user();
 Route::put('/posts/{post}', [PostController::class, 'update']);
 Route::delete('/posts/{post}', [PostController::class, 'destroy']);//->auth + $user = Auth::user();
+});
 //comment
-Route::get('/comments', [CommentController::class, 'index']);
-Route::get('/comments/create',[CommentController::class, 'create']);   
-Route::get('/comments/{comment}',[CommentController::class, 'show']);
-Route::post('/comments', [CommentController::class, 'store']);
-Route::get('/comments/{comment}/edit', [CommentController::class, 'edit']);//->auth + $user = Auth::user();
+Route::group(['middleware'=>'auth'], function(){ 
+Route::post('/comments/{post}', [CommentController::class, 'store']);
+Route::get('/comments/{comment}/self_edit', [CommentController::class, 'self_edit']);//->auth + $user = Auth::user();
 Route::put('/comments/{comment}', [CommentController::class, 'update']);
 Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);//->auth + $user = Auth::user();
+});

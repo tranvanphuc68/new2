@@ -62,8 +62,8 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->update([
-            'id' => $request->id,
-            'name' => $request->fullname
+            
+            'fullname' => $request->fullname
         ]);
         return redirect('users');
     }

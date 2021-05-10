@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -20,35 +21,41 @@ class PostController extends Controller
         ]);
     }
 
-    public function show(Post $post)
-    {
+    public function show($post)
+    {   
+        $post = DB::table('posts')
+        ->join('users', 'users.id', '=', 'posts.id_user')
+        ->select('posts.*', 'users.fullname')
+        ->get();
+        $post = $post[0];
+        $comments = DB::table('comments')
+        ->join('users', 'users.id', '=', 'comments.id_user')
+        ->select('comments.*', 'users.fullname')
+        ->get();
         return view('posts.show', [
-            'post' => $post
-        ]);
+        'comments' => $comments,
+        'post' => $post
+    ]);
     }
 
     public function create()
-    {
+    {   
         return view('posts.create');
     }
 
     public function store(Request $request)
     {
-        $data = post::create($request->input());
-        return redirect('/posts');
-    }
-
-    public function edit(Post $post)
-    {
-        return view('posts.edit', [
-            'post' => $post
+        $data = Post::create([
+            'id_user' => Auth::user()->id,
+            'content' => $request->content
         ]);
+        return redirect('/posts');
     }
 
     public function update(Request $request, Post $post)
     {
         $post->update([
-            'name' => $request->name
+            'content' => $request->content
         ]);
         return redirect('posts');
     }
@@ -59,4 +66,18 @@ class PostController extends Controller
         return redirect('posts');
     }
 
+    public function self_edit(Post $post)
+    {
+        $id_user = Auth::user()->id;
+        if($post->id_user == $id_user)
+        {
+            return view('posts.edit', [
+                'post' => $post
+            ]);
+        }
+        else 
+        {
+            abort (401);
+        }
+    }
 }

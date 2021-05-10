@@ -15,13 +15,13 @@
 <table>
 @forelse ($posts as $post)
     <tr>
-        <td>{{ $post->id }}</td>
+        <td>{{ $post->fullname }}</td>
         <td>{{ $post->content }}</td>
         
-        <td><a href="{{ url("/comments") }}">ShowComment</a></td>
+        <td><a href="{{ url("/posts/{$post->id}") }}">Show</a></td>
         
         
-        <td><a href="{{ url("/posts/{$post->id}/edit") }}">EDIT</a></td>
+        <td><a href="{{ url("/posts/{$post->id}/self_edit") }}">EDIT</a></td>
         <td>
             <form method="POST" action="{{ url("/posts/{$post->id}") }}">
                 @csrf

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class CommentController extends Controller
 {
@@ -16,34 +18,34 @@ public function index()
     ->join('posts', 'posts.id', '=', 'comments.id_post')
     ->select('comments.*', 'posts.id')
     ->get();
-    return view('comments.index', [
+    return view('posts.show', [
         'comments' => $comments
     ]);
 }
 
-public function show(Comment $comment)
+public function store(Request $request, $post)
 {
-    return view('comments.show', [
+    $data = Comment::create([
+        'id_post' => $post,
+        'id_user' => Auth::user()->id,
+        'content' => $request->content
+    ]);
+    return redirect('/posts/{post}');
+}
+
+public function self_edit(Comment $comment)
+{
+    $id_user = Auth::user()->id;
+    if($comment->id_user == $id_user)
+    {
+        return view('comments.edit', [
         'comment' => $comment
     ]);
-}
-
-public function create()
-{
-    return view('comments.create');
-}
-
-public function store(Request $request)
-{
-    $data = Comment::create($request->input());
-    return redirect('/comments');
-}
-
-public function edit(Comment $comment)
-{
-    return view('comments.edit', [
-        'comment' => $comment
-    ]);
+    }
+    else 
+    {
+        abort (401);
+    }
 }
 
 public function update(Request $request, Comment $comment)
@@ -51,13 +53,13 @@ public function update(Request $request, Comment $comment)
     $comment->update([
         'content' => $request->content
     ]);
-    return redirect('comments');
+    return redirect('/posts/{post}');
 }
 
 public function destroy(Comment $comment)
 {
     $comment->delete();
-    return redirect('comments');
+    return redirect('/posts/{post}');
 }
 
 }
