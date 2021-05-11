@@ -8,22 +8,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-	<!-- Popper JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
+	
 </head>
 <body>
 
-    @csrf
+@if (count($check) == 0)
+
 <table>
     @foreach($data as $data)
     <tr>
-        <td>{{ $data->id_course }}</td>
+        <td>{{ $id_course }}</td>
         <td>{{ $data->fullname }}</td>
         <td><input type="radio" name="{{ $data->id_student }}" value="0" checked></td>
         <td><input type="radio" name="{{ $data->id_student }}" value="1"></td>
@@ -31,29 +25,52 @@
     </tr>
     @endforeach
 </table>
-<button class="btn btn-warning" onclick="submitData()" >Save</button>
+<button class="btn btn-warning" name='but'>Save</button>
+<div></div>
+
+@endif
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 <script>
-    
-    function submitData() {
-        statusList = jQuery('input[type=radio]:checked')
+        $(document).on('click', "button[name='but']", function() {
+        statusList = $('input[type=radio]:checked')
         data = []
         for(i=0;i<statusList.length;i++) {
             std = {
-                'id_student': jQuery(statusList[i]).attr('name'),
-                'status': jQuery(statusList[i]).val(),
+                'id_student': $(statusList[i]).attr('name'),
+                'status': $(statusList[i]).val(),
             }
             data.push(std)
         }
+        data = JSON.stringify(data)
         console.log(data)
 
-        $.post("{{ url("/attendance") }}", {
-            '_token': "{{ csrf_token() }}",
-            'data': JSON.stringify(data),
-        }, function(dt) {
-            
+        $.ajax({
+                url: "{{ url("/attendance") }}",
+                method: 'POST',
+                data:{
+                    '_token': '{{ csrf_token() }}',
+                    'data' : data,
+                    'id_course' : {{$id_course}},
+                    'number' : {{$number}}
+                },
+                success: function(res) {
+                    location.assign("{{ url("/attendance") }}")
+                },
+                error: function(err) {
+                    console.error(err)
+                }
+            });  
         })
-    } 
+    
+
 </script>
 </body>
 </html>

@@ -46,21 +46,10 @@ Route::group(['middleware'=>'admin'], function(){
     Route::put('/users/student/{user}', [UserController::class, 'update_student']);
     Route::delete('/users/student/{user}', [UserController::class, 'destroy_student']);
 });
-
+Route::group(['middleware'=>'auth'], function(){
     Route::get('/users/{user}',[UserController::class, 'show']);
     Route::get('/users/self_edit', [UserController::class, 'self_edit']);
     Route::put('/users/self_edit/{user}', [UserController::class, 'self_update']);
-    
-    
-
-
-Route::group(['middleware'=>'admin'], function(){
-    
-   
-    
-    
-    
-    
 });
 //------------------------------------------------------------------------
 Route::group(['middleware'=>'auth'], function(){
@@ -78,14 +67,6 @@ Route::group(['middleware'=>'admin'], function(){
 
 //--------------------------------------------------------------------------
 // không có show và index-> courses.show
-Route::group(['middleware'=>'admin'], function(){
-    Route::get('/detail_course/create',[DetailCourseController::class, 'create']);
-    Route::post('/detail_course', [DetailCourseController::class, 'store']);
-    Route::get('/detail_course/{id_course}-{number}/edit', [DetailCourseController::class, 'edit']);
-    Route::put('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'update']);
-    Route::delete('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'destroy']);
-});
-// oke
 Route::group(['middleware'=>'admin'], function(){
     Route::get('/detail_course/create',[DetailCourseController::class, 'create']);
     Route::post('/detail_course', [DetailCourseController::class, 'store']);
