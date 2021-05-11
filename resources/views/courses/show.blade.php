@@ -1,38 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<a href="{{url('/logout')}}" >logout</a>
+@extends('layouts.users.app')
 
-<h1>DETAIL COURSES</h1>
-<a href="{{ url("/detail_course/create") }}">create</a>
-<table>
-@if(Auth::check())
-<div>Hello {{ Auth::user()->email }}</div>
-@endif
-@foreach($detail as $detail)
-<tr>
-    <td>{{ $detail->id_course }}</td>
-    <td>{{ $detail->number }}</td>
-    <td>{{ $detail->content }}</td>
-    <td>{{ $detail->date }}</td>
-    <td><a href="{{ url("/detail_course/{$detail->id_course}-{$detail->number}/edit") }}">EDIT</a></td>
-    <td>
-        <form method="POST" action="{{ url("/detail_course/{$detail->id_course}-{$detail->number}") }}">
-            @csrf
-            @method('DELETE')
-            <button type="submit">DELETE</button>
-        </form>
-    </td>
-    
+@section('title')
+Into
+@endsection
 
-</tr>
-@endforeach
-</table>
-</body>
-</html>
+@section('content')
+<article class="content">
+    <div class="title-block">
+        <h3 class="title"> THÔNG TIN CHI TIẾT KHÓA HỌC {{$id_course}}</h3>
+    </div>
+    <a href="{{ url("/detail_course/create/{$id_course}") }}" class="btn btn-primary">Thêm chi tiết</a>
+    <div class="card card-block sameheight-item">
+        <table>
+            <tr>
+                <th>Buổi</th>
+                <th>Nội dung</th>
+                <th>Ngày học</th>
+            </tr>   
+            @foreach($detail as $detail)
+                <tr>
+                    <td>{{ $detail->number }}</td>
+                    <td>{{ $detail->content }}</td>
+                    <td>{{ $detail->date }}</td>
+                    <td>
+                        <a href="{{ url("/detail_course/{$detail->id_course}-{$detail->number}/edit") }}" class="btn btn-primary">Sửa</a>
+                        <a href="javascript:void(0)" onclick="if (confirm('Are you sure you want to delete this item?')) document.getElementById('detailCourse-delete-{{ $detail->id_course }}').submit()" class="btn btn-primary">Xóa</a>
+                        <form method="POST" id="detailCourse-delete-{{ $detail->id_course }}" action="{{ url("/detail_course/{$detail->id_course}-{$detail->number}") }}" >
+                            @method('DELETE')
+                            @csrf
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+</article>
+
+@endsection
+

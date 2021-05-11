@@ -124,9 +124,9 @@ class UserController extends Controller
     }
 
     public function self_edit()
-    {
+    {   
         $user = Auth::user();
-        return view('users.edit', [
+        return view('users.self_edit', [
             'user' => $user
         ]);
     }
