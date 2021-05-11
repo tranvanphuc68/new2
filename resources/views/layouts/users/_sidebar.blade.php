@@ -24,10 +24,10 @@
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li>
-                                            <a href="users/teacher" name="teacher-link"> Giảng viên</a>
+                                            <a href="{{ url("users/teacher") }}" name="teacher-link"> Giảng viên</a>
                                         </li>
                                         <li>
-                                            <a href="users/student" name="student-link"> Học sinh </a>
+                                            <a href="{{ url("users/student") }}" name="student-link"> Học sinh </a>
                                         </li>
                                     </ul>
                                 </li>
