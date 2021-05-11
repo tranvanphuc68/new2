@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReportTeachersTable extends Migration
+class CreateFeedbacksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateReportTeachersTable extends Migration
      */
     public function up()
     {
-        Schema::create('report_teachers', function (Blueprint $table) {
+        Schema::create('feedbacks', function (Blueprint $table) {
             $table->bigInteger('id_course')->unsigned();
             $table->bigInteger('id_student')->unsigned();
             $table->string('content');

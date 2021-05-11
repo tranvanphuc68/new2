@@ -7,20 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{url("/report_teachers/{$report_teacher->id_student}-{$report_teacher->id_course}")}}">
+<form method="POST" action="{{url("/feedbacks/{$feedback->id_student}-{$feedback->id_course}")}}">
 @csrf
 @method('PUT')
 <div>
     <label for="">id_student</label>
-    <input type="text" name="id_student" value="{{ $report_teacher->id_student }}">
+    <input type="text" name="id_student" value="{{ $feedback->id_student }}">
 </div>
 <div>
     <label for="">id_course</label>
-    <input type="text" name="id_course" value="{{ $report_teacher->id_course }}">
+    <input type="text" name="id_course" value="{{ $feedback->id_course }}">
 </div>
 <div>
     <label for="">content</label>
-    <input type="text" name="content" value="{{ $report_teacher->content }}">
+    <input type="text" name="content" value="{{ $feedback->content }}">
 </div>
 
 <button type="submit">OK</button>

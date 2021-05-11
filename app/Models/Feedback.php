@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ReportTeacher extends Model
+class Feedback extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    protected $table = 'report_teachers';
+    protected $table = 'feedbacks';
 
     public function user()
     {
