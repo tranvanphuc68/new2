@@ -14,7 +14,7 @@
 
 @if(Auth::check())
 <div>Hello {{ Auth::user()->fullname }}</div>
-<a href="{{ url("/user/self_edit") }}">EDIT</a>
+<a href="{{ url("/users/self_edit") }}">EDIT</a>
 @endif
 <h1>STUDENTS</h1>
 <table>

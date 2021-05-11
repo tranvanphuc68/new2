@@ -29,7 +29,8 @@ Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 //-----------------------------------------------------------------------------------
-   
+
+
     Route::get('/users/teacher', [UserController::class, 'index_teacher']);
 Route::group(['middleware'=>'admin'], function(){    
     Route::get('/users/teacher/create',[UserController::class, 'create_teacher']);   
@@ -46,9 +47,10 @@ Route::group(['middleware'=>'admin'], function(){
     Route::put('/users/student/{user}', [UserController::class, 'update_student']);
     Route::delete('/users/student/{user}', [UserController::class, 'destroy_student']);
 });
+
 Route::group(['middleware'=>'auth'], function(){
-    Route::get('/users/{user}',[UserController::class, 'show']);
     Route::get('/users/self_edit', [UserController::class, 'self_edit']);
+    Route::get('/users/{user}',[UserController::class, 'show']);
     Route::put('/users/self_edit/{user}', [UserController::class, 'self_update']);
 });
 //------------------------------------------------------------------------
