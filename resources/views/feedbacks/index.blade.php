@@ -9,7 +9,7 @@
 <body>
 <a href="{{url('/logout')}}" >logout</a>
 
-<h1>Report Teacher</h1>
+<h1>Feedback</h1>
 <table>
 @if(Auth::check())
 <div>Hello {{ Auth::user()->email }}</div>
