@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{ url("/users/self_edit/{$user->id}") }}">
+<form method="POST" action="{{url("/users/teacher/$user->id")}}">
 @csrf
 @method('PUT')
 <input type="text" name="fullname" value="{{ $user->fullname }}">name

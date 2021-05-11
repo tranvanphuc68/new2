@@ -8,6 +8,7 @@ use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\MarkController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\DetailCourseController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -32,26 +33,30 @@ Route::get('/', function () {
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
+//-----------------------------------------------------------------------------------
 
-//authenticate can do
-Route::group(['middleware'=>'auth'], function(){
-   // 
-    Route::get('/users', [UserController::class, 'index']);
-    Route::get('/users/create',[UserController::class, 'create'])->middleware('admin');   
-    Route::get('/users/{user}',[UserController::class, 'show']);
-    //update personal infomation
-    Route::get('/user/self_edit', [UserController::class, 'self_edit']);
-    Route::put('/users/{user}', [UserController::class, 'update']);
+
+    Route::get('/users/teacher', [UserController::class, 'index_teacher']);
+Route::group(['middleware'=>'admin'], function(){    
+    Route::get('/users/teacher/create',[UserController::class, 'create_teacher']);   
+    Route::post('/users/teacher', [UserController::class, 'store_teacher']);
+    Route::get('/users/teacher/{user}/edit', [UserController::class, 'edit_teacher']);
+    Route::put('/users/teacher/{user}', [UserController::class, 'update_teacher']);
+    Route::delete('/users/teacher/{user}', [UserController::class, 'destroy_teacher']);
 });
-//admin can do it
+    Route::get('/users/student', [UserController::class, 'index_student']);
+Route::group(['middleware'=>'admin'], function(){ 
+    Route::get('/users/student/create',[UserController::class, 'create_student']);
+    Route::post('/users/student', [UserController::class, 'store_student']);
+    Route::get('/users/student/{user}/edit', [UserController::class, 'edit_student']);
+    Route::put('/users/student/{user}', [UserController::class, 'update_student']);
+    Route::delete('/users/student/{user}', [UserController::class, 'destroy_student']);
+});
 
-
-
-
-Route::group(['middleware'=>'admin'], function(){
-    Route::post('/users', [UserController::class, 'store']);
-    Route::get('/users/{user}/edit', [UserController::class, 'edit']);
-    Route::delete('/users/{user}', [UserController::class, 'destroy']);
+Route::group(['middleware'=>'auth'], function(){
+    Route::get('/users/self_edit', [UserController::class, 'self_edit']);
+    Route::get('/users/{user}',[UserController::class, 'show']);
+    Route::put('/users/self_edit/{user}', [UserController::class, 'self_update']);
 });
 //------------------------------------------------------------------------
 Route::group(['middleware'=>'auth'], function(){
@@ -136,3 +141,7 @@ Route::group(['middleware'=>'admin'], function(){
     Route::put('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'update']);
     Route::delete('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'destroy']);
 });
+
+
+
+
