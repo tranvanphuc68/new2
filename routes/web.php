@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReportPostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -79,3 +80,11 @@ Route::put('/comments/{comment}', [CommentController::class, 'update']);
 Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);//->auth + $user = Auth::user();
 });
 //report_post
+
+Route::group(['middleware'=>'auth'], function(){
+Route::get('/report_posts', [ReportPostController::class, 'index'])->middleware('admin');
+Route::get('/report_posts/{post}/create',[ReportPostController::class, 'create']);
+Route::get('/report_posts/{post}',[ReportPostController::class, 'show'])->middleware('admin');
+Route::post('/report_posts/{post}', [ReportPostController::class, 'store']); 
+Route::delete('/report_posts/{report_post}', [ReportPostController::class, 'destroy'])->middleware('admin');
+});

@@ -22,16 +22,18 @@ class PostController extends Controller
     }
 
     public function show($post)
-    {   
+    { 
+        $comments = DB::table('comments')
+        ->join('users', 'users.id', '=', 'comments.id_user')
+        ->where('comments.id_post', '=', "$post")
+        ->select('comments.*', 'users.fullname')
+        ->get();
         $post = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
+        ->where('posts.id', '=', "$post")
         ->select('posts.*', 'users.fullname')
         ->get();
         $post = $post[0];
-        $comments = DB::table('comments')
-        ->join('users', 'users.id', '=', 'comments.id_user')
-        ->select('comments.*', 'users.fullname')
-        ->get();
         return view('posts.show', [
         'comments' => $comments,
         'post' => $post

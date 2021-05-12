@@ -11,26 +11,14 @@ use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller
 {
    //
-//
-public function index()
-{
-    $comments = DB::table('comments')
-    ->join('posts', 'posts.id', '=', 'comments.id_post')
-    ->select('comments.*', 'posts.id')
-    ->get();
-    return view('posts.show', [
-        'comments' => $comments
-    ]);
-}
-
 public function store(Request $request, $post)
-{
+{   
     $data = Comment::create([
         'id_post' => $post,
         'id_user' => Auth::user()->id,
         'content' => $request->content
     ]);
-    return redirect('/posts/{post}');
+    return redirect("/posts/{$post}");
 }
 
 public function self_edit(Comment $comment)
@@ -53,7 +41,7 @@ public function update(Request $request, Comment $comment)
     $comment->update([
         'content' => $request->content
     ]);
-    return redirect('/posts/{post}');
+    return redirect("/posts/{$comment->id_post}");
 }
 
 public function destroy(Comment $comment)
@@ -62,7 +50,7 @@ public function destroy(Comment $comment)
     if($comment->id_user == $id_user)
     {
         $comment->delete();
-        return redirect('/posts/{post}');
+        return redirect("/posts/{$comment->id_post}");
     }
     else 
     {

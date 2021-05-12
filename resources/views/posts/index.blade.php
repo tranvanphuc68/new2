@@ -13,13 +13,12 @@
 <div>Hello {{ Auth::user()->email }}</div>
 @endif
 <table>
-@forelse ($posts as $post)
+@foreach ($posts as $post)
     <tr>
         <td>{{ $post->fullname }}</td>
         <td>{{ $post->content }}</td>
         
         <td><a href="{{ url("/posts/{$post->id}") }}">Show</a></td>
-        
         
         <td><a href="{{ url("/posts/{$post->id}/self_edit") }}">EDIT</a></td>
         <td>
@@ -29,11 +28,10 @@
                 <button type="submit">DELETE</button>
             </form>
         </td>
+        <td><a href="{{ url("/report_posts/{$post->id}/create") }}">REPORT</a></td>
     </tr>
+    @endforeach
 </table>
-@empty
-    <h1>Nothing</h1>
-@endforelse
     
 </div>
 </body>

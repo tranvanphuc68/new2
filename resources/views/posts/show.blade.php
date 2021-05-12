@@ -22,7 +22,7 @@
                 <button type="submit">DELETE</button>
             </form>
         </div>
-
+        <td><a href="{{ url("/report_posts/{$post->id}/create") }}">REPORT</a></td>
         <h4>Comments</h4>
         <table>
             @foreach ($comments as $comment)
