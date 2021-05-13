@@ -11,7 +11,7 @@ class Feedback extends Model
 
     protected $guarded = [];
 
-    protected $table = 'feedbacks';
+    protected $table = 'students_courses';
 
     public function user()
     {

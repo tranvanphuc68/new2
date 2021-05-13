@@ -94,12 +94,12 @@ Route::group(['middleware'=>'auth'], function(){
 });
 
 Route::group(['middleware'=>'admin'], function(){
-    Route::get('/fees/{id_student}-{id_course}/edit', [FeeController::class, 'edit']);
-    Route::put('/fees/{id_student}-{id_course}', [FeeController::class, 'update']);
+    Route::get('/fees/edit', [FeeController::class, 'edit']);
+    Route::put('/fees', [FeeController::class, 'update']);
 });
 
 // Salaries
-Route::group(['middleware'=>'auth'], function(){
+    Route::group(['middleware'=>'auth'], function(){
     Route::get('/salaries', [SalaryController::class, 'index']);  
     Route::get('/salaries/{id_student}-{id_course}',[SalaryController::class, 'show']);
 });
@@ -113,12 +113,12 @@ Route::group(['middleware'=>'admin'], function(){
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/marks', [MarkController::class, 'index']);  
-    Route::get('/marks/{id_student}-{id_course}',[MarkController::class, 'show']);
+   
 });
 
 Route::group(['middleware'=>'admin'], function(){
-    Route::get('/marks/{id_student}-{id_course}/edit', [MarkController::class, 'edit']);
-    Route::put('/marks/{id_student}-{id_course}', [MarkController::class, 'update']);
+    Route::get('/marks/edit', [MarkController::class, 'edit']);
+    Route::put('/marks', [MarkController::class, 'update']);
 });
 // Feedback
 

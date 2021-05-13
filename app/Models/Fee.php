@@ -11,7 +11,7 @@ class Fee extends Model
 
     protected $guarded = [];
 
-    protected $table = 'fees';
+    protected $table = 'students_courses';
 
     public function user()
     {

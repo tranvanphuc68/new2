@@ -10,10 +10,10 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-    $feedbacks = DB::table('feedbacks')
-        ->join('users', 'users.id', '=', 'feedbacks.id_student')
-        ->join('courses', 'courses.id', '=', 'feedbacks.id_course')
-        ->select('feedbacks.*', 'users.fullname', 'courses.name')
+    $feedbacks = DB::table('students_courses')
+        ->join('users', 'users.id', '=', 'students_courses.id_student')
+        ->join('courses', 'courses.id', '=', 'students_courses.id_course')
+        ->select('students_courses.*', 'users.fullname', 'courses.name')
         ->get();
     return view('feedbacks.index', [
             'feedbacks' => $feedbacks

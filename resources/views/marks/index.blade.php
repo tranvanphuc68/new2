@@ -14,13 +14,13 @@
 @if(Auth::check())
 <div>Hello {{ Auth::user()->email }}</div>
 @endif
+<a href="{{ url("/marks/edit") }}">EDIT</a>
 @foreach($marks as $mark)
 <tr>
     <td>{{ $mark->id_student }}</td>
     <td>{{ $mark->fullname }}</td>
     <td>{{ $mark->name }}</td>
     <td>{{ $mark->mark }}</td>
-    <td><a href="{{ url("/marks/{$mark->id_student}-{$mark->id_course}/edit") }}">EDIT</a></td>
 </tr>
 @endforeach
 </table>
