@@ -19,7 +19,7 @@
     <td>{{ $feedback->id_student }}</td>
     <td>{{ $feedback->fullname }}</td>
     <td>{{ $feedback->name }}</td>
-    <td>{{ $feedback->content }}</td>
+    <td>{{ $feedback->feedback }}</td>
     <td><a href="{{ url("/feedbacks/{$feedback->id_student}-{$feedback->id_course}/edit") }}">EDIT</a></td>
 </tr>
 @endforeach

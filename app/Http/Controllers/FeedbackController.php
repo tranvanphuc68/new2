@@ -44,9 +44,7 @@ class FeedbackController extends Controller
         $feedback = Feedback::where('id_student', '=', "$id_student")
         ->where('id_course', '=', "$id_course")
         ->update([
-            'id_student' => $request->id_student,
-            'id_course' => $request->id_course,
-            'content' => $request->content
+            'feedback' => $request->feedback
         ]);
         return redirect('feedbacks');
     }
