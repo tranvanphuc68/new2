@@ -32,9 +32,17 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="{{ url("/courses") }}">
+                                    <a href="">
                                         <i class="fa fa-th-large"></i> Quản lí lớp học<i class="fa arrow"></i>
                                     </a>
+                                    <ul class="sidebar-nav">
+                                        <li>
+                                            <a href="{{ url("/courses") }}" name="teacher-link"> Khóa học</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url("/attendance") }}" name="student-link"> Điểm danh </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href="">

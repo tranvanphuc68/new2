@@ -40,6 +40,7 @@ Into
                                                 <th>Số tiết</th>
                                                 <th>Học phí</th>
                                                 <th>Lương</th>
+                                                <th>Chức năng</th>
                                             </tr>
                                         </thead>
                                         @foreach($courses as $course)

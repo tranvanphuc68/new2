@@ -8,7 +8,7 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="title-block">
-        <h3 class="title"> </h3>
+        <h1 class="title">C</h1>
     </div>
     <div class="row sameheight-container">
         <div class="col-md-9">

@@ -1,34 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-	<!-- jQuery library -->
-	
-</head>
-<body>
+@extends('layouts.users.app')
 
-@if (count($check) == 0)
+@section('title')
+Into
+@endsection
 
-<table>
-    @foreach($data as $data)
-    <tr>
-        <td>{{ $id_course }}</td>
-        <td>{{ $data->fullname }}</td>
-        <td><input type="radio" name="{{ $data->id_student }}" value="0" checked></td>
-        <td><input type="radio" name="{{ $data->id_student }}" value="1"></td>
-        <td><input type="radio" name="{{ $data->id_student }}" value="2"></td>
-    </tr>
-    @endforeach
-</table>
-<button class="btn btn-warning" name='but'>Save</button>
-<div></div>
+@section('content')
+<article class="content responsive-tables-page">
+    <div class="courses">
+        <div class="title-block">
+            <h1 class="title">Điểm danh khóa học {{ $id_course }} buổi {{ $number }} </h1>
+        </div>
+        <section class="section">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-block">
+                            <div class="card-title-block">
+                            </div>
+                            <section class="example">
+                            @if(count($check) == 0)  
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID_course</th>
+                                                <th>Tên học viên</th>
+                                                <th>Có</th>
+                                                <th>Muộn</th>
+                                                <th>Vắng</th>
+                                            </tr>
+                                        </thead>
+                                        @foreach($data as $data)
+                                            <tr>
+                                                <td>{{ $id_course }}</td>
+                                                <td>{{ $data->fullname }}</td>
+                                                <td><input type="radio" name="{{ $data->id_student }}" value="0" checked></td>
+                                                <td><input type="radio" name="{{ $data->id_student }}" value="1"></td>
+                                                <td><input type="radio" name="{{ $data->id_student }}" value="2"></td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                </div>
+                                <button class="btn btn-warning" name='but'>Lưu điểm danh</button>
+                            @endif
 
-@endif
+                            @if (count($check) > 0)
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Lớp đã điểm danh
+                                                    
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <a href="{{ url("/attendance") }}" class="btn btn-primary">Quay lại</a>
+                            @endif
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -68,7 +107,7 @@
                 }
             });  
         })
-    
 </script>
-</body>
-</html>
+@endsection
+
+

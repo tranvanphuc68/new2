@@ -11,11 +11,12 @@ Into
     </div>
     <a href="{{ url("/detail_course/create/{$id_course}") }}" class="btn btn-primary">Thêm chi tiết</a>
     <div class="card card-block sameheight-item">
-        <table>
+        <table class="table table-striped table-bordered table-hover">
             <tr>
                 <th>Buổi</th>
                 <th>Nội dung</th>
                 <th>Ngày học</th>
+                <th></th>
             </tr>   
             @foreach($detail as $detail)
                 <tr>

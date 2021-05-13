@@ -24,9 +24,16 @@ class UserController extends Controller
         ]);
     }
 
-    public function show(User $user)
+    public function show_teacher(User $user)
     {
-        return view('users.show', [
+        return view('users.teachers.show', [
+            'user' => $user
+        ]);
+    }
+
+    public function show_student(User $user)
+    {
+        return view('users.students.show', [
             'user' => $user
         ]);
     }

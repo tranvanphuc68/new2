@@ -12,6 +12,7 @@
         <link rel="stylesheet" id="blue-style" href="{{ asset('css/app-blue.css') }}">
         <link rel="stylesheet"  href="{{ asset('css/user.css') }}">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
     </head>
 
     <body>
@@ -86,7 +87,7 @@
                                 </div>
                             </li>
                             <li class="profile dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/user" role="button" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ url("") }}" role="button" aria-haspopup="true" aria-expanded="false">
                                     <div class="img" style="background-image: url('')">
                                     </div>
                                     <span class="name"> John Doe </span>

@@ -16,7 +16,7 @@ class AttendanceController extends Controller
         $today = Carbon::now()->format('Y-m-d');
         $data = DB::table('detail_classes')
         ->join('courses', 'courses.id', '=', 'detail_classes.id_course')
-        ->where('courses.id_teacher', '=', "14")
+        ->where('courses.id_teacher', '=', "13")
         ->where('detail_classes.date', '=', "$today")
         ->select('detail_classes.*')
         ->get();

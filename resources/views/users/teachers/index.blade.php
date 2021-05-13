@@ -49,7 +49,7 @@ Into
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
                                             <td>
-                                                <a href='{{ url("/users/{$user->id}") }}' class="btn btn-primary">Xem</a>
+                                                <a href='{{ url("/users/teacher/{$user->id}") }}' class="btn btn-primary">Xem</a>
                                                 <a href='{{ url("/users/teacher/{$user->id}/edit") }}' class="btn btn-primary">Sửa</a>
                                                 <a href="javascript:void(0)" onclick="document.getElementById('user-delete-{{ $user->id }}').submit()" class="btn btn-primary">Xóa</a>
                                                 <form method="POST" id="user-delete-{{ $user->id }}" action="{{ url("/users/teacher/{$user->id}") }}" >
