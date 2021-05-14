@@ -7,19 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{url("/marks")}}">
+<form method="POST" action="{{ url("/marks/{$students[0]->id_course}") }}">
 @csrf
 @method('PUT')
 <table>
     @if(Auth::check())
     <div>Hello {{ Auth::user()->email }}</div>
     @endif
-    @foreach($marks as $mark)
+    @foreach($students as $student)
     <tr>
-        <td>{{ $mark->id_student }}</td>
-        <td>{{ $mark->fullname }}</td>
-        <td>{{ $mark->name }}</td>
-        <td><input type="text" name ="<?php echo $mark->id_student . $mark->id_course?>_mark" value="{{ $mark->mark }}"></td>
+        <td>{{ $student->id_student }}</td>
+        <td>{{ $student->fullname }}</td>
+        <td><input type="text" name ="{{ $student->id_student }}" value="{{ $student->mark }}"></td>
     </tr>
     @endforeach
     </table>

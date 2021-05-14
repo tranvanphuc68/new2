@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fee</title>
+    <title>Document</title>
 </head>
 <body>
 <a href="{{url('/logout')}}" >logout</a>
@@ -14,36 +14,14 @@
 @if(Auth::check())
 <div>Hello {{ Auth::user()->email }}</div>
 @endif
-<a href="{{ url("/fees/edit") }}">EDIT</a>
-@foreach($fees as $fee)
+@foreach($courses as $course)
 <tr>
-    <td>{{ $fee->id_student }}</td>
-    <td>{{ $fee->fullname }}</td>
-    <td>{{ $fee->name }}</td>
-    <td><?php echo $fee->status_fee == 1 ? 'Chưa nộp': 'Đã nộp'; ?></td>
+    <td>{{ $course->id }}</td>
+    <td>{{ $course->name }}</td>
+    <td><?php echo $course->status == 1 ? 'Chưa học': 'Đang học'; ?></td>
+    <td><a href="{{ url("/fees/{$course->id}") }}">SHOW</a></td>
 </tr>
 @endforeach
 </table>
-<?php 
-    $count = count($fees); 
-    $count_sent = 0;
-    $count_unsend = 0;
-    $sent = 0;
-    $unsend = 0;
-    for ($i = 0;$i < $count;$i++) {
-        if ($fees[$i]->status_fee == 1) {
-            $unsend = $unsend + (float)$fees[$i]->fee;
-            $count_unsend++;
-        }
-        else {
-            $sent = $sent + (float)$fees[$i]->fee;
-            $count_sent++;
-        }
-    };
-?>
-<p>Tổng: {{ number_format($sent + $unsend, 0, '', ' ') }}</p>
-<p>Đã thu: {{ number_format($sent, 0, '', ' ')}}</p>
-<p>Số lượng đã nộp: {{ $count_sent }}</p>
-<p>Số lượng đã chưa nộp: {{ $count_unsend }}</p>
 </body>
 </html>

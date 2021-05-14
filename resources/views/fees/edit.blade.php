@@ -7,25 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{url("/fees")}}">
+<form method="POST" action="{{url("/fees/{$students[0]->id_course}")}}">
 @csrf
 @method('PUT')
 <table>
     @if(Auth::check())
     <div>Hello {{ Auth::user()->email }}</div>
     @endif
-    @foreach($fees as $fee)
+    @foreach($students as $student)
     <tr>
-        <td>{{ $fee->id_student }}</td>
-        <td>{{ $fee->fullname }}</td>
-        <td>{{ $fee->name }}</td>
-        <td>{{ $fee->fee }}</td>
+        <td>{{ $student->id_student }}</td>
+        <td>{{ $student->fullname }}</td>
+        <td>{{ $student->name }}</td>
+        <td>{{ $student->fee }}</td>
         <td>
             <label for="">status_fee</label>
-            <input type="radio" id="<?php echo $fee->id_student . $fee->id_course ?>_1" name ="<?php echo $fee->id_student . $fee->id_course?>_status_fee" value="1" <?php echo ($fee->status_fee == 1) ? 'checked' : ''?>>
-            <label for="<?php echo $fee->id_student ?>_1">Chưa nộp</label>
-            <input type="radio" id="<?php echo $fee->id_student . $fee->id_course ?>_2" name ="<?php echo $fee->id_student . $fee->id_course?>_status_fee" value="2" <?php echo ($fee->status_fee == 2) ? 'checked' : ''?>>
-            <label for="<?php echo $fee->id_student ?>_2">Đã nộp</label>
+            <input type="radio" id="{{$student->id_student}}_1" name ="{{$student->id_student}}" value="1" <?php echo ($student->status_fee == 1) ? 'checked' : ''?>>
+            <label for="{{$student->id_student}}_1">Chưa nộp</label>
+            <input type="radio" id="{{$student->id_student}}_2" name ="{{$student->id_student}}" value="2" <?php echo ($student->status_fee == 2) ? 'checked' : ''?>>
+            <label for="{{$student->id_student}}_2">Đã nộp</label>
         </td>
     </tr>
     @endforeach

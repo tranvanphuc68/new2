@@ -7,11 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{ url("/students_courses") }}">
+<form method="POST" action="{{ url("/students_courses/{$id_course}") }}">
 @csrf
-<div><input type="text" name="id_student">id_student</div>
-<div><input type="text" name="id_course">id_course</div>
-
+@foreach ($students as $student)
+    <div>
+        <span>{{ $student->id }} - {{ $student->fullname }}</span>
+        <input type="checkbox" name="{{ $student->id }}" value="{{ $student->id }}">
+    </div>
+@endforeach
 <button type="submit">OK</button>
 </form>
 </body>

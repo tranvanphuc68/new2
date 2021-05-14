@@ -7,17 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{{ url("/students_courses/create/{$students[0]->id_course}") }}">add</a>
+    <a href="{{ url("/marks/edit/{$students[0]->id_course}") }}">Edit</a>
     <h1>{{ $students[0]->name }}</h1>
     <table>
-    @foreach ($students as $student)
+        @foreach($students as $student)
         <tr>
             <td>{{ $student->id_student }}</td>
             <td>{{ $student->fullname }}</td>
+            <td>{{ $student->name }}</td>
+            <td>{{ $student->mark }}</td>
         </tr>
-    @endforeach
+        @endforeach
     </table>
-    
-        
 </body>
 </html>

@@ -10,53 +10,61 @@ class FeeController extends Controller
 {
     public function index()
     {
-    $fees = DB::table('students_courses')
-        ->join('users', 'users.id', '=', 'students_courses.id_student')
-        ->join('courses', 'courses.id', '=', 'students_courses.id_course')
-        ->select('id_student', 'users.fullname', 'courses.name','id_course', 'courses.fee','status_fee')
+        $courses = DB::table('courses')
+        ->where('status','=','1')
+        ->orWhere('status','=','2')
+        ->select('courses.*')
         ->get();
-    return view('fees.index', [
-            'fees' => $fees
+        return view('fees.index', [
+            'courses' => $courses
         ]);
     }
 
-    public function show(Fee $fee)
+    public function show($id_course)
     {
+        $students = DB::table('students_courses')
+        ->join('users','users.id','=','students_courses.id_student')
+        ->join('courses','courses.id','=','students_courses.id_course')
+        ->where('id_course','=',"$id_course")
+        ->select('students_courses.*','users.fullname','courses.name','courses.fee')
+        ->get();
         return view('fees.show', [
-            'fee' => $fee
+            'students' => $students,
+            'id_course' => $id_course
         ]);
     }
 
-    public function edit()
+    public function edit($id_course)
     {
-        $fees = DB::table('students_courses')
+        $students = DB::table('students_courses')
         ->join('users', 'users.id', '=', 'students_courses.id_student')
         ->join('courses', 'courses.id', '=', 'students_courses.id_course')
-        ->select('id_student', 'users.fullname', 'courses.name','id_course', 'courses.fee','status_fee')
+        ->where('id_course',$id_course)
+        ->select('students_courses.*','users.fullname','courses.name','courses.fee')
         ->get();
         return view('fees.edit', [
-            'fees' => $fees
+            'students' => $students,
+            'id_course' => $id_course
         ]);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id_course)
     {
-        $fees = DB::table('students_courses')
+        $students = DB::table('students_courses')
         ->join('users', 'users.id', '=', 'students_courses.id_student')
         ->join('courses', 'courses.id', '=', 'students_courses.id_course')
-        ->select('id_student', 'users.fullname', 'courses.name','id_course', 'courses.fee','status_fee')
+        ->where('id_course',$id_course)
+        ->select('students_courses.*','users.fullname','courses.name','courses.fee')
         ->get();
         //
-        foreach ($fees as $fee) {
-            $status_fee = $fee->id_student . $fee->id_course . '_status_fee';
+        foreach ($students as $student) {
             DB::table('students_courses')
-            ->where('id_student','=',$fee->id_student)
-            ->where('id_course','=',$fee->id_course)
+            ->where('id_student','=',$student->id_student)
+            ->where('id_course','=',$student->id_course)
             ->update([
-                'status_fee' => $request->input($status_fee)
+                'status_fee' => $request->input("$student->id_student")
             ]);
         }
-        return redirect('fees');
-
+        return redirect("/fees/{$students[0]->id_course}");
     }
 }
