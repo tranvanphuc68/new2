@@ -11,12 +11,10 @@ class Mark extends Model
 
     protected $guarded = [];
 
-    protected $table = 'marks';
+    protected $table = 'students_courses';
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
-    
 }

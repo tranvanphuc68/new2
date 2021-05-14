@@ -16,7 +16,7 @@ class CreateSalariesTable extends Migration
         Schema::create('salaries', function (Blueprint $table) {
             $table->bigInteger('id_course')->unsigned();
             $table->bigInteger('id_teacher')->unsigned();
-            $table->integer('status');
+            $table->integer('status')->default(1);
             $table->timestamps();
             $table->primary(['id_course', 'id_teacher']);
 

@@ -10,45 +10,61 @@ class MarkController extends Controller
 {
     public function index()
     {
-    $marks = DB::table('marks')
-        ->join('users', 'users.id', '=', 'marks.id_student')
-        ->join('courses', 'courses.id', '=', 'marks.id_course')
-        ->select('id_student', 'users.fullname', 'courses.name','id_course','mark')
+        $courses = DB::table('courses')
+        ->where('status','=','1')
+        ->orWhere('status','=','2')
+        ->select('courses.*')
         ->get();
-    return view('marks.index', [
-            'marks' => $marks
+        return view('marks.index', [
+            'courses' => $courses
         ]);
     }
 
-    public function show($id_student, $id_course)
+    public function show($id_course)
     {
+        $students = DB::table('students_courses')
+        ->join('users','users.id','=','students_courses.id_student')
+        ->join('courses','courses.id','=','students_courses.id_course')
+        ->where('id_course','=',"$id_course")
+        ->select('students_courses.*','users.fullname','courses.name')
+        ->get();
         return view('marks.show', [
-            'id_student' => $id_student,
+            'students' => $students,
             'id_course' => $id_course
         ]);
     }
 
-    public function edit($id_student, $id_course)
-    {   
-        $data = Mark::where('id_student', '=', "$id_student")
-        ->where('id_course', '=', "$id_course")
+    public function edit($id_course)
+    {
+        $students = DB::table('students_courses')
+        ->join('users', 'users.id', '=', 'students_courses.id_student')
+        ->join('courses', 'courses.id', '=', 'students_courses.id_course')
+        ->where('id_course',$id_course)
+        ->select('students_courses.*','users.fullname','courses.name')
         ->get();
-        $mark = $data[0];
-        
         return view('marks.edit', [
-            'mark' => $mark
+            'students' => $students,
+            'id_course' => $id_course
         ]);
     }
 
-    public function update(Request $request, $id_student, $id_course)
+    public function update(Request $request, $id_course)
     {
-        $mark = Mark::where('id_student', '=', "$id_student")
-        ->where('id_course', '=', "$id_course")
-        ->update([
-            'id_student' => $request->id_student,
-            'id_course' => $request->id_course,
-            'mark' => $request->mark
-        ]);
-        return redirect('marks');
+        $students = DB::table('students_courses')
+        ->join('users', 'users.id', '=', 'students_courses.id_student')
+        ->join('courses', 'courses.id', '=', 'students_courses.id_course')
+        ->where('id_course',$id_course)
+        ->select('students_courses.*','users.fullname','courses.name')
+        ->get();
+        //
+        foreach ($students as $student) {
+            DB::table('students_courses')
+            ->where('id_student','=',$student->id_student)
+            ->where('id_course','=',$student->id_course)
+            ->update([
+                'mark' => $request->input("$student->id_student")
+            ]);
+        }
+        return redirect("/marks/{$students[1]->id_course}");
     }
 }

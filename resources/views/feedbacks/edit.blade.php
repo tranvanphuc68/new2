@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{url("/feedbacks/{$feedback->id_student}-{$feedback->id_course}")}}">
+<form method="POST" action="{{ url("/feedbacks/{$feedback->id_student}-{$feedback->id_course}") }}">
 @csrf
 @method('PUT')
 <div>
@@ -20,7 +20,7 @@
 </div>
 <div>
     <label for="">content</label>
-    <input type="text" name="content" value="{{ $feedback->content }}">
+    <input type="text" name="feedback" value="{{ $feedback->feedback }}">
 </div>
 
 <button type="submit">OK</button>

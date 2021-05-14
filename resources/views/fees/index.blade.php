@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fee</title>
+    <title>Document</title>
 </head>
 <body>
 <a href="{{url('/logout')}}" >logout</a>
@@ -14,14 +14,12 @@
 @if(Auth::check())
 <div>Hello {{ Auth::user()->email }}</div>
 @endif
-@foreach($fees as $fee)
+@foreach($courses as $course)
 <tr>
-    <td>{{ $fee->id_student }}</td>
-    <td>{{ $fee->fullname }}</td>
-    <td>{{ $fee->name }}</td>
-    <td>{{ $fee->fee }}</td>
-    <td><?php echo $fee->status == 1 ? 'Đã nộp': 'Chưa nộp'; ?></td>
-    <td><a href="{{ url("/fees/{$fee->id_student}-{$fee->id_course}/edit") }}">EDIT</a></td>
+    <td>{{ $course->id }}</td>
+    <td>{{ $course->name }}</td>
+    <td><?php echo $course->status == 1 ? 'Chưa học': 'Đang học'; ?></td>
+    <td><a href="{{ url("/fees/{$course->id}") }}">SHOW</a></td>
 </tr>
 @endforeach
 </table>

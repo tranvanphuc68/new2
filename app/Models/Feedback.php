@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Feedback extends Model
 {
     use HasFactory;
-
+    
     protected $guarded = [];
 
-    protected $table = 'feedbacks';
+    protected $table = 'students_courses';
 
     public function user()
     {

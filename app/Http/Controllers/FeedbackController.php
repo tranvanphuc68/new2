@@ -10,23 +10,30 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-    $feedbacks = DB::table('feedbacks')
-        ->join('users', 'users.id', '=', 'feedbacks.id_student')
-        ->join('courses', 'courses.id', '=', 'feedbacks.id_course')
-        ->select('feedbacks.*', 'users.fullname', 'courses.name')
+        $courses = DB::table('courses')
+        ->where('status','=','1')
+        ->orWhere('status','=','2')
+        ->select('courses.*')
         ->get();
-    return view('feedbacks.index', [
-            'feedbacks' => $feedbacks
+        return view('feedbacks.index', [
+            'courses' => $courses
         ]);
     }
 
-    public function show($id_student, $id_course)
+    public function show($id_course)
     {
+        $students = DB::table('students_courses')
+        ->join('users','users.id','=','students_courses.id_student')
+        ->join('courses','courses.id','=','students_courses.id_course')
+        ->where('id_course',"$id_course")
+        ->select('students_courses.*','users.fullname','courses.name')
+        ->get();
         return view('feedbacks.show', [
-            'id_student' => $id_student,
+            'students' => $students,
             'id_course' => $id_course
         ]);
     }
+
     public function edit($id_student, $id_course)
     {   
         $data = Feedback::where('id_student', '=', "$id_student")
@@ -44,10 +51,8 @@ class FeedbackController extends Controller
         $feedback = Feedback::where('id_student', '=', "$id_student")
         ->where('id_course', '=', "$id_course")
         ->update([
-            'id_student' => $request->id_student,
-            'id_course' => $request->id_course,
-            'content' => $request->content
+            'feedback' => $request->feedback
         ]);
-        return redirect('feedbacks');
+        return redirect("feedbacks/{$id_course}");
     }
 }

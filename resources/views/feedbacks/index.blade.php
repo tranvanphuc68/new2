@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>feedback</title>
+    <title>Document</title>
 </head>
 <body>
 <a href="{{url('/logout')}}" >logout</a>
 
-<h1>Feedback</h1>
+<h1>Students Courses</h1>
 <table>
 @if(Auth::check())
 <div>Hello {{ Auth::user()->email }}</div>
 @endif
-@foreach($feedbacks as $feedback)
+@foreach($courses as $course)
 <tr>
-    <td>{{ $feedback->id_student }}</td>
-    <td>{{ $feedback->fullname }}</td>
-    <td>{{ $feedback->name }}</td>
-    <td>{{ $feedback->content }}</td>
-    <td><a href="{{ url("/feedbacks/{$feedback->id_student}-{$feedback->id_course}/edit") }}">EDIT</a></td>
+    <td>{{ $course->id }}</td>
+    <td>{{ $course->name }}</td>
+    <td><?php echo $course->status == 1 ? 'Chưa học': 'Đang học'; ?></td>
+    <td><a href="{{ url("/feedbacks/{$course->id}") }}">SHOW</a></td>
 </tr>
 @endforeach
 </table>
