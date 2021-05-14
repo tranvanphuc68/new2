@@ -1,5 +1,5 @@
 @extends('layouts.users.app')
 
 @section('title')
-    Into
+Into
 @endsection

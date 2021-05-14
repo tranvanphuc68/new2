@@ -8,82 +8,43 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index_teacher()
     {
-        $admins = User::where('role', 'admin')->get();
         $teachers = User::where('role', 'teacher')->get();
+        return view('users.teachers.index', [
+            'teachers' => $teachers
+        ]);
+    }
+
+    public function index_student()
+    {
         $students = User::where('role', 'student')->get();
-        // return view('users.index', [
-        //     'teachers' => $teachers,
-        //     'admins' => $admins,
-        //     'students' => $students
-        // ]);
-        if (isset($_GET['name'])) {
-            if ($_GET['name'] == 'teachers') return view('users.index', ['users' => $teachers]);
-            if ($_GET['name'] == 'students') return view('users.index', ['users' => $students]);
-        }
+        return view('users.students.index', [
+            'students' => $students
+        ]);
     }
 
     public function show(User $user)
     {
-        // return view('users.show', [
-        //     'user' => $user
-        // ]);
-        return json_encode($user);
-    }
-
-    public function create()
-    {
-        return view('users.create');
-    }
-
-    public function store(Request $request)
-    { 
-        $data = User::create([
-                    'id' => $request->input('id'),
-                    'fullname' => $request->input('fullname'),
-                    'gender' => $request->input('gender'),
-                    'dob' => $request->input('dob'),
-                    'hometown' => $request->input('hometown'),
-                    'id_card' => $request->input('id_card'),
-                    'academic_level' => $request->input('academic_level'),
-                    'accomplishment' => $request->input('accomplishment'),
-                    'account' => $request->input('account'),
-                    'phone' => $request->input('phone'),
-                    'email' => $request->input('email'),
-                    'password' => bcrypt($request->input('password')),
-                    'role' => $request->input('role')
-        ]);
-        return response()->json(['data' => $data], 200);
-    //     $data = User::create([
-    //         'id' => $request->input('id'),
-    //         'fullname' => $request->input('fullname'),
-    //         'gender' => $request->input('gender'),
-    //         'dob' => $request->input('dob'),
-    //         'hometown' => $request->input('hometown'),
-    //         'id_card' => $request->input('id_card'),
-    //         'academic_level' => $request->input('academic_level'),
-    //         'accomplishment' => $request->input('accomplishment'),
-    //         'account' => $request->input('account'),
-    //         'phone' => $request->input('phone'),
-    //         'email' => $request->input('email'),
-    //         'password' => bcrypt($request->input('password')),
-    //         'role' => $request->input('role')
-    //     ]);
-    //     return redirect('/users');
-    }
-
-    public function edit(User $user)
-    {
-        return view('users.edit', [
+        return view('users.show', [
             'user' => $user
         ]);
     }
 
-    public function update(Request $request, User $user)
+    public function create_teacher()
     {
-       
-        $data = $user->update([
+        return view('users.teachers.create');
+    }
+    
+    public function create_student()
+    {
+        return view('users.students.create');
+    }
+
+    public function store_teacher(Request $request)
+    {
+        $data = User::create([
+            'id' => $request->input('id'),
             'fullname' => $request->input('fullname'),
             'gender' => $request->input('gender'),
             'dob' => $request->input('dob'),
@@ -95,26 +56,71 @@ class UserController extends Controller
             'phone' => $request->input('phone'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
-            'role' => $request->input('role')
+            'role' => 'Teacher'
         ]);
-        // return redirect('users');
-
-        
+        return redirect('/users/teacher');
     }
 
-    public function destroy(User $user)
+    public function store_student(Request $request)
     {
-        $isDelete = $user->delete();
-        // return redirect('users');
-        if (
-            isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
-            strcasecmp($_SERVER['HTTP_X_REQUESTED_WITH'], 'xmlhttprequest') == 0
-        ) {
-            if ($isDelete) {
-                //nếu xóa thành công thì trả về status là 1
-                return json_encode(['status' => 1]);
-            }
-        }
+        $data = User::create([
+            'id' => $request->input('id'),
+            'fullname' => $request->input('fullname'),
+            'gender' => $request->input('gender'),
+            'dob' => $request->input('dob'),
+            'hometown' => $request->input('hometown'),
+            'id_card' => $request->input('id_card'),
+            'academic_level' => $request->input('academic_level'),
+            'accomplishment' => $request->input('accomplishment'),
+            'account' => $request->input('account'),
+            'phone' => $request->input('phone'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'role' => 'Student'
+        ]);
+        return redirect('/users/student');
+    }
+
+    public function edit_teacher(User $user)
+    {
+        return view('users.teachers.edit', [
+            'user' => $user
+        ]);
+    }
+
+    public function edit_student(User $user)
+    {
+        return view('users.students.edit', [
+            'user' => $user
+        ]);
+    }
+
+    public function update_teacher(Request $request, User $user)
+    {
+        $user->update([
+            'fullname' => $request->fullname
+        ]);
+        return redirect('/users/teacher');
+    }
+
+    public function update_student(Request $request, User $user)
+    {
+        $user->update([
+            'fullname' => $request->fullname
+        ]);
+        return redirect('/users/student');
+    }
+
+    public function destroy_student(User $user)
+    {
+        $user->delete();
+        return redirect('/users/student');
+    }
+
+    public function destroy_teacher(User $user)
+    {
+        $user->delete();
+        return redirect('/users/teacher');
     }
 
     public function self_edit()
@@ -123,5 +129,13 @@ class UserController extends Controller
         return view('users.edit', [
             'user' => $user
         ]);
+    }
+
+    public function self_update(Request $request, User $user)
+    {   
+        $user->update([
+            'fullname' => $request->fullname
+        ]);
+        return redirect('/');
     }
 }

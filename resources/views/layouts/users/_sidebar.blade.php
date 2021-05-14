@@ -19,20 +19,20 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url("/users") }}">
+                                    <a href="">
                                         <i class="fa fa-group"></i> Quản lí người dùng<i class="fa arrow"></i>
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li>
-                                            <a href="javascript:void(0)" data-name="teachers" name="index"> Giảng viên</a>
+                                            <a href="users/teacher" name="teacher-link"> Giảng viên</a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0)" data-name="students" name="index"> Học sinh </a>
+                                            <a href="users/student" name="student-link"> Học sinh </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{{ url("/courses") }}">
                                         <i class="fa fa-th-large"></i> Quản lí lớp học<i class="fa arrow"></i>
                                     </a>
                                 </li>

@@ -66,7 +66,7 @@
                                         <li>
                                             <a href="" class="notification-item">
                                                 <div class="img-col">
-                                                    <div class="img" style="background-image: url('assets/img/team/team-2') "></div>
+                                                    <div class="img" style="background-image: url('assets/faces/8.jpg')"></div>
                                                 </div>
                                                 <div class="body-col">
                                                     <p>
