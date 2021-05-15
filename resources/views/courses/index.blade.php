@@ -67,7 +67,11 @@ Into
                                             </tr>
                                         @endforeach
                                     </table>
+<<<<<<< HEAD
                                     {{ $courses->links('') }}
+=======
+                                    {{ $courses -> links('')}}
+>>>>>>> a7ea45a964cad89620dcccc77f09849b42048857
                                 </div>
                             </section>
                         </div>
