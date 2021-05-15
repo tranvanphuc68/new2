@@ -18,7 +18,17 @@
 <tr>
     <td>{{ $course->id }}</td>
     <td>{{ $course->name }}</td>
-    <td><?php echo $course->status == 1 ? 'Chưa học': 'Đang học'; ?></td>
+    <td><?php switch ($course->status) {
+        case '1':
+            echo 'Chưa học';
+            break;
+        case '2':
+            echo 'Đang học';
+            break;
+        case '3':
+            echo 'Đã hoàn thành';
+            break; 
+}?></td>
     <td><a href="{{ url("/feedbacks/{$course->id}") }}">SHOW</a></td>
 </tr>
 @endforeach

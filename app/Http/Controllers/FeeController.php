@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class FeeController extends Controller
 {
@@ -15,7 +16,16 @@ class FeeController extends Controller
         ->orWhere('status','=','2')
         ->select('courses.*')
         ->get();
+
+        $id = Auth::user()->id;
+        $fees = DB::table('students_courses')
+        ->join('users','users.id','=','students_courses.id_student')
+        ->join('courses','courses.id','=','students_courses.id_course')
+        ->where('id_student','=',"$id")
+        ->select('students_courses.*','users.fullname','courses.name')
+        ->get();
         return view('fees.index', [
+            'fees' => $fees,
             'courses' => $courses
         ]);
     }

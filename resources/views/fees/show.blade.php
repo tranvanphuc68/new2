@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,15 +10,16 @@
     <a href="{{ url("/fees/edit/{$students[0]->id_course}") }}">Edit</a>
     <h1>{{ $students[0]->name }}</h1>
     <table>
-    @foreach ($students as $student)
-        <tr>
-            <td>{{ $student->id_student }}</td>
-            <td>{{ $student->fullname }}</td>
-            <td>{{ $student->fee }}</td>
-            <td><?php echo $student->status_fee == 1 ? 'Chưa nộp': 'Đã nộp'; ?></td>
-        </tr>
+        @foreach ($students as $student)
+            <tr>
+                <td>{{ $student->id_student }}</td>
+                <td>{{ $student->fullname }}</td>
+                <td>{{ $student->fee }}</td>
+                <td><?php echo $student->status_fee == 1 ? 'Chưa nộp': 'Đã nộp'; ?></td>
+            </tr>
         @endforeach
     </table>
+    
     <?php 
     $count = count($students); 
     $count_sent = 0;

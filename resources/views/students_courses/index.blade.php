@@ -10,27 +10,50 @@
 <a href="{{url('/logout')}}" >logout</a>
 
 <h1>Students Courses</h1>
-<a href="{{ url("/students_courses/create") }}">create</a>
 <table>
 @if(Auth::check())
 <div>Hello {{ Auth::user()->email }}</div>
 @endif
-@foreach($students_courses as $student_course)
-<tr>
-    <td>{{ $student_course->id_student }}</td>
-    <td>{{ $student_course->fullname }}</td>
-    <td>{{ $student_course->name }}</td>
-    <td><a href="{{ url("/students_courses/{$student_course->id_student}-{$student_course->id_course}") }}">SHOW</a></td>
-    <td><a href="{{ url("/students_courses/{$student_course->id_student}-{$student_course->id_course}/edit") }}">EDIT</a></td>
-    <td>
-        <form method="POST" action="{{ url("/students_courses/{$student_course->id_student}-{$student_course->id_course}") }}">
-            @csrf
-            @method('DELETE')
-            <button type="submit">DELETE</button>
-        </form>
-    </td>
-</tr>
-@endforeach
+    @if (Auth::user()->role == 'Student')
+        @foreach ($student_courses as $student_course)
+            <tr>
+                <td>{{ $student_course->id_course}}</td>
+                <td>{{ $student_course->name }}</td>
+                <td><?php switch ($student_course->status) {
+                                    case '1':
+                                        echo 'Chưa học';
+                                        break;
+                                    case '2':
+                                        echo 'Đang học';
+                                        break;
+                                    case '3':
+                                        echo 'Đã hoàn thành';
+                                        break; 
+                        }?>
+                </td>
+            </tr>
+        @endforeach
+    @else
+        @if (Auth::user()->role == 'Admin')
+            @foreach($courses as $course)
+            <tr>
+                <td>{{ $course->id }}</td>
+                <td>{{ $course->name }}</td>
+                <td><?php echo $course->status == 1 ? 'Chưa học': 'Đang học'; ?></td>
+                <td><a href="{{ url("/students_courses/{$course->id}") }}">SHOW</a></td>
+            </tr>
+            @endforeach
+        @else 
+            @foreach($teachers as $teacher)
+            <tr>
+                <td>{{ $teacher->id }}</td>
+                <td>{{ $teacher->name }}</td>
+                <td><?php echo $teacher->status == 1 ? 'Chưa học': 'Đang học'; ?></td>
+                <td><a href="{{ url("/students_courses/{$teacher->id}") }}">SHOW</a></td>
+            </tr>
+            @endforeach
+        @endif
+    @endif
 </table>
 </body>
 </html>

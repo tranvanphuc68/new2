@@ -11,7 +11,7 @@ class Salary extends Model
 
     protected $guarded = [];
 
-    protected $table = 'salaries';
+    protected $table = 'courses';
 
     public function user()
     {
