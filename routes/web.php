@@ -41,6 +41,7 @@ Route::group(['middleware'=>'admin'], function(){
     Route::get('/users/teacher/create',[UserController::class, 'create_teacher']);   
     Route::post('/users/teacher', [UserController::class, 'store_teacher']);
     Route::get('/users/teacher/{user}/edit', [UserController::class, 'edit_teacher']);
+    Route::get('/users/teacher/{user}',[UserController::class, 'show_teacher']);
     Route::put('/users/teacher/{user}', [UserController::class, 'update_teacher']);
     Route::delete('/users/teacher/{user}', [UserController::class, 'destroy_teacher']);
 });
@@ -49,6 +50,7 @@ Route::group(['middleware'=>'admin'], function(){
     Route::get('/users/student/create',[UserController::class, 'create_student']);
     Route::post('/users/student', [UserController::class, 'store_student']);
     Route::get('/users/student/{user}/edit', [UserController::class, 'edit_student']);
+    Route::get('/users/student/{user}',[UserController::class, 'show_student']);
     Route::put('/users/student/{user}', [UserController::class, 'update_student']);
     Route::delete('/users/student/{user}', [UserController::class, 'destroy_student']);
 });
@@ -71,6 +73,14 @@ Route::group(['middleware'=>'admin'], function(){
     Route::put('/courses/{course}', [CourseController::class, 'update']);
     Route::delete('/courses/{course}', [CourseController::class, 'destroy']);
 });
+
+//Attendane
+Route::group(['middleware'=>'admin'], function(){
+    Route::get('/attendance', [AttendanceController::class, 'index']);
+    Route::get('/attendance/{id_course}-{number}',[AttendanceController::class, 'create']);
+    Route::post('/attendance', [AttendanceController::class, 'store']);
+});
+
 //Students Courses
 //------------------------------------------------------
 Route::group(['middleware'=>'auth'], function(){

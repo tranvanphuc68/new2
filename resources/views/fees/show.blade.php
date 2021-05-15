@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{{ url("/fees/edit/{$students[0]->id_course}") }}">Edit</a>
+    @if (count($students) != 0)
+        <a href="{{ url("/fees/edit/{$students[0]->id_course}") }}">Edit</a>
     <h1>{{ $students[0]->name }}</h1>
     <table>
         @foreach ($students as $student)
@@ -19,29 +20,8 @@
             </tr>
         @endforeach
     </table>
-    
-    <?php 
-    $count = count($students); 
-    $count_sent = 0;
-    $count_unsend = 0;
-    $sent = 0;
-    $unsend = 0;
-    for ($i = 0;$i < $count;$i++) {
-        if ($students[$i]->status_fee == 1) {
-            $unsend = $unsend + (float)$students[$i]->fee;
-            $count_unsend++;
-        }
-        else {
-            $sent = $sent + (float)$students[$i]->fee;
-            $count_sent++;
-        }
-    };
-?>
-<p>Tổng: {{ number_format($sent + $unsend, 0, '', ' ') }}</p>
-<p>Đã thu: {{ number_format($sent, 0, '', ' ')}}</p>
-<p>Số lượng đã nộp: {{ $count_sent }}</p>
-<p>Số lượng chưa nộp: {{ $count_unsend }}</p>
-    
-        
+    @else
+        <p>Null</p>
+    @endif
 </body>
 </html>

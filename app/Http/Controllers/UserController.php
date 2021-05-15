@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function index_student()
     {
-        $students = User::where('role', 'student')->get();
+        $students = User::where('role', 'student')->paginate(5)->withQueryString();
         return view('users.students.index', [
             'students' => $students
         ]);

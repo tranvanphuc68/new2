@@ -20,10 +20,6 @@ Into
                         <div> <input type="file" name="avatar" > </div>
                     </div>
                     <div class="form-group">
-                        <label for="id">ID</label>
-                        <input type="text" name="id" id="id" class="form-control" placeholder="Id" aria-describedby="helpId">
-                    </div>
-                    <div class="form-group">
                         <label for="name">Họ tên</label>
                         <input type="text" name="fullname" id="name" class="form-control" placeholder="Username" aria-describedby="helpId">
                     </div>

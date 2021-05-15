@@ -29,8 +29,6 @@
     </tr>
     @endforeach
     </table>
-
-
 <button type="submit">OK</button>
 </form>
 </body>
