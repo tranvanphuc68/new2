@@ -8,17 +8,26 @@
 </head>
 <body>
     <h1>{{ $students[0]->name }}</h1>
-    <table>
+    @if (Auth::user()->role == 'Admin')
+       <table>
         @foreach($students as $student)
         <tr>
             <td>{{ $student->id_student }}</td>
             <td>{{ $student->fullname }}</td>
             <td>{{ $student->name }}</td>
             <td>{{ $student->feedback }}</td>
-            <td><a href="{{ url("/feedbacks/edit/{$student->id_student}-{$student->id_course}") }}">EDIT</a></td>
+            <td></td>
         </tr>
         @endforeach
-    </table>
+    </table> 
+    @else
+    <p>{{ $feedback[0]->feedback}}</p>
+        @if ($feedback[0]->status == 3)
+            <a href="{{ url("/feedbacks/edit/{$feedback[0]->id_course}") }}">EDIT</a>
+        @endif
+    @endif
+
+    
     
         
 </body>

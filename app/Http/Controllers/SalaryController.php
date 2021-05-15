@@ -5,48 +5,77 @@ namespace App\Http\Controllers;
 use App\Models\Salary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class SalaryController extends Controller
 {
     public function index()
     {
-    $salaries = DB::table('salaries')
-        ->join('users', 'users.id', '=', 'salaries.id_teacher')
-        ->join('courses', 'courses.id', '=', 'salaries.id_course')
-        ->select('salaries.*', 'users.fullname', 'courses.name', 'courses.salary')
+    $teachers = DB::table('users')
+        ->where('role', 'teacher')
+        ->whereExists(function($query)
+        {
+            $query->select(DB::raw(1))
+            ->from('courses')
+            ->whereRaw('courses.id_teacher = users.id');
+        })
+        ->select('users.*')
+        ->get();
+
+    $id = Auth::user()->id;
+    $salaries = DB::table('courses')
+        ->join('users', 'users.id', '=', 'courses.id_teacher')
+        ->where('id_teacher', "$id")
+        ->select('courses.*', 'users.fullname')
         ->get();
     return view('salaries.index', [
+            'teachers' => $teachers,
             'salaries' => $salaries
         ]);
     }
 
-    public function show(Salary $salary)
+    public function show($id_teacher)
     {
-        return view('salaries.show', [
-            'salary' => $salary
-        ]);
-    }
-
-    public function edit($id_teacher, $id_course)
-    {   
-        $data = Salary::where('id_teacher', '=', "$id_teacher")
-        ->where('id_course', '=', "$id_course")
+        $salaries = DB::table('courses')
+        ->join('users', 'users.id', '=', 'courses.id_teacher')
+        ->where('id_teacher', "$id_teacher")
+        ->select('courses.*', 'users.fullname')
         ->get();
-        $salary = $data[0];
-        return view('salaries.edit', [
-            'salary' => $salary
+        
+        return view('salaries.show', [
+            'salaries' => $salaries,
+            'id_teacher' => $id_teacher
         ]);
     }
 
-    public function update(Request $request, $id_teacher, $id_course)
+    public function edit($id_teacher)
     {
-        $salary = Salary::where('id_teacher', '=', "$id_teacher")
-        ->where('id_course', '=', "$id_course")
-        ->update([
-            'id_teacher' => $request->id_teacher,
-            'id_course' => $request->id_course,
-            'status' => $request->status
+        $teachers = DB::table('courses')
+        ->join('users', 'users.id', '=', 'courses.id_teacher')
+        ->where('id_teacher', "$id_teacher")
+        ->select('courses.*', 'users.fullname')
+        ->get();
+        return view('salaries.edit', [
+            'teachers' => $teachers,
+            'id_teacher' => $id_teacher
         ]);
-        return redirect('salaries');
+    }
+
+    public function update(Request $request, $id_teacher)
+    {
+        $teachers = DB::table('courses')
+        ->join('users', 'users.id', '=', 'courses.id_teacher')
+        ->where('id_teacher', "$id_teacher")
+        ->select('courses.*', 'users.fullname')
+        ->get();
+        //
+        foreach ($teachers as $teacher) {
+            DB::table('courses')
+            ->where('id','=',$teacher->id)
+            ->update([
+                'status_salary' => $request->input("$teacher->id")
+            ]);
+        }
+        return redirect("/salaries/{$teachers[0]->id_teacher}");
     }
 }
