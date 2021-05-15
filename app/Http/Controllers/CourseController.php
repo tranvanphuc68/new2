@@ -17,7 +17,7 @@ class CourseController extends Controller
             $courses = DB::table('courses')
             ->join('users', 'users.id', '=', 'courses.id_teacher')
             ->select('courses.*', 'users.fullname')
-            ->get();
+            ->paginate(5)->withQueryString();
             return view('courses.index', [
                 'courses' => $courses
             ]);
@@ -27,7 +27,7 @@ class CourseController extends Controller
             ->join('users', 'users.id', '=', 'courses.id_teacher')
             ->where('users.id', '=', "$id")
             ->select('courses.*', 'users.fullname')
-            ->get();
+            ->paginate(5)->withQueryString();
             return view('courses.index', [
                 'courses' => $courses
             ]);
@@ -38,7 +38,7 @@ class CourseController extends Controller
             ->join('users', 'users.id', '=', 'students_courses.id_student')
             ->where('users.id', '=', "$id")
             ->select('courses.*', 'users.fullname')
-            ->get();
+            ->paginate(5)->withQueryString();
             return view('courses.index', [
                 'courses' => $courses
             ]);

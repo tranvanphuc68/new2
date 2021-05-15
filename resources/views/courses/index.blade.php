@@ -67,6 +67,7 @@ Into
                                             </tr>
                                         @endforeach
                                     </table>
+                                    {{ $courses -> links('')}}
                                 </div>
                             </section>
                         </div>
