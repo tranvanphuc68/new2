@@ -73,6 +73,19 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-table"></i> Khóa học đã đăng kí <i class="fa arrow"></i>
+                                    </a>
+                                    <ul class="sidebar-nav">
+                                        <li>
+                                            <a href=""> Học sinh </a>
+                                        </li>
+                                        <li>
+                                            <a href=""> Giáo viên </a>
+                                        </li>
+                                    </ul>
+                                </li>
 
                             </ul>
                         </nav>

@@ -8,7 +8,7 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="title-block">
-        <h3 class="title"> </h3>
+        <h3 class="title">THÊM HỌC SINH</h3>
     </div>
     <div class="row sameheight-container">
         <div class="col-md-9">
@@ -71,12 +71,6 @@ Into
                         <label for="id_card">Password</label>
                         <input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-describedby="helpId">
                     </div>
-
-
-                    <input type="radio" name="role" value="Admin">Admin
-                    <input type="radio" name="role" value="Teacher">Teacher
-                    <input type="radio" name="role" value="Student">Student
-
                     <div>
                         <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
                         <button type="reset" class="btn btn-primary" name="exit">Thoát</button>

@@ -10,8 +10,8 @@ class UserController extends Controller
 {
     public function index_teacher()
     {
-        $teachers = User::where('role', 'teacher')->get();
-        return view('users.teachers.index', [
+        $teachers = User::where('role', 'teacher')->paginate(5)->withQueryString();
+        return view('lms.index', [
             'teachers' => $teachers
         ]);
     }

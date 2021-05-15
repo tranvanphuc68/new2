@@ -18,7 +18,7 @@
     <body>
         <div class="main-wrapper">
             <div class="app" id="app">
-                <header class="header">
+                <header class="header header-fixed">
                     <h1 class="text-light"><a href=""><span>Into</span></a></h1>
                     <div class="header-block header-block-collapse d-lg-none d-xl-none">
                         <button class="collapse-btn" id="sidebar-collapse-btn">

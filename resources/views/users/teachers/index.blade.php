@@ -60,6 +60,7 @@ Into
                                         </tr>
                                         @endforeach
                                     </table>
+                                    {{ $teachers->links('') }}
                                 </div>
                             </section>
                         </div>
@@ -69,4 +70,6 @@ Into
         </section>
     </div>
 </article>
+
+
 @endsection

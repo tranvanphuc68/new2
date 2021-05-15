@@ -33,7 +33,14 @@ body {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden; }
-
+.header-fixed {
+    box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+}
 #ref .color-primary {
   color: #52BCD3; }
 
@@ -1558,7 +1565,8 @@ span a {
   display: -ms-inline-flexbox;
   display: inline-flex; }
   .pagination .page-item .page-link {
-    color: #52BCD3; }
+    color: #52BCD3;
+    text-decoration: none; }
   .pagination .page-item.active .page-link,
   .pagination .page-item.active .page-link:focus,
   .pagination .page-item.active .page-link:hover {
