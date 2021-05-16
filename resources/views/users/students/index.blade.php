@@ -6,7 +6,7 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="teacher">
+    <div class="student">
         <div class="title-block">
             <h1 class="title"> DANH SÁCH HỌC SINH </h1>
         </div>
