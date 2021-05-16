@@ -31,11 +31,13 @@ public function show(Post $post)
         ->join('posts', 'posts.id', '=', 'report_posts.id_post')
         ->where('report_posts.id_post', '=',"$post->id")
         ->select('report_posts.*', 'users.fullname')
+        ->latest()
         ->get();
         $posts = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
         ->where('posts.id', '=', "$post->id")
         ->select('posts.*', 'users.fullname')
+        ->latest()
         ->get();
         $post = $posts[0];
         return view('report_posts.show', [

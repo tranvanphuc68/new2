@@ -20,7 +20,7 @@
         
         <td><a href="{{ url("/posts/{$post->id}") }}">Show</a></td>
         
-        <td><a href="{{ url("/posts/{$post->id}/self_edit") }}">EDIT</a></td>
+        <td><button><a href="{{ url("/posts/{$post->id}/self_edit") }}">EDIT</a></button></td>
         <td>
             <form method="POST" action="{{ url("/posts/{$post->id}") }}">
                 @csrf
