@@ -75,7 +75,7 @@ Route::group(['middleware'=>'admin'], function(){
 });
 
 //Attendane
-Route::group(['middleware'=>'admin'], function(){
+Route::group(['middleware'=>'auth'], function(){
     Route::get('/attendance', [AttendanceController::class, 'index']);
     Route::get('/attendance/{id_course}-{number}',[AttendanceController::class, 'create']);
     Route::post('/attendance', [AttendanceController::class, 'store']);
@@ -141,8 +141,8 @@ Route::group(['middleware'=>'auth'], function(){
 //--------------------------------------------------------------------------
 // không có show và index-> courses.show
 Route::group(['middleware'=>'admin'], function(){
-    Route::get('/detail_course/create',[DetailCourseController::class, 'create']);
-    Route::post('/detail_course', [DetailCourseController::class, 'store']);
+    Route::get('/detail_course/create/{id_course}',[DetailCourseController::class, 'create']);
+    Route::post('/detail_course/{id_course}', [DetailCourseController::class, 'store']);
     Route::get('/detail_course/{id_course}-{number}/edit', [DetailCourseController::class, 'edit']);
     Route::put('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'update']);
     Route::delete('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'destroy']);

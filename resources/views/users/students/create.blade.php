@@ -25,9 +25,9 @@ Into
                     </div>
                     <div class="form-group">
                         <label>Giới tính</label>
-                        <input type="radio" name="gender" id="male" />
+                        <input type="radio" name="gender" value="Male" />
                         <label for="male">Nam</label>
-                        <input type="radio" name="gender" id="female" />
+                        <input type="radio" name="gender" value="Female" />
                         <label for="female">Nữ</label>
                     </div>
                     <div class="form-group">
