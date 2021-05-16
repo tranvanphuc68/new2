@@ -15,7 +15,6 @@ Into
                 <form action="{{url("/users/teacher/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
-                    <h1 class="form-control btn btn-primary">Cập nhật thông tin giảng viên</h1>
                     <div class="form-group">
                         <input type="file" name="avatar">
                     </div>

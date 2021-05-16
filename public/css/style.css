@@ -514,7 +514,11 @@ section {
   padding: 60px 0;
   position: relative;
 }
-
+.about-img {
+  max-width: 400px;
+  box-shadow: 0 0 29px 0 rgb(0 0 0 / 15%);
+  border-radius: 6px;
+}
 .about::before {
   content: '';
   position: absolute;
