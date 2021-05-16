@@ -1,4 +1,4 @@
-@extends('layouts.courses.app')
+@extends('layouts.users.app')
 
 @section('title')
 Into
@@ -12,20 +12,16 @@ Into
     <div class="row sameheight-container">
         <div class="col-md-9">
             <div class="card card-block sameheight-item">
-                <form action='{{ url("/detail_course") }}' method="POST" enctype="multipart/form-data">
+                <form action="{{ url("/detail_course/{$id_course}") }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <h1 class="form-control btn btn-primary">Tạo chi tiết khóa học {{ $course->id_course }}</h1>
-                    <div class="form-group">
-                        <label for="id_course">ID_course</label>
-                        <input type="text" name="id_course" id="id_course" class="form-control" placeholder="Id_course" aria-describedby="helpId" >
-                    </div>
+                    <h1 class="form-control btn btn-primary">Tạo chi tiết khóa học {{ $id_course }}</h1>
                     <div class="form-group">
                         <label for="number">Buổi học</label>
                         <input type="text" name="number" id="number" class="form-control" placeholder="Number" aria-describedby="helpId" >
                     </div>
                     <div class="form-group">
                         <label for="content">Nội dung</label>
-                        <textarea type="text" name="content" id="content" class="form-control" placeholder="Content" aria-describedby="helpId" >
+                        <textarea type="text" name="content" id="content" class="form-control" placeholder="Content" aria-describedby="helpId"> </textarea>
                     </div>
                     <div class="form-group">
                         <label for="date">Ngày học</label>

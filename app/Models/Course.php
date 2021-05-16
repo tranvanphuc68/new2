@@ -12,4 +12,9 @@ class Course extends Model
     protected $guarded = [];
 
     protected $table = 'courses';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

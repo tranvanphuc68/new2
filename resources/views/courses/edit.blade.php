@@ -1,4 +1,4 @@
-@extends('layouts.courses.app')
+@extends('layouts.users.app')
 
 @section('title')
 Into
@@ -12,7 +12,7 @@ Into
     <div class="row sameheight-container">
         <div class="col-md-9">
             <div class="card card-block sameheight-item">
-                <form action='{{ url("/courses/$course->id") }}' method="POST" enctype="multipart/form-data">
+                <form action="{{ url("/courses/$course->id") }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <h1 class="form-control btn btn-primary">Cập nhật thông tin khóa học</h1>
@@ -22,15 +22,15 @@ Into
                     </div>
                     <div class="form-group">
                         <label for="name">Tên khóa học</label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Name" aria-describedby="helpId" value="{{ $course->name }}">>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Name" aria-describedby="helpId" value="{{ $course->name }}">
                     </div>
                     <div class="form-group">
                         <label for="id_teacher">Mã giảng viên</label>
-                        <input type="text" name="id_teacher" id="id_teacher" class="form-control" placeholder="ID_teacher" aria-describedby="helpId" value="{{ $course->id_teacher }}"> >
+                        <input type="text" name="id_teacher" id="id_teacher" class="form-control" placeholder="ID_teacher" aria-describedby="helpId" value="{{ $course->id_teacher }}"> 
                     </div>
                     <div class="form-group">
                         <label for="description">Mô tả</label>
-                        <input type="text" name="description" id="description" class="form-control" placeholder="Description" aria-describedby="helpId" value="{{ $course->description }}"> >
+                        <input type="text" name="description" id="description" class="form-control" placeholder="Description" aria-describedby="helpId" value="{{ $course->description }}"> 
                     </div>
                     <div class="form-group">
                         <label for="timetable">Thời gian biểu</label>

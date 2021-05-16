@@ -7,39 +7,34 @@ Into
 @section('content')
 <article class="content">
     <div class="title-block">
-        <h3 class="title"> THÔNG TIN CHI TIẾT KHÓA HỌC</h3>
+        <h3 class="title"> THÔNG TIN CHI TIẾT KHÓA HỌC {{$id_course}}</h3>
     </div>
+    <a href="{{ url("/detail_course/create/{$id_course}") }}" class="btn btn-primary">Thêm chi tiết</a>
     <div class="card card-block sameheight-item">
-        <table>
+        <table class="table table-striped table-bordered table-hover">
             <tr>
-                <th>Id khóa học</th>
                 <th>Buổi</th>
                 <th>Nội dung</th>
-                <th>Ngày sinh</th>
                 <th>Ngày học</th>
+                <th></th>
             </tr>   
             @foreach($detail as $detail)
-            <tr>
-                <td>{{ $detail->id_course }}</td>
-                <td>{{ $detail->number }}</td>
-                <td>{{ $detail->content }}</td>
-                <td>{{ $detail->date }}</td>
-                <td>
-                    <a href='{{ url("/detail_course/{$detail->id_course}-{$detail->number}/edit") }}' class="btn btn-primary">Sửa</a>
-                    <a href="javascript:void(0)" onclick="document.getElementById('detailCourse-delete-{{ $detail->number }}').submit()" class="btn btn-primary">Xóa</a>
-                    <form action='{{ url("/detail_course/{$detail->id_course}-{$detail->number}") }}' method="POST" id="detailCourse-delete-{{ $detail->number }}">
-                        @method('DELETE')
-                        @csrf
-                    </form>
-                </td>
-            </tr>
+                <tr>
+                    <td>{{ $detail->number }}</td>
+                    <td>{{ $detail->content }}</td>
+                    <td>{{ $detail->date }}</td>
+                    <td>
+                        <a href="{{ url("/detail_course/{$detail->id_course}-{$detail->number}/edit") }}" class="btn btn-primary">Sửa</a>
+                        <a href="javascript:void(0)" onclick="if (confirm('Are you sure you want to delete this item?')) document.getElementById('detailCourse-delete-{{ $detail->id_course }}').submit()" class="btn btn-primary">Xóa</a>
+                        <form method="POST" id="detailCourse-delete-{{ $detail->id_course }}" action="{{ url("/detail_course/{$detail->id_course}-{$detail->number}") }}" >
+                            @method('DELETE')
+                            @csrf
+                        </form>
+                    </td>
+                </tr>
             @endforeach
         </table>
     </div>
-
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
 </article>
 
 @endsection

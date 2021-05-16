@@ -8,14 +8,21 @@ use Illuminate\Http\Request;
 
 class DetailCourseController extends Controller
 {
-    public function create()
+    public function create($id_course)
     {
-        return view('courses.detail.create');
+        return view('courses.detail.create', [
+            'id_course' => $id_course
+        ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $id_course)
     {
-        $data = DetailCourse::create($request->input());
+        $data = DetailCourse::create([
+            'id_course' => $id_course,
+            'number' => $request->number,
+            'date' => $request->date,
+            'content' => $request->content
+        ]);
         return redirect("courses/{$request->id_course}");
     }
 

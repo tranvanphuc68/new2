@@ -1,4 +1,4 @@
-@extends('layouts.courses.app')
+@extends('layouts.users.app')
 
 @section('title')
 Into
@@ -15,10 +15,10 @@ Into
                 <form action='{{ url("/detail_course/{$course->id_course}-{$course->number}") }}' method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
-                    <div>Sửa thông tin của khóa học {{ $course->id_course }} và buổi học thứ {$course->number}</div>
+                    <div>Sửa thông tin của khóa học {{ $course->id_course }} và buổi học thứ {{$course->number}}</div>
                     <div class="form-group">
                         <label for="content">Nội dung</label>
-                        <textarea type="text" name="content" id="content" class="form-control" placeholder="Content" aria-describedby="helpId" value="{{ $course->content }}" >
+                        <textarea type="text" name="content" id="content" class="form-control" placeholder="Content" aria-describedby="helpId" value="">{{ $course->content }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="date">Ngày học</label>

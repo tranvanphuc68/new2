@@ -1,27 +1,20 @@
-@extends('layouts.courses.app')
+@extends('layouts.users.app')
 
 @section('title')
 Into
 @endsection
 
 @section('content')
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create new user</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ url("/courses") }}" method="POST" enctype="multipart/form-data" name="insert">
+<article class="content forms-page">
+    <div class="title-block">
+        <h3 class="title"> </h3>
+    </div>
+    <div class="row sameheight-container">
+        <div class="col-md-9">
+            <div class="card card-block sameheight-item">
+                <form action="{{ url("/courses") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <h1 class="form-control btn btn-primary">Tạo khóa học mới</h1>
-                    <div class="form-group">
-                        <label for="id">ID</label>
-                        <input type="text" name="id" id="id" class="form-control" placeholder="Id" aria-describedby="helpId" >
-                    </div>
                     <div class="form-group">
                         <label for="name">Tên khóa học</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Name" aria-describedby="helpId" >
@@ -62,12 +55,12 @@ Into
                         <label for="status">Tình trạng</label>
                         <input type="text" name="status" id="status" class="form-control" placeholder="Status" aria-describedby="helpId" >
                     </div>
-                    <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
-                    <button type="reset" class="btn btn-primary" name="exit">Thoát</button>
+                    <button type="submit" class="btn btn-primary" >Lưu thông tin</button>
+                    <button type="reset" class="btn btn-primary" >Thoát</button>
                 </form>
             </div>
         </div>
     </div>
-</div>
+</article>
 @endsection
 

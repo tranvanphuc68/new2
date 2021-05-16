@@ -1,4 +1,3 @@
-
 @extends('layouts.users.app')
 
 @section('title')
@@ -13,7 +12,7 @@ Into
     <div class="row sameheight-container">
         <div class="col-md-9">
             <div class="card card-block sameheight-item">
-                <form action="{{url("/users/student/$user->id")}}"" method="POST" enctype="multipart/form-data">
+                <form action="{{url("/users/student/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <h1 class="form-control btn btn-primary">Cập nhật thông tin cá nhân</h1>
@@ -21,18 +20,14 @@ Into
                         <input type="file" name="avatar">
                     </div>
                     <div class="form-group">
-                        <label for="id">ID</label>
-                        <input type="text" name="id" id="id" class="form-control" placeholder="Id" aria-describedby="helpId" value="{{ $user->id }}">
-                    </div>
-                    <div class="form-group">
                         <label for="name">Họ tên</label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Username" aria-describedby="helpId" value="{{ $user->name }}">
+                        <input type="text" name="fullname" id="name" class="form-control" placeholder="Username" aria-describedby="helpId" value="{{ $user->fullname }}">
                     </div>
                     <div class="form-group">
                         <label>Giới tính</label>
-                        <input type="radio" name="gender" id="male" value="male" />
+                        <input type="radio" name="gender" id="male" value="Male" />
                         <label for="male">Nam</label>
-                        <input type="radio" name="gender" id="female" value="female" />
+                        <input type="radio" name="gender" id="female" value="Female" />
                         <label for="female">Nữ</label>
                     </div>
                     <div class="form-group">

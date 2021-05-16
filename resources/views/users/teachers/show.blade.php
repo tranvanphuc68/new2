@@ -7,11 +7,11 @@ Into
 @section('content')
 <article class="content">
     <div class="title-block">
-        <h3 class="title"> THÔNG TIN CHI TIẾT</h3>
+        <h3 class="title"> THÔNG TIN CHI TIẾT GIẢNG VIÊN ID {{ $user->id }}     </h3>
     </div>
     <div class="card card-block sameheight-item">
     <div>ID: {{ $user->id }}</div>
-    <div>Họ tên: {{ $user->name }}</div>
+    <div>Họ tên: {{ $user->fullname }}</div>
     <div>Giới tính: {{ $user->gender }}</div>
     <div> Ngày sinh: {{ $user->dob }}</div>
     <div> Nơi sinh: {{ $user->hometown }}</div>

@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index_teacher()
     {
-        $teachers = User::where('role', 'teacher')->get();
+        $teachers = User::where('role', 'teacher')->paginate(5)->withQueryString();
         return view('users.teachers.index', [
             'teachers' => $teachers
         ]);
@@ -18,15 +18,22 @@ class UserController extends Controller
 
     public function index_student()
     {
-        $students = User::where('role', 'student')->get();
+        $students = User::where('role', 'student')->paginate(5)->withQueryString();
         return view('users.students.index', [
             'students' => $students
         ]);
     }
 
-    public function show(User $user)
+    public function show_teacher(User $user)
     {
-        return view('users.show', [
+        return view('users.teachers.show', [
+            'user' => $user
+        ]);
+    }
+
+    public function show_student(User $user)
+    {
+        return view('users.students.show', [
             'user' => $user
         ]);
     }
@@ -124,9 +131,9 @@ class UserController extends Controller
     }
 
     public function self_edit()
-    {
+    {   
         $user = Auth::user();
-        return view('users.edit', [
+        return view('users.self_edit', [
             'user' => $user
         ]);
     }

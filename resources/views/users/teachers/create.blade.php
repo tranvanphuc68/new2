@@ -8,7 +8,7 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="title-block">
-        <h3 class="title"> </h3>
+        <h1 class="title">THÊM GIẢNG VIÊN</h1>
     </div>
     <div class="row sameheight-container">
         <div class="col-md-9">
@@ -16,20 +16,19 @@ Into
                 <form action="{{ url("/users/teacher") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="avatar">avatar</label>
+                        <label for="avatar">Avatar</label>
                         <div> <input type="file" name="avatar" > </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="id">ID</label>
-                        <input type="text" name="id" id="id" class="form-control" placeholder="Id" aria-describedby="helpId">
                     </div>
                     <div class="form-group">
                         <label for="name">Họ tên</label>
                         <input type="text" name="fullname" id="name" class="form-control" placeholder="Username" aria-describedby="helpId">
                     </div>
                     <div class="form-group">
-                        <label for="gender">Giới tính</label>
-                        <input type="text" name="gender" id="gender" class="form-control" placeholder="Gender" aria-describedby="helpId">
+                        <label>Giới tính</label>
+                        <input type="radio" name="gender" id="male" />
+                        <label for="male">Nam</label>
+                        <input type="radio" name="gender" id="female" />
+                        <label for="female">Nữ</label>
                     </div>
                     <div class="form-group">
                         <label for="dob">Ngày sinh</label>
@@ -68,12 +67,6 @@ Into
                         <label for="id_card">Password</label>
                         <input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-describedby="helpId">
                     </div>
-
-
-                    <input type="radio" name="role" value="Admin">Admin
-                    <input type="radio" name="role" value="Teacher">Teacher
-                    <input type="radio" name="role" value="Student">Student
-
                     <div>
                         <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
                         <button type="reset" class="btn btn-primary" name="exit">Thoát</button>

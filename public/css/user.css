@@ -1,6 +1,4 @@
-ul li {
-    list-style: none;
-}
+
 .header h1 a {
     text-decoration: none;
 }
@@ -20,20 +18,3 @@ ul li {
     position: relative;
     margin-bottom: -90px;
 }
-#header-course {
-    background: #67b0d1;
-    
-  }
-  .nav-menu ul li a {
-    color: white !important;
-  }
-  .course-title {
-    background-color: white;
-    box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12);
-    border-radius: 8px;
-    margin: 50px;
-  }
-  .course-title img {
-    border-radius: 8px;
-    max-height: 500px;
-  }

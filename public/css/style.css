@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50px;
   right: 15px;
   bottom: 15px;
-  background: rgb(103, 176, 209);
+  background: #67b0d1;
   color: #fff;
   transition: display 0.5s ease-in-out;
   z-index: 99999;
@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
   transition: all 0.5s;
   padding: 15px 0;
-  background: #5AB9EA;
+  background: rgba(103, 176, 209, 0.8);
 }
 
 #header.header-transparent {
@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header.header-scrolled {
-  background: #5AB9EA;
+  background: rgba(103, 176, 209, 0.8);
   padding: 0;
 }
 
@@ -107,25 +107,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/*------------------------------------------------------
-#course
-/*----------------------------------------------------------*/
-.course ul{
-  list-style: none;
-}
-.icofont-check {
-  color: #67b0d1;
-}
-.course-img {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.course-img img {
-  max-width: 400px;
-  box-shadow: 0 0 29px 0 rgb(0 0 0 / 15%);
-  border-radius: 6px;
-}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -528,8 +509,7 @@ section {
 # About
 --------------------------------------------------------------*/
 .about {
-  /* background: url("../assets/img/background_about_us.jpg") center center no-repeat; */
-  background: linear-gradient(#5AB9EA, #8860D0);
+  background: url("../assets/img/about-bg.jpg") center center no-repeat;
   background-size: cover;
   padding: 60px 0;
   position: relative;
@@ -542,7 +522,7 @@ section {
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.75);
   z-index: 9;
 }
 
@@ -558,12 +538,12 @@ section {
 .about .content h3 {
   font-weight: 700;
   font-size: 34px;
-  color: #5AB9EA;
+  color: #2f4d5a;
   margin-bottom: 30px;
 }
 
 .about .content p {
-  margin: 30px 0;
+  margin-bottom: 30px;
 }
 
 .about .content .about-btn {
@@ -593,7 +573,7 @@ section {
 
 .about .icon-boxes .icon-box i {
   font-size: 40px;
-  color: #5AB9EA;
+  color: #67b0d1;
   margin-bottom: 10px;
 }
 
@@ -608,11 +588,6 @@ section {
   color: #848484;
 }
 
-.about-img {
-  max-width: 400px;
-  box-shadow: 0 0 29px 0 rgb(0 0 0 / 15%);
-  border-radius: 6px;
-}
 @media (max-width: 1200px) {
   .about .content {
     padding-right: 0;
@@ -632,52 +607,27 @@ section {
   padding: 30px;
   position: relative;
   overflow: hidden;
+  background: #fff;
   box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12);
   transition: all 0.3s ease-in-out;
   border-radius: 8px;
   z-index: 1;
-  opacity: 0;
-  width: 100%;
-  max-height: 200px;
 }
 
-.services .course1 {
-  background-image: url('../assets/img/courses/couse2.jpg');
-  background-position: 30% 10%;
-  position: relative;
-}
-.services .icon-box::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 54px;
-  background-color: rgba(103, 176, 209, 0.75);
-}
-.services .title{
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-  z-index: 22;
-}
-.services .icon-box h5 a {
-  color: white;
-}
 .services .icon-box::before {
   content: '';
   position: absolute;
   background: white;
   right: 0;
   left: 0;
-  bottom: 50px;
+  bottom: 0;
   top: 100%;
   transition: all 0.3s;
   z-index: -1;
 }
 
 .services .icon-box:hover::before {
-  background: rgba(86, 128, 233, 0.75);
+  background: #67b0d1;
   top: 0;
   border-radius: 0px;
 }
@@ -689,26 +639,26 @@ section {
 .services .icon i {
   font-size: 48px;
   line-height: 1;
-  color: #5AB9EA;
+  color: #67b0d1;
   transition: all 0.3s ease-in-out;
 }
 
+.services .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
 
 .services .title a {
   color: #111;
 }
 
 .services .description {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 32px;
+  font-size: 15px;
+  line-height: 28px;
   margin-bottom: 0;
-  text-align: center;
-  color: rgba(17, 17, 17, 0);
 }
-.services .des{
-  padding-bottom: 50px;
-}
+
 .services .icon-box:hover .title a, .services .icon-box:hover .description {
   color: #fff;
 }
@@ -771,7 +721,7 @@ section {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(#5AB9EA, #5AB9EA), url("../assets/img/cta-bg.jpg") fixed center center;
+  background: linear-gradient(rgba(103, 176, 209, 0.8), rgba(103, 176, 209, 0.8)), url("../assets/img/cta-bg.jpg") fixed center center;
   background-size: cover;
   padding: 60px 0;
 }

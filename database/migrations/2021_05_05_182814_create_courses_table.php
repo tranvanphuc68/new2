@@ -24,7 +24,8 @@ class CreateCoursesTable extends Migration
             $table->integer('lessons');
             $table->double('fee',9,0);
             $table->double('salary',9,0);
-            $table->integer('status');
+            $table->integer('status_salary')->default('1');
+            $table->integer('status')->default('1');
             $table->timestamps();
             
             $table->foreign('id_teacher')->references('id')->on('users')->onDelete('set null');

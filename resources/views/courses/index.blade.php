@@ -16,7 +16,7 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <a href="javascript:void(0)" class="btn btn-primary" name="create">THÊM KHÓA HỌC</a>
+                                <a href=" {{ url("/courses/create") }}" class="btn btn-primary" name="create">THÊM KHÓA HỌC</a>
                                 <form role="search" style="text-align: right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
@@ -30,9 +30,9 @@ Into
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th>Id</th>
-                                                <th>Mã khóa</th>
-                                                <th>Rên khóa</th>
+                                                <th>ID</th>
+                                                <th>Tên khóa</th>
+                                                <th>Tên teacher</th>
                                                 <th>Mô tả</th>
                                                 <th>Thời khóa biểu</th>
                                                 <th>Số lượng học viên tối đa</th>
@@ -56,13 +56,22 @@ Into
                                                 <td>{{ $course->fee }}</td>
                                                 <td>{{ $course->salary }}</td>
                                                 <td>
-                                                    <a href="javascript:void(0)" data-id="<?php echo $course->id?>" class="btn btn-primary" name="view">Xem</a>
-                                                    <a href="javascript:void(0)" data-id="<?php echo $course->id?>" class="btn btn-primary" name="edit">Sửa</a>
-                                                    <a href="javascript:void(0)" data-id="<?php echo $course->id?>" class="btn btn-primary" name="delete">Xóa</a>
+                                                    <a href="{{ url("/courses/{$course->id}") }}" class="btn btn-primary">Xem</a>
+                                                    <a href="{{ url("/courses/{$course->id}/edit") }}" class="btn btn-primary">Sửa</a>
+                                                    <a href="javascript:void(0)" onclick="if (confirm('Are you sure you want to delete this item?')) document.getElementById('course-delete-{{ $course->id }}').submit()" class="btn btn-primary">Xóa</a>
+                                                    <form method="POST" id="course-delete-{{ $course->id }}" action="{{ url("/courses/$course->id") }} >
+                                                        @method('DELETE')
+                                                        @csrf
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
+<<<<<<< HEAD
+                                    {{ $courses->links('') }}
+=======
+                                    {{ $courses -> links('')}}
+>>>>>>> a7ea45a964cad89620dcccc77f09849b42048857
                                 </div>
                             </section>
                         </div>
