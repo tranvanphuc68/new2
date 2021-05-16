@@ -15,7 +15,7 @@
             @if (Auth::user()->role == 'Admin')
                 <ul class="sidebar-menu metismenu" id="sidebar-menu">
                     <li class="active">
-                        <a href="index.html">
+                        <a href="">
                             <i class="fa fa-home"></i> Dashboard
                         </a>
                     </li>
@@ -80,7 +80,7 @@
             @if (Auth::user()->role == 'Teacher')
                 <ul class="sidebar-menu metismenu" id="sidebar-menu">
                     <li class="active">
-                        <a href="index.html">
+                        <a href="">
                             <i class="fa fa-home"></i> Dashboard
                         </a>
                     </li>
@@ -105,7 +105,7 @@
             @if (Auth::user()->role == 'Student')
                 <ul class="sidebar-menu metismenu" id="sidebar-menu">
                     <li class="active">
-                        <a href="index.html">
+                        <a href="">
                             <i class="fa fa-home"></i> Dashboard
                         </a>
                     </li>
