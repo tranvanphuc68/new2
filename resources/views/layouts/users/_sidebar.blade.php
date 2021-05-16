@@ -85,8 +85,18 @@
                         </a>
                     </li>
                     <li>
-                        <a href=""{{ url("/attendance") }}"">
+                        <a href="">
                             <i class="fa fa-building-o"></i> Các lớp đang dạy <i class="fa arrow"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url("/attendance") }}">
+                            <i class="fa fa-table"></i> Điểm danh <i class="fa arrow"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-table"></i> Nhập điểm <i class="fa arrow"></i>
                         </a>
                     </li>
                     <li>
@@ -117,6 +127,16 @@
                     <li>
                         <a href="">
                             <i class="fa fa-th-large"></i> Điểm <i class="fa arrow"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-th-large"></i> Điểm danh <i class="fa arrow"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-th-large"></i> Lịch học <i class="fa arrow"></i>
                         </a>
                     </li>
                     <li>

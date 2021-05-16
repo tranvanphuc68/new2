@@ -1,37 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href="{{url('/logout')}}" >logout</a>
+@extends('layouts.users.app')
 
-    <h1>Fee</h1>
-    @if(Auth::check())
-    <div>Hello {{ Auth::user()->email }}</div>
-    @endif
-    <table>
-    @if (Auth::user()->role == 'Student')
-        @foreach($fees as $fee)
-        <tr>
-            <td>{{ $fee->id_course }}</td>
-            <td>{{ $fee->name }}</td>
-            <td><?php echo $fee->status_fee == 1 ? 'Chưa nộp': 'Đã nộp'; ?></td>
-        </tr>
-        @endforeach
-    @else
-        @foreach($courses as $course)
-            <tr>
-                <td>{{ $course->id }}</td>
-                <td>{{ $course->name }}</td>
-                <td><?php echo $course->status == 1 ? 'Chưa học': 'Đang học'; ?></td>
-                <td><a href="{{ url("/fees/{$course->id}") }}">SHOW</a></td>
-            </tr>
-        @endforeach
-    @endif
-    </table>
-</body>
-</html>
+@section('title')
+Into
+@endsection
+
+@section('content')
+<article class="content responsive-tables-page">
+    <div class="teacher">
+        <div class="title-block">
+            <h1 class="title"> DANH SÁCH GIẢNG VIÊN </h1>
+        </div>
+        <section class="section">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <section class="example">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    @if (Auth::user()->role == 'Student')
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Tên Khóa học</th>
+                                            <th>Tình trạng</th>
+                                        </tr>
+                                    </thead>
+                                    @foreach($fees as $fee)
+                                    <tr>
+                                        <td>{{ $fee->id_course }}</td>
+                                        <td>{{ $fee->name }}</td>
+                                        <td><?php echo $fee->status_fee == 1 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
+                                    </tr>
+                                    @endforeach
+                                    @else
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Tên Khóa học</th>
+                                            <th>Tình trạng</th>
+                                            <th>Chi tiết</th>
+                                        </tr>
+                                    </thead>
+                                    @foreach($courses as $course)
+                                    <tr>
+                                        <td>{{ $course->id }}</td>
+                                        <td>{{ $course->name }}</td>
+                                        <td><?php echo $course->status == 1 ? 'Chưa học' : 'Đang học'; ?></td>
+                                        <td><a class="btn btn-primary" href="{{ url("/fees/{$course->id}") }}"> SHOW</a></td>
+                                    </tr>
+                                    @endforeach
+                                    @endif
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+
+
+@endsection
