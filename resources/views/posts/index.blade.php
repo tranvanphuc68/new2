@@ -16,6 +16,7 @@
 @foreach ($posts as $post)
     <tr>
         <td>{{ $post->fullname }}</td>
+        <td>{{ $post->title }}</td>
         <td>{{ $post->content }}</td>
         
         <td><a href="{{ url("/posts/{$post->id}") }}">Show</a></td>

@@ -12,6 +12,7 @@
 <div>Hello {{ Auth::user()->email }}</div>
 @endif
         <h3>{{ $post->fullname }}</h3>
+        <h2>{{ $post->title }}</h2>
         <div>{{ $post->content }}</div>
 
         <div><a href="{{ url("/posts/{$post->id}/self_edit") }}">EDIT</a></div>

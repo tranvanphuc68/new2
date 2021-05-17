@@ -10,6 +10,7 @@
 <form method="POST" action="{{url("/posts/$post->id")}}">
 @csrf
 @method('PUT')
+<input type="textarea" name="title" value="{{ $post->title }}">title
 <input type="textarea" name="content" value="{{ $post->content }}">content
 
 <button type="submit">OK</button>

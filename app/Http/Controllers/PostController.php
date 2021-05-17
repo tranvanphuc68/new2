@@ -52,7 +52,9 @@ class PostController extends Controller
     {
         $data = Post::create([
             'id_user' => Auth::user()->id,
-            'content' => $request->content
+            'content' => $request->content,
+            'title' => $request->title
+
         ]);
         return redirect('/posts');
     }
@@ -60,7 +62,8 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $post->update([
-            'content' => $request->content
+            'content' => $request->content,
+            'title' => $request->title
         ]);
         return redirect('posts');
     }

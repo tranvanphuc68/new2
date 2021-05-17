@@ -10,6 +10,7 @@
 <form method="POST" action="{{ url("/posts") }}">
 @csrf
 
+<div><input type="text" name="title">Title</div>
 <div><input type="text" name="content">Content</div>
 
 <button type="submit">OK</button>
