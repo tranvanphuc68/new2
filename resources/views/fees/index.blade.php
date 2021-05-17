@@ -39,7 +39,7 @@ Into
                                         <tr>
                                             <td>{{ $fee->id_course }}</td>
                                             <td>{{ $fee->name }}</td>
-                                            <td><?php echo $fee->status_fee == 1 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
+                                            <td><?php echo $fee->status_fee == 0 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
                                         </tr>
                                         @endforeach
                                         @else
@@ -55,7 +55,7 @@ Into
                                         <tr>
                                             <td>{{ $course->id }}</td>
                                             <td>{{ $course->name }}</td>
-                                            <td><?php echo $course->status == 1 ? 'Chưa học' : 'Đang học'; ?></td>
+                                            <td><?php echo $course->status == 0 ? 'Chưa học' : 'Đang học'; ?></td>
                                             <td><a class="btn btn-primary" href="{{ url("/fees/{$course->id}") }}"> SHOW</a></td>
                                         </tr>
                                         @endforeach

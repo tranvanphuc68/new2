@@ -45,12 +45,12 @@ Into
                                                 <td>{{ $student->fullname }}</td>
                                                 <td>{{ $student->fee }}</td>
                                                 <td>
-                                                    <input type="radio" id="{{$student->id_student}}_1" name="{{$student->id_student}}" value="1" <?php echo ($student->status_fee == 1) ? 'checked' : '' ?>>
-                                                    <label for="{{$student->id_student}}_1"></label>
+                                                    <input type="radio" id="{{$student->id_student}}_0" name="{{$student->id_student}}" value="0" <?php echo ($student->status_fee == 0) ? 'checked' : '' ?>>
+                                                    <label for="{{$student->id_student}}_0"></label>
                                                 </td>
                                                 <td>
-                                                    <input type="radio" id="{{$student->id_student}}_2" name="{{$student->id_student}}" value="2" <?php echo ($student->status_fee == 2) ? 'checked' : '' ?>>
-                                                    <label for="{{$student->id_student}}_2"></label>
+                                                    <input type="radio" id="{{$student->id_student}}_1" name="{{$student->id_student}}" value="1" <?php echo ($student->status_fee == 1) ? 'checked' : '' ?>>
+                                                    <label for="{{$student->id_student}}_1"></label>
                                                 </td>
                                             </tr>
                                             @endforeach

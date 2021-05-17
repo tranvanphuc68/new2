@@ -42,7 +42,7 @@ Into
                                             <td>{{ $student->id_student }}</td>
                                             <td>{{ $student->fullname }}</td>
                                             <td>{{ $student->fee }}</td>
-                                            <td><?php echo $student->status_fee == 1 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
+                                            <td><?php echo $student->status_fee == 0 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
                                         </tr>
                                         @endforeach
                                     </table>

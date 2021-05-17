@@ -32,7 +32,7 @@ Into
                                                 <td>{{ $salary->id }}</td>
                                                 <td>{{ $salary->name }}</td>
                                                 <td>{{ $salary->salary }}</td>
-                                                <td><?php echo $salary->status_salary == 1 ? 'Chưa nhận': 'Đã nhận'; ?></td>
+                                                <td><?php echo $salary->status_salary == 0 ? 'Chưa nhận': 'Đã nhận'; ?></td>
                                             </tr>
                                         @endforeach
                                     </table>

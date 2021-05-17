@@ -41,12 +41,12 @@ class FeeController extends Controller
         $sum = DB::table('students_courses')
         ->join('courses','courses.id','=','students_courses.id_course')
         ->where('id_course','=',"$id_course")
-        ->where('students_courses.status_fee', '2')
+        ->where('students_courses.status_fee', '1')
         ->sum('courses.fee');
         $count = DB::table('students_courses')
         ->join('courses','courses.id','=','students_courses.id_course')
         ->where('id_course','=',"$id_course")
-        ->where('students_courses.status_fee', '2')
+        ->where('students_courses.status_fee', '1')
         ->count('courses.fee');
         return view('fees.show', [
             'students' => $students,

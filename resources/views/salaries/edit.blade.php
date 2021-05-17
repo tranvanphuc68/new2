@@ -37,12 +37,12 @@ Into
                                                     <td>{{ $teacher->name }}</td>
                                                     <td>{{ $teacher->salary }}</td>
                                                     <td>
-                                                        <input type="radio" id="{{$teacher->id_teacher}}_1" name ="{{$teacher->id}}" value="1" <?php echo ($teacher->status_salary == 1) ? 'checked' : ''?>>
-                                                        <label for="{{$teacher->id_teacher}}_1"></label>
+                                                        <input type="radio" id="{{$teacher->id_teacher}}_0" name ="{{$teacher->id}}" value="0" <?php echo ($teacher->status_salary == 0) ? 'checked' : ''?>>
+                                                        <label for="{{$teacher->id_teacher}}_0"></label>
                                                     </td>
                                                     <td>
-                                                        <input type="radio" id="{{$teacher->id_teacher}}_2" name ="{{$teacher->id}}" value="2" <?php echo ($teacher->status_salary == 2) ? 'checked' : ''?>>
-                                                        <label for="{{$teacher->id_teacher}}_2"></label>
+                                                        <input type="radio" id="{{$teacher->id_teacher}}_1" name ="{{$teacher->id}}" value="1" <?php echo ($teacher->status_salary == 1) ? 'checked' : ''?>>
+                                                        <label for="{{$teacher->id_teacher}}_1"></label>
                                                     </td>
                                                 </tr>
                                             @endforeach
