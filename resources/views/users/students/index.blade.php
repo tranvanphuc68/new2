@@ -50,7 +50,7 @@ Into
                                             <td>
                                                 <a href='{{ url("/users/student/{$user->id}") }}' class="btn btn-primary">Xem</a>
                                                 <a href='{{ url("/users/student/{$user->id}/edit") }}' class="btn btn-primary">Sửa</a>
-                                                <a href="javascript:void(0)" onclick="if (confirm('Are you sure you want to delete this item?')) document.getElementById('user-delete-{{ $user->id }}').submit()" class="btn btn-primary">Xóa</a>
+                                                <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('user-delete-{{ $user->id }}').submit()" class="btn btn-primary">Xóa</a>
                                                 <form method="POST" id="user-delete-{{ $user->id }}" action="{{ url("/users/student/{$user->id}") }}" >
                                                     @method('DELETE')
                                                     @csrf
