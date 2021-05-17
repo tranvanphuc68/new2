@@ -1,32 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    @if (count($students) != 0)
-        @if (Auth::user()->role == 'Teacher')
-        <a href="{{ url("/marks/edit/{$students[0]->id_course}") }}">Edit</a>
-        @endif
-        <h1>{{ $students[0]->name }}</h1>
-        <table>
-            @foreach($students as $student)
-                <tr>
-                    <td>{{ $student->id_student }}</td>
-                    <td>{{ $student->fullname }}</td>
-                    <td>{{ $student->name }}</td>
-                    <td>{{ $student->mark }}</td>
-                </tr>
-            @endforeach
-        </table>
-    @else
-    <p>Null</p>
-    @endif
-    
-    
 
-</body>
-</html>
+@extends('layouts.users.app')
+
+@section('title')
+Into
+@endsection
+
+@section('content')
+<article class="content responsive-tables-page">
+    <div class="student">
+        <div class="title-block">
+            <h1 class="title">Khóa học {{ $students[0]->name }}</h1>
+        </div>
+        <section class="section">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-block">
+                            <section class="example">                   
+                                @if (count($students) != 0)
+                                    @if (Auth::user()->role == 'Teacher')
+                                    <a class="btn btn-primary" href="{{ url("/marks/edit/{$students[0]->id_course}") }}">Cập nhật điểm</a>
+                                    @endif
+                                    <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID Học viên</th>
+                                                <th>Tên Học viên</th>
+                                                <th>Điểm</th>
+                                            </tr>
+                                        </thead>
+                                        @foreach($students as $student)
+                                            <tr>
+                                                <td>{{ $student->id_student }}</td>
+                                                <td>{{ $student->fullname }}</td>
+                                                <td>{{ $student->mark }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                    </div>
+                                @else
+                                <p>Null</p>
+                                @endif
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+@endsection

@@ -14,6 +14,7 @@ class MarkController extends Controller
         $courses = DB::table('courses')
         ->where('status', '=', '1')
         ->orWhere('status', '=', '2')
+        ->orWhere('status', '=', '3')
         ->select('courses.*')
         ->get();
 

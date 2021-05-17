@@ -1,37 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href="{{url('/logout')}}" >logout</a>
 
-    <h1>Salary</h1>
-    @if(Auth::check())
-    <div>Hello {{ Auth::user()->email }}</div>
-    @endif
-    <table>
-    @if (Auth::user()->role == 'Teacher')
-        @foreach($salaries as $salary)
-        <tr>
-            <td>{{ $salary->id }}</td>
-            <td>{{ $salary->name }}</td>
-            <td><?php echo $salary->status_salary == 1 ? 'Chưa nhận': 'Đã nhận'; ?></td>
-        </tr>
-        @endforeach
-    @else
-        @foreach($teachers as $teacher)
-            <tr>
-                <td>{{ $teacher->id }}</td>
-                <td>{{ $teacher->fullname }}</td>
-                
-                <td><a href="{{ url("/salaries/{$teacher->id}") }}">SHOW</a></td>
-            </tr>
-        @endforeach
-    @endif
-    </table>
-</body>
-</html>
+@extends('layouts.users.app')
+
+@section('title')
+Into
+@endsection
+
+@section('content')
+<article class="content responsive-tables-page">
+    <div class="student">
+        <div class="title-block">
+            <h1 class="title">LƯƠNG CÁC GIẢNG VIÊN </h1>
+        </div>
+        <section class="section">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-block">
+                            <section class="example">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        @if (Auth::user()->role == 'Teacher')
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Tên Khóa học</th>
+                                                    <th>Tình trạng</th>
+                                                </tr>
+                                            </thead>
+                                            @foreach($salaries as $salary)
+                                                <tr>
+                                                    <td>{{ $salary->id }}</td>
+                                                    <td>{{ $salary->name }}</td>
+                                                    <td><?php echo $salary->status_salary == 1 ? 'Chưa nhận': 'Đã nhận'; ?></td>
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Tên Giảng viên</th>
+                                                    <th>Chi tiết</th>
+                                                </tr>
+                                            </thead>
+                                            @foreach($teachers as $teacher)
+                                                <tr>
+                                                    <td>{{ $teacher->id }}</td>
+                                                    <td>{{ $teacher->fullname }}</td>
+                                                    <td><a class="btn btn-primary" href="{{ url("/salaries/{$teacher->id}") }}">SHOW</a></td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
+                                    </table>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+@endsection

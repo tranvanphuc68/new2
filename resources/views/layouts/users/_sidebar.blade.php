@@ -9,7 +9,9 @@
                         <span class="l l4"></span>
                         <span class="l l5"></span>
                     </div>  
-                    <span style="font-weight: 500; font-size:12px">{{ Auth::user()->fullname }}</span> 
+                    @if (Auth::user()->role == 'Student') <span> Student </span> @endif
+                    @if (Auth::user()->role == 'Teacher') <span> Teacher </span> @endif
+                    @if (Auth::user()->role == 'Admin') <span> Admin </span> @endif
                 </div>
             </div>
             <nav class="menu">
@@ -34,17 +36,9 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="">
-                            <i class="fa fa-th-large"></i> Quản lí lớp học<i class="fa arrow"></i>
+                        <a href="{{ url("/courses") }}">
+                            <i class="fa fa-th-large"></i> Quản lí lớp học</i>
                         </a>
-                        <ul class="sidebar-nav">
-                            <li>
-                                <a href="{{ url("/courses") }}" name="teacher-link"> Khóa học</a>
-                            </li>
-                            <li>
-                                <a href="{{ url("/attendance") }}" name="student-link"> Điểm danh </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
                         <a href="">
@@ -58,6 +52,16 @@
                                 <a href="{{ url("/fees") }}"> Học viên đăng kí </a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="{{ url("/feedbacks") }}">
+                            <i class="fa fa-building-o"></i> Feedback</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url("/marks") }}">
+                            <i class="fa fa-building-o"></i> Điểm của học viên </i>
+                        </a>
                     </li>
                     <li>
                         <a href="">
@@ -92,22 +96,27 @@
                     </li>
                     <li>
                         <a href="{{ url("/attendance") }}">
-                            <i class="fa fa-table"></i> Điểm danh <i class="fa arrow"></i>
+                            <i class="fa fa-table"></i> Điểm danh </i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url("/marks") }}">
+                            <i class="fa fa-table"></i> Nhập điểm </i>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <i class="fa fa-table"></i> Nhập điểm <i class="fa arrow"></i>
+                            <i class="fa fa-table"></i> Lịch dạy </i>
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            <i class="fa fa-table"></i> Lịch dạy <i class="fa arrow"></i>
+                        <a href="{{ url("/salaries") }}">
+                            <i class="fa fa-table"></i> Lương </i>
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            <i class="fa fa-table"></i> Lương <i class="fa arrow"></i>
+                        <a href="{{ url("/feedbacks") }}">
+                            <i class="fa fa-building-o"></i> Feedback</i>
                         </a>
                     </li>
 
@@ -122,27 +131,32 @@
                     </li>
                     <li>
                         <a href="">
-                            <i class="fa fa-group"></i> Các lớp đã đăng kí <i class="fa arrow"></i>
+                            <i class="fa fa-group"></i> Các lớp đã đăng kí </i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url("/marks") }}">
+                            <i class="fa fa-th-large"></i> Điểm </i>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <i class="fa fa-th-large"></i> Điểm <i class="fa arrow"></i>
+                            <i class="fa fa-th-large"></i> Điểm danh </i>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <i class="fa fa-th-large"></i> Điểm danh <i class="fa arrow"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="fa fa-th-large"></i> Lịch học <i class="fa arrow"></i>
+                            <i class="fa fa-th-large"></i> Lịch học </i>
                         </a>
                     </li>
                     <li>
                         <a href="{{ url("/fees") }}">
-                            <i class="fa fa-building-o"></i> Học phí <i class="fa arrow"></i>
+                            <i class="fa fa-building-o"></i> Học phí </i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url("/feedbacks") }}">
+                            <i class="fa fa-building-o"></i> Feedback</i>
                         </a>
                     </li>
                 </ul>
