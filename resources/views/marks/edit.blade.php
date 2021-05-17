@@ -37,7 +37,9 @@ Into
                                                 </tr>
                                             @endforeach
                                         </table>
-                                        <button class="btn btn-primary" type="submit"> Cập Nhật</button>
+                                        <div style="text-align: right">
+                                            <button class="btn btn-primary" type="submit"> Cập Nhật</button>
+                                        </div>
                                     </form>
                                 </div>
                             </section>
