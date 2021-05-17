@@ -15,15 +15,7 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <div class="card-title-block">
-                                <form role="search" style="text-align: left">
-                                    <div class="input-container">
-                                        <i class="fa fa-search"></i>
-                                        <input type="search" placeholder="Search">
-                                        <div class="underline"></div>
-                                    </div>
-                                </form>
-                            </div>
+
                             <section class="example">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover">
