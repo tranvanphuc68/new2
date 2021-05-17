@@ -25,9 +25,9 @@ Into
                     </div>
                     <div class="form-group">
                         <label>Giới tính</label>
-                        <input type="radio" name="gender" id="male" value="Male" />
+                        <input type="radio" name="gender" id="male" value="Male" <?php echo $user->gender == 'Male' ? 'checked' :'' ?> />
                         <label for="male">Nam</label>
-                        <input type="radio" name="gender" id="female" value="Female" />
+                        <input type="radio" name="gender" id="female" value="Female" <?php echo $user->gender == 'Female' ? 'checked' :'' ?> />
                         <label for="female">Nữ</label>
                     </div>
                     <div class="form-group">
@@ -60,7 +60,7 @@ Into
                     </div>
 
                     <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
-                    <button type="reset" class="btn btn-primary" name="exit">Thoát</button>
+                    <a class="btn btn-primary" href="{{ url('/users/self_show') }}">Thoát</a>
                 </form>
             </div>
         </div>

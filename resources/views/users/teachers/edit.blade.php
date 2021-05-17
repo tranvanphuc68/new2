@@ -24,9 +24,9 @@ Into
                     </div>
                     <div class="form-group">
                         <label>Giới tính</label>
-                        <input type="radio" name="gender" id="male" value="Male" />
+                        <input type="radio" name="gender" id="male" value="Male" <?php echo $user->gender == 'Male' ? 'checked' :'' ?> />
                         <label for="male">Nam</label>
-                        <input type="radio" name="gender" id="female" value="Female" />
+                        <input type="radio" name="gender" id="female" value="Female" <?php echo $user->gender == 'Female' ? 'checked' :'' ?> />
                         <label for="female">Nữ</label>
                     </div>
                     <div class="form-group">

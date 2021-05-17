@@ -73,50 +73,50 @@ Into
       <div class="row">
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
 
-                    <div class="card m-2">
-                        <img class="card-img-top" src="https://www.gettyimages.in/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Tên lớp </h5>
-                            <h6 class="card-subtitle mb-1 text-muted">Nội dung </h6>
-                            <a href="#" class="btn btn-primary">Vào lớp</a>
-                        </div>
-                    </div>
+              <div class="card ">
+                  <img class="card-img-top" src="{{ asset('assets/img/courses/course8.jpg') }}" alt="">
+                  <div class="card-body">
+                      <h5 class="card-title">KHÓA FOUNDATION </h5>
+                      <h6 class="card-subtitle mb-1 text-muted">Nội dung </h6>
+                      <h6 class="card-subtitle mb-1 text-muted">Học phí </h6>
+                      <a href="{{asset('index-home -course1.html')}}" class="btn btn-primary">Xem chi tiết</a>
+                  </div>
+              </div>
             </div>
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
 
-                    <div class="card m-2">
-                        <img class="card-img-top" src="https://www.gettyimages.in/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Tên lớp </h5>
-                            <h6 class="card-subtitle mb-1 text-muted">Nội dung </h6>
-                            <h6 class="card-subtitle mb-1 text-muted">Học phí </h6>
-                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                        </div>
-                    </div>
+              <div class="card ">
+                  <img class="card-img-top" src="{{ asset('assets/img/courses/course8.jpg') }}" alt="">
+                  <div class="card-body">
+                      <h5 class="card-title">KHÓA PRE </h5>
+                      <h6 class="card-subtitle mb-1 text-muted">Nội dung </h6>
+                      <h6 class="card-subtitle mb-1 text-muted">Học phí </h6>
+                      <a href="{{asset('index-home -course2.html')}}" class="btn btn-primary">Xem chi tiết</a>
+                  </div>
+              </div>
+            </div>
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+              <div class="card ">
+                  <img class="card-img-top" src="{{ asset('assets/img/courses/course8.jpg') }}" alt="">
+                  <div class="card-body">
+                      <h5 class="card-title">KHÓA INTERMEDIATE </h5>
+                      <h6 class="card-subtitle mb-1 text-muted">Nội dung </h6>
+                      <h6 class="card-subtitle mb-1 text-muted">Học phí </h6>
+                      <a href="{{asset('index-home -course3.html')}}" class="btn btn-primary">Xem chi tiết</a>
+                  </div>
+              </div>
             </div>
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
 
-                    <div class="card m-2">
-                        <img class="card-img-top" src="https://www.gettyimages.in/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Tên lớp </h5>
-                            <h6 class="card-subtitle mb-1 text-muted">Nội dung </h6>
-                            <h6 class="card-subtitle mb-1 text-muted">Học phí </h6>
-                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                        </div>
-                    </div>
-            </div>
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-
-                    <div class="card m-2">
-                        <img class="card-img-top" src="https://www.gettyimages.in/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Tên lớp </h5>
-                            <h6 class="card-subtitle mb-1 text-muted">Nội dung </h6>
-                            <h6 class="card-subtitle mb-1 text-muted">Học phí </h6>
-                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                        </div>
-                    </div>
+              <div class="card ">
+                  <img class="card-img-top" src="{{ asset('assets/img/courses/course8.jpg') }}" alt="">
+                  <div class="card-body">
+                      <h5 class="card-title">KHÓA AVANCED </h5>
+                      <h6 class="card-subtitle mb-1 text-muted">Nội dung </h6>
+                      <h6 class="card-subtitle mb-1 text-muted">Học phí </h6>
+                      <a href="{{asset('index-home -course4.html')}}" class="btn btn-primary">Xem chi tiết</a>
+                  </div>
+              </div>
             </div>
         </div>
 

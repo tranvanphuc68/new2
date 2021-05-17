@@ -9,6 +9,7 @@
                         <span class="l l4"></span>
                         <span class="l l5"></span>
                     </div>  
+                    <span style="font-weight: 500; font-size:12px">{{ Auth::user()->fullname }}</span> 
                 </div>
             </div>
             <nav class="menu">
@@ -140,7 +141,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ url("/fees") }}">
                             <i class="fa fa-building-o"></i> Học phí <i class="fa arrow"></i>
                         </a>
                     </li>

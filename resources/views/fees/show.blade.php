@@ -46,8 +46,8 @@ Into
                                         </tr>
                                         @endforeach
                                     </table>
-                                    <div>Tổng học phí (đã nộp): {{ $sum }}</div>
-                                    <div>Học viên đã nộp: {{ $count }} trên {{ count($students) }}</div>
+                                    <h5>Tổng học phí (đã nộp): {{ $sum }}</p>
+                                    <p>Học viên đã nộp: {{ $count }} / {{ count($students) }}</p>
                                     @else
                                     <p>Null</p>
                                     @endif
