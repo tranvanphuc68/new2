@@ -1,0 +1,1 @@
+(function($){"use strict";window.BuddyBossDemo={init:function(){},blog_Demo:function(){},};$(document).on('ready',function(){BuddyBossDemo.init();});})(jQuery);

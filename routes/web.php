@@ -79,7 +79,7 @@ Route::get('/comments/{comment}/self_edit', [CommentController::class, 'self_edi
 Route::put('/comments/{comment}', [CommentController::class, 'update']);
 Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);//->auth + $user = Auth::user();
 });
-//report_post
+//report_post 
 
 Route::group(['middleware'=>'auth'], function(){
 Route::get('/report_posts', [ReportPostController::class, 'index'])->middleware('admin');
@@ -87,4 +87,8 @@ Route::get('/report_posts/{post}/create',[ReportPostController::class, 'create']
 Route::get('/report_posts/{post}',[ReportPostController::class, 'show'])->middleware('admin');
 Route::post('/report_posts/{post}', [ReportPostController::class, 'store']); 
 Route::delete('/report_posts/{report_post}', [ReportPostController::class, 'destroy'])->middleware('admin');
+});
+
+Route::get('/home', function () {
+    return view('home.index');
 });
