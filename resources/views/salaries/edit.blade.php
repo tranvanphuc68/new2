@@ -1,35 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<form method="POST" action="{{url("/salaries/{$teachers[0]->id_teacher}")}}">
-@csrf
-@method('PUT')
-<table>
-    @if(Auth::check())
-    <div>Hello {{ Auth::user()->email }}</div>
-    @endif
-    @foreach($teachers as $teacher)
-    <tr>
-        <td>{{ $teacher->id }}</td>
-        <td>{{ $teacher->name }}</td>
-        <td>{{ $teacher->salary }}</td>
-        <td>
-            <label for="">status_salary</label>
-            <input type="radio" id="{{$teacher->id_teacher}}_1" name ="{{$teacher->id}}" value="1" <?php echo ($teacher->status_salary == 1) ? 'checked' : ''?>>
-            <label for="{{$teacher->id_teacher}}_1">Chưa nhận</label>
-            <input type="radio" id="{{$teacher->id_teacher}}_2" name ="{{$teacher->id}}" value="2" <?php echo ($teacher->status_salary == 2) ? 'checked' : ''?>>
-            <label for="{{$teacher->id_teacher}}_2">Đã nhận</label>
-        </td>
-    </tr>
-    @endforeach
-    </table>
-<button type="submit">OK</button>
-</form>
-</body>
-</html>
+
+@extends('layouts.users.app')
+
+@section('title')
+Into
+@endsection
+
+@section('content')
+<article class="content responsive-tables-page">
+    <div class="student">
+        <div class="title-block">
+            <h1 class="title"> Lương của giảng viên {{ $teachers[0]->fullname }}</h1>
+        </div>
+        <section class="section">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-block">
+                            <section class="example">
+                                <div class="table-responsive">
+                                    <form method="POST" action="{{ url("/salaries/{$teachers[0]->id_teacher}") }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Tên Khóa Học</th>
+                                                    <th>Lương</th>
+                                                    <th>Chưa Nhận</th>
+                                                    <th>Đã Nhận</th>
+                                                </tr>
+                                            </thead>
+                                            @foreach($teachers as $teacher)
+                                                <tr>
+                                                    <td>{{ $teacher->id }}</td>
+                                                    <td>{{ $teacher->name }}</td>
+                                                    <td>{{ $teacher->salary }}</td>
+                                                    <td>
+                                                        <input type="radio" id="{{$teacher->id_teacher}}_1" name ="{{$teacher->id}}" value="1" <?php echo ($teacher->status_salary == 1) ? 'checked' : ''?>>
+                                                        <label for="{{$teacher->id_teacher}}_1"></label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="radio" id="{{$teacher->id_teacher}}_2" name ="{{$teacher->id}}" value="2" <?php echo ($teacher->status_salary == 2) ? 'checked' : ''?>>
+                                                        <label for="{{$teacher->id_teacher}}_2"></label>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                        <div style="text-align: right;">
+                                            <button class="btn btn-primary" type="submit"> Cập Nhật Lương</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+@endsection

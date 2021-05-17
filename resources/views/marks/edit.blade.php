@@ -1,30 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<form method="POST" action="{{ url("/marks/{$students[0]->id_course}") }}">
-@csrf
-@method('PUT')
-<table>
-    @if(Auth::check())
-    <div>Hello {{ Auth::user()->email }}</div>
-    @endif
-    @foreach($students as $student)
-    <tr>
-        <td>{{ $student->id_student }}</td>
-        <td>{{ $student->fullname }}</td>
-        <td><input type="text" name ="{{ $student->id_student }}" value="{{ $student->mark }}"></td>
-    </tr>
-    @endforeach
-    </table>
 
+@extends('layouts.users.app')
 
-<button type="submit">OK</button>
-</form>
-</body>
-</html>
+@section('title')
+Into
+@endsection
+
+@section('content')
+<article class="content responsive-tables-page">
+    <div class="student">
+        <div class="title-block">
+            <h1 class="title"> Lương của các giảng viên </h1>
+        </div>
+        <section class="section">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-block">
+                            <section class="example">
+                                <div class="table-responsive">
+                                    <form method="POST" action="{{ url("/marks/{$students[0]->id_course}") }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID Học viên</th>
+                                                    <th>Tên Học viên</th>
+                                                    <th>Điểm</th>
+                                                </tr>
+                                            </thead>
+                                            @foreach($students as $student)
+                                                <tr>
+                                                    <td>{{ $student->id_student }}</td>
+                                                    <td>{{ $student->fullname }}</td>
+                                                    <td><input type="text" name ="{{ $student->id_student }}" value="{{ $student->mark }}"></td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                        <button class="btn btn-primary" type="submit"> Cập Nhật</button>
+                                    </form>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+@endsection

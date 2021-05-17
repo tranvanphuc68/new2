@@ -1,21 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<form method="POST" action="{{ url("/feedbacks/{$feedback->id_course}") }}">
-@csrf
-@method('PUT')
-<div>
-    <label for="">content</label>
-    <input type="text" name="feedback" value="{{ $feedback->feedback }}">
-</div>
 
-<button type="submit">OK</button>
-</form>
-</body>
-</html>
+@extends('layouts.users.app')
+
+@section('title')
+Into
+@endsection
+
+@section('content')
+<article class="content responsive-tables-page">
+    <div class="student">
+        <div class="title-block">
+            <h1 class="title"> CẬP NHẬT FEEDBACKS KHÓA HỌC {{$students[0]->name}} </h1>
+        </div>
+        <section class="section">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-block">
+                            <section class="example">
+                                <div class="table-responsive">
+                                    <form method="POST" action="{{ url("/feedbacks/{$feedback->id_course}") }}">
+                                        @csrf
+                                        @method('PUT')
+                                            <textarea class="form-control" rows="5" name="feedback">{{ $feedback->feedback }}</textarea>
+                                            <div class="mt-3" style="text-align: right;">
+                                                <button class="btn btn-primary" type="submit"> Cập Nhật</button>
+                                            </div>
+                                    </form>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</article>
+@endsection

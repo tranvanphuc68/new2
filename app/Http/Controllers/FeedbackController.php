@@ -22,10 +22,11 @@ class FeedbackController extends Controller
         }
         else {
             $courses = DB::table('courses')
-        ->where('status','=','1')
-        ->orWhere('status','=','2')
-        ->select('courses.*')
-        ->get();
+            ->where('status','=','1')
+            ->orWhere('status','=','2')
+            ->orWhere('status','=','3')
+            ->select('courses.*')
+            ->get();
         }
         
         return view('feedbacks.index', [
@@ -64,11 +65,19 @@ class FeedbackController extends Controller
             $data = Feedback::where('id_student', '=', "$id")
             ->where('id_course', '=', "$id_course")
             ->get();
+            $students = DB::table('students_courses')
+            ->join('courses','courses.id','=','students_courses.id_course')
+            ->where('id_course',"$id_course")
+            ->select('students_courses.*','courses.name')
+            ->get();
             $feedback = $data[0];
+           
             return view('feedbacks.edit', [
                 'feedback' => $feedback,
-                'id_course' => $id_course
-            ]);        
+                'id_course' => $id_course,
+                'students' => $students
+            ]);     
+           
     }
 
     public function update(Request $request, $id_course)
