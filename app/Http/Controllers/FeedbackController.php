@@ -11,8 +11,8 @@ class FeedbackController extends Controller
 {
     public function index()
     {
+        $id = Auth::user()->id;
         if (Auth::user()->role == 'Student') {
-            $id = Auth::user()->id;
             $courses = DB::table('students_courses')
             ->join('users', 'users.id', '=', 'students_courses.id_student')
             ->join('courses', 'courses.id', '=', 'students_courses.id_course')
@@ -20,14 +20,21 @@ class FeedbackController extends Controller
             ->select('students_courses.*', 'users.fullname', 'courses.name', 'courses.id', 'courses.status')
             ->get();
         }
-        else {
-            $courses = DB::table('courses')
-            ->where('status','=','1')
-            ->orWhere('status','=','2')
-            ->orWhere('status','=','3')
-            ->select('courses.*')
-            ->get();
-        }
+        else 
+            if (Auth::user()->role == 'Admin') {
+                $courses = DB::table('courses')
+                ->where('status','=','3')
+                ->select('courses.*')
+                ->get();
+            }
+            else {
+                $courses = DB::table('courses')
+                ->where('status','=','3')
+                ->where('id_teacher', '=', "$id")
+                ->select('courses.*')
+                ->get();
+            }
+
         
         return view('feedbacks.index', [
             'courses' => $courses

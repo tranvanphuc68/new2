@@ -41,8 +41,21 @@ class SalaryController extends Controller
         ->where('id_teacher', "$id_teacher")
         ->select('courses.*', 'users.fullname')
         ->get();
-        
+
+        $sum = DB::table('courses')
+        ->join('users', 'users.id', '=', 'courses.id_teacher')
+        ->where('id_teacher', "$id_teacher")
+        ->sum('courses.salary');
+
+        $count = DB::table('courses')
+        ->join('users', 'users.id', '=', 'courses.id_teacher')
+        ->where('id_teacher', "$id_teacher")
+        ->where('status_salary','1')
+        ->count('courses.salary');
+
         return view('salaries.show', [
+            'count' => $count,
+            'sum' => $sum,
             'salaries' => $salaries,
             'id_teacher' => $id_teacher
         ]);

@@ -40,6 +40,8 @@ Into
                                 <div style="text-align: right;">
                                     <a class="btn btn-primary" href="{{ url("/salaries/edit/{$salaries[0]->id_teacher}") }}">CẬP NHẬT LƯƠNG</a>
                                 </div>
+                                <h5>Tổng lương (đã nhận): {{ $sum }}</p>
+                                    <p>Số lượng đã nhận: {{ $count }} / {{ count($salaries) }}</p>
                             </section>
                         </div>
                     </div>

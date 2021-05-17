@@ -18,7 +18,7 @@ Into
                         <div class="card-block">
                             <section class="example">                   
                                 @if (count($students) != 0)
-                                    @if (Auth::user()->role == 'Admin')
+                                    @if (Auth::user()->role == 'Admin' or Auth::user()->role == 'Teacher')
                                         <div class="table-responsive">
                                             <table class="table table-striped table-bordered table-hover">
                                                 <thead>
