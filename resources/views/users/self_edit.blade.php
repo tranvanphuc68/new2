@@ -12,13 +12,18 @@ Into
     <div class="row sameheight-container">
         <div class="col-md-9">
             <div class="card card-block sameheight-item">
-                <form action="{{url("/users/self_edit/$user->id")}}" method="POST" enctype="multipart/form-data">
-                    @method('PUT')
+                <h1 class="form-control btn btn-primary">Cập nhật thông tin cá nhân</h1>
+                <form action="{{url("/users/update_avt/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <h1 class="form-control btn btn-primary">Cập nhật thông tin cá nhân</h1>
+                    @method('PUT')
                     <div class="form-group">
                         <input type="file" name="avatar">
                     </div>
+                    <button type="submit" class="btn btn-primary" name="save">Lưu</button>
+                </form>
+                <form action="{{url("/users/self_edit/$user->id")}}" method="POST">
+                    @method('PUT')
+                    @csrf
                     <div class="form-group">
                         <label for="name">Họ tên</label>
                         <input type="text" name="fullname" id="name" class="form-control" placeholder="Username" aria-describedby="helpId" value="{{ $user->fullname }}">

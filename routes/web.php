@@ -57,6 +57,7 @@ Route::group(['middleware'=>'admin'], function(){
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/users/self_edit', [UserController::class, 'self_edit']);
+    Route::put('/users/update_avt/{user}', [UserController::class, 'update_avt']);
     Route::get('/users/self_show',[UserController::class, 'self_show']);
     Route::put('/users/self_edit/{user}', [UserController::class, 'self_update']);
 });
