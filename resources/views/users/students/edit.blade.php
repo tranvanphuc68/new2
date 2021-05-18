@@ -7,7 +7,7 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="title-block">
-        <h3 class="title"> </h3>
+        <h3 class="title">Cập nhật thông tin học sinh </h3>
     </div>
     <div class="row sameheight-container">
         <div class="col-md-9">
@@ -15,7 +15,6 @@ Into
                 <form action="{{url("/users/student/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
-                    <h1 class="form-control btn btn-primary">Cập nhật thông tin cá nhân</h1>
                     <div class="form-group">
                         <input type="file" name="avatar">
                     </div>

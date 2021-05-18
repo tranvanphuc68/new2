@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function index_student()
     {
-        $students = User::where('role', 'student')->paginate(5)->withQueryString();
+        $students = User::where('role', 'student')->paginate(10)->withQueryString();
         return view('users.students.index', [
             'students' => $students
         ]);
@@ -129,7 +129,13 @@ class UserController extends Controller
         $user->delete();
         return redirect('/users/teacher');
     }
-
+    public function self_show()
+    {
+        $user = Auth::user();
+        return view('users.self_show', [
+            'user' => $user
+        ]);
+    }
     public function self_edit()
     {   
         $user = Auth::user();

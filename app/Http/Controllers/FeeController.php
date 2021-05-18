@@ -14,6 +14,7 @@ class FeeController extends Controller
         $courses = DB::table('courses')
         ->where('status','=','1')
         ->orWhere('status','=','2')
+        ->orWhere('status','=','3')
         ->select('courses.*')
         ->get();
 
@@ -38,9 +39,21 @@ class FeeController extends Controller
         ->where('id_course','=',"$id_course")
         ->select('students_courses.*','users.fullname','courses.name','courses.fee')
         ->get();
+        $sum = DB::table('students_courses')
+        ->join('courses','courses.id','=','students_courses.id_course')
+        ->where('id_course','=',"$id_course")
+        ->where('students_courses.status_fee', '2')
+        ->sum('courses.fee');
+        $count = DB::table('students_courses')
+        ->join('courses','courses.id','=','students_courses.id_course')
+        ->where('id_course','=',"$id_course")
+        ->where('students_courses.status_fee', '2')
+        ->count('courses.fee');
         return view('fees.show', [
             'students' => $students,
-            'id_course' => $id_course
+            'id_course' => $id_course,
+            'sum' => $sum,
+            'count' => $count
         ]);
     }
 

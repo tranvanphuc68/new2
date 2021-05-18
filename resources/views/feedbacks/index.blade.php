@@ -24,7 +24,7 @@ Into
                                                 <th>ID Khóa học</th>
                                                 <th>Tên Khóa học</th>
                                                 <th>Trạng Thái</th>
-                                                <th></th>
+                                                <th>Chi tiết</th>
                                             </tr>
                                         </thead>
                                         @foreach($courses as $course)

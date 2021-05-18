@@ -23,7 +23,7 @@ Into
                                             <table class="table table-striped table-bordered table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>ID Học viên</th>
+                                                        <th>ID</th>
                                                         <th>Tên Học viên</th>
                                                         <th>Feedback</th>
                                                     </tr>
@@ -33,7 +33,6 @@ Into
                                                         <td>{{ $student->id_student }}</td>
                                                         <td>{{ $student->fullname }}</td>
                                                         <td>{{ $student->feedback }}</td>
-                                                        <td></td>
                                                     </tr>
                                                 @endforeach
                                             </table>

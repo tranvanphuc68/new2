@@ -47,7 +47,7 @@ Into
                                                     <tr>
                                                         <td>{{ $course->id }}</td>
                                                         <td>{{ $course->name }}</td>
-                                                        <td><a href="{{ url("/marks/{$course->id}") }}">SHOW</a></td>
+                                                        <td><a class="btn btn-primary" href="{{ url("/marks/{$course->id}") }}">Xem </a></td>
                                                     </tr>
                                                 @endforeach  
                                             @else  
@@ -62,7 +62,7 @@ Into
                                                     <tr>
                                                         <td>{{ $teacher->id }}</td>
                                                         <td>{{ $teacher->name }}</td>
-                                                        <td><a href="{{ url("/marks/{$teacher->id}") }}">SHOW</a></td>
+                                                        <td><a class="btn btn-primary" href="{{ url("/marks/{$teacher->id}") }}">Xem </a></td>
                                                     </tr>
                                                 @endforeach 
                                             @endif

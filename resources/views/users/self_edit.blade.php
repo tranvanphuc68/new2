@@ -60,7 +60,7 @@ Into
                     </div>
 
                     <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
-                    <button type="reset" class="btn btn-primary" name="exit">Thoát</button>
+                    <a class="btn btn-primary" href="{{ url('/users/self_show') }}">Thoát</a>
                 </form>
             </div>
         </div>
