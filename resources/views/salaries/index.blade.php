@@ -16,6 +16,15 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
+                            <div class="card-title-block">
+                                <form role="search" style="text-align: right">
+                                    <div class="input-container">
+                                        <i class="fa fa-search"></i>
+                                        <input type="search" placeholder="Search">
+                                        <div class="underline"></div>
+                                    </div>
+                                </form>
+                            </div>
                             <section class="example">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover">
@@ -23,8 +32,8 @@ Into
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Tên Khóa học</th>
-                                                    <th>Tình trạng</th>
+                                                    <th>Tên Khóa Học</th>
+                                                    <th>Tình Trạng</th>
                                                 </tr>
                                             </thead>
                                             @foreach($salaries as $salary)
@@ -38,8 +47,8 @@ Into
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Tên Giảng viên</th>
-                                                    <th>Chi tiết</th>
+                                                    <th>Tên Giảng Viên</th>
+                                                    <th>Chi Tiết</th>
                                                 </tr>
                                             </thead>
                                             @foreach($teachers as $teacher)

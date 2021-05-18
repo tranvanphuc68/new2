@@ -10,7 +10,7 @@ Into
         <h3 class="title"> THÔNG TIN CHI TIẾT HỌC VIÊN ID {{ $user->id }}</h3>
     </div>
     <div class="card card-block sameheight-item">
-        <img style="max-width: 200px" class="mb-3" src="{{ asset('assets/img/team/team-2.jpg') }}" alt="">
+        <img style="max-width: 200px" class="mb-3" src="{{ asset("/uploads/avatars/$user->avatar") }}">
         <table class="table">
             <tr>
                 <td style="width: 25%">ID:</td>

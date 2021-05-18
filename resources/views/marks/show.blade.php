@@ -22,8 +22,8 @@ Into
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th>ID Học viên</th>
-                                                <th>Tên Học viên</th>
+                                                <th>ID Khóa Học</th>
+                                                <th>Tên Khóa Học</th>
                                                 <th>Điểm</th>
                                             </tr>
                                         </thead>

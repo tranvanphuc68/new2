@@ -46,7 +46,7 @@ Into
             </tr>
             <tr>
                 <td>Số tài khoản:</td>
-                <td>  {{ $user->email }}</td>
+                <td>  {{ $user->account }}</td>
             </tr>
             <tr>
                 <td>Trình độ học vấn:</td>

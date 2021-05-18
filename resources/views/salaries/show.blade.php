@@ -22,7 +22,7 @@ Into
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Tên Khóa học</th>
+                                                <th>Tên Khóa Học</th>
                                                 <th>Lương</th>
                                                 <th>Tình trạng</th>
                                             </tr>
@@ -40,8 +40,10 @@ Into
                                 <div style="text-align: right;">
                                     <a class="btn btn-primary" href="{{ url("/salaries/edit/{$salaries[0]->id_teacher}") }}">CẬP NHẬT LƯƠNG</a>
                                 </div>
-                                <h5>Tổng lương (đã nhận): {{ $sum }}</p>
-                                    <p>Số lượng đã nhận: {{ $count }} / {{ count($salaries) }}</p>
+                                <div>
+                                    <h5>Tổng lương (đã nhận): {{ $sum }}</p>
+                                    <p>Số lượng (đã nhận): {{ $count }} / {{ count($salaries) }}</p>
+                                </div>
                             </section>
                         </div>
                     </div>

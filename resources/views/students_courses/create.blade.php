@@ -1,21 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
 
-@csrf
-@foreach ($students as $student)
-    <div>
-        <span>{{ $student->id }} - {{ $student->fullname }}</span>
-        <input type="checkbox" name="id_student" value="{{ $student->id }}">
+@extends('layouts.users.app')
+
+@section('title')
+Into
+@endsection
+
+@section('content')
+<article class="content forms-page">
+    <div class="title-block">
+        <h1 class="title">THÊM HỌC VIÊN VÀO KHÓA HỌC</h1>
     </div>
-@endforeach
-<button type="submit">OK</button>
+    <div class="row sameheight-container">
+        <div class="col-md-9">
+            <div class="card card-block sameheight-item">
+                <form action="{{ url("/students_courses/create/{$id_course->id}") }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @foreach ($students as $student)
+                        <div class="form-group">
+                            <span>{{ $student->id }} - {{ $student->fullname }}</span>
+                            <input type="checkbox" name="id_student" value="{{ $student->id }}">
+                        </div>
+                    @endforeach
+                    <div style="text-align: right;">
+                        <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</article>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -24,9 +37,9 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script>
 
-$(document).on('click', "button", function() {
+<script>
+    $(document).on('click', "button", function() {
         addedStudent = $('input[type=checkbox]:checked')
         data = []
         for(i=0;i<addedStudent.length;i++) {
@@ -53,7 +66,6 @@ $(document).on('click', "button", function() {
                 }
             });  
         })
-
 </script>
-</body>
-</html>
+
+@endsection

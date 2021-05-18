@@ -16,10 +16,6 @@ Into
                 <form action="{{ url("/users/teacher") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="avatar">Avatar</label>
-                        <div> <input type="file" name="avatar" > </div>
-                    </div>
-                    <div class="form-group">
                         <label for="name">Họ tên</label>
                         <input type="text" name="fullname" id="name" class="form-control" placeholder="Username" aria-describedby="helpId">
                     </div>

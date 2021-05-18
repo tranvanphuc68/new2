@@ -16,14 +16,23 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
+                            <div class="card-title-block">
+                                <form role="search" style="text-align: right">
+                                    <div class="input-container">
+                                        <i class="fa fa-search"></i>
+                                        <input type="search" placeholder="Search">
+                                        <div class="underline"></div>
+                                    </div>
+                                </form>
+                            </div>
                             <section class="example">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover">
                                         @if (Auth::user()->role == 'Student')
                                             <thead>
                                                 <tr>
-                                                    <th>ID Khóa học</th>
-                                                    <th>Tên Khóa học</th>
+                                                    <th>ID Khóa Học</th>
+                                                    <th>Tên Khóa Học</th>
                                                     <th>Điểm</th>
                                                 </tr>
                                             </thead>
@@ -38,8 +47,8 @@ Into
                                             @if (Auth::user()->role == 'Admin')
                                                 <thead>
                                                     <tr>
-                                                        <th>ID Khóa học</th>
-                                                        <th>Tên Khóa học</th>
+                                                        <th>ID Khóa Học</th>
+                                                        <th>Tên Khóa Học</th>
                                                         <th>Điểm</th>
                                                     </tr>
                                                 </thead>
@@ -53,8 +62,8 @@ Into
                                             @else  
                                                 <thead>
                                                     <tr>
-                                                        <th>ID Khóa học</th>
-                                                        <th>Tên Khóa học</th>
+                                                        <th>ID Khóa Học</th>
+                                                        <th>Tên Khóa Học</th>
                                                         <th>Điểm</th>
                                                     </tr>
                                                 </thead>
