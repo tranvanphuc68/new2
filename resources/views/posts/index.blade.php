@@ -26,7 +26,6 @@
                         <div class="mt-2">
                             <div>
                                 <h3>{{ $post->title }}</h3>
-                                <div>{{ $post->content }}</div>
                             </div>
                         </div>
                     </div>

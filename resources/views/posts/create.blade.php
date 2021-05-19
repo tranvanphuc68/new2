@@ -21,8 +21,10 @@
                             <span class="d-block font-weight-bold name">{{ Auth::user()->fullname }}</span>
                         </div>
                     </div>
+                    <div class="mt-3 mb-2">
+                        <input type="textarea" class="form-control ml-1 shadow-none textarea" name="title" placeholder="Post title">
+                    </div>
                     <div class="d-flex flex-row align-items-start">
-                        <textarea class="form-control ml-1 shadow-none textarea" name="title" placeholder="Post title"></textarea>
                         <textarea class="form-control ml-1 shadow-none textarea" name="content" placeholder="Post content"></textarea>
                     </div>
                     <div class="mt-2 text-right">

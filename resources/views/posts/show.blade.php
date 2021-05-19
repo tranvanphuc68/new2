@@ -35,10 +35,10 @@
                                     <i class="fa fa-commenting-o"></i>
                                     <span class="ml-1">Comment</span>
                                 </div>
-                                <div class="like p-2 cursor action-collapse" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-2" href="#collapse-2">
+                                {{-- <div class="like p-2 cursor action-collapse" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-2" href="#collapse-2">
                                     <i class="fa fa-share"></i>
                                     <span class="ml-1">Share</span>
-                                </div>
+                                </div> --}}
                                 @if($post->fullname == Auth::user()->fullname )
                                 <div class="like p-2 cursor action-collapse" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-3" href="#collapse-3">
                                     <i class="fa fa-pencil"></i>
@@ -72,7 +72,7 @@
                             </div>
                         </form>
 
-                        <div id="collapse-2" class="bg-light p-2 collapse" data-parent="#myGroup">
+                        {{-- <div id="collapse-2" class="bg-light p-2 collapse" data-parent="#myGroup">
                             <div class="d-flex flex-row align-items-start">
                                 <i class="fa fa-facebook border p-3 rounded mr-1"></i>
                                 <i class="fa fa-twitter border p-3 rounded mr-1"></i>
@@ -81,7 +81,7 @@
                                 <i class="fa fa-dribbble border p-3 rounded mr-1"></i> 
                                 <i class="fa fa-pinterest-p border p-3 rounded mr-1"></i> 
                             </div>
-                        </div>
+                        </div> --}}
 
                         @if($post->fullname == Auth::user()->fullname )
                         <form method="POST" action="{{url("/posts/$post->id")}}">
@@ -221,36 +221,3 @@
         })
     
 </script> --}}
-
-{{-- <a href="{{ url("/posts/{$post->id}/self_edit") }}"></a> --}}
-{{-- <form method="POST" action="{{ url("/posts/{$post->id}") }}">
-    @csrf
-    @method('DELETE')
-    <i class="fa fa-trash" style="font-size:24px"></i>
-</form> --}}
-{{-- <a href="{{ url("/report_posts/{$post->id}/create") }}"></a> --}}
-{{-- <div class="bg-white p-2">
-    <div class="d-flex flex-row fs-12">
-        <h4>Comments</h4>
-        <table>
-            @foreach ($comments as $comment)
-                <tr>
-                    <td>{{ $comment->fullname }}</td>
-                    <td>{{ $comment->content }}</td>
-                
-                    
-                </tr>
-        </table>
-                <div class="d-flex flex-row user-info">
-                    <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
-                    <div class="d-flex flex-column justify-content-start ml-2">
-                        <span class="d-block font-weight-bold name">{{ $comment->fullname }}</span>
-                        <span class="date text-black-50">{{ $comment->created_at }}</span>
-                    </div>
-                </div>
-                <div class="mt-2">
-                    <div>{{ $comment->content }}</div>
-                </div>
-            @endforeach
-    </div>
-</div> --}}
