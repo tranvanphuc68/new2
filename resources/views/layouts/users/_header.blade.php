@@ -88,7 +88,7 @@
                             </li>
                             <li class="profile dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ url("") }}" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <img class="rounded-lg img" width="20%" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                                    <img class="rounded-circle img" width="20%" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
                                     <span class="name"> {{ Auth::user()->fullname }} </span>
                                 </a>
                                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">

@@ -10,7 +10,7 @@ Into
         <h3 class="title"> THÔNG TIN CÁ NHÂN     </h3>
     </div>
     <div class="card card-block sameheight-item">
-        <img class="rounded-lg" width="20%" src="{{ asset("/uploads/avatars/$user->avatar") }}">
+        <img class="rounded-circle" width="20%" src="{{ asset("/uploads/avatars/$user->avatar") }}">
         <table class="table">
             <tr>
                 <td style="width: 25%">ID:</td>
