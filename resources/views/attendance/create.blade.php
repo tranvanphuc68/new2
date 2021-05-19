@@ -26,6 +26,7 @@ Into
                                             <tr>
                                                 <th>ID_course</th>
                                                 <th>Tên học viên</th>
+                                                <th>Ngày sinh</th>
                                                 <th>Có</th>
                                                 <th>Muộn</th>
                                                 <th>Vắng</th>
@@ -35,6 +36,7 @@ Into
                                             <tr>
                                                 <td>{{ $id_course }}</td>
                                                 <td>{{ $data->fullname }}</td>
+                                                <td>{{ $data->dob }}</td>
                                                 <td><input type="radio" name="{{ $data->id_student }}" value="0" checked></td>
                                                 <td><input type="radio" name="{{ $data->id_student }}" value="1"></td>
                                                 <td><input type="radio" name="{{ $data->id_student }}" value="2"></td>

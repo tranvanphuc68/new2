@@ -53,6 +53,10 @@ class CourseController extends Controller
         ->where('id_course', '=', "$course->id")
         ->select('detail_classes.*', 'courses.name')
         ->get();
+        foreach($detail as $class)
+        {
+            $class->date = Controller::formatDate($class->date);
+        };
         return view('courses.show', [
             'detail' => $detail,
             'id_course' => $id_course
@@ -79,9 +83,7 @@ class CourseController extends Controller
 
     public function update(Request $request, Course $course)
     {
-        $course->update([
-            'name' => $request->name
-        ]);
+        $course->update($request->input());
         return redirect('courses');
     }
 

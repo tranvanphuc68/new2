@@ -12,14 +12,22 @@ class UserController extends Controller
     public function index_teacher()
     {
         $teachers = User::where('role', 'teacher')->paginate(5)->withQueryString();
+        foreach($teachers as $teacher)
+        {
+            $teacher->dob = Controller::formatDate($teacher->dob);
+        }
         return view('users.teachers.index', [
-            'teachers' => $teachers
+            'teachers' => $teachers,
         ]);
     }
 
     public function index_student()
     {
         $students = User::where('role', 'student')->paginate(10)->withQueryString();
+        foreach($students as $student)
+        {
+            $student->dob = Controller::formatDate($student->dob);
+        }
         return view('users.students.index', [
             'students' => $students
         ]);
@@ -27,6 +35,7 @@ class UserController extends Controller
 
     public function show_teacher(User $user)
     {
+        $user->dob = Controller::formatDate($user->dob);
         return view('users.teachers.show', [
             'user' => $user
         ]);
@@ -34,6 +43,7 @@ class UserController extends Controller
 
     public function show_student(User $user)
     {
+        $user->dob = Controller::formatDate($user->dob);
         return view('users.students.show', [
             'user' => $user
         ]);
@@ -52,7 +62,6 @@ class UserController extends Controller
     public function store_teacher(Request $request)
     {
         $data = User::create([
-            'id' => $request->input('id'),
             'fullname' => $request->input('fullname'),
             'gender' => $request->input('gender'),
             'dob' => $request->input('dob'),
@@ -68,11 +77,10 @@ class UserController extends Controller
         ]);
         return redirect('/users/teacher');
     }
-
+    
     public function store_student(Request $request)
     {
         $data = User::create([
-            'id' => $request->input('id'),
             'fullname' => $request->input('fullname'),
             'gender' => $request->input('gender'),
             'dob' => $request->input('dob'),
@@ -105,17 +113,13 @@ class UserController extends Controller
 
     public function update_teacher(Request $request, User $user)
     {
-        $user->update([
-            'fullname' => $request->fullname
-        ]);
+        $user->update($request->input());
         return redirect('/users/teacher');
     }
 
     public function update_student(Request $request, User $user)
     {
-        $user->update([
-            'fullname' => $request->fullname
-        ]);
+        $user->update($request->input());
         return redirect('/users/student');
     }
 
@@ -130,13 +134,16 @@ class UserController extends Controller
         $user->delete();
         return redirect('/users/teacher');
     }
+
     public function self_show()
     {
         $user = Auth::user();
+        $user->dob = Controller::formatDate($user->dob);
         return view('users.self_show', [
             'user' => $user
         ]);
     }
+
     public function self_edit()
     {   
         $user = Auth::user();
@@ -147,9 +154,7 @@ class UserController extends Controller
 
     public function self_update(Request $request, User $user)
     {   
-        $user->update([
-            'fullname' => $request->fullname
-        ]);
+        $user->update($request->input());
         return redirect('/');
     }
 

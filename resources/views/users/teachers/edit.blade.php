@@ -28,7 +28,7 @@ Into
                     </div>
                     <div class="form-group">
                         <label for="dob">Ngày sinh</label>
-                        <input type="text" name="dob" id="dob" class="form-control" placeholder="Date of birth" aria-describedby="helpId" value="{{ $user->dob }}">
+                        <input type="date" name="dob" id="dob" class="form-control" placeholder="Date of birth" aria-describedby="helpId" value="{{ $user->dob }}">
                     </div>
                     <div class="form-group">
                         <label for="hometown">Nơi sinh</label>
@@ -55,7 +55,7 @@ Into
                         <input type="text" name="academic_level" id="academic_level" class="form-control" placeholder="Academic level" aria-describedby="helpId" value="{{ $user->academic_level }}">
                     </div>
 
-                    <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
+                    <button type="submit" class="btn btn-primary">Lưu thông tin</button>
                     <button type="reset" class="btn btn-primary" name="exit">Thoát</button>
                 </form>
             </div>

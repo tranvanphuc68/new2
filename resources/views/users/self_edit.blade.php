@@ -37,7 +37,7 @@ Into
                     </div>
                     <div class="form-group">
                         <label for="dob">Ngày sinh</label>
-                        <input type="text" name="dob" id="dob" class="form-control" placeholder="Date of birth" aria-describedby="helpId" value="{{ $user->dob }}">
+                        <input type="date" name="dob" id="dob" class="form-control" placeholder="Date of birth" aria-describedby="helpId" value="{{ $user->dob }}">
                     </div>
                     <div class="form-group">
                         <label for="hometown">Nơi sinh</label>

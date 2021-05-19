@@ -16,7 +16,7 @@ class AttendanceController extends Controller
         $today = Carbon::now()->format('Y-m-d');
         $data = DB::table('detail_classes')
         ->join('courses', 'courses.id', '=', 'detail_classes.id_course')
-        ->where('courses.id_teacher', '=', "13")
+        ->where('courses.id_teacher', '=', "$id")
         ->where('detail_classes.date', '=', "$today")
         ->select('detail_classes.*')
         ->get();
@@ -34,8 +34,12 @@ class AttendanceController extends Controller
         $data = DB::table('students_courses')
         ->join('users', 'users.id', '=', 'students_courses.id_student')
         ->where('students_courses.id_course', '=', "$id_course")
-        ->select('students_courses.*', 'users.fullname')
+        ->select('students_courses.*', 'users.fullname', 'users.dob')
         ->get();   
+        foreach($data as $data)
+        {
+            $data->dob = Controller::formatDate($data->dob);
+        }
         return view('attendance.create', [
             'data' => $data,
             'id_course' => $id_course,

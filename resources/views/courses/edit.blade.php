@@ -17,10 +17,6 @@ Into
                     @csrf
                     <h1 class="form-control btn btn-primary">Cập nhật thông tin khóa học</h1>
                     <div class="form-group">
-                        <label for="id">ID</label>
-                        <input type="text" name="id" id="id" class="form-control" placeholder="Id" aria-describedby="helpId" value="{{ $course->id }}">
-                    </div>
-                    <div class="form-group">
                         <label for="name">Tên khóa học</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Name" aria-describedby="helpId" value="{{ $course->name }}">
                     </div>
@@ -60,7 +56,7 @@ Into
                         <label for="status">Tình trạng</label>
                         <input type="text" name="status" id="status" class="form-control" placeholder="Status" aria-describedby="helpId" value="{{ $course->status }}">
                     </div>
-                    <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
+                    <button type="submit" class="btn btn-primary">Lưu thông tin</button>
                     <button type="reset" class="btn btn-primary" name="exit">Thoát</button>
                 </form>
             </div>
