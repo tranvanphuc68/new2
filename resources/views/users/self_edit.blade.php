@@ -16,10 +16,11 @@ Into
                 <form action="{{url("/users/update_avt/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+                    <img class="rounded-circle" width="20%" src="{{ asset("/uploads/avatars/$user->avatar") }}">
                     <div class="form-group">
                         <input type="file" name="avatar">
                     </div>
-                    <button type="submit" class="btn btn-primary" name="save">Lưu</button>
+                    <button id="avt" type="submit" class="btn btn-primary">Lưu</button>
                 </form>
                 <form action="{{url("/users/self_edit/$user->id")}}" method="POST">
                     @method('PUT')
@@ -64,14 +65,27 @@ Into
                         <input type="text" name="academic_level" id="academic_level" class="form-control" placeholder="Academic level" aria-describedby="helpId" value="{{ $user->academic_level }}">
                     </div>
 
-                    <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
+                    <button type="submit" class="btn btn-primary">Lưu thông tin</button>
                     <a class="btn btn-primary" href="{{ url('/users/self_show') }}">Thoát</a>
                 </form>
             </div>
         </div>
     </div>
 
-
+<button type="button" href="#" onclick="refreshPage()">hi</button>
 </article>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script>
+
+// if ( window.history.replaceState ) {
+//   window.history.replaceState( null, null, window.location.href );
+// }
+ 
+</script>
 @endsection

@@ -107,26 +107,9 @@
 <script src="{{ asset('js/vendor.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script>
-$(function() {
-    $(document).on('click', "a", function() {
-                $('this').parent().addClass('active')
-        })
 
-    $(document).on('click', "a[name='teacher-link']", function() {
 
-                    $('.teacher').show();
-                    $('.student').hide();
-
-            } );
-    
-    $(document).on('click', "a[name='student-link']", function() {
-
-                    $('.teacher').hide();
-                    $('.student').show();
-
-            } );
-        })
-
+   
         
 </script>
 </body>

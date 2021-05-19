@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="student">
         <div class="title-block">
-            <h1 class="title"> XEM DANH SÁCH LỚP {{ $students[0]->name }}</h1>
+            <h1 class="title"> XEM DANH SÁCH LỚP }</h1>
         </div>
         <section class="section">
             <div class="row">
