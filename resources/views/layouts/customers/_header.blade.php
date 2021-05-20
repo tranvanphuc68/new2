@@ -42,7 +42,7 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="#">Trang chủ</a></li>
-          <li><a href="#">Diễn đàn</a></li>
+          <li><a href="{{ url("/posts") }}">Diễn đàn</a></li>
           <li><a href="#about">Giới thiệu</a></li>
           <li><a href="#services">Khóa học</a></li>
           <li><a href="#testimonials">Học viên</a></li>

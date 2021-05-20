@@ -14,6 +14,7 @@ class StudentCourseController extends Controller
         $courses = DB::table('courses')
         ->where('status','=','1')
         ->orWhere('status','=','2')
+        ->orWhere('status','=','3')
         ->select('courses.*')
         ->get();
 
@@ -28,6 +29,7 @@ class StudentCourseController extends Controller
         $teachers = DB::table('courses')
         ->where('status','=','1')
         ->orWhere('status','=','2')
+        ->orWhere('status','=','3')
         ->where('id_teacher','=',"$id")
         ->select('courses.*')
         ->get();
@@ -70,9 +72,14 @@ class StudentCourseController extends Controller
             ->whereRaw('students_courses.id_student = users.id');
         })
         ->get();
+        $course = DB::table('courses')
+        ->where('id','=',"$id_course")
+        ->select('courses.*')
+        ->get();
         return view('students_courses.create', [
             'students' => $students,
-            'id_course' => $id_course
+            'id_course' => $id_course,
+            'course' => $course
             ]);
     }
 

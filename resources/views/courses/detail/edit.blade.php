@@ -7,7 +7,7 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="title-block">
-        <h3 class="title"> </h3>
+        <h1 class="title"> SỬA THÔNG TIN KHÓA HỌC {{ $course->id_course }}, BUỔI HỌC THỨ {{$course->number}} </h1>
     </div>
     <div class="row sameheight-container">
         <div class="col-md-9">
@@ -15,7 +15,6 @@ Into
                 <form action='{{ url("/detail_course/{$course->id_course}-{$course->number}") }}' method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
-                    <div>Sửa thông tin của khóa học {{ $course->id_course }} và buổi học thứ {{$course->number}}</div>
                     <div class="form-group">
                         <label for="content">Nội dung</label>
                         <textarea type="text" name="content" id="content" class="form-control" placeholder="Content" aria-describedby="helpId" value="">{{ $course->content }}</textarea>
@@ -24,8 +23,9 @@ Into
                         <label for="date">Ngày học</label>
                         <input type="date" name="date" id="date" class="form-control" placeholder="Date" aria-describedby="helpId" value="{{ $course->date }}" >
                     </div>
-                    <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
-                    <button type="reset" class="btn btn-primary" name="exit">Thoát</button>
+                    <div style="text-align: right;">
+                        <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -33,4 +33,3 @@ Into
 </article>
 
 @endsection
-

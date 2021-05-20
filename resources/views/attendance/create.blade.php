@@ -1,4 +1,3 @@
-
 @extends('layouts.users.app')
 
 @section('title')
@@ -44,7 +43,9 @@ Into
                                         @endforeach
                                     </table>
                                 </div>
-                                <button class="btn btn-warning" name='but'>Lưu điểm danh</button>
+                                <div style="text-align: right;">
+                                    <button class="btn btn-warning">Lưu điểm danh</button>
+                                </div>
                             @endif
 
                             @if (count($check) > 0)
@@ -54,7 +55,6 @@ Into
                                             <tr>
                                                 <th>
                                                     Lớp đã điểm danh
-                                                    
                                                 </th>
                                             </tr>
                                         </thead>
@@ -111,5 +111,3 @@ Into
         })
 </script>
 @endsection
-
-

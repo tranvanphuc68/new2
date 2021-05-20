@@ -12,21 +12,21 @@ Into
         </div>
         <section class="section">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-9">
                     <div class="card">
                         <div class="card-block">
                             <section class="example">
                             @if (count($students) != 0)
-                                <div style="text-align: right;" class="mb-3">
-                                    <a class="btn btn-primary" href="{{ url("/students_courses/create/{$students[0]->id_course}") }}">Thêm Học Viên</a>
-                                </div>
                                 <div class="table-responsive">
+                                    <div class="mb-3">
+                                        <a class="btn btn-primary" href="{{ url("/students_courses/create/{$students[0]->id_course}") }}">Thêm Học Viên</a>
+                                    </div>
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                             <tr>
                                                 <th>Mã Học Viên</th>
                                                 <th>Tên Học Viên</th>
-                                                <th></th>
+                                                <th>Xóa</th>
                                             </tr>
                                         </thead>
                                         @foreach ($students as $student)
@@ -34,7 +34,9 @@ Into
                                                 <td>{{ $student->id_student }}</td>
                                                 <td>{{ $student->fullname }}</td>
                                                 <td>
-                                                    <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('stu_cou-delete-{{$student->id_student}}-{{$student->id_course}}').submit()" class="btn btn-primary">Xóa</a>
+                                                    <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('stu_cou-delete-{{$student->id_student}}-{{$student->id_course}}').submit()" class="btn btn-primary">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </a>
                                                     <form method="POST" id="stu_cou-delete-{{$student->id_student}}-{{$student->id_course}}" action="{{ url("/students_courses/{$student->id_student}-{$student->id_course}") }}" >
                                                         @method('DELETE')
                                                         @csrf
@@ -46,8 +48,10 @@ Into
                                 </div>
                                 @else 
                                 <div>
-                                    <a class="form-control" href="{{ url("/students_courses/create/{$id_course}") }}">Thêm Học Viên</a>
-                                    <h1>Lớp chưa có học viên</h1>
+                                    <h1 class="form-control btn btn-primary" >LỚP CHƯA CÓ HỌC VIÊN</h1>
+                                    <div style="text-align: right;" class="mt-3">
+                                        <a class="btn btn-primary" href="{{ url("/students_courses/create/{$id_course}") }}">Thêm Học Viên</a>
+                                    </div>
                                 </div>
                             </section>
                             @endif

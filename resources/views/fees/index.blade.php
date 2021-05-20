@@ -8,7 +8,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="student">
         <div class="title-block">
-            <h1 class="title">HỌC PHÍ </h1>
+            <h1 class="title">HỌC PHÍ CÁC KHÓA</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -31,8 +31,8 @@ Into
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Tên Khóa học</th>
-                                                <th>Tình trạng</th>
+                                                <th>Tên Khóa Học</th>
+                                                <th>Tình Trạng</th>
                                             </tr>
                                         </thead>
                                         @foreach($fees as $fee)
@@ -46,9 +46,9 @@ Into
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Tên Khóa học</th>
-                                                <th>Tình trạng</th>
-                                                <th>Chi tiết</th>
+                                                <th>Tên Khóa Học</th>
+                                                <th>Tình Trạng</th>
+                                                <th>Chi Tiết</th>
                                             </tr>
                                         </thead>
                                         @foreach($courses as $course)
@@ -56,7 +56,11 @@ Into
                                             <td>{{ $course->id }}</td>
                                             <td>{{ $course->name }}</td>
                                             <td><?php echo $course->status == 0 ? 'Chưa học' : 'Đang học'; ?></td>
-                                            <td><a class="btn btn-primary" href="{{ url("/fees/{$course->id}") }}"> SHOW</a></td>
+                                            <td>
+                                                <a class="btn btn-primary" href="{{ url("/fees/{$course->id}") }}">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                         @endforeach
                                         @endif
@@ -71,8 +75,3 @@ Into
     </div>
 </article>
 @endsection
-
-
-
-
-

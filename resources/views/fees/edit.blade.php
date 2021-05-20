@@ -16,7 +16,7 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <form role="search" style="text-align: left">
+                                <form role="search" style="text-align: right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
                                         <input type="search" placeholder="Search">
@@ -69,10 +69,3 @@ Into
     </div>
 </article>
 @endsection
-
-
-
-
-
-
-

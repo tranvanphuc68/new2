@@ -599,3 +599,18 @@ css index post
     .fa {
         cursor: pointer;
     }
+    /*-----------------------------------------------------
+Notification
+--------------------------------------------------------*/
+    
+    .notifications a {
+        display: block;
+        position: relative;
+        color: #2f4d5a;
+        padding: 20px 15px;
+        transition: 0.3s;
+        font-size: 13px;
+        font-family: "Poppins", sans-serif;
+        text-transform: none;
+        font-weight: 500;
+    }

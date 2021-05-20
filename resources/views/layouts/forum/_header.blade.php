@@ -48,22 +48,121 @@
             </li>
 
             @if (Auth::check())
-              <!-- Notifications -->
-              <li>
-                <a href="#notification"><i class="fa fa-bell-o" style="font-size:13px"> Notifications </i></a>
-              </li>
-
               <!-- Manage reportes posts -->
               @if (Auth::user()->role == "Admin")
                 <li>
                   <a href="{{ url('/report_posts') }}">Manage reported posts</a>
                 </li>
+
+                <li class="notifications new">
+                    <a href="" data-toggle="dropdown">
+                        <i class="fa fa-bell-o" style="text-transform: uppercase;"> reported posts </i>
+                        <sup>
+                            <span class="counter">8</span>
+                        </sup>
+                    </a>
+                    <div class="dropdown-menu">
+                        <ul class="notifications-container">
+                                <li>
+                                    <a href="" class="notification-item" style="color: black">
+                                        <div class="img-col">
+                                            <div class="img" style="background-image: url('assets/faces/3.jpg')"></div>
+                                        </div>
+                                        <div class="body-col">
+                                            <p>
+                                                <span class="accent">Zack Alien</span> pushed new commit: 
+                                                <span class="accent">Fix page load performance issue</span>. 
+                                            </p>
+                                        </div>
+                                    </a>
+                                </li>
+                        </ul>
+
+                        <footer>
+                            <ul>
+                                <li>
+                                    <a href=""  style="color: black;; text-align: center; "> View All </a>
+                                </li>
+                            </ul>
+                        </footer>
+                    </div>
+                </li>
               @endif
+              <!-- Notifications -->
+              <li class="notifications new">
+                <a href="" data-toggle="dropdown">
+                    <i class="fa fa-bell-o"></i>
+                    <sup>
+                        <span class="counter">8</span>
+                    </sup>
+                </a>
+                <div class="dropdown-menu">
+                    <ul class="notifications-container">
+                        <li>
+                            <a href="" class="notification-item" style="color: black">
+                                <div class="img-col">
+                                    <div class="img" style="background-image: url('assets/faces/3.jpg')"></div>
+                                </div>
+                                <div class="body-col">
+                                    <p>
+                                        <span class="accent">Zack Alien</span> pushed new commit: 
+                                        <span class="accent">Fix page load performance issue</span>. 
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="notification-item" style="color: black">
+                                <div class="img-col">
+                                    <div class="img" style="background-image: url('assets/img/team/team-1')"></div>
+                                </div>
+                                <div class="body-col">
+                                    <p>
+                                        <span class="accent">Amaya Hatsumi</span> started new task: 
+                                        <span class="accent">Dashboard UI design.</span>. 
+                                      </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li style="color: black">
+                            <a href="" class="notification-item" style="color: black">
+                                <div class="img-col">
+                                    <div class="img" style="background-image: url('assets/faces/8.jpg')"></div>
+                                </div>
+                                <div class="body-col">
+                                    <p>
+                                        <span class="accent">Andy Nouman</span> deployed new version of 
+                                        <span class="accent">NodeJS REST Api V3</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <footer>
+                        <ul>
+                            <li>
+                                <a href=""  style="color: black;; text-align: center; "> View All </a>
+                            </li>
+                        </ul>
+                    </footer>
+                </div>
+              </li>
             
               <!-- User=>profile + logout -->
               <li>
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle img" width="18px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                    @if (Auth::user()->avatar != '')
+                      <img class="rounded-circle img" width="18px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                    @endif
+
+                    @if (Auth::user()->avatar == '' && Auth::user()->gender == 'Male')
+                      <img class="rounded-circle img" width="18px" src="https://tse2.mm.bing.net/th?id=OIP.8wpigmkTKaGH42dEjT8eUwHaH6&pid=Api&P=0&w=300&h=300">
+                    @endif
+
+                    @if (Auth::user()->avatar == '' && Auth::user()->gender == 'Female')
+                      <img class="rounded-circle img" width="18px" src="https://tse4.mm.bing.net/th?id=OIP.T2ILd2qLXwqlcImvKtXcGgAAAA&pid=Api&P=0&w=184&h=180">
+                    @endif
+
                     <span> {{ Auth::user()->fullname }} </span>
                 </a>
                 <div class="dropdown-menu profile-dropdown-menu bg-primary" aria-labelledby="dropdownMenu1">
@@ -82,7 +181,9 @@
               </li>
             @endif
         </ul>
-      </nav><!-- .nav-menu -->
+      </nav>
+      <!-- .nav-menu -->
 
     </div>
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->
