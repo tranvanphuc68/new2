@@ -12,6 +12,7 @@
 @if(Auth::check())
 <div>Hello {{ Auth::user()->email }}</div>
 @endif
+<h1>AllPost({{ $countPost }})</h1>
 <table>
 @foreach ($posts as $post)
     <tr>
