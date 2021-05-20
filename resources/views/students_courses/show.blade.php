@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="student">
         <div class="title-block">
-            <h1 class="title"> XEM DANH SÁCH LỚP }</h1>
+            <h1 class="title"> XEM DANH SÁCH LỚP {{ $course[0]->name }}</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -35,8 +35,8 @@ Into
                                                 <td>{{ $student->id_student }}</td>
                                                 <td>{{ $student->fullname }}</td>
                                                 <td>
-                                                    <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('stu_cou-delete-{$student->id_student}-{$student->id_course}').submit()" class="btn btn-primary">Xóa</a>
-                                                    <form method="POST" id="stu_cou-delete-{$student->id_student}-{$student->id_course}" action="{{ url("/students_courses/{$student->id_student}-{$student->id_course}") }}" >
+                                                    <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('stu_cou-delete-{{$student->id_student}}-{{$student->id_course}}').submit()" class="btn btn-primary">Xóa</a>
+                                                    <form method="POST" id="stu_cou-delete-{{$student->id_student}}-{{$student->id_course}}" action="{{ url("/students_courses/{$student->id_student}-{$student->id_course}") }}" >
                                                         @method('DELETE')
                                                         @csrf
                                                     </form>
@@ -45,12 +45,12 @@ Into
                                         @endforeach
                                     </table>
                                 </div>
-                            </section>
-                            @else 
+                                @else 
                                 <div>
                                     <a class="form-control" href="{{ url("/students_courses/create/{$id_course}") }}">Thêm Học Viên</a>
                                     <h1>Lớp chưa có học viên</h1>
                                 </div>
+                            </section>
                             @endif
                         </div>
                     </div>

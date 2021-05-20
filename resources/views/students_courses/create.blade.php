@@ -13,7 +13,6 @@ Into
     <div class="row sameheight-container">
         <div class="col-md-9">
             <div class="card card-block sameheight-item">
-                <form action="{{ url("/students_courses/create/{$id_course->id}") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @foreach ($students as $student)
                         <div class="form-group">
@@ -22,9 +21,8 @@ Into
                         </div>
                     @endforeach
                     <div style="text-align: right;">
-                        <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
+                        <button type="submit" class="btn btn-primary" >Lưu thông tin</button>
                     </div>
-                </form>
             </div>
         </div>
     </div>
@@ -37,9 +35,9 @@ Into
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
 <script>
-    $(document).on('click', "button", function() {
+
+$(document).on('click', "button", function() {
         addedStudent = $('input[type=checkbox]:checked')
         data = []
         for(i=0;i<addedStudent.length;i++) {
