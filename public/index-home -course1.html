@@ -16,6 +16,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <!-- Vendor CSS Files -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -35,6 +36,96 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style>
+  body {
+    /* font-family: "Raleway", sans-serif; */
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  #header-course {
+    background-color: #67b0d1;
+  }
+  #header-course nav ul li a {
+    color: white;
+  }
+  .about-course img {
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  
+  }
+  
+  .about-course {
+    /* background: linear-gradient(rgba(194, 227, 243, 0.2), rgba(227, 229, 230, 0.3)); */
+    margin: 0 50px;
+  }
+  #fh5co-features {
+background: #67b0d1;
+}
+
+.fh5co-heading p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #828282;
+}
+#fh5co-features h2 {
+  color: #fff;
+  text-align: center;
+}
+#fh5co-features .services-padding {
+  padding: 7em 0;
+}
+#fh5co-features .feature-left {
+  margin-bottom: 40px;
+  float: left;
+}
+@media screen and (max-width: 992px) {
+  #fh5co-features .feature-left {
+    margin-bottom: 30px;
+  }
+}
+#fh5co-features .feature-left .icon {
+  display: table;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background: #fff;
+  margin-bottom: 20px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+#fh5co-features .feature-left .icon i {
+  font-size: 50px;
+  display: table-cell;
+  vertical-align: middle;
+  height: 100px;
+  color: #FF9000 !important;
+}
+#fh5co-features .feature-left .feature-copy {
+  width: 100%;
+}
+#fh5co-features .feature-left h3 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+}
+#fh5co-features .feature-left p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+#fh5co-features .feature-left p:last-child {
+  margin-bottom: 0;
+}
+#fh5co-features .feature-left p a {
+  color: #000 !important;
+}
+
+  
+  </style>
 </head>
 
 <body>
@@ -63,32 +154,26 @@
 
     </div>
   </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
   
   <main id="main">
-  <!-- ======= Header ======= -->
-
-  
-    
-      <!-- ======= Why Us Section ======= -->
-      <section class="course-title" data-aos="fade-up" date-aos-delay="200">
+      <!-- ======= About Us Section ======= -->
+      <section class="about-course" data-aos="fade-up" date-aos-delay="200">
         <div class="container">
-  
           <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
-              <img src="assets/img/courses/international-student.jpg" class="img-fluid" alt="">
+              <img src="assets/img/courses/course7.jpg" class="img-fluid" alt="">
             </div>
-  
             <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
-  
-              <div class="icon-box">
+              <div class="about-box">
                 <h2>KHÓA HỌC FOUNDATION</h2>
-                <p class="description text-blue">Đầu vào: 3.0 Đầu ra 4.5</p>
+                <p class="description text-primary"> 
+                  <span><i class="fad fa-file-certificate"></i> Đầu vào: 3.0 </span>
+                  <span class="ml-5"><i class="far fa-graduation-cap"></i></i> Đầu ra 4.5</span>
+                </p>
                 <ul>
-                  <li><i class="icofont-check"></i>Thời gian: 1.5h/buổi </li>
-                  <li><i class="icofont-check"></i>Thời lượng: 48 giờ</li>
-                  <li><i class="icofont-check"></i>Học phí: 3.000.000 VNĐ</li>
+                  <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời gian: 1.5h/buổi </li>
+                  <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời lượng: 48 giờ</li>
+                  <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Học phí: 3.000.000 VNĐ</li>
                 </ul>
                 <h3>Mục tiêu khóa học</h3>
                 <p>
@@ -97,7 +182,6 @@
               </div>
             </div>
           </div>
-  
         </div>
       </section><!-- End Why Us Section -->
   
@@ -128,36 +212,104 @@
             </div>
           </div>
   
-          <div class="row" data-aos="fade-up">
-            <div class="col-md-5 order-1 order-md-2">
-              <img src="assets/img/icon/features-2.svg" class="img-fluid" alt="">
+        
+  
+        </div>
+      </section><!-- End Features Section -->
+  
+
+      <section id="fh5co-features" class="animate-box" data-aos="fade-up">
+        <div class="container">
+          <div class="services-padding">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                <h2>My Services</h2>
+              </div>
             </div>
-            <div class="col-md-7 pt-5 order-2 order-md-1">
-              <h3>NỘI DUNG KHÓA HỌC</h3>
-              <ul>
-                <li><i class="icofont-check"></i><span class="text-blue">SPEAKING :</span> Khóa học chuẩn hóa hệ thống phát âm, sắp xếp ý tưởng, vận dụng từ vựng, đặc biệt nhấn mạnh vào những phần học viên Việt Nam hay mắc lỗi.</li>
-                <li><i class="icofont-check"></i><span class="text-blue">WRITING :</span>  Khóa học giới thiệu về Writing task 1, thực hành viết câu đơn giản và note-taking trong quá trình học. Học viên được luyện cách so sánh đơn giản và miêu tả thông tin từ biểu đồ.</li>
-                <li><i class="icofont-check"></i><span class="text-blue">LISTENING & READING :</span> Học viên sẽ được làm quen với các dạng câu hỏi khác nhau trong phần thi IELTS Listening và IELTS Reading: Gap fills, multiple choice, classification, labeling a diagram,… và một số chiến lược làm bài cơ bản. </li>
-                <li><i class="icofont-check"></i><span class="text-blue">NGỮ PHÁP :</span> Hệ thống các điểm ngữ pháp căn bản cho bài thi IELTS. Cung cấp các hướng dẫn ngữ pháp quan trọng từ đại học Cambridge. Học viên được thực hành qua các bài tập về các về: thì của động từ, số đếm, câu điều kiện, mệnh đề.</li>
-                <li><i class="icofont-check"></i><span class="text-blue">TỪ VỰNG :</span> Gồm 10 chủ đề phổ biến khác nhau: daily life, house and home, travel and holidays, food, health and medicine, language,...</li>
-              </ul>
+            <div class="row">
+              <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-left">
+                  <span class="icon">
+                    <i class="icon-paintbrush"></i>
+                  </span>
+                  <div class="feature-copy">
+                    <h3>Web Design</h3>
+                    <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-left">
+                  <span class="icon">
+                    <i class="icon-briefcase"></i>
+                  </span>
+                  <div class="feature-copy">
+                    <h3>Branding</h3>
+                    <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+                  </div>
+                </div>
+    
+              </div>
+              <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-left">
+                  <span class="icon">
+                    <i class="icon-search"></i>
+                  </span>
+                  <div class="feature-copy">
+                    <h3>Analytics</h3>
+                    <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+    
+            <div class="row">
+              <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="400">
+    
+                <div class="feature-left">
+                  <span class="icon">
+                    <i class="icon-bargraph"></i>
+                  </span>
+                  <div class="feature-copy">
+                    <h3>Web Developent</h3>
+                    <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+                  </div>
+                </div>
+    
+              </div>
+    
+              <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-left">
+                  <span class="icon">
+                    <i class="icon-genius"></i>
+                  </span>
+                  <div class="feature-copy">
+                    <h3>Web Marketing</h3>
+                    <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+                  </div>
+                </div>
+    
+              </div>
+              <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-left">
+                  <span class="icon">
+                    <i class="icon-chat"></i>
+                  </span>
+                  <div class="feature-copy">
+                    <h3>Support</h3>
+                    <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-  
-          <div class="row" data-aos="fade-up">
-            <div class="col-md-5">
-              <img src="assets/img/icon/features-3.svg" class="img-fluid" alt="">
-            </div>
-            <div class="col-md-7 pt-5">
-              <h3>MÔI TRƯỜNG</h3>
-              <ul>
-                <li><i class="icofont-check"></i> Học trực tuyến mọi lúc, mọi nơi</li>
-                <li><i class="icofont-check"></i> Với đội ngũ giáo viên 7.5+ IELTS và có it nhất 4 năm kinh nghiệm giảng dạy</li>
-                <li><i class="icofont-check"></i> Ngoài giáo viên học viên sẽ được  hỗ trợ từ cố vấn học tập trong suốt lộ trình học.</li>
-              </ul>
-            </div>
-          </div>
-  
+        </div>
+      </section>
+    
+      <section> 
+        <div class="container">
           <div class="row" data-aos="fade-up">
             <div class="col-md-5 order-1 order-md-2">
               <img src="assets/img/icon/features-4.svg" class="img-fluid" alt="">
@@ -169,10 +321,8 @@
               </p>
             </div>
           </div>
-  
         </div>
-      </section><!-- End Features Section -->
-  
+      </section>
     <!-- End #main -->
 
   </main><!-- End #main -->
@@ -238,6 +388,8 @@
       </div>
     </div>
 
+
+    
     <div class="container">
       <div class="copyright">
         &copy; Copyright <strong><span>Squadfree</span></strong>. All Rights Reserved
