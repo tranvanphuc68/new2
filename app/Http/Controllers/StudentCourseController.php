@@ -46,7 +46,13 @@ class StudentCourseController extends Controller
         ->where('id_course','=',"$id_course")
         ->select('students_courses.*','users.fullname','courses.name')
         ->get();
+
+        $course = DB::table('courses')
+        ->where('id','=',"$id_course")
+        ->select('courses.*')
+        ->get();
         return view('students_courses.show', [
+            'course' => $course,
             'students' => $students,
             'id_course' => $id_course
         ]);

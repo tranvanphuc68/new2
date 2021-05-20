@@ -108,7 +108,6 @@ class UserController extends Controller
     {
         return view('users.students.edit', [
             'user' => $user
-
         ]);
     }
 
@@ -170,8 +169,6 @@ class UserController extends Controller
                 'avatar' => $name
             ]);
         }
-        return view('users.self_edit', [
-            'user' => $user
-        ]);
+        return redirect('/users/self_edit');
     }
 }
