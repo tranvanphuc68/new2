@@ -8,21 +8,35 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="title-block">
-        <h1 class="title">THÊM HỌC VIÊN VÀO KHÓA HỌC</h1>
+        <h1 class="title">THÊM HỌC VIÊN VÀO KHÓA HỌC {{ $course[0]->name}}</h1>
     </div>
-    <div class="row sameheight-container">
+    <div class="row ">
         <div class="col-md-9">
-            <div class="card card-block sameheight-item">
-                    @csrf
-                    @foreach ($students as $student)
-                        <div class="form-group">
-                            <span>{{ $student->id }} - {{ $student->fullname }}</span>
-                            <input type="checkbox" name="id_student" value="{{ $student->id }}">
-                        </div>
-                    @endforeach
-                    <div style="text-align: right;">
-                        <button type="submit" class="btn btn-primary" >Lưu thông tin</button>
-                    </div>
+            <div class="card card-block">
+                <section>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID Học Viên</th>
+                                    <th>Tên Học Viên</th>
+                                    <th>Thêm</th>
+                                </tr>
+                            </thead>
+                            @csrf
+                            @foreach ($students as $student)
+                                <tr>
+                                    <td>{{ $student->id }}</td>
+                                    <td>{{ $student->fullname }}</td>
+                                    <td><input type="checkbox" name="id_student" value="{{ $student->id }}"></td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    </div> 
+                </section>
+                <div style="text-align: right;">
+                    <button type="submit" class="btn btn-primary" >Lưu thông tin</button>
+                </div>
             </div>
         </div>
     </div>

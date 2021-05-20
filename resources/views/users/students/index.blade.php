@@ -8,7 +8,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="student">
         <div class="title-block">
-            <h1 class="title"> DANH SÁCH HỌC SINH </h1>
+            <h1 class="title"> DANH SÁCH HỌC VIÊN </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -16,7 +16,7 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <a href="{{ url("/users/student/create") }}" class="btn btn-primary">THÊM HỌC SINH</a>
+                                <a href="{{ url("/users/student/create") }}" class="btn btn-primary">THÊM HỌC VIÊN MỚI</a>
                                 <form role="search" style="text-align: right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
@@ -31,12 +31,12 @@ Into
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Họ tên</th>
-                                                <th>Giới tính</th>
-                                                <th>Ngày sinh</th>
+                                                <th>Họ Tên</th>
+                                                <th>Giới Tính</th>
+                                                <th>Ngày Sinh</th>
                                                 <th>Email</th>
-                                                <th>Sdt</th>
-                                                <th>Chức năng</th>
+                                                <th>SĐT</th>
+                                                <th>Chức Năng</th>
                                             </tr>
                                         </thead>
                                         @foreach($students as $user)
@@ -48,9 +48,15 @@ Into
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
                                             <td>
-                                                <a href='{{ url("/users/student/{$user->id}") }}' class="btn btn-primary">Xem</a>
-                                                <a href='{{ url("/users/student/{$user->id}/edit") }}' class="btn btn-primary">Sửa</a>
-                                                <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('user-delete-{{ $user->id }}').submit()" class="btn btn-primary">Xóa</a>
+                                                <a href='{{ url("/users/student/{$user->id}") }}' class="btn">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                                <a href='{{ url("/users/student/{$user->id}/edit") }}' class="btn">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                                <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('user-delete-{{ $user->id }}').submit()" class="btn">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </a>
                                                 <form method="POST" id="user-delete-{{ $user->id }}" action="{{ url("/users/student/{$user->id}") }}" >
                                                     @method('DELETE')
                                                     @csrf

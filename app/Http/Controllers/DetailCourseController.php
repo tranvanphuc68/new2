@@ -32,7 +32,6 @@ class DetailCourseController extends Controller
         ->where('number', '=', "$number")
         ->get();
         $course = $data[0];
-       
         return view('courses.detail.edit', [
             'course' => $course
         ]);

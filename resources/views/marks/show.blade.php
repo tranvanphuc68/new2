@@ -16,7 +16,12 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <section class="example">                   
+                            <section class="example">   
+                                @if (Auth::user()->role == 'Teacher')
+                                    <div style="text-align: right">
+                                        <a class="btn btn-primary" href="{{ url("/marks/edit/{$students[0]->id_course}") }}">Cập nhật điểm</a>
+                                    </div>
+                                @endif                
                                 @if (count($students) != 0)
                                     <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover">
@@ -38,11 +43,6 @@ Into
                                     </div>
                                 @else
                                 <p>Null</p>
-                                @endif
-                                @if (Auth::user()->role == 'Teacher')
-                                    <div style="text-align: right">
-                                        <a class="btn btn-primary" href="{{ url("/marks/edit/{$students[0]->id_course}") }}">Cập nhật điểm</a>
-                                    </div>
                                 @endif
                             </section>
                         </div>

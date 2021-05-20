@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="student">
         <div class="title-block">
-            <h1 class="title">BẢNG ĐIỂM</h1>
+            <h1 class="title">BẢNG ĐIỂM CÁC KHÓA</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -49,14 +49,18 @@ Into
                                                     <tr>
                                                         <th>ID Khóa Học</th>
                                                         <th>Tên Khóa Học</th>
-                                                        <th>Điểm</th>
+                                                        <th>Xem Điểm</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach($courses as $course)
                                                     <tr>
                                                         <td>{{ $course->id }}</td>
                                                         <td>{{ $course->name }}</td>
-                                                        <td><a class="btn btn-primary" href="{{ url("/marks/{$course->id}") }}">Xem </a></td>
+                                                        <td>
+                                                            <a class="btn btn-primary" href="{{ url("/marks/{$course->id}") }}">
+                                                                <i class="fa fa-eye"></i>
+                                                            </a>
+                                                        </td>
                                                     </tr>
                                                 @endforeach  
                                             @else  
@@ -71,7 +75,11 @@ Into
                                                     <tr>
                                                         <td>{{ $teacher->id }}</td>
                                                         <td>{{ $teacher->name }}</td>
-                                                        <td><a class="btn btn-primary" href="{{ url("/marks/{$teacher->id}") }}">Xem </a></td>
+                                                        <td>
+                                                            <a class="btn btn-primary" href="{{ url("/marks/{$teacher->id}") }}">
+                                                                <i class="fa fa-eye"></i>
+                                                            </a>
+                                                        </td>
                                                     </tr>
                                                 @endforeach 
                                             @endif

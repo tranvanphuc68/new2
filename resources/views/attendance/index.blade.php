@@ -25,8 +25,8 @@ Into
                                             <tr>
                                                 <th>ID_course</th>
                                                 <th>Buổi</th>
-                                                <th>Nội dung</th>
-                                                <th></th>
+                                                <th>Nội Dung</th>
+                                                <th>Điểm Danh</th>
                                             </tr>
                                         </thead>
                                         @foreach($data as $data)
@@ -34,7 +34,11 @@ Into
                                                 <td>{{ $data->id_course }}</td>
                                                 <td>{{ $data->number }}</td>
                                                 <td>{{ $data->content }}</td>
-                                                <td><a href="{{ url("/attendance/{$data->id_course}-{$data->number}") }}" class="btn btn-primary">Điểm danh</a></td>
+                                                <td>
+                                                    <a href="{{ url("/attendance/{$data->id_course}-{$data->number}") }}" class="btn btn-primary">
+                                                        <i class="fa fa-check-circle"></i>
+                                                    </a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </table>

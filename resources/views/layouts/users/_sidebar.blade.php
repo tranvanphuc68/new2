@@ -36,9 +36,17 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ url("/courses") }}">
-                            <i class="fa fa-th-large"></i> Quản lí lớp học</i>
+                        <a href="">
+                            <i class="fa fa-th-large"></i> Quản lí khóa học <i class="fa arrow"></i>
                         </a>
+                        <ul class="sidebar-nav">
+                            <li>
+                                <a href="{{ url("/courses") }}" name="teacher-link"> Khóa học</a>
+                            </li>
+                            <li>
+                                <a href="{{ url("/students_courses") }}" name="student-link"> Lớp học </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="">
@@ -90,7 +98,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ url("/students_courses") }}">
                             <i class="fa fa-building-o"></i> Các lớp đang dạy <i class="fa arrow"></i>
                         </a>
                     </li>
@@ -130,7 +138,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ url("/students_courses") }}">
                             <i class="fa fa-group"></i> Các lớp đã đăng kí </i>
                         </a>
                     </li>

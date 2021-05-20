@@ -13,7 +13,7 @@ Into
         </div>
         <section class="section">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-10">
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
@@ -61,7 +61,7 @@ Into
                                                         <th>ID Khóa Học</th>
                                                         <th>Tên Khóa Học</th>
                                                         <th>Trạng Thái</th>
-                                                        <th></th>
+                                                        <th>Xem</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach($courses as $course)
@@ -69,7 +69,11 @@ Into
                                                         <td>{{ $course->id }}</td>
                                                         <td>{{ $course->name }}</td>
                                                         <td><?php echo $course->status == 1 ? 'Chưa học': 'Đang học'; ?></td>
-                                                        <td><a class="btn btn-primary" href="{{ url("/students_courses/{$course->id}") }}">Xem</a></td>
+                                                        <td>
+                                                            <a class="btn btn-primary" href="{{ url("/students_courses/{$course->id}") }}">
+                                                                <i class="fa fa-eye"></i>
+                                                            </a>
+                                                        </td>
                                                     </tr>
                                                 @endforeach 
                                             @else  
@@ -78,7 +82,7 @@ Into
                                                         <th>ID Khóa Học</th>
                                                         <th>Tên Khóa Học</th>
                                                         <th>Trạng Thái</th>
-                                                        <th></th>
+                                                        <th>Xem</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach($teachers as $teacher)
@@ -86,7 +90,11 @@ Into
                                                         <td>{{ $teacher->id }}</td>
                                                         <td>{{ $teacher->name }}</td>
                                                         <td><?php echo $teacher->status == 1 ? 'Chưa học': 'Đang học'; ?></td>
-                                                        <td><a class="btn btn-primary" href="{{ url("/students_courses/{$teacher->id}") }}">Xem</a></td>
+                                                        <td>
+                                                            <a class="btn btn-primary" href="{{ url("/students_courses/{$teacher->id}") }}">
+                                                                <i class="fa fa-eye"></i>
+                                                            </a>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             @endif
