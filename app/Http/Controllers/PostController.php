@@ -14,7 +14,7 @@ class PostController extends Controller
     {
         $posts = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
-        ->select('posts.*', 'users.fullname')
+        ->select('posts.*', 'users.fullname', 'users.avatar')
         ->latest()
         ->get();
         return view('posts.index', [
@@ -27,13 +27,13 @@ class PostController extends Controller
         $comments = DB::table('comments')
         ->join('users', 'users.id', '=', 'comments.id_user')
         ->where('comments.id_post', '=', "$post")
-        ->select('comments.*', 'users.fullname')
+        ->select('comments.*', 'users.fullname', 'users.avatar')
         ->latest()
         ->get();
         $post = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
         ->where('posts.id', '=', "$post")
-        ->select('posts.*', 'users.fullname')
+        ->select('posts.*', 'users.fullname', 'users.avatar')
         ->latest()
         ->get();
         $post = $post[0];

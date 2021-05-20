@@ -1,18 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<form method="POST" action="{{ url("/report_posts/{$post}") }}">
-@csrf
+@extends('layouts.forum.app')
 
-<div><input type="text" name="content">Content</div>
+@section('title')
+    Create new report post
+@endsection
 
-<button type="submit">OK</button>
-</form>
-</body>
-</html>
+@section('content')
+@if(Auth::check())
+<div class ="container content">
+    <form method="POST" action="{{ url("/report_posts/{$post}") }}">
+        @csrf
+        <!-- Report post-->
+            <div class="d-flex flex-row align-items-start">
+                <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                <textarea class="form-control ml-1 shadow-none textarea" name="content" placeholder="Content"></textarea>
+            </div>
+            <div class="mt-2 text-right">
+                <button class="btn btn-primary btn-sm shadow-none" type="submit">Create report</button>
+                <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="reset">Cancel</button>
+            </div>
+    </form>
+</div>
+@endif
+@endsection

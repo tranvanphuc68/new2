@@ -14,9 +14,9 @@
     <div class="d-flex justify-content-center row">
         <div class="col-md-10">
             <div class="d-flex flex-column comment-section">
-                <div class="bg-light p-2">
+                <div class="bg-light p-2"  style="border-radius: 10px;">
                     <div class="d-flex flex-row align-items-start">
-                        <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                        <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
                         <div class="d-flex flex-column justify-content-start ml-2">
                             <span class="d-block font-weight-bold name">{{ Auth::user()->fullname }}</span>
                         </div>

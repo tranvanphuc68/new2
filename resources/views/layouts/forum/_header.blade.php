@@ -32,15 +32,55 @@
     <div class="container d-flex align-items-center">
       <div class="logo mr-auto">
         <a href="index.html" class="text-white"><h1>Into</h1></a>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-            <li><a href="{{ url('/posts/create') }}"> <i class="fa fa-plus" style="font-size:13px"> New Post </i> </a></li>
-            <li><a href="#search"> <i class="fa fa-search" style="font-size:13px"> Search </i> </a></li>
-            <li><a href="#notification"><i class="fa fa-bell-o" style="font-size:13px"> Notifications </i></a></li>
-            <li><a href="{{ url('/logout') }}" id="logout">Logout</a></li>
+            @if (Auth::check())
+              <!-- New post -->
+              <li>
+                <a href="{{ url('/posts/create') }}"> <i class="fa fa-plus" style="font-size:13px"> New Post </i> </a>
+              </li>
+            @endif
+
+            <!-- Search -->
+            <li>
+              <a href="#search"> <i class="fa fa-search" style="font-size:13px"> Search </i> </a>
+            </li>
+
+            @if (Auth::check())
+              <!-- Notifications -->
+              <li>
+                <a href="#notification"><i class="fa fa-bell-o" style="font-size:13px"> Notifications </i></a>
+              </li>
+
+              <!-- Manage reportes posts -->
+              @if (Auth::user()->role == "Admin")
+                <li>
+                  <a href="{{ url('/report_posts') }}">Manage reported posts</a>
+                </li>
+              @endif
+            
+              <!-- User=>profile + logout -->
+              <li>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img class="rounded-circle img" width="18px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                    <span> {{ Auth::user()->fullname }} </span>
+                </a>
+                <div class="dropdown-menu profile-dropdown-menu bg-primary" aria-labelledby="dropdownMenu1">
+                    <a class="dropdown-item" href="{{ url("/users/self_show") }} "> 
+                        <i class="fa fa-user icon"></i> Profile </a>
+                    <a class="dropdown-item" href="{{url('/logout')}}">
+                        <i class="fa fa-power-off icon"></i> Logout </a>
+                </div>
+              </li>
+            @endif
+
+            @if (!Auth::check())
+              <!-- Login -->
+              <li>
+                <a href="{{ url('/login') }}">Login</a>
+              </li>
+            @endif
         </ul>
       </nav><!-- .nav-menu -->
 

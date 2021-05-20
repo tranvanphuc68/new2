@@ -7,9 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    @if(Auth::check())
-    <div>Hello {{ Auth::user()->email }}</div>
-    @endif
+    
     <table>
     @foreach ($posts as $post)
         <tr>

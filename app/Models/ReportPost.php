@@ -13,3 +13,4 @@ class ReportPost extends Model
     
     protected $table = 'report_posts';
 }
+

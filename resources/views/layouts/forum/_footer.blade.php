@@ -1,3 +1,4 @@
+<!-- footer -->
 <footer id="footer">
   <div class="footer-top">
     <div class="container">
@@ -62,14 +63,11 @@
       &copy; Copyright <strong><span>INTO</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/squadfree-free-bootstrap-template-creative/ -->
       Designed by a group of students at ITPlus
     </div>
   </div>
-</footer><!-- End Footer -->
+</footer>
+<!-- End Footer -->
 
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
@@ -84,7 +82,7 @@
 <script src="{{ asset('vendor/venobox/venobox.min.js') }}"></script>
 <script src="{{ asset('vendor/owl.carousel/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('vendor/aos/aos.js') }}"></script>
-<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/forum.js') }}"></script>
 
 
 </body>
