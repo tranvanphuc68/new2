@@ -7,7 +7,7 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="title-block">
-        <h1 class="title">SỬA THÔNG TIN GIẢNG VIÊN </h1>
+        <h1 class="title">CẬP NHẬT THÔNG TIN GIẢNG VIÊN ID {{ $user->id }}</h1>
     </div>
     <div class="row sameheight-container">
         <div class="col-md-9">
@@ -54,9 +54,9 @@ Into
                         <label for="academic_level">Trình độ học vấn</label>
                         <input type="text" name="academic_level" id="academic_level" class="form-control" placeholder="Academic level" aria-describedby="helpId" value="{{ $user->academic_level }}">
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Lưu thông tin</button>
-                    <button type="reset" class="btn btn-primary" name="exit">Thoát</button>
+                    <div style="text-align: right;">
+                        <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+                    </div>
                 </form>
             </div>
         </div>

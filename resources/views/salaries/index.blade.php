@@ -55,7 +55,11 @@ Into
                                                 <tr>
                                                     <td>{{ $teacher->id }}</td>
                                                     <td>{{ $teacher->fullname }}</td>
-                                                    <td><a class="btn btn-primary" href="{{ url("/salaries/{$teacher->id}") }}">SHOW</a></td>
+                                                    <td>
+                                                        <a class="btn btn-primary" href="{{ url("/salaries/{$teacher->id}") }}">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif

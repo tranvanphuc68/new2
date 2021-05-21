@@ -7,14 +7,13 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="title-block">
-        <h3 class="title"> </h3>
+        <h1 class="title">TẠO KHÓA HỌC MỚI </h1>
     </div>
     <div class="row sameheight-container">
         <div class="col-md-9">
             <div class="card card-block sameheight-item">
                 <form action="{{ url("/courses") }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <h1 class="form-control btn btn-primary">Tạo khóa học mới</h1>
                     <div class="form-group">
                         <label for="name">Tên khóa học</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Name" aria-describedby="helpId" >
@@ -55,8 +54,9 @@ Into
                         <label for="status">Tình trạng</label>
                         <input type="text" name="status" id="status" class="form-control" placeholder="Status" aria-describedby="helpId" >
                     </div>
-                    <button type="submit" class="btn btn-primary" >Lưu thông tin</button>
-                    <button type="reset" class="btn btn-primary" >Thoát</button>
+                    <div style="text-align: right;">
+                        <button type="submit" class="btn btn-primary" >Lưu thông tin</button>
+                    </div>
                 </form>
             </div>
         </div>
