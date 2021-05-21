@@ -20,8 +20,10 @@ class AttendanceController extends Controller
         ->where('detail_classes.date', '=', "$today")
         ->select('detail_classes.*')
         ->get();
+        $todayNow = Controller::formatDate($today);
         return view('attendance.index', [
-            'data' => $data
+            'data' => $data,
+            'todayNow' => $todayNow
         ]);
     }
 

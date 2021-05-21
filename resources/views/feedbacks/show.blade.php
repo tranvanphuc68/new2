@@ -24,7 +24,7 @@ Into
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
-                                                        <th>Tên Học viên</th>
+                                                        <th>Tên Học Viên</th>
                                                         <th>Feedback</th>
                                                     </tr>
                                                 </thead>
@@ -41,7 +41,9 @@ Into
                                         <p>{{ $feedback[0]->feedback}}</p>
                                         @if ($feedback[0]->status == 3)
                                             <p class="mt-3" style="text-align: right;">
-                                                <a class="btn btn-primary" href="{{ url("/feedbacks/edit/{$feedback[0]->id_course}") }}">Sửa</a>
+                                                <a class="btn" href="{{ url("/feedbacks/edit/{$feedback[0]->id_course}") }}">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
                                             </p>
                                         @endif 
                                     @endif

@@ -7,10 +7,10 @@ Into
 @section('content')
 <article class="content">
     <div class="title-block">
-        <h3 class="title"> THÔNG TIN CÁ NHÂN     </h3>
+        <h1 class="title"> THÔNG TIN CÁ NHÂN </h1>
     </div>
     <div class="card card-block sameheight-item">
-        <img class="rounded-circle" width="20%" src="{{ asset("/uploads/avatars/$user->avatar") }}">
+        <img style="border-radius: 7px;" class="mb-3" width="20%" src="{{ asset("/uploads/avatars/$user->avatar") }}">
         <table class="table">
             <tr>
                 <td style="width: 25%">ID:</td>
@@ -53,7 +53,9 @@ Into
                 <td> {{ $user->academic_level }}</td>
             </tr>
         </table>
-        <a href='{{ url("/users/self_edit") }}' class="btn btn-primary"> Thay đổi thông tin</a>
+        <div style="text-align: right;">
+            <a href='{{ url("/users/self_edit") }}' class="btn btn-primary"> Thay đổi thông tin</a>
+        </div>
     </div>
 </article>
 

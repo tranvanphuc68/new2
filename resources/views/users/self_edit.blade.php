@@ -7,20 +7,23 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="title-block">
-        <h3 class="title"> </h3>
+        <h1 class="title"> CẬP NHẬT THÔNG TIN CÁ NHÂN </h1>
     </div>
     <div class="row sameheight-container">
         <div class="col-md-9">
             <div class="card card-block sameheight-item">
-                <h1 class="form-control btn btn-primary">Cập nhật thông tin cá nhân</h1>
                 <form action="{{url("/users/update_avt/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <img class="rounded-circle" width="20%" src="{{ asset("/uploads/avatars/$user->avatar") }}">
-                    <div class="form-group">
-                        <input type="file" name="avatar">
+                    <img style="border-radius: 7px;" class="mb-3" width="20%" src="{{ asset("/uploads/avatars/$user->avatar") }}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="file" name="avatar">
+                        </div>
+                        <div class="col-md-6">
+                            <button id="avt" type="submit" class="btn btn-primary">Lưu Avatar</button>
+                        </div>
                     </div>
-                    <button id="avt" type="submit" class="btn btn-primary">Lưu</button>
                 </form>
                 <form action="{{url("/users/self_edit/$user->id")}}" method="POST">
                     @method('PUT')
@@ -64,15 +67,13 @@ Into
                         <label for="academic_level">Trình độ học vấn</label>
                         <input type="text" name="academic_level" id="academic_level" class="form-control" placeholder="Academic level" aria-describedby="helpId" value="{{ $user->academic_level }}">
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Lưu thông tin</button>
-                    <a class="btn btn-primary" href="{{ url('/users/self_show') }}">Thoát</a>
+                    <div style="text-align: right;">
+                        <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
-
-<button type="button" href="#" onclick="refreshPage()">hi</button>
 </article>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 

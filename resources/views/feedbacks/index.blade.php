@@ -30,10 +30,10 @@ Into
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th>ID Khóa học</th>
-                                                <th>Tên Khóa học</th>
+                                                <th>ID Khóa Học</th>
+                                                <th>Tên Khóa Học</th>
                                                 <th>Trạng Thái</th>
-                                                <th>Chi tiết</th>
+                                                <th>Chi Tiết</th>
                                             </tr>
                                         </thead>
                                         @foreach($courses as $course)
@@ -51,7 +51,11 @@ Into
                                                         echo 'Đã hoàn thành';
                                                         break; 
                                                     }?></td>
-                                                <td><a class="btn btn-primary" href="{{ url("/feedbacks/{$course->id}") }}">Xem</a></td>
+                                                <td>
+                                                    <a class="btn" href="{{ url("/feedbacks/{$course->id}") }}">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </table>

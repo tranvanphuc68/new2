@@ -28,7 +28,7 @@
                     <div class="header-block header-block-nav">
                         <ul class="nav-profile">
                             <li>
-                                <a href="https://github.com/modularcode/modular-admin-html/stargazers" class="btn btn-sm header-btn">
+                                <a href="{{url('/posts')}}" class="btn btn-sm header-btn">
                             <i class="fa fa-star"></i>
                             <span >Diễn đàn</span>
                         </a>

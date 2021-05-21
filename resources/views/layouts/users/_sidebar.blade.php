@@ -18,7 +18,7 @@
             @if (Auth::user()->role == 'Admin')
                 <ul class="sidebar-menu metismenu" id="sidebar-menu">
                     <li class="active">
-                        <a href="index.html">
+                        <a href="">
                             <i class="fa fa-home"></i> Dashboard
                         </a>
                     </li>
@@ -93,7 +93,7 @@
             @if (Auth::user()->role == 'Teacher')
                 <ul class="sidebar-menu metismenu" id="sidebar-menu">
                     <li class="active">
-                        <a href="index.html">
+                        <a href="">
                             <i class="fa fa-home"></i> Dashboard
                         </a>
                     </li>
@@ -101,6 +101,14 @@
                         <a href="{{ url("/students_courses") }}">
                             <i class="fa fa-building-o"></i> Các lớp đang dạy <i class="fa arrow"></i>
                         </a>
+                        <ul class="sidebar-nav">
+                            <li>
+                                <a href="{{ url("/students_courses") }}"> Danh sách lớp </a>
+                            </li>
+                            <li>
+                                <a href="{{ url("/courses") }}"> Chi tiết buổi học </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="{{ url("/attendance") }}">
@@ -133,14 +141,22 @@
             @if (Auth::user()->role == 'Student')
                 <ul class="sidebar-menu metismenu" id="sidebar-menu">
                     <li class="active">
-                        <a href="index.html">
+                        <a href="">
                             <i class="fa fa-home"></i> Dashboard
                         </a>
                     </li>
                     <li>
                         <a href="{{ url("/students_courses") }}">
-                            <i class="fa fa-group"></i> Các lớp đã đăng kí </i>
+                            <i class="fa fa-group"></i> Các lớp đã đăng kí </i><i class="fa arrow"></i>
                         </a>
+                        <ul class="sidebar-nav">
+                            <li>
+                                <a href="{{ url("/students_courses") }}"> Danh sách lớp </a>
+                            </li>
+                            <li>
+                                <a href="{{ url("/courses") }}"> Chi tiết buổi học </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="{{ url("/marks") }}">
