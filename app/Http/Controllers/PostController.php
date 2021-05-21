@@ -89,7 +89,7 @@ class PostController extends Controller
             'content' => $request->content,
             'title' => $request->title
         ]);
-        return redirect('posts');
+        return redirect("posts/{$post->id}");
     }
 
     public function destroy(Post $post)
