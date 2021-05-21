@@ -145,6 +145,7 @@
                     <!--count comment -->
                     <h5 class="mb-3 ml-5" style="color:rgb(64, 124, 235);">Comments ({{ $countComment }})</h5>
 
+                    <!-- Show comment -->
                     @foreach ($comments as $comment)
                     <div class="d-flex flex-column comment-section mt-2 ml-4" id="myGroup">
                         <div class="ml-4" style="background-color:rgb(209, 213, 235); border-radius: 10px; ">

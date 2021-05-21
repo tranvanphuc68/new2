@@ -53,7 +53,7 @@
                 <li>
                   <a href="{{ url('/report_posts') }}">Manage reported posts</a>
                 </li>
-
+                <!-- Reported posts -->
                 <li class="notifications new">
                     <a href="" data-toggle="dropdown">
                         <i class="fa fa-bell-o" style="text-transform: uppercase;"> Reported posts </i>
@@ -63,6 +63,7 @@
                     </a>
                     <div class="dropdown-menu">
                         <ul class="notifications-container">
+                            
                                 <li>
                                     <a href="" class="notification-item" style="color: black">
                                         <div class="img-col">
