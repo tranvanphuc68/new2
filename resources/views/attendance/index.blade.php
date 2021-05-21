@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="courses">
         <div class="title-block">
-            <h1 class="title"> ĐIỂM DANH </h1>
+            <h1 class="title"> ĐIỂM DANH NGÀY {{ $todayNow }} </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -19,6 +19,7 @@ Into
                             <div class="card-title-block">
                             </div>
                             <section class="example">
+                            @if (count($data) != 0)
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
@@ -43,6 +44,9 @@ Into
                                         @endforeach
                                     </table>
                                 </div>
+                            @else
+                                <h5>HÔM NAY K CÓ LỚP ĐIỂM DANH</h5>
+                            @endif
                             </section>
                         </div>
                     </div>

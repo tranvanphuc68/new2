@@ -77,26 +77,28 @@ Into
                                                     </tr>
                                                 @endforeach 
                                             @else  
-                                                <thead>
-                                                    <tr>
-                                                        <th>ID Khóa Học</th>
-                                                        <th>Tên Khóa Học</th>
-                                                        <th>Trạng Thái</th>
-                                                        <th>Xem</th>
-                                                    </tr>
-                                                </thead>
-                                                @foreach($teachers as $teacher)
-                                                    <tr>
-                                                        <td>{{ $teacher->id }}</td>
-                                                        <td>{{ $teacher->name }}</td>
-                                                        <td><?php echo $teacher->status == 1 ? 'Chưa học': 'Đang học'; ?></td>
-                                                        <td>
-                                                            <a class="btn btn-primary" href="{{ url("/students_courses/{$teacher->id}") }}">
-                                                                <i class="fa fa-eye"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
+                                                @if (Auth::user()->role == 'Teacher')                
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID Khóa Học</th>
+                                                            <th>Tên Khóa Học</th>
+                                                            <th>Trạng Thái</th>
+                                                            <th>Xem</th>
+                                                        </tr>
+                                                    </thead>
+                                                    @foreach($teachers as $teacher)
+                                                        <tr>
+                                                            <td>{{ $teacher->id }}</td>
+                                                            <td>{{ $teacher->name }}</td>
+                                                            <td><?php echo $teacher->status == 1 ? 'Chưa học': 'Đang học'; ?></td>
+                                                            <td>
+                                                                <a class="btn btn-primary" href="{{ url("/students_courses/{$teacher->id}") }}">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
                                             @endif
                                         @endif
                                     </table>
