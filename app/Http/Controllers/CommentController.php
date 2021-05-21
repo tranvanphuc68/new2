@@ -23,11 +23,14 @@ public function store(Request $request, $post)
 
 public function self_edit(Comment $comment)
 {
+    $countPostHadBeenReported = DB::table('report_posts')
+    ->count(DB::raw('DISTINCT id_post'));
     $id_user = Auth::user()->id;
     if($comment->id_user == $id_user)
     {
         return view('comments.edit', [
-        'comment' => $comment
+        'comment' => $comment,
+        'countPostHadBeenReported' => $countPostHadBeenReported
     ]);
     }
     else 

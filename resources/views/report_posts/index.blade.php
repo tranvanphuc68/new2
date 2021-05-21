@@ -7,13 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h2>All Post had been reported({{ $countPostHadBeenReported }})</h2>
     <table>
     @foreach ($posts as $post)
         <tr>
             <td>{{ $post->fullname }}</td>
+            <td>{{ $post->title }}</td>
             <td>{{ $post->content }}</td>
-            
         </tr>
         <td><a href="{{ url("/report_posts/{$post->id}") }}">Show</a></td>
         @endforeach

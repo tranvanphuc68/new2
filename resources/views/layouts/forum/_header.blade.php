@@ -56,9 +56,9 @@
 
                 <li class="notifications new">
                     <a href="" data-toggle="dropdown">
-                        <i class="fa fa-bell-o" style="text-transform: uppercase;"> reported posts </i>
+                        <i class="fa fa-bell-o" style="text-transform: uppercase;"> Reported posts </i>
                         <sup>
-                            <span class="counter">8</span>
+                            <span class="counter">{{ $countPostHadBeenReported }}</span>
                         </sup>
                     </a>
                     <div class="dropdown-menu">
@@ -88,6 +88,7 @@
                     </div>
                 </li>
               @endif
+
               <!-- Notifications -->
               <li class="notifications new">
                 <a href="" data-toggle="dropdown">

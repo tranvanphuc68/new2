@@ -13,19 +13,24 @@ class ReportPostController extends Controller
     //
 public function index()
 {
+    $countPostHadBeenReported = DB::table('report_posts')
+    ->count(DB::raw('DISTINCT id_post'));
     $posts = DB::table('posts')
     ->join('report_posts', 'report_posts.id_post', '=', 'posts.id')
     ->join('users', 'users.id', '=', 'posts.id_user')
     ->select('posts.*', 'users.fullname')->distinct()
     ->get();
     return view('report_posts.index', [
-        'posts' => $posts
+        'posts' => $posts,
+        'countPostHadBeenReported' => $countPostHadBeenReported
     ]);
-    
 }
 
 public function show(Post $post)
     {   
+        $countReportPost = DB::table('report_posts')
+        ->where('report_posts.id_post', '=', "$post->id")
+        ->count();
         $report_posts = DB::table('report_posts')
         ->join('users', 'users.id', '=', 'report_posts.id_user')
         ->join('posts', 'posts.id', '=', 'report_posts.id_post')
@@ -42,7 +47,8 @@ public function show(Post $post)
         $post = $posts[0];
         return view('report_posts.show', [
         'report_posts' => $report_posts,
-        'post' => $post
+        'post' => $post,
+        'countReportPost' => $countReportPost
     ]);
     }
 

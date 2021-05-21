@@ -9,8 +9,15 @@
 <div>Hello {{ Auth::user()->email }}</div>
 @endif
 <div class="content">
+<div class="mb-2 container">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-8">
+            <h2 style="color:hsl(276, 98%, 48%); text-transform: uppercase; text-align: center;">number of posts ({{ $countPost }})</h2>
+        </div>
+    </div>
+</div>
 @foreach ($posts as $post)
-<div class="container mb-2">
+<div class="mb-2 container">
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
             <div class="d-flex flex-column comment-section" id="myGroup">

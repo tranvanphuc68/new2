@@ -14,6 +14,7 @@
 <h4>POST</h4>
 
 <h3>{{ $post->fullname }}</h3>
+<h2>{{ $post->title }}</h2>
 <div>{{ $post->content }}</div>
 
 <div>
@@ -24,7 +25,7 @@
     </form>
 </div>
 
-<h4>ALL REPORT</h4>
+<h4>ALL REPORT({{ $countReportPost }})</h4>
 @foreach ($report_posts as $report_post)
     
         <td>{{ $report_post->fullname }}</td>

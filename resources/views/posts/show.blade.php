@@ -54,6 +54,9 @@
                                             @csrf
                                             <a type="button" data-toggle="modal" data-target="#report">
                                                 <i class="fa fa-flag"></i>
+                                                <sup>
+                                                    <span class="counter">({{ $countReportPost }})</span>
+                                                </sup>
                                             </a>
                                             <div class="modal fade" id="report" tabindex="-1" aria-labelledby="reportLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
@@ -123,20 +126,24 @@
         <div class="container">
             <div class="d-flex justify-content-center row">
                 <div class="col-md-8" style="border-bottom: 3px solid rgb(201, 220, 221); border-left: 2px solid rgb(201, 220, 221); border-right: 2px solid rgb(201, 220, 221); background-color:rgb(255, 255, 255); border-radius: 10px; border-top: 5px solid rgb(64, 124, 235);">
-                     <!-- Create comment -->
-                     @if (Auth::check())
+
+                    <!-- Create comment -->
+                    @if (Auth::check())
                     <form method="POST" action="{{ url("/comments/{$post->id}") }}" >
                         @csrf
                         <div class="d-flex flex-row align-items-start mt-4">
                             <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
                             <textarea class="form-control ml-1 shadow-none textarea" name="content"></textarea>
                         </div>
-                        <div class="mt-2 text-right mb-5">
+                        <div class="mt-2 text-right">
                             <button class="btn btn-primary btn-sm shadow-none" type="submit">Post comment</button>
                             <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="reset">Cancel</button>
                         </div>
                     </form>
                     @endif
+
+                    <!--count comment -->
+                    <h5 class="mb-3 ml-5" style="color:rgb(64, 124, 235);">Comments ({{ $countComment }})</h5>
 
                     @foreach ($comments as $comment)
                     <div class="d-flex flex-column comment-section mt-2 ml-4" id="myGroup">

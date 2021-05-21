@@ -6,6 +6,8 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
+use App\Models\Comment;
 
 class PostController extends Controller
 {
@@ -17,8 +19,14 @@ class PostController extends Controller
         ->select('posts.*', 'users.fullname', 'users.avatar')
         ->latest()
         ->get();
+        $countPost = DB::table('posts')
+        ->count();
+        $countPostHadBeenReported = DB::table('report_posts')
+        ->count(DB::raw('DISTINCT id_post'));
         return view('posts.index', [
-            'posts' => $posts
+            'posts' => $posts,
+            'countPost' => $countPost,
+            'countPostHadBeenReported' => $countPostHadBeenReported
         ]);
     }
 
@@ -30,6 +38,15 @@ class PostController extends Controller
         ->select('comments.*', 'users.fullname', 'users.avatar')
         ->latest()
         ->get();
+        $countComment = DB::table('comments')
+        ->where('comments.id_post', '=', "$post")
+        ->count();
+        $countReportPost = DB::table('report_posts')
+        ->where('report_posts.id_post', '=', "$post")
+        ->count();
+        $countPostHadBeenReported = DB::table('report_posts')
+        ->count(DB::raw('DISTINCT id_post'));
+
         $post = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
         ->where('posts.id', '=', "$post")
@@ -39,13 +56,20 @@ class PostController extends Controller
         $post = $post[0];
         return view('posts.show', [
         'comments' => $comments,
-        'post' => $post
+        'post' => $post,
+        'countComment' => $countComment,
+        'countReportPost' => $countReportPost,
+        'countPostHadBeenReported' => $countPostHadBeenReported
     ]);
     }
 
     public function create()
     {   
-        return view('posts.create');
+        $countPostHadBeenReported = DB::table('report_posts')
+        ->count(DB::raw('DISTINCT id_post'));
+        return view('posts.create', [
+            'countPostHadBeenReported' => $countPostHadBeenReported
+        ]);
     }
 
     public function store(Request $request)
