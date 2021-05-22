@@ -13,13 +13,15 @@
         <link rel="stylesheet"  href="{{ asset('css/user.css') }}">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,400;0,500;1,500&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&family=Noto+Serif+JP:wght@300;400;500&family=Pattaya&display=swap" rel="stylesheet">
     </head>
 
     <body>
         <div class="main-wrapper">
             <div class="app" id="app">
                 <header class="header header-fixed">
-                    <h1 class="text-light"><a href=""><span>Into</span></a></h1>
+                    <h1 class=""><a href=""><span class="text-Patt" style="font-size: 40px;">Into</span></a></h1>
                     <div class="header-block header-block-collapse d-lg-none d-xl-none">
                         <button class="collapse-btn" id="sidebar-collapse-btn">
                             <i class="fa fa-bars"></i>

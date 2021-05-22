@@ -9,9 +9,9 @@
                         <span class="l l4"></span>
                         <span class="l l5"></span>
                     </div>  
-                    @if (Auth::user()->role == 'Student') <span> Student </span> @endif
-                    @if (Auth::user()->role == 'Teacher') <span> Teacher </span> @endif
-                    @if (Auth::user()->role == 'Admin') <span> Admin </span> @endif
+                    @if (Auth::user()->role == 'Student') <span class="text-Patt"> Student </span> @endif
+                    @if (Auth::user()->role == 'Teacher') <span class="text-Patt"> Teacher </span> @endif
+                    @if (Auth::user()->role == 'Admin') <span class="text-Patt"> Admin </span> @endif
                 </div>
             </div>
             <nav class="menu">

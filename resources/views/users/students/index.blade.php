@@ -49,13 +49,13 @@ Into
                                             <td>{{ $user->phone }}</td>
                                             <td>
                                                 <a href='{{ url("/users/student/{$user->id}") }}' class="btn">
-                                                    <i class="fa fa-eye"></i>
+                                                    <i class="fa fa-eye text-primary"></i>
                                                 </a>
                                                 <a href='{{ url("/users/student/{$user->id}/edit") }}' class="btn">
-                                                    <i class="fa fa-pencil"></i>
+                                                    <i class="fa fa-pencil text-success"></i>
                                                 </a>
                                                 <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('user-delete-{{ $user->id }}').submit()" class="btn">
-                                                    <i class="fa fa-trash-o"></i>
+                                                    <i class="fa fa-trash-o text-danger"></i>
                                                 </a>
                                                 <form method="POST" id="user-delete-{{ $user->id }}" action="{{ url("/users/student/{$user->id}") }}" >
                                                     @method('DELETE')

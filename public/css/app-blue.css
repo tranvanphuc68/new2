@@ -1487,10 +1487,10 @@ label,
 a:not(.btn) {
   -webkit-transition: initial;
   transition: initial;
-  text-decoration: underline;
+  text-decoration: none;
   color: #969696; }
   a:not(.btn):hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: #33aec9; }
     a:not(.btn):hover:before {
       -webkit-transform: scaleX(1);
@@ -1727,7 +1727,7 @@ span a {
       min-height: 200px; }
 
 .header {
-  background-color: #d7dde4;
+  background-color: #fff;
   height: 70px;
   position: absolute;
   left: 240px;
@@ -1758,7 +1758,7 @@ span a {
       padding: 5px; } }
 
 .sidebar {
-  background-color: #3a4651;
+  background-color: #1F262D;
   width: 240px;
   padding-bottom: 60px;
   position: fixed !important;
@@ -2939,3 +2939,5 @@ span a {
   @media (max-width: 767.98px) {
     .header .header-block-nav .profile-dropdown-menu {
       margin-top: 8px; } }
+
+

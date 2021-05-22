@@ -34,7 +34,7 @@
                         <form id="login-form" action="{{ url('login') }}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="username">Username</label>
+                                <label for="username">Email</label>
                                 <input type="email" class="form-control underlined" name="email" id="username" placeholder="Your email address" required>
                             </div>
                             <div class="form-group">
