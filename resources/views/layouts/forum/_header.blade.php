@@ -51,42 +51,12 @@
               <!-- Manage reportes posts -->
               @if (Auth::user()->role == "Admin")
                 <li>
-                  <a href="{{ url('/report_posts') }}">Manage reported posts</a>
-                </li>
-                <!-- Reported posts -->
-                <li class="notifications new">
-                    <a href="" data-toggle="dropdown">
-                        <i class="fa fa-bell-o" style="text-transform: uppercase;"> Reported posts </i>
-                        <sup>
-                            <span class="counter">{{ $countPostHadBeenReported }}</span>
-                        </sup>
-                    </a>
-                    <div class="dropdown-menu">
-                        <ul class="notifications-container">
-                            
-                                <li>
-                                    <a href="" class="notification-item" style="color: black">
-                                        <div class="img-col">
-                                            <div class="img" style="background-image: url('assets/faces/3.jpg')"></div>
-                                        </div>
-                                        <div class="body-col">
-                                            <p>
-                                                <span class="accent">Zack Alien</span> pushed new commit: 
-                                                <span class="accent">Fix page load performance issue</span>. 
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                        </ul>
-
-                        <footer>
-                            <ul>
-                                <li>
-                                    <a href=""  style="color: black;; text-align: center; "> View All </a>
-                                </li>
-                            </ul>
-                        </footer>
-                    </div>
+                  <a href="{{ url('/report_posts') }}">
+                    <i class="fa fa-bell-o" style="text-transform: uppercase;"> Reported posts </i>
+                    <sup>
+                      <span class="counter">{{ $countPostHadBeenReported }}</span>
+                  </sup>
+                  </a>
                 </li>
               @endif
 
