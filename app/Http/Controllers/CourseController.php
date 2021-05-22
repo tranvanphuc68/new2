@@ -48,6 +48,10 @@ class CourseController extends Controller
     public function show(Course $course)
     {   
         $id_course = $course->id;
+        $course = DB::table('courses')
+        ->where('courses.id', "$id_course")
+        ->get();
+        $course = $course[0];
         $detail = DB::table('detail_classes')
         ->join('courses', 'id_course', '=', 'id')
         ->where('id_course', '=', "$course->id")
@@ -57,9 +61,11 @@ class CourseController extends Controller
         {
             $class->date = Controller::formatDate($class->date);
         };
+        //dd($detail);
         return view('courses.show', [
             'detail' => $detail,
-            'id_course' => $id_course
+            'id_course' => $id_course,
+            'course' => $course
         ]);
     }
 

@@ -63,10 +63,8 @@ Into
                         <label for="id_card">Password</label>
                         <input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-describedby="helpId">
                     </div>
-                    <div>
+                    <div style="text-align: right;">
                         <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
-                        <button type="reset" class="btn btn-primary" name="exit">Thoát</button>
-                    </div>
                 </form>
             </div>
         </div>

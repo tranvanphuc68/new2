@@ -16,7 +16,7 @@ Into
                     @csrf
                     <div class="form-group">
                         <label for="number">Buổi học</label>
-                        <input type="text" name="number" id="number" class="form-control" placeholder="Number" aria-describedby="helpId" >
+                        <input type="text" name="number" id="number" class="form-control" placeholder="Number" value="{{ $data }}" aria-describedby="helpId" >
                     </div>
                     <div class="form-group">
                         <label for="content">Nội dung</label>

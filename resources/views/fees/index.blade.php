@@ -28,41 +28,56 @@ Into
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover">
                                         @if (Auth::user()->role == 'Student')
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Tên Khóa Học</th>
-                                                <th>Tình Trạng</th>
-                                            </tr>
-                                        </thead>
-                                        @foreach($fees as $fee)
-                                        <tr>
-                                            <td>{{ $fee->id_course }}</td>
-                                            <td>{{ $fee->name }}</td>
-                                            <td><?php echo $fee->status_fee == 0 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
-                                        </tr>
-                                        @endforeach
-                                        @else
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Tên Khóa Học</th>
-                                                <th>Tình Trạng</th>
-                                                <th>Chi Tiết</th>
-                                            </tr>
-                                        </thead>
-                                        @foreach($courses as $course)
-                                        <tr>
-                                            <td>{{ $course->id }}</td>
-                                            <td>{{ $course->name }}</td>
-                                            <td><?php echo $course->status == 0 ? 'Chưa học' : 'Đang học'; ?></td>
-                                            <td>
-                                                <a class="btn btn-primary" href="{{ url("/fees/{$course->id}") }}">
-                                                    <i class="fa fa-eye"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Tên Khóa Học</th>
+                                                    <th>Học Phí</th>
+                                                    <th>Tình Trạng</th>
+                                                </tr>
+                                            </thead>
+                                            @foreach($fees as $fee)
+                                                <tr>
+                                                    <td>{{ $fee->id_course }}</td>
+                                                    <td>{{ $fee->name }}</td>
+                                                    <td>{{ $fee->fee }}</td>
+                                                    <td><?php echo $fee->status_fee == 0 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
+
+                                        @if (Auth::user()->role == 'Admin')
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Tên Khóa Học</th>
+                                                    <th>Tình Trạng</th>
+                                                    <th>Chi Tiết</th>
+                                                </tr>
+                                            </thead>
+                                            @foreach($courses as $course)
+                                                <tr>
+                                                    <td>{{ $course->id }}</td>
+                                                    <td>{{ $course->name }}</td>
+                                                    <td><?php switch ($course->status) {
+                                                                            case '1':
+                                                                                echo 'Chưa Học';
+                                                                                break;
+                                                                            case '2':
+                                                                                echo 'Đang Học';
+                                                                                break;
+                                                                            case '3':
+                                                                                echo 'Đã Hoàn Thành';
+                                                                                break; 
+                                                                }?>
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-primary" href="{{ url("/fees/{$course->id}") }}">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         @endif
                                     </table>
                                 </div>

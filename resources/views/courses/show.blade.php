@@ -7,39 +7,47 @@ Into
 @section('content')
 <article class="content">
     <div class="title-block">
-        <h3 class="title"> THÔNG TIN CHI TIẾT KHÓA HỌC {{ $detail[0]->name }}</h3>
+        <h3 class="title"> THÔNG TIN CHI TIẾT KHÓA HỌC {{ $course->name }}</h3>
     </div>
     <section class="example">
         <div class="row">
             <div class="col-md-9">
                 <div class="card card-block">
-                    <div class="mb-3">
-                        <a href="{{ url("/detail_course/create/{$id_course}") }}" class="btn btn-primary">THÊM BUỔI HỌC MỚI</a>
+                    <div class="row mb-3">
+                        @if (Auth::user()->role == 'Admin')
+                            <div>
+                                <a href="{{ url("/detail_course/create/{$id_course}") }}" class="btn btn-primary">THÊM BUỔI HỌC MỚI</a>
+                                @error ('full')
+                                <h3>{{ $message }}</h3>
+                                @enderror
+                            </div>
+                        @else
+                            <div style="text-align: right;" >
+                                <a href="{{ $course->link }}" class="btn btn-primary">LINK NHẬN NỘP BÀI TẬP</a>
+                            </div>
+                        @endif
                     </div>
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
                             <th>Buổi</th>
                             <th>Nội Dung</th>
                             <th>Ngày Học</th>
-                            <th></th>
+                            @if (Auth::user()->role == 'Admin')
+                                <th></th>
+                            @endif
                         </tr>   
                         @foreach($detail as $detail)
                             <tr>
                                 <td>{{ $detail->number }}</td>
                                 <td>{{ $detail->content }}</td>
                                 <td>{{ $detail->date }}</td>
-                                <td>
-                                    <a href="{{ url("/detail_course/{$detail->id_course}-{$detail->number}/edit") }}" class="btn">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" onclick="if (confirm('Are you sure you want to delete this item?')) document.getElementById('detailCourse-delete-{{ $detail->id_course }}').submit()" class="btn">
-                                        <i class="fa fa-trash-o"></i>
-                                    </a>
-                                    <form method="POST" id="detailCourse-delete-{{ $detail->id_course }}" action="{{ url("/detail_course/{$detail->id_course}-{$detail->number}") }}" >
-                                        @method('DELETE')
-                                        @csrf
-                                    </form>
-                                </td>
+                                @if (Auth::user()->role == 'Admin')
+                                    <td>
+                                        <a href="{{ url("/detail_course/{$detail->id_course}-{$detail->number}/edit") }}" class="btn">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </table>

@@ -151,7 +151,6 @@ Into
                                                     <th>Thời Khóa Biểu</th>
                                                     <th>Tổng Giờ</th>
                                                     <th>Số Tiết</th>
-                                                    <th>Học Phí</th>
                                                     <th>Tình Trạng</th>
                                                     <th>Xem</th>
                                                 </tr>
@@ -165,7 +164,6 @@ Into
                                                     <td>{{ $course->timetable }}</td>
                                                     <td>{{ $course->sum_time }}</td>
                                                     <td>{{ $course->lessons }}</td>
-                                                    <td>{{ $course->fee }}</td>
                                                     <td><?php switch ($course->status) {
                                                                             case '1':
                                                                                 echo 'Chưa Học';

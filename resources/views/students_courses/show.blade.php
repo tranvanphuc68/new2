@@ -55,8 +55,8 @@ Into
                                 </div>
                                 @else 
                                 <div>
-                                    <h1 class="form-control btn btn-primary" >LỚP CHƯA CÓ HỌC VIÊN</h1>
-                                    <div style="text-align: right;" class="mt-3">
+                                    <h3>LỚP CHƯA CÓ HỌC VIÊN</h3>
+                                    <div class="mt-3">
                                         <a class="btn btn-primary" href="{{ url("/students_courses/create/{$id_course}") }}">Thêm Học Viên</a>
                                     </div>
                                 </div>

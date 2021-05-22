@@ -51,6 +51,10 @@ Into
                         <input type="text" name="salary" id="salary" class="form-control" placeholder="Salary" aria-describedby="helpId" >
                     </div>
                     <div class="form-group">
+                        <label for="link">Link</label>
+                        <input type="text" name="link" id="link" class="form-control" placeholder="Link" aria-describedby="helpId" >
+                    </div>
+                    <div class="form-group">
                         <label for="status">Tình trạng</label>
                         <input type="text" name="status" id="status" class="form-control" placeholder="Status" aria-describedby="helpId" >
                     </div>

@@ -20,10 +20,10 @@ class AttendanceController extends Controller
         ->where('detail_classes.date', '=', "$today")
         ->select('detail_classes.*')
         ->get();
-        $todayNow = Controller::formatDate($today);
+        $today = Controller::formatDate($today);
         return view('attendance.index', [
             'data' => $data,
-            'todayNow' => $todayNow
+            'today' => $today
         ]);
     }
 
@@ -37,10 +37,10 @@ class AttendanceController extends Controller
         ->join('users', 'users.id', '=', 'students_courses.id_student')
         ->where('students_courses.id_course', '=', "$id_course")
         ->select('students_courses.*', 'users.fullname', 'users.dob')
-        ->get();   
-        foreach($data as $data)
+        ->get();
+        foreach($data as $item)
         {
-            $data->dob = Controller::formatDate($data->dob);
+            $item->dob = Controller::formatDate($item->dob);
         }
         return view('attendance.create', [
             'data' => $data,

@@ -17,6 +17,9 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <section class="example">
+                                <div class="mb-3">
+                                    <a class="btn btn-primary" href="{{ url("/salaries/edit/{$salaries[0]->id_teacher}") }}">CẬP NHẬT LƯƠNG</a>
+                                </div>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
@@ -38,10 +41,7 @@ Into
                                     </table>
                                 </div>
                                 <div style="text-align: right;">
-                                    <a class="btn btn-primary" href="{{ url("/salaries/edit/{$salaries[0]->id_teacher}") }}">CẬP NHẬT LƯƠNG</a>
-                                </div>
-                                <div>
-                                    <h5>Tổng lương (đã nhận): {{ $sum }}</p>
+                                    <h5>Tổng lương (đã trả): {{ $sum }}</p>
                                     <p>Số lượng (đã nhận): {{ $count }} / {{ count($salaries) }}</p>
                                 </div>
                             </section>

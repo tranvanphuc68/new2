@@ -51,7 +51,7 @@ Into
                                     @endif
                                 </div>
                                 <div style="text-align: right;">
-                                    <h5>Tổng học phí (đã nộp): {{ $sum }}</h5>
+                                    <h5>Tổng học phí (đã nhập): {{ $sum }}</h5>
                                     <h5>Học viên đã nộp: {{ $count }} / {{ count($students) }}</h5>
                                 </div>
                             </section>

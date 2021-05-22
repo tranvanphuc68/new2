@@ -18,7 +18,7 @@ Into
                         <div class="card-block">
                             <section class="example">   
                                 @if (Auth::user()->role == 'Teacher')
-                                    <div style="text-align: right">
+                                    <div class="mb-3">
                                         <a class="btn btn-primary" href="{{ url("/marks/edit/{$students[0]->id_course}") }}">Cập nhật điểm</a>
                                     </div>
                                 @endif                

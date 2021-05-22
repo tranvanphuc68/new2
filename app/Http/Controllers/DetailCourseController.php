@@ -9,9 +9,20 @@ use Illuminate\Http\Request;
 class DetailCourseController extends Controller
 {
     public function create($id_course)
-    {
+    {   
+        $data = DetailCourse::where('id_course', '=', "$id_course")
+        ->count();
+        $data++;
+        $course = DB::table('courses')
+        ->where('courses.id', "$id_course")
+        ->get();
+        $course = $course[0];
+        if ($data > $course->lessons){
+            return redirect("/courses/$id_course")->withErrors(['full' => 'KHÔNG THỂ VƯỢT QUÁ SỐ BUỔI']);
+        }
         return view('courses.detail.create', [
-            'id_course' => $id_course
+            'id_course' => $id_course,
+            'data' => $data,
         ]);
     }
 
@@ -47,13 +58,4 @@ class DetailCourseController extends Controller
         ]);
         return redirect("courses/{$request->id_course}");
     }
-
-    public function destroy($id_course, $number)
-    {
-        $data = DetailCourse::where('id_course', '=', "$id_course")
-        ->where('number', '=', "$number")
-        ->delete();
-        return redirect("courses/{$id_course}");
-    }
-
 }

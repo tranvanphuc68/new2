@@ -27,12 +27,13 @@ Into
                             </div>
                             <section class="example">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
-                                        @if (Auth::user()->role == 'Teacher')
+                                    @if (Auth::user()->role == 'Teacher')
+                                        <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Tên Khóa Học</th>
+                                                    <th>Lương</th>
                                                     <th>Tình Trạng</th>
                                                 </tr>
                                             </thead>
@@ -40,10 +41,19 @@ Into
                                                 <tr>
                                                     <td>{{ $salary->id }}</td>
                                                     <td>{{ $salary->name }}</td>
+                                                    <td>{{ $salary->salary }}</td>
                                                     <td><?php echo $salary->status_salary == 0 ? 'Chưa nhận': 'Đã nhận'; ?></td>
                                                 </tr>
                                             @endforeach
-                                        @else
+                                        </table>
+                                            <div style="text-align: right;">
+                                                <h5>Tổng lương (đã nhận): {{ $sum }}</p>
+                                                <p>Số lượng (đã nhận): {{ $count }} / {{ count($salaries) }}</p>
+                                            </div>
+                                    @endif
+                                    
+                                    @if (Auth::user()->role == 'Admin')
+                                        <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
@@ -62,8 +72,8 @@ Into
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                        @endif
-                                    </table>
+                                        </table>
+                                    @endif
                                 </div>
                             </section>
                         </div>
