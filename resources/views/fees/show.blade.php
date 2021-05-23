@@ -7,8 +7,8 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="student">
-        <div class="title-block">
-            <h1 class="title"> HỌC PHÍ LỚP : {{ $students[0]->name }} </h1>
+        <div class="card">
+            <h1 class="text-IBM"> Học viên đăng kí lớp : {{ $students[0]->name }} </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -16,8 +16,8 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <a class="btn btn-primary" href="{{ url("/fees/edit/{$students[0]->id_course}") }}">CẬP NHẬT HỌC PHÍ</a>
-                                <form role="search" style="text-align: right">
+                                <a style="float:right" href="{{ url("/fees/edit/{$students[0]->id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Cập nhật học phí</span></a>
+                                <form role="search" style="float:left">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
                                         <input type="search" placeholder="Search">
@@ -28,9 +28,9 @@ Into
                             <section class="example">
                                 <div class="table-responsive">
                                 @if (count($students) != 0)
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-bordered table-hover">
                                         <thead>
-                                            <tr>
+                                            <tr class="table-primary">
                                                 <th>ID</th>
                                                 <th>Tên Học Sinh</th>
                                                 <th>Học phí</th>
@@ -50,8 +50,8 @@ Into
                                     <div>Null</div>
                                     @endif
                                 </div>
-                                <div style="text-align: right;">
-                                    <h5>Tổng học phí (đã nhập): {{ $sum }}</h5>
+                                <div>
+                                    <h5>Tổng học phí (đã nộp): {{ $sum }}</h5>
                                     <h5>Học viên đã nộp: {{ $count }} / {{ count($students) }}</h5>
                                 </div>
                             </section>

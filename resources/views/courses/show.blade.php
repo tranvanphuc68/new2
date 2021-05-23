@@ -6,8 +6,8 @@ Into
 
 @section('content')
 <article class="content">
-    <div class="title-block">
-        <h3 class="title"> THÔNG TIN CHI TIẾT KHÓA HỌC {{ $course->name }}</h3>
+    <div class="card col-md-9" style="padding: 0px;">
+        <h3 class="text-IBM"> Thông tin chi tiết khóa học {{ $course->name }}</h3>
     </div>
     <section class="example">
         <div class="row">
@@ -16,7 +16,7 @@ Into
                     <div class="row mb-3">
                         @if (Auth::user()->role == 'Admin')
                             <div>
-                                <a href="{{ url("/detail_course/create/{$id_course}") }}" class="btn btn-primary">THÊM BUỔI HỌC MỚI</a>
+                                <a style="float:right" href="{{ url("/detail_course/create/{$id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm buổi học</span></a>
                                 @error ('full')
                                 <h3>{{ $message }}</h3>
                                 @enderror
@@ -27,8 +27,8 @@ Into
                             </div>
                         @endif
                     </div>
-                    <table class="table table-striped table-bordered table-hover">
-                        <tr>
+                    <table class="table table-bordered table-hover">
+                        <tr class="table-primary">
                             <th>Buổi</th>
                             <th>Nội Dung</th>
                             <th>Ngày Học</th>
@@ -42,9 +42,9 @@ Into
                                 <td>{{ $detail->content }}</td>
                                 <td>{{ $detail->date }}</td>
                                 @if (Auth::user()->role == 'Admin')
-                                    <td>
-                                        <a href="{{ url("/detail_course/{$detail->id_course}-{$detail->number}/edit") }}" class="btn">
-                                            <i class="fa fa-pencil"></i>
+                                    <td style="display: flex;  justify-content: space-around;">
+                                        <a href="{{ url("/detail_course/{$detail->id_course}-{$detail->number}/edit") }}">
+                                            <i class="fa fa-pencil icon-edit"></i>
                                         </a>
                                     </td>
                                 @endif

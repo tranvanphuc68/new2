@@ -7,8 +7,8 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="courses">
-        <div class="title-block">
-            <h1 class="title"> DANH SÁCH KHÓA HỌC </h1>
+        <div class="card">
+            <h1 class="text-IBM"> Danh sách khóa học </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -17,9 +17,9 @@ Into
                         <div class="card-block">
                             <div class="card-title-block">
                                 @if (Auth::user()->role == 'Admin')
-                                    <a href=" {{ url("/courses/create") }}" class="btn btn-primary" name="create">THÊM KHÓA HỌC MỚI</a>
+                                    <a style="float:right" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm khóa học</span></a>
                                 @endif
-                                <form role="search" style="text-align: right">
+                                <form role="search" style="float:left">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
                                         <input type="search" placeholder="Search">
@@ -30,9 +30,9 @@ Into
                             <section class="example">
                                 @if (Auth::user()->role == 'Admin')
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-bordered table-hover">
                                         <thead>
-                                            <tr>
+                                            <tr class="table-primary">
                                                 <th>ID</th>
                                                 <th>Tên Khóa</th>
                                                 <th>Tên Giảng Viên</th>
@@ -71,15 +71,15 @@ Into
                                                                             break; 
                                                             }?>
                                                     </td>
-                                                <td>
-                                                    <a href="{{ url("/courses/{$course->id}") }}" class="btn">
-                                                        <i class="fa fa-eye"></i>
+                                                <td style="display: flex;  justify-content: space-around;">
+                                                    <a href="{{ url("/courses/{$course->id}") }}" >
+                                                        <i class="fa fa-eye icon-view"></i>
                                                     </a>
-                                                    <a href="{{ url("/courses/{$course->id}/edit") }}" class="btn">
-                                                        <i class="fa fa-pencil"></i>
+                                                    <a href="{{ url("/courses/{$course->id}/edit") }}" >
+                                                        <i class="fa fa-pencil icon-edit"></i>
                                                     </a>
-                                                    <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('course-delete-{{ $course->id }}').submit()" class="btn">
-                                                        <i class="fa fa-trash-o"></i>
+                                                    <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('course-delete-{{ $course->id }}').submit()" >
+                                                        <i class="fa fa-trash-o icon-delete"></i>
                                                     </a>
                                                     <form method="POST" id="course-delete-{{ $course->id }}" action="{{ url("/courses/$course->id") }} >
                                                         @method('DELETE')

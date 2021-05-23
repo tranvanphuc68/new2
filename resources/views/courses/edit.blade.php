@@ -6,8 +6,8 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="title-block">
-        <h1 class="title">CẬP NHẬT THÔNG TIN KHÓA HỌC {{ $course->name }}</h1>
+    <div class="card col-md-9" style="padding: 0px;">
+        <h1 class="text-IBM">Cập nhật khóa học {{ $course->name }}</h1>
     </div>
     <div class="row sameheight-container">
         <div class="col-md-9">

@@ -17,6 +17,7 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
+                                <a style="float:right" href="{{ url("/users/teacher/create") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm giảng viên</span></a>
                                 <form role="search" style="float:left">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
@@ -24,7 +25,6 @@ Into
                                         <div class="underline"></div>
                                     </div>
                                 </form>
-                                <a style="float:right" href="{{ url("/users/teacher/create") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm giảng viên</span></a>
                             </div>
                             <section class="example">
                                 <div class="table-responsive">
@@ -48,7 +48,7 @@ Into
                                             <td>{{ $user->dob }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
-                                            <td>
+                                            <td style="display: flex;  justify-content: space-around;">
                                                 <a href='{{ url("/users/teacher/{$user->id}") }}'>
                                                     <i class="fa fa-eye icon-view"></i>
                                                 </a>

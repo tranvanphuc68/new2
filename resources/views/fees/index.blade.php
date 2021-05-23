@@ -7,8 +7,8 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="student">
-        <div class="title-block">
-            <h1 class="title">HỌC PHÍ CÁC KHÓA</h1>
+        <div class="card">
+            <h1 class="text-IBM">Học viên đăng kí</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -26,10 +26,10 @@ Into
                             </div>
                             <section class="example">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-bordered table-hover">
                                         @if (Auth::user()->role == 'Student')
                                             <thead>
-                                                <tr>
+                                                <tr class="table-primary">
                                                     <th>ID</th>
                                                     <th>Tên Khóa Học</th>
                                                     <th>Học Phí</th>
@@ -48,11 +48,11 @@ Into
 
                                         @if (Auth::user()->role == 'Admin')
                                             <thead>
-                                                <tr>
+                                                <tr class="table-primary">
                                                     <th>ID</th>
                                                     <th>Tên Khóa Học</th>
                                                     <th>Tình Trạng</th>
-                                                    <th>Chi Tiết</th>
+                                                    <th style="width:10%" >Chi Tiết</th>
                                                 </tr>
                                             </thead>
                                             @foreach($courses as $course)
@@ -71,9 +71,9 @@ Into
                                                                                 break; 
                                                                 }?>
                                                     </td>
-                                                    <td>
-                                                        <a class="btn btn-primary" href="{{ url("/fees/{$course->id}") }}">
-                                                            <i class="fa fa-eye"></i>
+                                                    <td style="display: flex;  justify-content: space-around; ">
+                                                        <a href="{{ url("/fees/{$course->id}") }}">
+                                                            <i class="fa fa-eye icon-view"></i>
                                                         </a>
                                                     </td>
                                                 </tr>

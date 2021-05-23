@@ -7,8 +7,8 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="student">
-        <div class="title-block">
-            <h1 class="title"> HỌC PHÍ LỚP : {{ $students[0]->name }}  </h1>
+        <div class="card">
+            <h1 class="text-IBM"> HỌC PHÍ LỚP : {{ $students[0]->name }}  </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -29,9 +29,9 @@ Into
                                     <form method="POST" action="{{url("/fees/{$students[0]->id_course}")}}">
                                         @csrf
                                         @method('PUT')
-                                        <table class="table table-striped table-bordered table-hover">
+                                        <table class="table table-bordered table-hover">
                                             <thead>
-                                                <tr>
+                                                <tr class="table-primary">
                                                     <th>ID</th>
                                                     <th>Tên Học Sinh</th>
                                                     <th>Học Phí</th>
