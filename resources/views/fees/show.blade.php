@@ -16,8 +16,8 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <a style="float:right" href="{{ url("/fees/edit/{$students[0]->id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Cập nhật học phí</span></a>
-                                <form role="search" style="float:left">
+                                <a style="float:left" href="{{ url("/fees/edit/{$students[0]->id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Cập nhật học phí</span></a>
+                                <form role="search" style="float:right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
                                         <input type="search" placeholder="Search">
@@ -50,7 +50,7 @@ Into
                                     <div>Null</div>
                                     @endif
                                 </div>
-                                <div>
+                                <div style="float: right;">
                                     <h5>Tổng học phí (đã nộp): {{ $sum }}</h5>
                                     <h5>Học viên đã nộp: {{ $count }} / {{ count($students) }}</h5>
                                 </div>

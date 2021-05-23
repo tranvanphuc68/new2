@@ -7,9 +7,9 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="student">
-        <div class="title-block">
-            <h1 class="title">Khóa học {{ $students[0]->name }}</h1>
+    <div class="fee">
+        <div class="card">
+            <h1 class="text-IBM">Khóa học {{ $students[0]->name }}</h1>
         </div>
         <section class="section">
             <div class="row">

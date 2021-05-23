@@ -6,11 +6,11 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="title-block">
-    <h1 class="title">THÊM BUỔI HỌC KHÓA HỌC {{ $id_course }}</h1>
+    <div class="card">
+        <h1 class="text-IBM">Thêm buổi khóa học {{ $id_course }}</h1>
     </div>
     <div class="row sameheight-container">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card card-block sameheight-item">
                 <form action="{{ url("/detail_course/{$id_course}") }}" method="POST" enctype="multipart/form-data">
                     @csrf

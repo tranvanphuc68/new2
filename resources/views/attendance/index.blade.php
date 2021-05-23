@@ -8,8 +8,8 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="courses">
-        <div class="title-block">
-            <h1 class="title"> ĐIỂM DANH NGÀY {{ $today }} </h1>
+        <div class="card col-md-9" style="padding: 0px;">
+            <h1 class="text-IBM"> Điểm danh ngày {{ $today }} </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -21,9 +21,9 @@ Into
                             <section class="example">
                             @if (count($data) != 0)
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-bordered table-hover">
                                         <thead>
-                                            <tr>
+                                            <tr class="table-primary">
                                                 <th>ID_course</th>
                                                 <th>Buổi</th>
                                                 <th>Nội Dung</th>
@@ -35,9 +35,9 @@ Into
                                                 <td>{{ $data->id_course }}</td>
                                                 <td>{{ $data->number }}</td>
                                                 <td>{{ $data->content }}</td>
-                                                <td>
+                                                <td  style="display: flex;  justify-content: space-around;">
                                                     <a href="{{ url("/attendance/{$data->id_course}-{$data->number}") }}" class="btn btn-primary">
-                                                        <i class="fa fa-check-circle"></i>
+                                                        <img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt="">
                                                     </a>
                                                 </td>
                                             </tr>

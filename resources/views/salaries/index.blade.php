@@ -7,9 +7,9 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="student">
-        <div class="title-block">
-            <h1 class="title">LƯƠNG CÁC GIẢNG VIÊN </h1>
+    <div class="salary">
+        <div class="card">
+            <h1 class="text-IBM">Lương của giảng viên</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -28,9 +28,9 @@ Into
                             <section class="example">
                                 <div class="table-responsive">
                                     @if (Auth::user()->role == 'Teacher')
-                                        <table class="table table-striped table-bordered table-hover">
+                                        <table class="table table-bordered table-hover">
                                             <thead>
-                                                <tr>
+                                                <tr class="table-primary">
                                                     <th>ID</th>
                                                     <th>Tên Khóa Học</th>
                                                     <th>Lương</th>
@@ -53,9 +53,9 @@ Into
                                     @endif
                                     
                                     @if (Auth::user()->role == 'Admin')
-                                        <table class="table table-striped table-bordered table-hover">
+                                        <table class="table table-bordered table-hover">
                                             <thead>
-                                                <tr>
+                                                <tr class="table-primary">
                                                     <th>ID</th>
                                                     <th>Tên Giảng Viên</th>
                                                     <th>Chi Tiết</th>
@@ -66,8 +66,8 @@ Into
                                                     <td>{{ $teacher->id }}</td>
                                                     <td>{{ $teacher->fullname }}</td>
                                                     <td>
-                                                        <a class="btn btn-primary" href="{{ url("/salaries/{$teacher->id}") }}">
-                                                            <i class="fa fa-eye"></i>
+                                                        <a href="{{ url("/salaries/{$teacher->id}") }}">
+                                                            <i class="fa fa-eye icon-view"></i>
                                                         </a>
                                                     </td>
                                                 </tr>

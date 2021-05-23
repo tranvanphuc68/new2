@@ -16,14 +16,16 @@ Into
                     <div class="row mb-3">
                         @if (Auth::user()->role == 'Admin')
                             <div>
-                                <a style="float:right" href="{{ url("/detail_course/create/{$id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm buổi học</span></a>
+                                <a style="float:left" href="{{ url("/detail_course/create/{$id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm buổi học</span></a>
                                 @error ('full')
-                                <h3>{{ $message }}</h3>
+                                <div style="float:right; " >
+                                    <a class="text-IBM" style="color: red; background-color: white" href="">{{ $message }}</a>
+                                </div>
                                 @enderror
                             </div>
                         @else
-                            <div style="text-align: right;" >
-                                <a href="{{ $course->link }}" class="btn btn-primary">LINK NHẬN NỘP BÀI TẬP</a>
+                            <div>
+                                <a href="{{ $course->link }}" class="btn btn-primary">Link nhập nộp bài tập</a>
                             </div>
                         @endif
                     </div>
@@ -33,7 +35,7 @@ Into
                             <th>Nội Dung</th>
                             <th>Ngày Học</th>
                             @if (Auth::user()->role == 'Admin')
-                                <th></th>
+                                <th>Sửa</th>
                             @endif
                         </tr>   
                         @foreach($detail as $detail)

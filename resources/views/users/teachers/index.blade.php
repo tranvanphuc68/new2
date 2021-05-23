@@ -17,8 +17,8 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <a style="float:right" href="{{ url("/users/teacher/create") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm giảng viên</span></a>
-                                <form role="search" style="float:left">
+                                <a style="float:left" href="{{ url("/users/teacher/create") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm giảng viên</span></a>
+                                <form role="search" style="float:right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
                                         <input type="search" placeholder="Search">

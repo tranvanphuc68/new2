@@ -7,9 +7,9 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="student">
-        <div class="title-block">
-            <h1 class="title">FEEDBACKS KHÓA HỌC {{ $students[0]->name }}</h1>
+    <div class="feedback">
+        <div class="card">
+            <h1 class="text-IBM">Feedback khóa học {{ $students[0]->name }}</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -20,9 +20,9 @@ Into
                                 @if (count($students) != 0)
                                     @if (Auth::user()->role == 'Admin' or Auth::user()->role == 'Teacher')
                                         <div class="table-responsive">
-                                            <table class="table table-striped table-bordered table-hover">
+                                            <table class="table table-bordered table-hover">
                                                 <thead>
-                                                    <tr>
+                                                    <tr class="table-primary">
                                                         <th>ID</th>
                                                         <th>Tên Học Viên</th>
                                                         <th>Feedback</th>
@@ -41,8 +41,8 @@ Into
                                         <p>{{ $feedback[0]->feedback}}</p>
                                         @if ($feedback[0]->status == 3)
                                             <p class="mt-3" style="text-align: right;">
-                                                <a class="btn" href="{{ url("/feedbacks/edit/{$feedback[0]->id_course}") }}">
-                                                    <i class="fa fa-pencil"></i>
+                                                <a href="{{ url("/feedbacks/edit/{$feedback[0]->id_course}") }}">
+                                                    <i class="fa fa-pencil icon-edit"></i>
                                                 </a>
                                             </p>
                                         @endif 

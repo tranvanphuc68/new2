@@ -17,9 +17,9 @@ Into
                         <div class="card-block">
                             <div class="card-title-block">
                                 @if (Auth::user()->role == 'Admin')
-                                    <a style="float:right" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm khóa học</span></a>
+                                    <a style="float:left" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm khóa học</span></a>
                                 @endif
-                                <form role="search" style="float:left">
+                                <form role="search" style="float:right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
                                         <input type="search" placeholder="Search">

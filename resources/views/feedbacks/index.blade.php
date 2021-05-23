@@ -7,9 +7,9 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="student">
-        <div class="title-block">
-            <h1 class="title">FEEDBACKS</h1>
+    <div class="feedback">
+        <div class="card">
+            <h1 class="text-IBM">Feedbacks</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -17,7 +17,7 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">  
-                                <form role="search" style="text-align: right">
+                                <form role="search" style="float: right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
                                         <input type="search" placeholder="Search">
@@ -27,9 +27,9 @@ Into
                             </div>
                             <section class="example">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-bordered table-hover">
                                         <thead>
-                                            <tr>
+                                            <tr class="table-primary">
                                                 <th>ID Khóa Học</th>
                                                 <th>Tên Khóa Học</th>
                                                 <th>Trạng Thái</th>
@@ -52,8 +52,8 @@ Into
                                                         break; 
                                                     }?></td>
                                                 <td>
-                                                    <a class="btn" href="{{ url("/feedbacks/{$course->id}") }}">
-                                                        <i class="fa fa-eye"></i>
+                                                    <a href="{{ url("/feedbacks/{$course->id}") }}">
+                                                        <i class="fa fa-eye icon-view"></i>
                                                     </a>
                                                 </td>
                                             </tr>

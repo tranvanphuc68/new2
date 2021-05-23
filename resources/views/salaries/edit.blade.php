@@ -7,9 +7,9 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="student">
-        <div class="title-block">
-            <h1 class="title"> Lương của giảng viên {{ $teachers[0]->fullname }}</h1>
+    <div class="salary">
+        <div class="card">
+            <h1 class="text-IBM"> Lương của giảng viên {{ $teachers[0]->fullname }}</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -21,9 +21,9 @@ Into
                                     <form method="POST" action="{{ url("/salaries/{$teachers[0]->id_teacher}") }}">
                                         @csrf
                                         @method('PUT')
-                                        <table class="table table-striped table-bordered table-hover">
+                                        <table class="table table-bordered table-hover">
                                             <thead>
-                                                <tr>
+                                                <tr class="table-primary">
                                                     <th>ID</th>
                                                     <th>Tên Khóa Học</th>
                                                     <th>Lương</th>

@@ -7,9 +7,9 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="student">
-        <div class="title-block">
-            <h1 class="title">BẢNG ĐIỂM CÁC KHÓA</h1>
+    <div class="mark">
+        <div class="card">
+            <h1 class="text-IBM">Bảng điểm các khóa</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -27,10 +27,10 @@ Into
                             </div>
                             <section class="example">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-bordered table-hover">
                                         @if (Auth::user()->role == 'Student')
                                             <thead>
-                                                <tr>
+                                                <tr class="table-primary">
                                                     <th>ID Khóa Học</th>
                                                     <th>Tên Khóa Học</th>
                                                     <th>Điểm</th>
@@ -46,7 +46,7 @@ Into
                                         @else
                                             @if (Auth::user()->role == 'Admin')
                                                 <thead>
-                                                    <tr>
+                                                    <tr class="table-primary">
                                                         <th>ID Khóa Học</th>
                                                         <th>Tên Khóa Học</th>
                                                         <th>Xem Điểm</th>
@@ -57,15 +57,15 @@ Into
                                                         <td>{{ $course->id }}</td>
                                                         <td>{{ $course->name }}</td>
                                                         <td>
-                                                            <a class="btn btn-primary" href="{{ url("/marks/{$course->id}") }}">
-                                                                <i class="fa fa-eye"></i>
+                                                            <a href="{{ url("/marks/{$course->id}") }}">
+                                                                <i class="fa fa-eye icon-view"></i>
                                                             </a>
                                                         </td>
                                                     </tr>
                                                 @endforeach  
                                             @else  
                                                 <thead>
-                                                    <tr>
+                                                    <tr class="table-primary">
                                                         <th>ID Khóa Học</th>
                                                         <th>Tên Khóa Học</th>
                                                         <th>Điểm</th>
@@ -76,8 +76,8 @@ Into
                                                         <td>{{ $teacher->id }}</td>
                                                         <td>{{ $teacher->name }}</td>
                                                         <td>
-                                                            <a class="btn btn-primary" href="{{ url("/marks/{$teacher->id}") }}">
-                                                                <i class="fa fa-eye"></i>
+                                                            <a href="{{ url("/marks/{$teacher->id}") }}">
+                                                                <i class="fa fa-eye icon-view"></i>
                                                             </a>
                                                         </td>
                                                     </tr>

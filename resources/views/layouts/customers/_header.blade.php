@@ -48,7 +48,13 @@
           <li><a href="#testimonials">Học viên</a></li>
           <li><a href="#team">Giảng viên</a></li>
           <li><a href="#contact">Liên hệ</a></li>
-          <li><a href="{{ url('login') }}">Đăng nhập</a></li>
+          <li>
+            @if (Auth::check())
+              <a href="{{ url('logout') }}">Đăng xuất</a>
+            @else
+              <a href="{{ url('login') }}">Đăng nhập</a>
+            @endif
+          </li>
         </ul>
       </nav><!-- .nav-menu -->
 

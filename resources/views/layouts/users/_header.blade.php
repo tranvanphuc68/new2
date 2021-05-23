@@ -30,10 +30,16 @@
                     <div class="header-block header-block-nav">
                         <ul class="nav-profile">
                             <li>
-                                <a href="{{url('/posts')}}" class="btn btn-sm header-btn">
-                            <i class="fa fa-star"></i>
-                            <span >Diễn đàn</span>
-                        </a>
+                                <a href="{{ url('/home') }}" class="btn btn-sm header-btn">
+                                    <i class="fa fa-home"></i>
+                                    <span >Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/posts') }}" class="btn btn-sm header-btn">
+                                    <i class="fa fa-comment"></i>
+                                    <span >Diễn đàn</span>
+                                </a>
                             </li>
                             <li class="notifications new">
                                 <a href="" data-toggle="dropdown">

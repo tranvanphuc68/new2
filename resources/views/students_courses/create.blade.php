@@ -7,17 +7,17 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="title-block">
-        <h1 class="title">THÊM HỌC VIÊN VÀO KHÓA HỌC {{ $course[0]->name}}</h1>
+    <div class="card">
+        <h1 class="text_IBM">Thêm học viên vào khóa học {{ $course[0]->name}}</h1>
     </div>
-    <div class="row ">
-        <div class="col-md-9">
+    <div class="row">
+        <div class="col-md-12">
             <div class="card card-block">
                 <section>
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
+                        <table class="table table-bordered table-hover">
                             <thead>
-                                <tr>
+                                <tr class="table-primary">
                                     <th>ID Học Viên</th>
                                     <th>Tên Học Viên</th>
                                     <th>Thêm</th>

@@ -6,8 +6,8 @@ Into
 
 @section('content')
 <article class="content">
-    <div class="title-block">
-        <h1 class="title"> THÔNG TIN CÁ NHÂN </h1>
+    <div class="card">
+        <h1 class="text-IBM"> Thông tin cá nhân</h1>
     </div>
     <div class="card card-block sameheight-item">
         <img style="border-radius: 7px;" class="mb-3" width="20%" src="{{ asset("/uploads/avatars/$user->avatar") }}">

@@ -6,11 +6,11 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="title-block">
-        <h1 class="title"> CẬP NHẬT THÔNG TIN CÁ NHÂN </h1>
+    <div class="card">
+        <h1 class="text-IBM"> Cập nhật thông tin cá nhân</h1>
     </div>
     <div class="row sameheight-container">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card card-block sameheight-item">
                 <form action="{{url("/users/update_avt/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @csrf
