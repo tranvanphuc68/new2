@@ -54,9 +54,7 @@
                                             @csrf
                                             <a type="button" data-toggle="modal" data-target="#report">
                                                 <i class="fa fa-flag"></i>
-                                                <sup>
-                                                    <span class="counter">({{ $countReportPost }})</span>
-                                                </sup>
+                                                <span class="counter">({{ $countReportPost }})</span>
                                             </a>
                                             <div class="modal fade" id="report" tabindex="-1" aria-labelledby="reportLabel" aria-hidden="true">
                                                 <div class="modal-dialog">

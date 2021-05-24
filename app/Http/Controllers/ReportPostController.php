@@ -19,7 +19,7 @@ public function index()
     ->join('report_posts', 'report_posts.id_post', '=', 'posts.id')
     ->join('users', 'users.id', '=', 'posts.id_user')
     ->select('posts.*', 'users.fullname', 'users.avatar')->distinct()
-    ->paginate(5);
+    ->paginate(10);
     return view('report_posts.index', [
         'posts' => $posts,
         'countPostHadBeenReported' => $countPostHadBeenReported
