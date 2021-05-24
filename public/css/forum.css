@@ -614,3 +614,9 @@ Notification
         text-transform: none;
         font-weight: 500;
     }
+    
+    .title {
+        font-size: 1.45rem;
+        font-weight: 600;
+        margin-bottom: 0;
+    }

@@ -18,8 +18,8 @@ public function index()
     $posts = DB::table('posts')
     ->join('report_posts', 'report_posts.id_post', '=', 'posts.id')
     ->join('users', 'users.id', '=', 'posts.id_user')
-    ->select('posts.*', 'users.fullname')->distinct()
-    ->get();
+    ->select('posts.*', 'users.fullname', 'users.avatar')->distinct()
+    ->paginate(5);
     return view('report_posts.index', [
         'posts' => $posts,
         'countPostHadBeenReported' => $countPostHadBeenReported
@@ -28,6 +28,8 @@ public function index()
 
 public function show(Post $post)
     {   
+        $countPostHadBeenReported = DB::table('report_posts')
+        ->count(DB::raw('DISTINCT id_post'));
         $countReportPost = DB::table('report_posts')
         ->where('report_posts.id_post', '=', "$post->id")
         ->count();
@@ -35,20 +37,21 @@ public function show(Post $post)
         ->join('users', 'users.id', '=', 'report_posts.id_user')
         ->join('posts', 'posts.id', '=', 'report_posts.id_post')
         ->where('report_posts.id_post', '=',"$post->id")
-        ->select('report_posts.*', 'users.fullname')
+        ->select('report_posts.*', 'users.fullname', 'users.avatar')
         ->latest()
-        ->get();
+        ->paginate(5);
         $posts = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
         ->where('posts.id', '=', "$post->id")
-        ->select('posts.*', 'users.fullname')
+        ->select('posts.*', 'users.fullname', 'users.avatar')
         ->latest()
         ->get();
         $post = $posts[0];
         return view('report_posts.show', [
         'report_posts' => $report_posts,
         'post' => $post,
-        'countReportPost' => $countReportPost
+        'countReportPost' => $countReportPost,
+        'countPostHadBeenReported' => $countPostHadBeenReported
     ]);
     }
 

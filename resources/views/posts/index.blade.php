@@ -42,6 +42,12 @@
     </div>
 </div>
 @endforeach
+<div class="mb-2 container mt-5">
+    <div class="d-flex justify-content-center row">
+            {{ $posts->links() }}
+    </div>
+</div>
+
 </div>
 </div>
 @endsection

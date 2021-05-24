@@ -18,7 +18,7 @@ class PostController extends Controller
         ->join('users', 'users.id', '=', 'posts.id_user')
         ->select('posts.*', 'users.fullname', 'users.avatar')
         ->latest()
-        ->get();
+        ->paginate(5);
         $countPost = DB::table('posts')
         ->count();
         $countPostHadBeenReported = DB::table('report_posts')
