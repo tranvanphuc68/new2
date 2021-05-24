@@ -75,6 +75,7 @@
                                     </tr>
                                 @endforeach
                             </table>
+                            {{ $report_posts->links() }}
                         </div>
                     </div>
                 </div>
