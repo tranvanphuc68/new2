@@ -19,7 +19,7 @@ public function index()
     ->join('report_posts', 'report_posts.id_post', '=', 'posts.id')
     ->join('users', 'users.id', '=', 'posts.id_user')
     ->select('posts.*', 'users.fullname', 'users.avatar')->distinct()
-    ->paginate(5);
+    ->paginate(10);
     return view('report_posts.index', [
         'posts' => $posts,
         'countPostHadBeenReported' => $countPostHadBeenReported
@@ -39,7 +39,7 @@ public function show(Post $post)
         ->where('report_posts.id_post', '=',"$post->id")
         ->select('report_posts.*', 'users.fullname', 'users.avatar')
         ->latest()
-        ->paginate(5);
+        ->paginate(10);
         $posts = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
         ->where('posts.id', '=', "$post->id")
