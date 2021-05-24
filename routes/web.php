@@ -35,6 +35,9 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home.index');
 });
+Route::get('/report', function () {
+    return view('report.student');
+});
 
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);

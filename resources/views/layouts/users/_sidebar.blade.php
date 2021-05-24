@@ -77,7 +77,7 @@
                         </a>
                         <ul class="sidebar-nav">
                             <li>
-                                <a href=""> Học sinh </a>
+                                <a href="{{ url("/report") }}"> Học sinh </a>
                             </li>
                             <li>
                                 <a href=""> Khen thưởng  </a>

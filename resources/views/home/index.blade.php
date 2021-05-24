@@ -170,9 +170,9 @@ Into
   <!-- ======= Cta Section ======= -->
   <section id="cta" class="cta">
     <div class="container" data-aos="zoom-in">
-
       <div class="text-center">
-        <h3>“ The limits of my language mean the limits of my world ” - Ludwig Wittgenstein</h3>
+        <h3>“ The limits of my language mean the limits of my world ” </h3>
+        <h3 style="text-align: center;">- Ludwig Wittgenstein</h3>
         <p>Giới hạn về ngôn ngữ là giới hạn về nhận thức, về thế giới.</p>
         <a class="cta-btn" href="#">Call To Action</a>
       </div>
