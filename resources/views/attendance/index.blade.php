@@ -24,16 +24,18 @@ Into
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr class="table-primary">
-                                                <th>ID_course</th>
+                                                <th>Tên Khóa Học</th>
                                                 <th>Buổi</th>
+                                                <th>Thời gian</th>
                                                 <th>Nội Dung</th>
                                                 <th>Điểm Danh</th>
                                             </tr>
                                         </thead>
                                         @foreach($data as $data)
                                             <tr>
-                                                <td>{{ $data->id_course }}</td>
+                                                <td>{{ $data->name }}</td>
                                                 <td>{{ $data->number }}</td>
+                                                <td>{{ $data->timetable }}</td>
                                                 <td>{{ $data->content }}</td>
                                                 <td  style="display: flex;  justify-content: space-around;">
                                                     <a href="{{ url("/attendance/{$data->id_course}-{$data->number}") }}">

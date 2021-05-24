@@ -6,11 +6,11 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="card col-md-9" style="padding: 0px;">
+    <div class="card col-md-12" style="padding: 0px;">
         <h1 class="text-IBM">Cập nhật giảng viên ID : {{ $user->id }}</h1>
     </div>
     <div class="row sameheight-container">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card card-block sameheight-item">
                 <form action="{{url("/users/teacher/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')

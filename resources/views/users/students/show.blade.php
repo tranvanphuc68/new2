@@ -6,11 +6,11 @@ Into
 
 @section('content')
 <article class="content">
-    <div class="card col-md-9" style="padding: 0px;">
+    <div class="card col-md-12" style="padding: 0px;">
         <h3 class="text-IBM" > Thông tin học viên ID : {{ $user->id }}</h3>
     </div>
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card card-block ">
                 <img style="max-width: 200px" class="mb-3" src="{{ asset("/uploads/avatars/$user->avatar") }}">
                 <table class="table">

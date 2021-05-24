@@ -6,12 +6,12 @@ Into
 
 @section('content')
 <article class="content">
-    <div class="card col-md-9" style="padding: 0px;">
+    <div class="card col-md-12" style="padding: 0px;">
         <h3 class="text-IBM"> Thông tin chi tiết khóa học {{ $course->name }}</h3>
     </div>
     <section class="example">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card card-block">
                     <div class="row mb-3">
                         @if (Auth::user()->role == 'Admin')
@@ -33,6 +33,7 @@ Into
                         <tr class="table-primary">
                             <th>Buổi</th>
                             <th>Nội Dung</th>
+                            <th>Thời Khóa Biểu</th>
                             <th>Ngày Học</th>
                             @if (Auth::user()->role == 'Admin')
                                 <th>Sửa</th>
@@ -43,6 +44,7 @@ Into
                                 <td>{{ $detail->number }}</td>
                                 <td>{{ $detail->content }}</td>
                                 <td>{{ $detail->date }}</td>
+                                <td>{{ $detail->timetable }}</td>
                                 @if (Auth::user()->role == 'Admin')
                                     <td style="display: flex;  justify-content: space-around;">
                                         <a href="{{ url("/detail_course/{$detail->id_course}-{$detail->number}/edit") }}">

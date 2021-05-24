@@ -55,13 +55,12 @@ class CourseController extends Controller
         $detail = DB::table('detail_classes')
         ->join('courses', 'id_course', '=', 'id')
         ->where('id_course', '=', "$course->id")
-        ->select('detail_classes.*', 'courses.name')
+        ->select('detail_classes.*', 'courses.name','courses.timetable')
         ->get();
         foreach($detail as $class)
         {
             $class->date = Controller::formatDate($class->date);
         };
-        //dd($detail);
         return view('courses.show', [
             'detail' => $detail,
             'id_course' => $id_course,

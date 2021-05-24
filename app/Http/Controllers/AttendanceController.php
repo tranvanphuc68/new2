@@ -18,7 +18,7 @@ class AttendanceController extends Controller
         ->join('courses', 'courses.id', '=', 'detail_classes.id_course')
         ->where('courses.id_teacher', '=', "$id")
         ->where('detail_classes.date', '=', "$today")
-        ->select('detail_classes.*')
+        ->select('detail_classes.*','courses.name','courses.timetable')
         ->get();
         $today = Controller::formatDate($today);
         return view('attendance.index', [
@@ -35,8 +35,9 @@ class AttendanceController extends Controller
         ->get();
         $data = DB::table('students_courses')
         ->join('users', 'users.id', '=', 'students_courses.id_student')
+        ->join('courses', 'courses.id', '=', 'students_courses.id_course')
         ->where('students_courses.id_course', '=', "$id_course")
-        ->select('students_courses.*', 'users.fullname', 'users.dob')
+        ->select('students_courses.*', 'users.fullname', 'users.dob','courses.name')
         ->get();
         foreach($data as $item)
         {

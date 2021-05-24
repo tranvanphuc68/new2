@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="courses">
         <div class="card col-md-12" style="padding: 0px;">
-            <h1 class="text-IBM">Điểm danh khóa học {{ $id_course }} buổi {{ $number }} </h1>
+            <h1 class="text-IBM">Điểm danh khóa học {{ $data[0]->name }} buổi học thứ {{ $number }} </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -22,9 +22,8 @@ Into
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr class="table-primary" >
-                                                <th>ID_course</th>
-                                                <th>Tên học viên</th>
-                                                <th>Ngày sinh</th>
+                                                <th>Tên Học Viên</th>
+                                                <th>Ngày Sinh</th>
                                                 <th>Có</th>
                                                 <th>Muộn</th>
                                                 <th>Vắng</th>
@@ -32,7 +31,6 @@ Into
                                         </thead>
                                         @foreach($data as $data)
                                             <tr>
-                                                <td>{{ $id_course }}</td>
                                                 <td>{{ $data->fullname }}</td>
                                                 <td>{{ $data->dob }}</td>
                                                 <td><input type="radio" name="{{ $data->id_student }}" value="0" checked></td>

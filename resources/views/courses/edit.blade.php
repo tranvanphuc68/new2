@@ -6,11 +6,11 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="card col-md-9" style="padding: 0px;">
+    <div class="card col-md-12" style="padding: 0px;">
         <h1 class="text-IBM">Cập nhật khóa học {{ $course->name }}</h1>
     </div>
     <div class="row sameheight-container">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card card-block sameheight-item">
                 <form action="{{ url("/courses/$course->id") }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
@@ -52,7 +52,7 @@ Into
                         <input type="text" name="salary" id="salary" class="form-control" placeholder="Salary" aria-describedby="helpId" value="{{ $course->salary }}">
                     </div>
                     <div class="form-group">
-                        <label for="link">Link</label>
+                        <label for="link">Link nhận nộp bài tập</label>
                         <input type="text" name="link" id="link" class="form-control" placeholder="Link" aria-describedby="helpId" value="{{ $course->link }}">
                     </div>
                     <div class="form-group">
