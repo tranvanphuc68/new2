@@ -3,13 +3,13 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6">
             <div class="footer-info" data-aos="fade-up" data-aos-delay="50">
-              <h3>Squadfree</h3>
-              <p class="pb-3"><em>Qui repudiandae et eum dolores alias sed ea. Qui suscipit veniam excepturi quod.</em></p>
+              <h3>INTO</h3>
+              <p class="pb-3"><em>Online English learning center</em></p>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
+                Số 51, Đường Lê Đại Hành <br>
+                Phường Lê Đại Hành, Quận Hai Bà Trưng, Hà Nội<br><br>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
                 <strong>Email:</strong> info@example.com<br>
               </p>

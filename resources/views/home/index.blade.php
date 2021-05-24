@@ -8,7 +8,7 @@ Into
 <section id="hero">
   <div class="hero-container" data-aos="fade-up">
     <h1>Welcome to Into</h1>
-    <h2>Chinh phục IELTS 6.5+ với hệ thống giáo dục trực tuyến tại INTO</h2>
+    <h2  style="font-size: 30px;" >Chinh phục IELTS 6.5+ với hệ thống giáo dục trực tuyến tại INTO</h2>
     <a href="#about" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
   </div>
 </section><!-- End Hero -->
@@ -23,8 +23,8 @@ Into
         <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
           <div class="content">
             <h3>VỀ CHÚNG TÔI</h3>
-            <img src="{{ asset('assets/img/about-us.jpg') }}" class="about-img" alt="" data-aos="fade-up" data-aos-delay="50">
-            <p >
+            <img src="{{ asset('assets/img/about-us.jpg') }}" class="about-img" alt="" >
+            <p>
               INTO IELTS tập trung đào tạo IELTS với tôn chỉ phát triển về chất lượng thay vì số lượng. INTO tự hào mang đến những khóa học IELTS online hiệu quả với chất lượng giảng dạy hàng đầu. 
             </p>
             <a href="#" class="about-btn" >TÌM HIỂU THÊM <i class="bx bx-chevron-right"></i></a>
@@ -72,85 +72,52 @@ Into
 
       <div class="row">
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-3 mb-lg-0">
-              <div class="card ">
+              <div class="card" data-aos="fade-up" data-aos-delay="100">
                   <img  src="{{ asset('assets/img/courses/course9.jpg') }}" alt="">
-                  <div class="card-body">
-                      <h5 class="card-title">KHÓA FOUNDATION </h5>
-                      <h6 class="card-subtitle mb-1 text-muted">Nội dung </h6>
-                      <h6 class="card-subtitle mb-1 text-muted">Học phí </h6>
+                  <div class="card-body" style=" display: flex; flex-direction: column;align-items: center; justify-content: space-between;">
+                      <h5 class="card-title" style="font-weight: bold;">KHÓA FOUNDATION </h5>
+                      <h6 class="card-subtitle mb-1 text-muted">Đầu vào: 3.0 </h6>
+                      <h6 class="card-subtitle mb-1 text-muted">Đầu ra: 4.0+</h6>
                       <a href="{{asset('index-home -course1.html')}}" class="btn btn-primary">Xem chi tiết</a>
                   </div>
               </div>
             </div>
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-3 mb-lg-0">
 
-              <div class="card ">
+              <div class="card" data-aos="fade-up" data-aos-delay="200">
                   <img  src="{{ asset('assets/img/courses/course9.jpg') }}" alt="">
-                  <div class="card-body">
-                      <h5 class="card-title">KHÓA PRE </h5>
-                      <h6 class="card-subtitle mb-1 text-muted">Nội dung </h6>
-                      <h6 class="card-subtitle mb-1 text-muted">Học phí </h6>
+                  <div class="card-body" style=" display: flex; flex-direction: column;align-items: center; justify-content: space-between;">
+                      <h5 class="card-title" style="font-weight: bold;">KHÓA PRE </h5>
+                      <h6 class="card-subtitle mb-1 text-muted">Đầu vào: 4.0 </h6>
+                      <h6 class="card-subtitle mb-1 text-muted">Đầu ra: 5.5+</h6>
                       <a href="{{asset('index-home -course2.html')}}" class="btn btn-primary">Xem chi tiết</a>
                   </div>
               </div>
             </div>
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-3 mb-lg-0">
-              <div class="card ">
+              <div class="card" data-aos="fade-up" data-aos-delay="300">
                   <img  src="{{ asset('assets/img/courses/course9.jpg') }}" alt="">
-                  <div class="card-body">
-                      <h5 class="card-title">KHÓA INTERMEDIATE </h5>
-                      <h6 class="card-subtitle mb-1 text-muted">Nội dung </h6>
-                      <h6 class="card-subtitle mb-1 text-muted">Học phí </h6>
+                  <div class="card-body" style=" display: flex; flex-direction: column;align-items: center; justify-content: space-between;">
+                      <h5 class="card-title" style="font-weight: bold;" >KHÓA INTERMEDIATE </h5>
+                      <h6 class="card-subtitle mb-1 text-muted">Đầu vào: 5.5 </h6>
+                      <h6 class="card-subtitle mb-1 text-muted">Đầu ra: 6.5+</h6>
                       <a href="{{asset('index-home -course3.html')}}" class="btn btn-primary">Xem chi tiết</a>
                   </div>
               </div>
             </div>
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-3 mb-lg-0">
 
-              <div class="card ">
+              <div class="card" data-aos="fade-up" data-aos-delay="400">
                   <img  src="{{ asset('assets/img/courses/course9.jpg') }}" alt="">
-                  <div class="card-body">
-                      <h5 class="card-title">KHÓA AVANCED </h5>
-                      <h6 class="card-subtitle mb-1 text-muted">Nội dung </h6>
-                      <h6 class="card-subtitle mb-1 text-muted">Học phí </h6>
+                  <div class="card-body" style=" display: flex; flex-direction: column;align-items: center; justify-content: space-between;">
+                      <h5 class="card-title" style="font-weight: bold;" >KHÓA AVANCED </h5>
+                      <h6 class="card-subtitle mb-1 text-muted">Đầu vào: 6.5 </h6>
+                      <h6 class="card-subtitle mb-1 text-muted">Đầu ra: 7.5+</h6>
                       <a href="{{asset('index-home -course4.html')}}" class="btn btn-primary">Xem chi tiết</a>
                   </div>
               </div>
             </div>
         </div>
-
-        <!-- <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-          <div class="icon-box course1" data-aos="fade-up" data-aos-delay="100">
-            <h5 class="title"><a href="{{asset('index-home -course2.html')}}"> KHÓA PRE</a></h5>
-            <div class="des">
-              <p class="description">ĐẦU VÀO: 5.5</p>
-              <p class="description">MỤC TIÊU: 5.5+</p>
-              <p class="description">HỌC PHÍ: 5.000.000</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-          <div class="icon-box course1" data-aos="fade-up" data-aos-delay="200">
-            <h5 class="title"><a href="{{asset('index-home -course3.html')}}"> KHÓA INTERMEDIATE</a></h5>
-            <div class="des">
-              <p class="description">ĐẦU VÀO: 5.5</p>
-              <p class="description">MỤC TIÊU: 6.5+</p>
-              <p class="description">HỌC PHÍ: 7.000.000</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-          <div class="icon-box course1" data-aos="fade-up" data-aos-delay="300">
-            <h5 class="title"><a href="{{asset('index-home -course4.html')}}"> KHÓA AVANCED</a></h5>
-            <div class="des">
-              <p class="description">ĐẦU VÀO: 6.5</p>
-              <p class="description">MỤC TIÊU: 7.5+</p>
-              <p class="description">HỌC PHÍ: 9.000.000</p>
-            </div>
-          </div>
-        </div> -->
 
       </div>
 
@@ -161,47 +128,52 @@ Into
 
   <!-- ======= Counts Section ======= -->
   <section id="counts" class="counts  section-bg">
-    <div class="container">
+      <div class="container">
 
-      <div class="row no-gutters">
+        <div class="row no-gutters">
 
-        <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
-          <div class="count-box">
-            <i class="icofont-simple-smile"></i>
-            <span data-toggle="counter-up">11</span>
-            <p><strong>Năm đào tạo</strong></p>
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="icofont-simple-smile"></i>
+              <span data-toggle="counter-up">1,000</span>
+              <p><strong>Học viên hài lòng</strong></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="icofont-teacher"></i>
+              <span data-toggle="counter-up">300</span>
+              <p><strong>Giáo viên bản ngữ</strong></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="icofont-live-support"></i>
+              <span data-toggle="counter-up">1,463</span>
+              <p><strong>Giờ hỗ trợ</strong></p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <i class="icofont-users-alt-5"></i>
+              <span data-toggle="counter-up">1,300</span>
+              <p><strong>Học viên đã tham gia</strong></p>
+            </div>
           </div>
         </div>
-
-        <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
-          <div class="count-box">
-            <i class="icofont-users-alt-5"></i>
-            <span data-toggle="counter-up">1000</span>
-            <p><strong>Giáo viên bản ngữ</strong></p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
-          <div class="count-box">
-            <i class="icofont-live-support"></i>
-            <span data-toggle="counter-up">20000</span>
-            <p><strong>Học viên đã học</strong></p>
-          </div>
-        </div>
-        </div>
-
       </div>
-
-    </div>
-  </section><!-- End Counts Section -->
+    </section><!-- End Counts Section -->
 
   <!-- ======= Cta Section ======= -->
   <section id="cta" class="cta">
     <div class="container" data-aos="zoom-in">
 
       <div class="text-center">
-        <h3>Call To Action</h3>
-        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h3>“ The limits of my language mean the limits of my world ” - Ludwig Wittgenstein</h3>
+        <p>Giới hạn về ngôn ngữ là giới hạn về nhận thức, về thế giới.</p>
         <a class="cta-btn" href="#">Call To Action</a>
       </div>
 
