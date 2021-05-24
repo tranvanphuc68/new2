@@ -8,7 +8,7 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="courses">
-        <div class="card col-md-9" style="padding: 0px;">
+        <div class="card col-md-12" style="padding: 0px;">
             <h1 class="text-IBM">Điểm danh khóa học {{ $id_course }} buổi {{ $number }} </h1>
         </div>
         <section class="section">
@@ -16,8 +16,6 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <div class="card-title-block">
-                            </div>
                             <section class="example">
                             @if(count($check) == 0)  
                                 <div class="table-responsive">
@@ -45,23 +43,15 @@ Into
                                     </table>
                                 </div>
                                 <div style="text-align: right;">
-                                    <button class="btn btn-warning">Lưu điểm danh</button>
+                                    <button class="btn btn-warning" name='but'>Lưu điểm danh</button>
                                 </div>
                             @endif
 
                             @if (count($check) > 0)
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    Lớp đã điểm danh
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                    </table>
+                                <div class="card-title-block">
+                                    <h3 style="float:left">Lớp đã điểm danh </h3>
+                                    <a style="float:right" href="{{ url("/attendance") }}" class="btn btn-primary">Quay lại</a>
                                 </div>
-                                <a style="float:right" href="{{ url("/attendance") }}" class="btn btn-primary"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Quay lại</span></a>
                             @endif
                             </section>
                         </div>

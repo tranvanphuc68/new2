@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="students_courses">
         <div class="card">
-            <h1 class="text-IBM"> Xem danh sách lớp {{ $course[0]->name }}</h1>
+            <h1 class="text-IBM">Danh sách học viên lớp {{ $course[0]->name }}</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -29,6 +29,7 @@ Into
                                             <tr class="table-primary">
                                                 <th>Mã Học Viên</th>
                                                 <th>Tên Học Viên</th>
+                                                <th>Ngày Sinh</th>
                                                 @if (Auth::user()->role == 'Admin')
                                                     <th>Xóa</th>
                                                 @endif
@@ -38,6 +39,7 @@ Into
                                             <tr>
                                                 <td>{{ $student->id_student }}</td>
                                                 <td>{{ $student->fullname }}</td>
+                                                <td>{{ $student->dob }}</td>
                                                 @if (Auth::user()->role == 'Admin')
                                                     <td>
                                                         <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('stu_cou-delete-{{$student->id_student}}-{{$student->id_course}}').submit()">

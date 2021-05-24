@@ -24,11 +24,12 @@ Into
                                 @endif                
                                 @if (count($students) != 0)
                                     <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-bordered table-hover">
                                         <thead>
-                                            <tr>
-                                                <th>ID Khóa Học</th>
-                                                <th>Tên Khóa Học</th>
+                                            <tr class="table-primary">
+                                                <th>ID Học Viên</th>
+                                                <th>Tên Học Viên</th>
+                                                <th>Ngày Sinh</th>
                                                 <th>Điểm</th>
                                             </tr>
                                         </thead>
@@ -36,6 +37,7 @@ Into
                                             <tr>
                                                 <td>{{ $student->id_student }}</td>
                                                 <td>{{ $student->fullname }}</td>
+                                                <td>{{ $student->dob }}</td>
                                                 <td>{{ $student->mark }}</td>
                                             </tr>
                                         @endforeach

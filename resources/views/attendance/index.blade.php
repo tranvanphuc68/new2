@@ -8,7 +8,7 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="courses">
-        <div class="card col-md-9" style="padding: 0px;">
+        <div class="card col-md-12" style="padding: 0px;">
             <h1 class="text-IBM"> Điểm danh ngày {{ $today }} </h1>
         </div>
         <section class="section">
@@ -36,7 +36,7 @@ Into
                                                 <td>{{ $data->number }}</td>
                                                 <td>{{ $data->content }}</td>
                                                 <td  style="display: flex;  justify-content: space-around;">
-                                                    <a href="{{ url("/attendance/{$data->id_course}-{$data->number}") }}" class="btn btn-primary">
+                                                    <a href="{{ url("/attendance/{$data->id_course}-{$data->number}") }}">
                                                         <img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt="">
                                                     </a>
                                                 </td>

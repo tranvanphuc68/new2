@@ -25,6 +25,7 @@ Into
                                                     <tr class="table-primary">
                                                         <th>ID</th>
                                                         <th>Tên Học Viên</th>
+                                                        <th>Ngày Sinh</th>
                                                         <th>Feedback</th>
                                                     </tr>
                                                 </thead>
@@ -32,6 +33,7 @@ Into
                                                     <tr>
                                                         <td>{{ $student->id_student }}</td>
                                                         <td>{{ $student->fullname }}</td>
+                                                        <td>{{ $student->dob }}</td>
                                                         <td>{{ $student->feedback }}</td>
                                                     </tr>
                                                 @endforeach

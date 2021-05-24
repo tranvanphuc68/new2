@@ -33,9 +33,12 @@ class FeeController extends Controller
         ->join('users','users.id','=','students_courses.id_student')
         ->join('courses','courses.id','=','students_courses.id_course')
         ->where('id_course','=',"$id_course")
-        ->select('students_courses.*','users.fullname','courses.name','courses.fee')
+        ->select('students_courses.*','users.fullname','users.dob','courses.name','courses.fee')
         ->get();
-        
+        foreach($students as $student)
+        {
+            $student->dob = Controller::formatDate($student->dob);
+        }
         $sum = DB::table('students_courses')
         ->join('courses','courses.id','=','students_courses.id_course')
         ->where('id_course','=',"$id_course")
@@ -62,8 +65,12 @@ class FeeController extends Controller
         ->join('users', 'users.id', '=', 'students_courses.id_student')
         ->join('courses', 'courses.id', '=', 'students_courses.id_course')
         ->where('id_course',$id_course)
-        ->select('students_courses.*','users.fullname','courses.name','courses.fee')
+        ->select('students_courses.*','users.fullname','users.dob','courses.name','courses.fee')
         ->get();
+        foreach($students as $student)
+        {
+            $student->dob = Controller::formatDate($student->dob);
+        }
         return view('fees.edit', [
             'students' => $students,
             'id_course' => $id_course

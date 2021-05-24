@@ -20,6 +20,7 @@ Into
                                 <tr class="table-primary">
                                     <th>ID Học Viên</th>
                                     <th>Tên Học Viên</th>
+                                    <th>Ngày Sinh</th>
                                     <th>Thêm</th>
                                 </tr>
                             </thead>
@@ -28,6 +29,7 @@ Into
                                 <tr>
                                     <td>{{ $student->id }}</td>
                                     <td>{{ $student->fullname }}</td>
+                                    <td>{{ $student->dob }}</td>
                                     <td><input type="checkbox" name="id_student" value="{{ $student->id }}"></td>
                                 </tr>
                             @endforeach

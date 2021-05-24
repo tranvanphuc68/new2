@@ -33,6 +33,7 @@ Into
                                             <tr class="table-primary">
                                                 <th>ID</th>
                                                 <th>Tên Học Sinh</th>
+                                                <th>Ngày Sinh</th>
                                                 <th>Học phí</th>
                                                 <th>Tình trạng</th>
                                             </tr>
@@ -41,6 +42,7 @@ Into
                                         <tr>
                                             <td>{{ $student->id_student }}</td>
                                             <td>{{ $student->fullname }}</td>
+                                            <td>{{ $student->dob }}</td>
                                             <td>{{ $student->fee }}</td>
                                             <td><?php echo $student->status_fee == 0 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
                                         </tr>

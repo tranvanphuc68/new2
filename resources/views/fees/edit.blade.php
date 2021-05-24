@@ -34,6 +34,7 @@ Into
                                                 <tr class="table-primary">
                                                     <th>ID</th>
                                                     <th>Tên Học Sinh</th>
+                                                    <th>Ngày Sinh</th>
                                                     <th>Học Phí</th>
                                                     <th>Chưa Nộp</th>
                                                     <th>Đã Nộp</th>
@@ -43,6 +44,7 @@ Into
                                             <tr>
                                                 <td>{{ $student->id_student }}</td>
                                                 <td>{{ $student->fullname }}</td>
+                                                <td>{{ $student->dob }}</td>
                                                 <td>{{ $student->fee }}</td>
                                                 <td>
                                                     <input type="radio" id="{{$student->id_student}}_0" name="{{$student->id_student}}" value="0" <?php echo ($student->status_fee == 0) ? 'checked' : '' ?>>

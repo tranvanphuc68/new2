@@ -58,6 +58,7 @@ Into
                                                 <tr class="table-primary">
                                                     <th>ID</th>
                                                     <th>Tên Giảng Viên</th>
+                                                    <th>Ngày Sinh</th>
                                                     <th>Chi Tiết</th>
                                                 </tr>
                                             </thead>
@@ -65,6 +66,7 @@ Into
                                                 <tr>
                                                     <td>{{ $teacher->id }}</td>
                                                     <td>{{ $teacher->fullname }}</td>
+                                                    <td>{{ $teacher->dob }}</td>
                                                     <td>
                                                         <a href="{{ url("/salaries/{$teacher->id}") }}">
                                                             <i class="fa fa-eye icon-view"></i>

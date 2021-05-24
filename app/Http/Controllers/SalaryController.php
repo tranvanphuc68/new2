@@ -21,7 +21,10 @@ class SalaryController extends Controller
         })
         ->select('users.*')
         ->get();
-
+        foreach($teachers as $teacher)
+        {
+            $teacher->dob = Controller::formatDate($teacher->dob);
+        }
     $id = Auth::user()->id;
     $salaries = DB::table('courses')
         ->join('users', 'users.id', '=', 'courses.id_teacher')
