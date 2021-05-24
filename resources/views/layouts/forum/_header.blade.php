@@ -31,7 +31,7 @@
   <header id="header" class="fixed-top header-transparent bg-info">
     <div class="container d-flex align-items-center">
       <div class="logo mr-auto">
-        <a href="index.html" class="text-white"><h1>Into</h1></a>
+        <a href="{{ url('/home') }}" class="text-white"><h1>Into</h1></a>
       </div>
       <nav class="nav-menu d-none d-lg-block">
         <ul>

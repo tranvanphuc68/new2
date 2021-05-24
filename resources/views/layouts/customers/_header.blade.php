@@ -34,20 +34,20 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
-        <h1 class="text-light"><a href="index.html"><span>Into</span></a></h1>
+        <h1 class="text-light"><a href="{{ url('/home') }}"><span>Into</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#">Trang chủ</a></li>
-          <li><a href="{{ url('/posts') }}">Diễn đàn</a></li>
+          <li class="active"><a href="{{ url('/home') }}git">Trang chủ</a></li>
           <li><a href="#about">Giới thiệu</a></li>
           <li><a href="#services">Khóa học</a></li>
           <li><a href="#testimonials">Học viên</a></li>
           <li><a href="#team">Giảng viên</a></li>
           <li><a href="#contact">Liên hệ</a></li>
+          <li><a href="{{ url('/posts') }}">Diễn đàn</a></li>
           <li>
             @if (Auth::check())
               <a href="{{ url('logout') }}">Đăng xuất</a>
