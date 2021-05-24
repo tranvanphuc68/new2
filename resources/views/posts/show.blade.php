@@ -195,42 +195,4 @@
             </div>
         </div>
     </div>
-
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script>
-        $(document).on('click', "button[name='but']", function() {
-            statusList = $('input[type=radio]:checked')
-            data = []
-            for(i=0;i<statusList.length;i++) {
-                std = {
-                    'id_student': $(statusList[i]).attr('name'),
-                    'status': $(statusList[i]).val(),
-                }
-                data.push(std)
-            }
-            data = JSON.stringify(data)
-            console.log(data)
-            $.ajax({
-                    url: "{{ url("/attendance") }}",
-                    method: 'POST',
-                    data:{
-                        '_token': '{{ csrf_token() }}',
-                        'data' : data,
-                        'id_course' : {{$id_course}},
-                        'number' : {{$number}}
-                    },
-                    success: function(res) {
-                        location.assign("{{ url("/attendance") }}")
-                    },
-                    error: function(err) {
-                        console.error(err)
-                    }
-                });  
-        })
-    
-</script> --}}
 @endsection
