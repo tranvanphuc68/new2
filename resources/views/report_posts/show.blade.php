@@ -8,8 +8,8 @@
 <div class="container content">
     @if(Auth::check())
         <div class="container mt-5">
-            <div class="d-flex justify-content-center row">
-                {{-- <h3>CHI TIẾT REPORT POST</h3> --}}
+            {{-- <div class="d-flex justify-content-center row">
+                <h3>CHI TIẾT REPORT POST</h3>
             </div>
             <div class="d-flex justify-content-center row">
                 <div class="col-md-8" style="border-top: 3px solid rgb(201, 220, 221); border-left: 2px solid rgb(201, 220, 221); border-right: 2px solid rgb(201, 220, 221); background-color:rgb(255, 255, 255); border-radius: 10px; border-bottom: 5px solid rgb(218, 227, 245); background-color:rgb(228, 238, 255)">
@@ -49,27 +49,31 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Show report của post -->
             <div class="d-flex justify-content-center row">
-                <div id="collapse-1" class="p-2 collapse mb-3" data-parent="#myGroup">
+                <div >
                     <div class="d-flex flex-column comment-section" >
                         <div class="p-2">
+                        </div>
+                            <h2 style="color: steelblue">Số báo cáo {{ $countReportPost }}</h2>
                             <table class="table table-striped table-hover"  style="border: 2px solid black; ">
-                            @foreach ($report_posts as $report_post)
                                 <thead class="bg-dark text-white">
                                     <tr>
                                         <th>Name</th>
                                         <th>Content report</th>
                                     </tr>
                                 </thead>
-                                <td>
-                                    <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$report_post->avatar") }}">
-                                    {{ $report_post->fullname }}
-                                </td>
-                                <td>{{ $report_post->content }}</td>
-                            @endforeach
+                                @foreach ($report_posts as $report_post)
+                                    <tr>
+                                        <td>
+                                            <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$report_post->avatar") }}">
+                                            {{ $report_post->fullname }}
+                                        </td>
+                                        <td>{{ $report_post->content }}</td>
+                                    </tr>
+                                @endforeach
                             </table>
                         </div>
                     </div>
