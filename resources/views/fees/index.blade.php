@@ -30,18 +30,18 @@ Into
                                         @if (Auth::user()->role == 'Student')
                                             <thead>
                                                 <tr class="table-primary">
-                                                    <th>ID</th>
-                                                    <th>Tên Khóa Học</th>
-                                                    <th>Học Phí</th>
-                                                    <th>Tình Trạng</th>
+                                                    <th class="w10">ID</th>
+                                                    <th class="w40">Tên Khóa Học</th>
+                                                    <th class="w25">Học Phí</th>
+                                                    <th class="w25">Tình Trạng</th>
                                                 </tr>
                                             </thead>
                                             @foreach($fees as $fee)
                                                 <tr>
-                                                    <td>{{ $fee->id_course }}</td>
-                                                    <td>{{ $fee->name }}</td>
-                                                    <td>{{ $fee->fee }}</td>
-                                                    <td><?php echo $fee->status_fee == 0 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
+                                                    <td class="w10">{{ $fee->id_course }}</td>
+                                                    <td class="w40">{{ $fee->name }}</td>
+                                                    <td class="w25">{{ $fee->fee }}</td>
+                                                    <td class="w25"><?php echo $fee->status_fee == 0 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
                                                 </tr>
                                             @endforeach
                                         @endif
@@ -49,17 +49,17 @@ Into
                                         @if (Auth::user()->role == 'Admin')
                                             <thead>
                                                 <tr class="table-primary">
-                                                    <th>ID</th>
-                                                    <th>Tên Khóa Học</th>
-                                                    <th>Tình Trạng</th>
-                                                    <th  style="width: 12%; text-align:center" >Chi Tiết</th>
+                                                    <th class="w15">ID</th>
+                                                    <th class="w40">Tên Khóa Học</th>
+                                                    <th class="w30">Tình Trạng</th>
+                                                    <th class="w15">Chi Tiết</th>
                                                 </tr>
                                             </thead>
                                             @foreach($courses as $course)
                                                 <tr>
-                                                    <td>{{ $course->id }}</td>
-                                                    <td>{{ $course->name }}</td>
-                                                    <td><?php switch ($course->status) {
+                                                    <td class="w15">{{ $course->id }}</td>
+                                                    <td class="w40">{{ $course->name }}</td>
+                                                    <td class="w30"><?php switch ($course->status) {
                                                                             case '1':
                                                                                 echo 'Chưa Học';
                                                                                 break;
@@ -71,7 +71,7 @@ Into
                                                                                 break; 
                                                                 }?>
                                                     </td>
-                                                    <td class="center">
+                                                    <td class="w15">
                                                         <a href="{{ url("/fees/{$course->id}") }}">
                                                             <i class="fa fa-eye icon-view"></i>
                                                         </a>

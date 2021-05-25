@@ -30,17 +30,17 @@ Into
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr class="table-primary">
-                                                <th>ID Khóa Học</th>
-                                                <th>Tên Khóa Học</th>
-                                                <th>Trạng Thái</th>
-                                                <th style="width: 12%; text-align:center">Chi Tiết</th>
+                                                <th class="w15">ID Khóa Học</th>
+                                                <th class="w30">Tên Khóa Học</th>
+                                                <th class="w40">Trạng Thái</th>
+                                                <th class="w15">Chi Tiết</th>
                                             </tr>
                                         </thead>
                                         @foreach($courses as $course)
                                             <tr>
-                                                <td>{{ $course->id }}</td>
-                                                <td>{{ $course->name }}</td>
-                                                <td><?php switch ($course->status) {
+                                                <td class="w15">{{ $course->id }}</td>
+                                                <td class="w30">{{ $course->name }}</td>
+                                                <td class="w40"><?php switch ($course->status) {
                                                     case '1':
                                                         echo 'Chưa học';
                                                         break;

@@ -31,20 +31,20 @@ Into
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr class="table-primary">
-                                                <th>ID</th>
-                                                <th>Tên Học Sinh</th>
-                                                <th>Ngày Sinh</th>
-                                                <th>Học phí</th>
-                                                <th>Tình trạng</th>
+                                                <th class="w5">ID</th>
+                                                <th class="w40">Tên Học Sinh</th>
+                                                <th class="w20">Ngày Sinh</th>
+                                                <th class="w20">Học phí</th>
+                                                <th class="w15">Tình trạng</th>
                                             </tr>
                                         </thead>
                                         @foreach ($students as $student)
                                         <tr>
-                                            <td>{{ $student->id_student }}</td>
-                                            <td>{{ $student->fullname }}</td>
-                                            <td>{{ $student->dob }}</td>
-                                            <td>{{ $student->fee }}</td>
-                                            <td><?php echo $student->status_fee == 0 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
+                                            <td class="w5">{{ $student->id_student }}</td>
+                                            <td class="w40">{{ $student->fullname }}</td>
+                                            <td class="w20">{{ $student->dob }}</td>
+                                            <td class="w20">{{ $student->fee }}</td>
+                                            <td class="w15"><?php echo $student->status_fee == 0 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
                                         </tr>
                                         @endforeach
                                     </table>

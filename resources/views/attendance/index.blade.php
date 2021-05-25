@@ -24,22 +24,22 @@ Into
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr class="table-primary">
-                                                <th>Tên Khóa Học</th>
-                                                <th>Buổi</th>
-                                                <th>Thời gian</th>
-                                                <th>Nội Dung</th>
-                                                <th style="width: 15%; text-align:center">Điểm Danh</th>
+                                                <th class="w15">Tên Khóa Học</th>
+                                                <th class="w5">Buổi</th>
+                                                <th class="w15">Thời gian</th>
+                                                <th style="text-align: center;" >Nội Dung</th>
+                                                <th class="w10">Điểm Danh</th>
                                             </tr>
                                         </thead>
                                         @foreach($data as $data)
                                             <tr>
-                                                <td>{{ $data->name }}</td>
-                                                <td>{{ $data->number }}</td>
-                                                <td>{{ $data->timetable }}</td>
+                                                <td class="w15">{{ $data->name }}</td>
+                                                <td class="w5">{{ $data->number }}</td>
+                                                <td class="w15">{{ $data->timetable }}</td>
                                                 <td>{{ $data->content }}</td>
-                                                <td  style="display: flex;  justify-content: space-around;">
+                                                <td class="center">
                                                     <a href="{{ url("/attendance/{$data->id_course}-{$data->number}") }}">
-                                                        <img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt="">
+                                                        <img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 40px"alt="">
                                                     </a>
                                                 </td>
                                             </tr>

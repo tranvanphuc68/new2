@@ -58,3 +58,47 @@ a {
     display: flex;  
     justify-content: space-around;
 }
+.w3 {
+    text-align: center;
+    width: 3%;
+}
+.w5 {
+    text-align: center;
+    width: 5%;
+}
+.w6 {
+    text-align: center;
+    width: 6%;
+}
+.w10 {
+    text-align: center;
+    width: 10%;
+}
+.w15 {
+    text-align: center;
+    width: 15%;
+}
+.w20 {
+    text-align: center;
+    width: 20%;
+}
+.w25 {
+    text-align: center;
+    width: 25%;
+}
+.w30 {
+    text-align: center;
+    width: 30%;
+}
+.w40 {
+    text-align: center;
+    width: 40%;
+}
+.w50 {
+    text-align: center;
+    width: 50%;
+}
+.w60 {
+    text-align: center;
+    width: 60%;
+}
