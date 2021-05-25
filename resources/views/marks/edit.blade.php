@@ -24,18 +24,18 @@ Into
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr class="table-primary">
-                                                    <th>ID Học Viên</th>
-                                                    <th>Tên Học Viên</th>
-                                                    <th>Ngày Sinh</th>
-                                                    <th>Điểm</th>
+                                                    <th class="w15">ID Học Viên</th>
+                                                    <th class="">Tên Học Viên</th>
+                                                    <th class="w25">Ngày Sinh</th>
+                                                    <th class="w25">Điểm</th>
                                                 </tr>
                                             </thead>
                                             @foreach($students as $student)
                                                 <tr>
-                                                    <td>{{ $student->id_student }}</td>
-                                                    <td>{{ $student->first_name." ".$student->last_name }}</td>
-                                                    <td>{{ $student->dob }}</td>
-                                                    <td><input type="text" name ="{{ $student->id_student }}" value="{{ $student->mark }}"></td>
+                                                    <td class="w15">{{ $student->id_student }}</td>
+                                                    <td class="">{{ $student->first_name." ".$student->last_name }}</td>
+                                                    <td class="w25">{{ $student->dob }}</td>
+                                                    <td class="w25"><input type="text" name ="{{ $student->id_student }}" value="{{ $student->mark }}"></td>
                                                 </tr>
                                             @endforeach
                                         </table>

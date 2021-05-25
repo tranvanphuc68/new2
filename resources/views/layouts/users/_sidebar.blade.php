@@ -41,10 +41,10 @@
                         </a>
                         <ul class="sidebar-nav">
                             <li>
-                                <a href="{{ url("/courses") }}" name="teacher-link"> Khóa học</a>
+                                <a href="{{ url("/courses") }}" name="teacher-link"> Khóa học </a>
                             </li>
                             <li>
-                                <a href="{{ url("/students_courses") }}" name="student-link"> Lớp học </a>
+                                <a href="{{ url("/students_courses") }}" name="student-link"> Danh sách học viên </a>
                             </li>
                         </ul>
                     </li>

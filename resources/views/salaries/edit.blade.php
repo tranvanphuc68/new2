@@ -24,23 +24,23 @@ Into
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr class="table-primary">
-                                                    <th>ID</th>
-                                                    <th>Tên Khóa Học</th>
-                                                    <th>Lương</th>
-                                                    <th>Chưa Nhận</th>
-                                                    <th>Đã Nhận</th>
+                                                    <th class="w10">ID</th>
+                                                    <th class="w30">Tên Khóa Học</th>
+                                                    <th class="w20">Lương</th>
+                                                    <th class="w20">Chưa Nhận</th>
+                                                    <th class="w20">Đã Nhận</th>
                                                 </tr>
                                             </thead>
                                             @foreach($teachers as $teacher)
                                                 <tr>
-                                                    <td>{{ $teacher->id }}</td>
-                                                    <td>{{ $teacher->name }}</td>
-                                                    <td>{{ $teacher->salary }}</td>
-                                                    <td>
+                                                    <td class="w10">{{ $teacher->id }}</td>
+                                                    <td class="w30">{{ $teacher->name }}</td>
+                                                    <td class="w20">{{ $teacher->salary }}</td>
+                                                    <td class="w20">
                                                         <input type="radio" id="{{$teacher->id_teacher}}_0" name ="{{$teacher->id}}" value="0" <?php echo ($teacher->status_salary == 0) ? 'checked' : ''?>>
                                                         <label for="{{$teacher->id_teacher}}_0"></label>
                                                     </td>
-                                                    <td>
+                                                    <td class="w20">
                                                         <input type="radio" id="{{$teacher->id_teacher}}_1" name ="{{$teacher->id}}" value="1" <?php echo ($teacher->status_salary == 1) ? 'checked' : ''?>>
                                                         <label for="{{$teacher->id_teacher}}_1"></label>
                                                     </td>

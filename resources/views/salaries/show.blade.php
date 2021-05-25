@@ -24,18 +24,18 @@ Into
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr class="table-primary">
-                                                <th>ID</th>
-                                                <th>Tên Khóa Học</th>
-                                                <th>Lương</th>
-                                                <th>Tình Trạng</th>
+                                                <th class="w10">ID</th>
+                                                <th class="w50">Tên Khóa Học</th>
+                                                <th class="w20">Lương</th>
+                                                <th class="w20">Tình Trạng</th>
                                             </tr>
                                         </thead>
                                         @foreach ($salaries as $salary)
                                             <tr>
-                                                <td>{{ $salary->id }}</td>
-                                                <td>{{ $salary->name }}</td>
-                                                <td>{{ $salary->salary }}</td>
-                                                <td><?php echo $salary->status_salary == 0 ? 'Chưa nhận': 'Đã nhận'; ?></td>
+                                                <td class="w10">{{ $salary->id }}</td>
+                                                <td class="w50">{{ $salary->name }}</td>
+                                                <td class="w20">{{ $salary->salary }}</td>
+                                                <td class="w20"><?php echo $salary->status_salary == 0 ? 'Chưa nhận': 'Đã nhận'; ?></td>
                                             </tr>
                                         @endforeach
                                     </table>

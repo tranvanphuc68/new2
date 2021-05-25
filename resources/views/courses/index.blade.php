@@ -33,33 +33,33 @@ Into
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr class="table-primary">
-                                                <th>ID</th>
-                                                <th>Tên Khóa</th>
-                                                <th>Tên Giảng Viên</th>
-                                                <th>Mô Tả</th>
-                                                <th>Thời Khóa Biểu</th>
-                                                <th>Học Viên Tối Đa</th>
-                                                <th>Tổng Giờ</th>
-                                                <th>Số Tiết</th>
-                                                <th>Lương</th>
-                                                <th>Học Phí</th>
-                                                <th>Tình Trạng</th>
-                                                <th>Chức Năng</th>
+                                                <th class="w3">ID</th>
+                                                <th class="w">Tên Khóa</th>
+                                                <th class="w">Tên Giảng Viên</th>
+                                                <th class="w">Mô Tả</th>
+                                                <th class="w10">Thời Khóa Biểu</th>
+                                                <th class="w6">Học Viên Tối Đa</th>
+                                                <th class="w5">Tổng Giờ</th>
+                                                <th class="w5">Số Tiết</th>
+                                                <th class="w6">Lương</th>
+                                                <th class="w6">Học Phí</th>
+                                                <th class="w6">Tình Trạng</th>
+                                                <th class="w6">Chức Năng</th>
                                             </tr>
                                         </thead>
                                         @foreach($courses as $course)
                                             <tr>
-                                                <td>{{ $course->id }}</td>
-                                                <td>{{ $course->name }}</td>
-                                                <td>{{ $course->first_name." ".$course->last_name }}</td>
-                                                <td>{{ $course->description }}</td>
-                                                <td>{{ $course->timetable }}</td>
-                                                <td>{{ $course->max_students }}</td>
-                                                <td>{{ $course->sum_time }}</td>
-                                                <td>{{ $course->lessons }}</td>
-                                                <td>{{ $course->salary }}</td>
-                                                <td>{{ $course->fee }}</td>
-                                                <td><?php switch ($course->status) {
+                                                <td class="w">{{ $course->id }}</td>
+                                                <td class="w">{{ $course->name }}</td>
+                                                <td class="w">{{ $course->first_name." ".$course->last_name }}</td>
+                                                <td class="w">{{ $course->description }}</td>
+                                                <td class="w">{{ $course->timetable }}</td>
+                                                <td class="w">{{ $course->max_students }}</td>
+                                                <td class="w">{{ $course->sum_time }}</td>
+                                                <td class="w">{{ $course->lessons }}</td>
+                                                <td class="w">{{ $course->salary }}</td>
+                                                <td class="w">{{ $course->fee }}</td>
+                                                <td class="w"><?php switch ($course->status) {
                                                                         case '1':
                                                                             echo 'Chưa Học';
                                                                             break;
@@ -67,11 +67,11 @@ Into
                                                                             echo 'Đang Học';
                                                                             break;
                                                                         case '3':
-                                                                            echo 'Đã Hoàn Thành';
+                                                                            echo 'Hoàn Thành';
                                                                             break; 
                                                             }?>
                                                     </td>
-                                                <td style="display: flex;  justify-content: space-around;">
+                                                <td class="center">
                                                     <a href="{{ url("/courses/{$course->id}") }}" >
                                                         <i class="fa fa-eye icon-view"></i>
                                                     </a>
@@ -97,27 +97,27 @@ Into
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Tên Khóa</th>
-                                                    <th>Mô Tả</th>
-                                                    <th>Thời Khóa Biểu</th>
-                                                    <th>Học Viên Tối Đa</th>
-                                                    <th>Tổng Giờ</th>
-                                                    <th>Số Tiết</th>
-                                                    <th>Tình Trạng</th>
-                                                    <th>Xem Chi Tiết</th>
+                                                    <th class="w3">ID</th>
+                                                    <th class="w20">Tên Khóa</th>
+                                                    <th class="w30">Mô Tả</th>
+                                                    <th class="w15">Thời Khóa Biểu</th>
+                                                    <th class="w10">Học Viên Tối Đa</th>
+                                                    <th class="w6">Tổng Giờ</th>
+                                                    <th class="w6">Số Tiết</th>
+                                                    <th class="w10">Tình Trạng</th>
+                                                    <th class="w5">Xem</th>
                                                 </tr>
                                             </thead>
                                             @foreach($courses as $course)
                                                 <tr>
-                                                    <td>{{ $course->id }}</td>
-                                                    <td>{{ $course->name }}</td>
-                                                    <td>{{ $course->description }}</td>
-                                                    <td>{{ $course->timetable }}</td>
-                                                    <td>{{ $course->max_students }}</td>
-                                                    <td>{{ $course->sum_time }}</td>
-                                                    <td>{{ $course->lessons }}</td>
-                                                    <td><?php switch ($course->status) {
+                                                    <td class="w3">{{ $course->id }}</td>
+                                                    <td class="w20">{{ $course->name }}</td>
+                                                    <td class="w30">{{ $course->description }}</td>
+                                                    <td class="w15">{{ $course->timetable }}</td>
+                                                    <td class="w10">{{ $course->max_students }}</td>
+                                                    <td class="w6">{{ $course->sum_time }}</td>
+                                                    <td class="w6">{{ $course->lessons }}</td>
+                                                    <td class="w10"><?php switch ($course->status) {
                                                                             case '1':
                                                                                 echo 'Chưa Học';
                                                                                 break;
@@ -125,13 +125,13 @@ Into
                                                                                 echo 'Đang Học';
                                                                                 break;
                                                                             case '3':
-                                                                                echo 'Đã Hoàn Thành';
+                                                                                echo 'Hoàn Thành';
                                                                                 break; 
                                                                 }?>
                                                         </td>
-                                                    <td>
-                                                        <a href="{{ url("/courses/{$course->id}") }}" class="btn">
-                                                            <i class="fa fa-eye"></i>
+                                                    <td class="w5">
+                                                        <a href="{{ url("/courses/{$course->id}") }}">
+                                                            <i class="fa fa-eye icon-view"></i>
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -144,27 +144,27 @@ Into
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Tên Khóa</th>
-                                                    <th>Tên Giảng Viên</th>
-                                                    <th>Mô Tả</th>
-                                                    <th>Thời Khóa Biểu</th>
-                                                    <th>Tổng Giờ</th>
-                                                    <th>Số Tiết</th>
-                                                    <th>Tình Trạng</th>
-                                                    <th>Xem</th>
+                                                    <th class="w5">ID</th>
+                                                    <th class="w">Tên Khóa</th>
+                                                    <th class="w">Tên Giảng Viên</th>
+                                                    <th class="w">Mô Tả</th>
+                                                    <th class="w">Thời Khóa Biểu</th>
+                                                    <th class="w">Tổng Giờ</th>
+                                                    <th class="w">Số Tiết</th>
+                                                    <th class="w">Tình Trạng</th>
+                                                    <th class="w">Xem</th>
                                                 </tr>
                                             </thead>
                                             @foreach($courses as $course)
                                                 <tr>
-                                                    <td>{{ $course->id }}</td>
-                                                    <td>{{ $course->name }}</td>
-                                                    <td>{{ $course->first_name." ".$course->last_name }}</td>
-                                                    <td>{{ $course->description }}</td>
-                                                    <td>{{ $course->timetable }}</td>
-                                                    <td>{{ $course->sum_time }}</td>
-                                                    <td>{{ $course->lessons }}</td>
-                                                    <td><?php switch ($course->status) {
+                                                    <td class="w5">{{ $course->id }}</td>
+                                                    <td class="w">{{ $course->name }}</td>
+                                                    <td class="w">{{ $course->first_name." ".$course->last_name }}</td>
+                                                    <td class="w">{{ $course->description }}</td>
+                                                    <td class="w">{{ $course->timetable }}</td>
+                                                    <td class="w">{{ $course->sum_time }}</td>
+                                                    <td class="w">{{ $course->lessons }}</td>
+                                                    <td class="w"><?php switch ($course->status) {
                                                                             case '1':
                                                                                 echo 'Chưa Học';
                                                                                 break;
@@ -172,13 +172,13 @@ Into
                                                                                 echo 'Đang Học';
                                                                                 break;
                                                                             case '3':
-                                                                                echo 'Đã Hoàn Thành';
+                                                                                echo 'Hoàn Thành';
                                                                                 break; 
                                                                 }?>
                                                         </td>
-                                                    <td>
-                                                        <a href="{{ url("/courses/{$course->id}") }}" class="btn">
-                                                            <i class="fa fa-eye"></i>
+                                                    <td class="w5">
+                                                        <a href="{{ url("/courses/{$course->id}") }}">
+                                                            <i class="fa fa-eye icon-view"></i>
                                                         </a>
                                                     </td>
                                                 </tr>

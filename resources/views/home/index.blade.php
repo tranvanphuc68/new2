@@ -78,7 +78,7 @@ Into
                       <h5 class="card-title" style="font-weight: bold;">KHÓA FOUNDATION </h5>
                       <h6 class="card-subtitle mb-1 text-muted">Đầu vào: 3.0 </h6>
                       <h6 class="card-subtitle mb-1 text-muted">Đầu ra: 4.0+</h6>
-                      <a href="{{url('/review_course/foudation')}}" class="btn btn-primary">Xem chi tiết</a>
+                      <a href="{{url('/review_course/foudation')}}" class="btn btn-primary" style="background-color: #5AB9EA">Xem chi tiết</a>
                   </div>
               </div>
             </div>
@@ -90,7 +90,7 @@ Into
                       <h5 class="card-title" style="font-weight: bold;">KHÓA PRE </h5>
                       <h6 class="card-subtitle mb-1 text-muted">Đầu vào: 4.0 </h6>
                       <h6 class="card-subtitle mb-1 text-muted">Đầu ra: 5.5+</h6>
-                      <a href="{{url('/review_course/pre')}}" class="btn btn-primary">Xem chi tiết</a>
+                      <a href="{{url('/review_course/pre')}}" class="btn btn-primary" style="background-color: #5AB9EA">Xem chi tiết</a>
                   </div>
               </div>
             </div>
@@ -101,7 +101,7 @@ Into
                       <h5 class="card-title" style="font-weight: bold;" >KHÓA INTERMEDIATE </h5>
                       <h6 class="card-subtitle mb-1 text-muted">Đầu vào: 5.5 </h6>
                       <h6 class="card-subtitle mb-1 text-muted">Đầu ra: 6.5+</h6>
-                      <a href="{{url('/review_course/intermediate')}}" class="btn btn-primary">Xem chi tiết</a>
+                      <a href="{{url('/review_course/intermediate')}}" class="btn btn-primary" style="background-color: #5AB9EA">Xem chi tiết</a>
                   </div>
               </div>
             </div>
@@ -113,7 +113,7 @@ Into
                       <h5 class="card-title" style="font-weight: bold;" >KHÓA AVANCED </h5>
                       <h6 class="card-subtitle mb-1 text-muted">Đầu vào: 6.5 </h6>
                       <h6 class="card-subtitle mb-1 text-muted">Đầu ra: 7.5+</h6>
-                      <a href="{{url('/review_course/avanced')}}" class="btn btn-primary">Xem chi tiết</a>
+                      <a href="{{url('/review_course/avanced')}}" class="btn btn-primary" style="background-color: #5AB9EA">Xem chi tiết</a>
                   </div>
               </div>
             </div>

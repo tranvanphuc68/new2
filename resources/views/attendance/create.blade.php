@@ -23,19 +23,19 @@ Into
                                         <thead>
                                             <tr class="table-primary" >
                                                 <th>Tên Học Viên</th>
-                                                <th>Ngày Sinh</th>
-                                                <th style="width: 10%;">Có</th>
-                                                <th style="width: 10%;">Muộn</th>
-                                                <th style="width: 10%;">Vắng</th>
+                                                <th class="w20">Ngày Sinh</th>
+                                                <th class="w15">Có</th>
+                                                <th class="w15">Muộn</th>
+                                                <th class="w15">Vắng</th>
                                             </tr>
                                         </thead>
                                         @foreach($data as $data)
                                             <tr>
                                                 <td>{{ $data->first_name." ".$data->last_name }}</td>
-                                                <td>{{ $data->dob }}</td>
-                                                <td ><input type="radio" name="{{ $data->id_student }}" value="0" checked></td>
-                                                <td><input type="radio" name="{{ $data->id_student }}" value="1"></td>
-                                                <td><input type="radio" name="{{ $data->id_student }}" value="2"></td>
+                                                <td class="w20">{{ $data->dob }}</td>
+                                                <td class="w15"><input type="radio" name="{{ $data->id_student }}" value="0" checked></td>
+                                                <td class="w15"><input type="radio" name="{{ $data->id_student }}" value="1"></td>
+                                                <td class="w15"><input type="radio" name="{{ $data->id_student }}" value="2"></td>
                                             </tr>
                                         @endforeach
                                     </table>

@@ -18,19 +18,19 @@ Into
                         <table class="table table-bordered table-hover">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>ID Học Viên</th>
-                                    <th>Tên Học Viên</th>
-                                    <th>Ngày Sinh</th>
-                                    <th style="width: 12%;">Thêm</th>
+                                    <th class="w15">ID Học Viên</th>
+                                    <th class="w40">Tên Học Viên</th>
+                                    <th class="w25">Ngày Sinh</th>
+                                    <th class="w20">Thêm</th>
                                 </tr>
                             </thead>
                             @csrf
                             @foreach ($students as $student)
                                 <tr>
-                                    <td>{{ $student->id }}</td>
-                                    <td>{{ $student->first_name." ".$student->last_name }}</td>
-                                    <td>{{ $student->dob }}</td>
-                                    <td><input type="checkbox" name="id_student" value="{{ $student->id }}"></td>
+                                    <td class="w15">{{ $student->id }}</td>
+                                    <td class="w40">{{ $student->first_name." ".$student->last_name }}</td>
+                                    <td class="w25">{{ $student->dob }}</td>
+                                    <td class="w20"><input type="checkbox" name="id_student" value="{{ $student->id }}"></td>
                                 </tr>
                             @endforeach
                         </table>
