@@ -1446,3 +1446,100 @@ section {
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   border-radius: none;
 }
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+#header-course {
+  background-color: #67b0d1;
+}
+
+#header-course nav ul li a {
+  color: white;
+}
+
+.about-course img {
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-course {
+  /* background: linear-gradient(rgba(194, 227, 243, 0.2), rgba(227, 229, 230, 0.3)); */
+  margin: 0 50px;
+}
+
+#fh5co-features {
+  background: #67b0d1;
+}
+
+.fh5co-heading p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #828282;
+}
+
+#fh5co-features h2 {
+  color: #fff;
+  text-align: center;
+}
+
+#fh5co-features .services-padding {
+  padding: 7em 0;
+}
+
+#fh5co-features .feature-left {
+  margin-bottom: 40px;
+  float: left;
+}
+
+@media screen and (max-width: 992px) {
+  #fh5co-features .feature-left {
+      margin-bottom: 30px;
+  }
+}
+
+#fh5co-features .feature-left .icon {
+  display: table;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background: #fff;
+  margin-bottom: 20px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+#fh5co-features .feature-left .icon i {
+  font-size: 50px;
+  display: table-cell;
+  vertical-align: middle;
+  height: 100px;
+  color: #67b0d1 !important;
+}
+
+#fh5co-features .feature-left .feature-copy {
+  width: 100%;
+}
+
+#fh5co-features .feature-left h3 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+}
+
+#fh5co-features .feature-left p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#fh5co-features .feature-left p:last-child {
+  margin-bottom: 0;
+}
+
+#fh5co-features .feature-left p a {
+  color: #000 !important;
+}

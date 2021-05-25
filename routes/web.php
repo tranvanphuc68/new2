@@ -39,6 +39,21 @@ Route::get('/report', function () {
     return view('report.student');
 });
 
+Route::get('/review_course/foudation', function () {
+    return view('home.courses.foudation');
+});
+Route::get('/review_course/pre', function () {
+    return view('home.courses.pre');
+});
+Route::get('/review_course/intermediate', function () {
+    return view('home.courses.intermediate');
+});
+Route::get('/review_course/avanced', function () {
+    return view('home.courses.avanced');
+});
+
+//-----------------------------------------------------------------------------------
+
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
