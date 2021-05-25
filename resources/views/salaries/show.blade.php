@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="salary">
         <div class="card">
-            <h1 class="text-IBM"> Lương của giảng viên {{ $salaries[0]->fullname }} </h1>
+            <h1 class="text-IBM"> Lương của giảng viên {{ $salaries[0]->first_name." ".$salaries[0]->last_name }} </h1>
         </div>
         <section class="section">
             <div class="row">

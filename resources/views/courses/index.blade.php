@@ -51,7 +51,7 @@ Into
                                             <tr>
                                                 <td>{{ $course->id }}</td>
                                                 <td>{{ $course->name }}</td>
-                                                <td>{{ $course->fullname }}</td>
+                                                <td>{{ $course->first_name." ".$course->last_name }}</td>
                                                 <td>{{ $course->description }}</td>
                                                 <td>{{ $course->timetable }}</td>
                                                 <td>{{ $course->max_students }}</td>
@@ -159,7 +159,7 @@ Into
                                                 <tr>
                                                     <td>{{ $course->id }}</td>
                                                     <td>{{ $course->name }}</td>
-                                                    <td>{{ $course->fullname }}</td>
+                                                    <td>{{ $course->first_name." ".$course->last_name }}</td>
                                                     <td>{{ $course->description }}</td>
                                                     <td>{{ $course->timetable }}</td>
                                                     <td>{{ $course->sum_time }}</td>

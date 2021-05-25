@@ -29,7 +29,7 @@ class SalaryController extends Controller
     $salaries = DB::table('courses')
         ->join('users', 'users.id', '=', 'courses.id_teacher')
         ->where('id_teacher', "$id")
-        ->select('courses.*', 'users.fullname')
+        ->select('courses.*', 'users.first_name', 'users.last_name')
         ->get();
     $sum = DB::table('courses')
     ->join('users', 'users.id', '=', 'courses.id_teacher')
@@ -55,7 +55,7 @@ class SalaryController extends Controller
         $salaries = DB::table('courses')
         ->join('users', 'users.id', '=', 'courses.id_teacher')
         ->where('id_teacher', "$id_teacher")
-        ->select('courses.*', 'users.fullname')
+        ->select('courses.*', 'users.first_name', 'users.last_name')
         ->get();
 
         $sum = DB::table('courses')
@@ -83,7 +83,7 @@ class SalaryController extends Controller
         $teachers = DB::table('courses')
         ->join('users', 'users.id', '=', 'courses.id_teacher')
         ->where('id_teacher', "$id_teacher")
-        ->select('courses.*', 'users.fullname')
+        ->select('courses.*', 'users.first_name', 'users.last_name')
         ->get();
         return view('salaries.edit', [
             'teachers' => $teachers,
@@ -96,7 +96,7 @@ class SalaryController extends Controller
         $teachers = DB::table('courses')
         ->join('users', 'users.id', '=', 'courses.id_teacher')
         ->where('id_teacher', "$id_teacher")
-        ->select('courses.*', 'users.fullname')
+        ->select('courses.*','users.first_name', 'users.last_name')
         ->get();
         //
         foreach ($teachers as $teacher) {

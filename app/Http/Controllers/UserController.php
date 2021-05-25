@@ -70,7 +70,8 @@ class UserController extends Controller
             $avatar = 'defaultFemale.jpg';
         }
         $data = User::create([
-            'fullname' => $request->input('fullname'),
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
             'gender' => $request->input('gender'),
             'dob' => $request->input('dob'),
             'avatar' => $avatar,
@@ -98,7 +99,8 @@ class UserController extends Controller
             $avatar = 'defaultFemale.jpg';
         }
         $data = User::create([
-            'fullname' => $request->input('fullname'),
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
             'gender' => $request->input('gender'),
             'dob' => $request->input('dob'),
             'avatar' => $avatar,

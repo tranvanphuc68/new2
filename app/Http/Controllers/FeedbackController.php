@@ -17,7 +17,7 @@ class FeedbackController extends Controller
             ->join('users', 'users.id', '=', 'students_courses.id_student')
             ->join('courses', 'courses.id', '=', 'students_courses.id_course')
             ->where('id_student', '=', "$id")
-            ->select('students_courses.*', 'users.fullname', 'courses.name', 'courses.id', 'courses.status')
+            ->select('students_courses.*', 'users.first_name', 'users.last_name', 'courses.name', 'courses.id', 'courses.status')
             ->get();
         }
         else 
@@ -47,7 +47,7 @@ class FeedbackController extends Controller
         ->join('users','users.id','=','students_courses.id_student')
         ->join('courses','courses.id','=','students_courses.id_course')
         ->where('id_course',"$id_course")
-        ->select('students_courses.*','users.fullname','courses.name','users.dob')
+        ->select('students_courses.*','users.first_name', 'users.last_name','courses.name','users.dob')
         ->get();
         foreach($students as $student)
         {

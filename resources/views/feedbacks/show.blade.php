@@ -32,7 +32,7 @@ Into
                                                 @foreach($students as $student)
                                                     <tr>
                                                         <td>{{ $student->id_student }}</td>
-                                                        <td>{{ $student->fullname }}</td>
+                                                        <td>{{ $student->first_name." ".$student->last_name }}</td>
                                                         <td>{{ $student->dob }}</td>
                                                         <td>{{ $student->feedback }}</td>
                                                     </tr>

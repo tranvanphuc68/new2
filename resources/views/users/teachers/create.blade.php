@@ -16,8 +16,12 @@ Into
                 <form action="{{ url("/users/teacher") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="name">Họ tên</label>
-                        <input type="text" name="fullname" id="name" class="form-control" placeholder="Username" aria-describedby="helpId">
+                        <label for="first_name">Họ</label>
+                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" aria-describedby="helpId">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Tên</label>
+                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" aria-describedby="helpId">
                     </div>
                     <div class="form-group">
                         <label>Giới tính</label>

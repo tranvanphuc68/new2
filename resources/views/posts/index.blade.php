@@ -26,7 +26,7 @@
                         <div class="d-flex flex-row user-info mb-1">
                             <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                             <div class="d-flex flex-column justify-content-start ml-3">
-                                <span class="d-block font-weight-bold name" style="color: #08168dd5; ">{{ $post->fullname }}</span>
+                                <span class="d-block font-weight-bold name" style="color: #08168dd5; ">{{ $post->first_name." ".$post->last_name }}</span>
                                 <span class="date" style="color: hsl(202, 73%, 51%); ">{{ $post->created_at }}</span>
                             </div>
                         </div>

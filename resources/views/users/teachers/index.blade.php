@@ -43,7 +43,7 @@ Into
                                         @foreach($teachers as $user)
                                         <tr>
                                             <td>{{ $user->id }}</td>
-                                            <td>{{ $user->fullname }}</td>
+                                            <td>{{ $user->first_name." ".$user->last_name }}</td>
                                             <td>{{ $user->gender }}</td>
                                             <td>{{ $user->dob }}</td>
                                             <td>{{ $user->email }}</td>

@@ -31,7 +31,7 @@ Into
                                         </thead>
                                         @foreach($data as $data)
                                             <tr>
-                                                <td>{{ $data->fullname }}</td>
+                                                <td>{{ $data->first_name." ".$data->last_name }}</td>
                                                 <td>{{ $data->dob }}</td>
                                                 <td ><input type="radio" name="{{ $data->id_student }}" value="0" checked></td>
                                                 <td><input type="radio" name="{{ $data->id_student }}" value="1"></td>

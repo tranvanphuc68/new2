@@ -97,7 +97,7 @@
                             <li class="profile dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ url("") }}" role="button" aria-haspopup="true" aria-expanded="false">
                                     <img class="rounded-circle img" width="20%" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                                    <span class="name"> {{ Auth::user()->fullname }} </span>
+                                    <span class="name"> {{ Auth::user()->first_name." ".Auth::user()->last_name }} </span>
                                 </a>
                                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <a class="dropdown-item" href="{{ url("/users/self_show") }} "> 

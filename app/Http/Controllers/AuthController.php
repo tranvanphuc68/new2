@@ -23,7 +23,7 @@ class AuthController extends Controller
             return redirect('/');
         }
         else 
-            return view('auth.login');
+            return redirect('/login')->withErrors(['invalid' => 'Please check Email or Password']);
     }
 
     public function logout()

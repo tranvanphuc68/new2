@@ -14,7 +14,7 @@
                             <div class="d-flex flex-row user-info">
                                 <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                                 <div class="d-flex flex-column justify-content-start ml-2">
-                                    <span class="d-block font-weight-bold name">{{ $post->fullname }}</span>
+                                    <span class="d-block font-weight-bold name">{{ $post->first_name." ".$post->last_name }}</span>
                                     <span class="date" style="color:rgb(117, 117, 117)">{{ $post->created_at }}</span>
                                 </div>
                             </div>
@@ -28,14 +28,14 @@
                         <div class="p-2">
                             <div class="d-flex flex-row fs-12" style="justify-content:flex-end">
                                 <!-- Edit post -->
-                                @if ($post->fullname == Auth::user()->fullname )
+                                @if ($post->id_user == Auth::user()->id )
                                     <div class="like cursor action-collapse" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-1" href="#collapse-1">
                                         <span class="ml-3"><i class="fa fa-pencil"></i></span>
                                     </div>
                                 @endif
 
                                 <!-- Delete post -->
-                                @if (($post->fullname == Auth::user()->fullname) || (Auth::user()->role == "Admin") )
+                                @if (($post->id_user == Auth::user()->id) || (Auth::user()->role == "Admin") )
                                     <span class="ml-3">
                                         <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" style="color: black">
                                             <i class="fa fa-trash"></i>
@@ -61,7 +61,7 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <img class="modal-title rounded-circle img" id="report" width="40" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                                                            <span class="d-block font-weight-bold name">{{ Auth::user()->fullname }}</span>
+                                                            <span class="d-block font-weight-bold name">{{ Auth::user()->first_name." ".Auth::user()->last_name }}</span>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
@@ -85,7 +85,7 @@
                         </div>
 
                         <!-- Edit post -->
-                        @if($post->fullname == Auth::user()->fullname )
+                        @if($post->id_user == Auth::user()->id )
                         <form method="POST" action="{{url("/posts/$post->id")}}">
                                 @csrf
                                 @method('PUT')
@@ -95,7 +95,7 @@
                                             <div class="d-flex flex-row align-items-start mb-3">
                                                 <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                                                 <div class="d-flex flex-column justify-content-start ml-2">
-                                                    <span class="d-block font-weight-bold name">{{ $post->fullname }}</span>
+                                                    <span class="d-block font-weight-bold name">{{ $post->first_name." ".$post->last_name }}</span>
                                                 </div>
                                             </div>
                                             <div class="d-flex flex-row align-items-start">
@@ -150,7 +150,7 @@
                             <div class="d-flex flex-row user-info">
                                 <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
                                 <div class="d-flex flex-column justify-content-start ml-2">
-                                    <span class="d-block font-weight-bold name">{{ $comment->fullname }}</span>
+                                    <span class="d-block font-weight-bold name">{{ $comment->first_name." ".$comment->last_name }}</span>
                                     <span class="date text-black-50">{{ $comment->created_at }}</span>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@
                         </div>
 
                         @if (Auth::check())
-                            @if(($comment->fullname == Auth::user()->fullname))
+                            @if(($comment->id_user == Auth::user()->id))
                             <div class="mb-1">
                                 <div class="d-flex flex-row fs-12 justify-content-end ml-4" style="background-color:rgb(209, 213, 235);">
                                     <!-- Edit comment -->

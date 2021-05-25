@@ -37,7 +37,7 @@ class AttendanceController extends Controller
         ->join('users', 'users.id', '=', 'students_courses.id_student')
         ->join('courses', 'courses.id', '=', 'students_courses.id_course')
         ->where('students_courses.id_course', '=', "$id_course")
-        ->select('students_courses.*', 'users.fullname', 'users.dob','courses.name')
+        ->select('students_courses.*', 'users.first_name', 'users.last_name', 'users.dob','courses.name')
         ->get();
         foreach($data as $item)
         {

@@ -16,8 +16,12 @@ Into
                     @method('PUT')
                     @csrf
                     <div class="form-group">
-                        <label for="name">Họ tên</label>
-                        <input type="text" name="fullname" id="name" class="form-control" placeholder="Username" aria-describedby="helpId" value="{{ $user->fullname }}">
+                        <label for="first_name">Họ</label>
+                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" aria-describedby="helpId" value="{{ $user->first_name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Tên</label>
+                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" aria-describedby="helpId" value="{{ $user->last_name }}">
                     </div>
                     <div class="form-group">
                         <label>Giới tính</label>

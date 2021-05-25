@@ -26,7 +26,7 @@
                                     <tr>
                                         <td>
                                             <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$report_post->avatar") }}">
-                                            {{ $report_post->fullname }}
+                                            {{ $report_post->first_name." ".$report_post->last_name }}
                                         </td>
                                         <td>{{ $report_post->content }}</td>
                                     </tr>

@@ -32,7 +32,7 @@
                 <td>{{ $post->id }}</td>
                 <td>
                     <img class="rounded-circle img" width="40"  src="{{ asset("/uploads/avatars/$post->avatar") }}">
-                    {{ $post->fullname }}
+                    {{ $post->first_name." ".$post->last_name }}
                 </td>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->content }}</td>

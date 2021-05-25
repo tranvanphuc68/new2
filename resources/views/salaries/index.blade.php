@@ -65,7 +65,7 @@ Into
                                             @foreach($teachers as $teacher)
                                                 <tr>
                                                     <td>{{ $teacher->id }}</td>
-                                                    <td>{{ $teacher->fullname }}</td>
+                                                    <td>{{ $teacher->first_name." ".$teacher->last_name }}</td>
                                                     <td>{{ $teacher->dob }}</td>
                                                     <td class="center">
                                                         <a href="{{ url("/salaries/{$teacher->id}") }}">

@@ -28,7 +28,7 @@ Into
                             @foreach ($students as $student)
                                 <tr>
                                     <td>{{ $student->id }}</td>
-                                    <td>{{ $student->fullname }}</td>
+                                    <td>{{ $student->first_name." ".$student->last_name }}</td>
                                     <td>{{ $student->dob }}</td>
                                     <td><input type="checkbox" name="id_student" value="{{ $student->id }}"></td>
                                 </tr>
