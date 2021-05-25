@@ -38,6 +38,9 @@ Route::get('/home', function () {
 Route::get('/report', function () {
     return view('report.student');
 });
+Route::get('/about', function () {
+    return view('home.about');
+});
 
 Route::get('/review_course/foudation', function () {
     return view('home.courses.foudation');

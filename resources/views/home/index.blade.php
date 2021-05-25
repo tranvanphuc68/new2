@@ -27,7 +27,7 @@ Into
             <p>
               INTO IELTS tập trung đào tạo IELTS với tôn chỉ phát triển về chất lượng thay vì số lượng. INTO tự hào mang đến những khóa học IELTS online hiệu quả với chất lượng giảng dạy hàng đầu. 
             </p>
-            <a href="#" class="about-btn" >TÌM HIỂU THÊM <i class="bx bx-chevron-right"></i></a>
+            <a href="{{ url('/about') }}" class="about-btn" >TÌM HIỂU THÊM <i class="bx bx-chevron-right"></i></a>
           </div>
         </div>
         <div class="col-xl-7 d-flex align-items-stretch">
