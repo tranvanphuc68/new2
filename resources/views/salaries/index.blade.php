@@ -32,7 +32,7 @@ Into
                                             <thead>
                                                 <tr class="table-primary">
                                                     <th>ID</th>
-                                                    <th>Tên Khóa Học</th>
+                                                    <th style="width: 50%">Tên Khóa Học</th>
                                                     <th>Lương</th>
                                                     <th>Tình Trạng</th>
                                                 </tr>
@@ -57,9 +57,9 @@ Into
                                             <thead>
                                                 <tr class="table-primary">
                                                     <th>ID</th>
-                                                    <th>Tên Giảng Viên</th>
+                                                    <th style="width: 50%">Tên Giảng Viên</th>
                                                     <th>Ngày Sinh</th>
-                                                    <th>Chi Tiết</th>
+                                                    <th style="width: 12%; text-align:center">Chi Tiết</th>
                                                 </tr>
                                             </thead>
                                             @foreach($teachers as $teacher)
@@ -67,7 +67,7 @@ Into
                                                     <td>{{ $teacher->id }}</td>
                                                     <td>{{ $teacher->fullname }}</td>
                                                     <td>{{ $teacher->dob }}</td>
-                                                    <td>
+                                                    <td class="center">
                                                         <a href="{{ url("/salaries/{$teacher->id}") }}">
                                                             <i class="fa fa-eye icon-view"></i>
                                                         </a>

@@ -54,3 +54,7 @@ a {
     color: #fe4a49;
     padding: 5px;
 }
+.center {
+    display: flex;  
+    justify-content: space-around;
+}

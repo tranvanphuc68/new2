@@ -36,7 +36,7 @@ Into
                             <th>Thời Khóa Biểu</th>
                             <th>Ngày Học</th>
                             @if (Auth::user()->role == 'Admin')
-                                <th>Sửa</th>
+                                <th style="width: 12%; text-align:center">Sửa</th>
                             @endif
                         </tr>   
                         @foreach($detail as $detail)

@@ -8,7 +8,7 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="card">
-        <h1 class="text_IBM">Thêm học viên vào khóa học {{ $course[0]->name}}</h1>
+        <h1 class="text-IBM" >Thêm học viên vào khóa học {{ $course[0]->name}}</h1>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -21,7 +21,7 @@ Into
                                     <th>ID Học Viên</th>
                                     <th>Tên Học Viên</th>
                                     <th>Ngày Sinh</th>
-                                    <th>Thêm</th>
+                                    <th style="width: 12%;">Thêm</th>
                                 </tr>
                             </thead>
                             @csrf

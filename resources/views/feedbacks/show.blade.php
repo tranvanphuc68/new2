@@ -26,7 +26,7 @@ Into
                                                         <th>ID</th>
                                                         <th>Tên Học Viên</th>
                                                         <th>Ngày Sinh</th>
-                                                        <th>Feedback</th>
+                                                        <th style="width: 40%">Feedback</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach($students as $student)

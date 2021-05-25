@@ -31,10 +31,10 @@ Into
                                         @if (Auth::user()->role == 'Admin')
                                             <thead>
                                                 <tr class="table-primary">
-                                                    <th>ID Khóa Học</th>
+                                                    <th style="width: 20%">ID Khóa Học</th>
                                                     <th>Tên Khóa Học</th>
                                                     <th>Trạng Thái</th>
-                                                    <th>Xem</th>
+                                                    <th style="width: 12%; text-align:center">Xem</th>
                                                 </tr>
                                             </thead>
                                             @foreach($courses as $course)
@@ -54,7 +54,7 @@ Into
                                                                     break; 
                                                         }?>
                                                     </td>
-                                                    <td>  
+                                                    <td class="center">  
                                                         <a href="{{ url("/students_courses/{$course->id}") }}">
                                                             <i class="fa fa-eye icon-view"></i>
                                                         </a>

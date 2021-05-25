@@ -24,16 +24,16 @@ Into
                                             <tr class="table-primary" >
                                                 <th>Tên Học Viên</th>
                                                 <th>Ngày Sinh</th>
-                                                <th>Có</th>
-                                                <th>Muộn</th>
-                                                <th>Vắng</th>
+                                                <th style="width: 10%;">Có</th>
+                                                <th style="width: 10%;">Muộn</th>
+                                                <th style="width: 10%;">Vắng</th>
                                             </tr>
                                         </thead>
                                         @foreach($data as $data)
                                             <tr>
                                                 <td>{{ $data->fullname }}</td>
                                                 <td>{{ $data->dob }}</td>
-                                                <td><input type="radio" name="{{ $data->id_student }}" value="0" checked></td>
+                                                <td ><input type="radio" name="{{ $data->id_student }}" value="0" checked></td>
                                                 <td><input type="radio" name="{{ $data->id_student }}" value="1"></td>
                                                 <td><input type="radio" name="{{ $data->id_student }}" value="2"></td>
                                             </tr>

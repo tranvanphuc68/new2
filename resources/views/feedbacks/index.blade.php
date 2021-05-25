@@ -33,7 +33,7 @@ Into
                                                 <th>ID Khóa Học</th>
                                                 <th>Tên Khóa Học</th>
                                                 <th>Trạng Thái</th>
-                                                <th>Chi Tiết</th>
+                                                <th style="width: 12%; text-align:center">Chi Tiết</th>
                                             </tr>
                                         </thead>
                                         @foreach($courses as $course)
@@ -51,7 +51,7 @@ Into
                                                         echo 'Đã hoàn thành';
                                                         break; 
                                                     }?></td>
-                                                <td>
+                                                <td class="center">
                                                     <a href="{{ url("/feedbacks/{$course->id}") }}">
                                                         <i class="fa fa-eye icon-view"></i>
                                                     </a>

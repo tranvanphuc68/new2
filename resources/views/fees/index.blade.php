@@ -52,7 +52,7 @@ Into
                                                     <th>ID</th>
                                                     <th>Tên Khóa Học</th>
                                                     <th>Tình Trạng</th>
-                                                    <th style="width:10%" >Chi Tiết</th>
+                                                    <th  style="width: 12%; text-align:center" >Chi Tiết</th>
                                                 </tr>
                                             </thead>
                                             @foreach($courses as $course)
@@ -71,7 +71,7 @@ Into
                                                                                 break; 
                                                                 }?>
                                                     </td>
-                                                    <td style="display: flex;  justify-content: space-around; ">
+                                                    <td class="center">
                                                         <a href="{{ url("/fees/{$course->id}") }}">
                                                             <i class="fa fa-eye icon-view"></i>
                                                         </a>

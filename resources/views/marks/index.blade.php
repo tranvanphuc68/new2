@@ -31,9 +31,9 @@ Into
                                         @if (Auth::user()->role == 'Student')
                                             <thead>
                                                 <tr class="table-primary">
-                                                    <th>ID Khóa Học</th>
+                                                    <th style="width: 20%">ID Khóa Học</th>
                                                     <th>Tên Khóa Học</th>
-                                                    <th>Điểm</th>
+                                                    <th style="width: 12%; text-align:center" >Điểm</th>
                                                 </tr>
                                             </thead>
                                             @foreach ($marks as $mark)
@@ -47,16 +47,16 @@ Into
                                             @if (Auth::user()->role == 'Admin')
                                                 <thead>
                                                     <tr class="table-primary">
-                                                        <th>ID Khóa Học</th>
+                                                        <th style="width: 20%">ID Khóa Học</th>
                                                         <th>Tên Khóa Học</th>
-                                                        <th>Xem Điểm</th>
+                                                        <th style="width: 12%; text-align:center" >Xem Điểm</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach($courses as $course)
                                                     <tr>
                                                         <td>{{ $course->id }}</td>
                                                         <td>{{ $course->name }}</td>
-                                                        <td>
+                                                        <td class="center">
                                                             <a href="{{ url("/marks/{$course->id}") }}">
                                                                 <i class="fa fa-eye icon-view"></i>
                                                             </a>
@@ -66,16 +66,16 @@ Into
                                             @else  
                                                 <thead>
                                                     <tr class="table-primary">
-                                                        <th>ID Khóa Học</th>
+                                                        <th style="width: 20%">ID Khóa Học</th>
                                                         <th>Tên Khóa Học</th>
-                                                        <th>Điểm</th>
+                                                        <th style="width: 12%; text-align:center">Điểm</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach($teachers as $teacher)
                                                     <tr>
                                                         <td>{{ $teacher->id }}</td>
                                                         <td>{{ $teacher->name }}</td>
-                                                        <td>
+                                                        <td class="center">
                                                             <a href="{{ url("/marks/{$teacher->id}") }}">
                                                                 <i class="fa fa-eye icon-view"></i>
                                                             </a>

@@ -28,7 +28,7 @@ Into
                                                 <th>Buổi</th>
                                                 <th>Thời gian</th>
                                                 <th>Nội Dung</th>
-                                                <th>Điểm Danh</th>
+                                                <th style="width: 15%; text-align:center">Điểm Danh</th>
                                             </tr>
                                         </thead>
                                         @foreach($data as $data)
