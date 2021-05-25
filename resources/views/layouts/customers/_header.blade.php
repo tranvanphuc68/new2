@@ -26,6 +26,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -49,8 +50,8 @@
           <li><a href="#contact">Liên hệ</a></li>
           <li><a href="{{ url('/posts') }}">Diễn đàn</a></li>
           @if (Auth::check())
-          <li class="profile dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ url("") }}" role="button" aria-haspopup="true" aria-expanded="false">
+          <li class="profile dropdown" style="display: table-cell;">
+            <a class="nav-link dropdown-toggle" style="padding: 13px 15px;" data-toggle="dropdown" href="{{ url("") }}" role="button" aria-haspopup="true" aria-expanded="false">
               <img class="rounded-circle img" width="20%" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
               <span class="name"> {{ Auth::user()->fullname }} </span>
             </a>
@@ -59,8 +60,6 @@
                 <i class="fa fa-user icon"></i> Profile </a>
               <a class="dropdown-item" href="#">
                 <i class="fa fa-bell icon"></i> Notifications </a>
-              <a class="dropdown-item" href="#">
-                <i class="fa fa-gear icon"></i> Settings </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{url('/logout')}}">
                 <i class="fa fa-power-off icon"></i> Logout </a>
