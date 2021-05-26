@@ -1,3 +1,4 @@
+
 @extends('layouts.users.app')
 
 @section('title')
@@ -7,60 +8,48 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="courses">
-        <div class="title-block">
-            <h1 class="title">Điểm danh khóa học {{ $id_course }} buổi {{ $number }} </h1>
+        <div class="card col-md-12" style="padding: 0px;">
+            <h1 class="text-IBM">Điểm danh khóa học {{ $data[0]->name }} buổi học thứ {{ $number }} </h1>
         </div>
         <section class="section">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <div class="card-title-block">
-                            </div>
                             <section class="example">
                             @if(count($check) == 0)  
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-bordered table-hover">
                                         <thead>
-                                            <tr>
-                                                <th>ID_course</th>
-                                                <th>Tên học viên</th>
-                                                <th>Ngày sinh</th>
-                                                <th>Có</th>
-                                                <th>Muộn</th>
-                                                <th>Vắng</th>
+                                            <tr class="table-primary" >
+                                                <th>Tên Học Viên</th>
+                                                <th class="w20">Ngày Sinh</th>
+                                                <th class="w15">Có</th>
+                                                <th class="w15">Muộn</th>
+                                                <th class="w15">Vắng</th>
                                             </tr>
                                         </thead>
                                         @foreach($data as $data)
                                             <tr>
-                                                <td>{{ $id_course }}</td>
-                                                <td>{{ $data->fullname }}</td>
-                                                <td>{{ $data->dob }}</td>
-                                                <td><input type="radio" name="{{ $data->id_student }}" value="0" checked></td>
-                                                <td><input type="radio" name="{{ $data->id_student }}" value="1"></td>
-                                                <td><input type="radio" name="{{ $data->id_student }}" value="2"></td>
+                                                <td>{{ $data->first_name." ".$data->last_name }}</td>
+                                                <td class="w20">{{ $data->dob }}</td>
+                                                <td class="w15"><input type="radio" name="{{ $data->id_student }}" value="0" checked></td>
+                                                <td class="w15"><input type="radio" name="{{ $data->id_student }}" value="1"></td>
+                                                <td class="w15"><input type="radio" name="{{ $data->id_student }}" value="2"></td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 </div>
                                 <div style="text-align: right;">
-                                    <button class="btn btn-warning">Lưu điểm danh</button>
+                                    <button class="btn btn-warning" name='but'>Lưu điểm danh</button>
                                 </div>
                             @endif
 
                             @if (count($check) > 0)
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    Lớp đã điểm danh
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                    </table>
+                                <div class="card-title-block">
+                                    <h3 style="float:left">Lớp đã điểm danh </h3>
+                                    <a style="float:right" href="{{ url("/attendance") }}" class="btn btn-primary">Quay lại</a>
                                 </div>
-                                <a href="{{ url("/attendance") }}" class="btn btn-primary">Quay lại</a>
                             @endif
                             </section>
                         </div>
@@ -111,3 +100,5 @@ Into
         })
 </script>
 @endsection
+
+

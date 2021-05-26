@@ -22,6 +22,7 @@ class CreateCoursesTable extends Migration
             $table->integer('max_students');
             $table->integer('sum_time');
             $table->integer('lessons');
+            $table->string('link')->nullable();
             $table->double('fee',9,0);
             $table->double('salary',9,0);
             $table->integer('status_salary')->default('0');

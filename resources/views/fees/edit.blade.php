@@ -7,8 +7,8 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="student">
-        <div class="title-block">
-            <h1 class="title"> HỌC PHÍ LỚP : {{ $students[0]->name }}  </h1>
+        <div class="card">
+            <h1 class="text-IBM"> Học phí lớp : {{ $students[0]->name }}  </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -29,26 +29,28 @@ Into
                                     <form method="POST" action="{{url("/fees/{$students[0]->id_course}")}}">
                                         @csrf
                                         @method('PUT')
-                                        <table class="table table-striped table-bordered table-hover">
+                                        <table class="table table-bordered table-hover">
                                             <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Tên Học Sinh</th>
-                                                    <th>Học Phí</th>
-                                                    <th>Chưa Nộp</th>
-                                                    <th>Đã Nộp</th>
+                                                <tr class="table-primary">
+                                                    <th class="w5">ID</th>
+                                                    <th class="w30">Tên Học Sinh</th>
+                                                    <th class="w15">Ngày Sinh</th>
+                                                    <th class="w20">Học Phí</th>
+                                                    <th class="w15">Chưa Nộp</th>
+                                                    <th class="w15">Đã Nộp</th>
                                                 </tr>
                                             </thead>
                                             @foreach($students as $student)
                                             <tr>
-                                                <td>{{ $student->id_student }}</td>
-                                                <td>{{ $student->fullname }}</td>
-                                                <td>{{ $student->fee }}</td>
-                                                <td>
+                                                <td class="w5">{{ $student->id_student }}</td>
+                                                <td class="w30">{{ $student->first_name." ".$student->last_name }}</td>
+                                                <td class="w15">{{ $student->dob }}</td>
+                                                <td class="w20">{{ $student->fee }}</td>
+                                                <td class="w15">
                                                     <input type="radio" id="{{$student->id_student}}_0" name="{{$student->id_student}}" value="0" <?php echo ($student->status_fee == 0) ? 'checked' : '' ?>>
                                                     <label for="{{$student->id_student}}_0"></label>
                                                 </td>
-                                                <td>
+                                                <td class="w15">
                                                     <input type="radio" id="{{$student->id_student}}_1" name="{{$student->id_student}}" value="1" <?php echo ($student->status_fee == 1) ? 'checked' : '' ?>>
                                                     <label for="{{$student->id_student}}_1"></label>
                                                 </td>
@@ -69,3 +71,10 @@ Into
     </div>
 </article>
 @endsection
+
+
+
+
+
+
+

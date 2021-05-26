@@ -1,3 +1,4 @@
+
 @extends('layouts.users.app')
 
 @section('title')
@@ -6,9 +7,9 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="student">
-        <div class="title-block">
-            <h1 class="title">BẢNG ĐIỂM CÁC KHÓA</h1>
+    <div class="mark">
+        <div class="card">
+            <h1 class="text-IBM">Bảng điểm các khóa</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -26,57 +27,57 @@ Into
                             </div>
                             <section class="example">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-bordered table-hover">
                                         @if (Auth::user()->role == 'Student')
                                             <thead>
-                                                <tr>
-                                                    <th>ID Khóa Học</th>
-                                                    <th>Tên Khóa Học</th>
-                                                    <th>Điểm</th>
+                                                <tr class="table-primary">
+                                                    <th class="w20">ID Khóa Học</th>
+                                                    <th class="w60">Tên Khóa Học</th>
+                                                    <th class="w20" >Điểm</th>
                                                 </tr>
                                             </thead>
                                             @foreach ($marks as $mark)
                                                 <tr>
-                                                    <td>{{ $mark->id_course}}</td>
-                                                    <td>{{ $mark->name }}</td>
-                                                    <td>{{ $mark->mark }}</td>
+                                                    <td class="w20">{{ $mark->id_course}}</td>
+                                                    <td class="w60">{{ $mark->name }}</td>
+                                                    <td class="w20">{{ $mark->mark }}</td>
                                                 </tr>
                                             @endforeach
                                         @else
                                             @if (Auth::user()->role == 'Admin')
                                                 <thead>
-                                                    <tr>
-                                                        <th>ID Khóa Học</th>
-                                                        <th>Tên Khóa Học</th>
-                                                        <th>Xem Điểm</th>
+                                                    <tr class="table-primary">
+                                                        <th class="w20">ID Khóa Học</th>
+                                                        <th class="w60">Tên Khóa Học</th>
+                                                        <th class="w20" >Xem Điểm</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach($courses as $course)
                                                     <tr>
-                                                        <td>{{ $course->id }}</td>
-                                                        <td>{{ $course->name }}</td>
-                                                        <td>
-                                                            <a class="btn btn-primary" href="{{ url("/marks/{$course->id}") }}">
-                                                                <i class="fa fa-eye"></i>
+                                                        <td class="w20">{{ $course->id }}</td>
+                                                        <td class="w60">{{ $course->name }}</td>
+                                                        <td class="w20" >
+                                                            <a href="{{ url("/marks/{$course->id}") }}">
+                                                                <i class="fa fa-eye icon-view"></i>
                                                             </a>
                                                         </td>
                                                     </tr>
                                                 @endforeach  
                                             @else  
                                                 <thead>
-                                                    <tr>
-                                                        <th>ID Khóa Học</th>
-                                                        <th>Tên Khóa Học</th>
-                                                        <th>Điểm</th>
+                                                    <tr class="table-primary">
+                                                        <th class="w20">ID Khóa Học</th>
+                                                        <th class="w60">Tên Khóa Học</th>
+                                                        <th class="w20">Điểm</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach($teachers as $teacher)
                                                     <tr>
-                                                        <td>{{ $teacher->id }}</td>
-                                                        <td>{{ $teacher->name }}</td>
-                                                        <td>
-                                                            <a class="btn btn-primary" href="{{ url("/marks/{$teacher->id}") }}">
-                                                                <i class="fa fa-eye"></i>
+                                                        <td class="w20">{{ $teacher->id }}</td>
+                                                        <td class="w60">{{ $teacher->name }}</td>
+                                                        <td class="w20" >
+                                                            <a href="{{ url("/marks/{$teacher->id}") }}">
+                                                                <i class="fa fa-eye icon-view"></i>
                                                             </a>
                                                         </td>
                                                     </tr>

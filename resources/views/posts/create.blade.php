@@ -18,7 +18,7 @@
                     <div class="d-flex flex-row align-items-start">
                         <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
                         <div class="d-flex flex-column justify-content-start ml-2">
-                            <span class="d-block font-weight-bold name">{{ Auth::user()->fullname }}</span>
+                            <span class="d-block font-weight-bold name">{{ Auth::user()->first_name." ".Auth::user()->last_name }}</span>
                         </div>
                     </div>
                     <div class="mt-3 mb-2">

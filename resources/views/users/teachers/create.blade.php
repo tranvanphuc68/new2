@@ -7,17 +7,21 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="title-block">
-        <h1 class="title">THÊM GIẢNG VIÊN</h1>
+    <div class="card col-md-12" style="padding: 0px;">
+        <h1 class="text-IBM">Thêm giảng viên</h1>
     </div>
     <div class="row sameheight-container">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card card-block sameheight-item">
                 <form action="{{ url("/users/teacher") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="name">Họ tên</label>
-                        <input type="text" name="fullname" id="name" class="form-control" placeholder="Username" aria-describedby="helpId">
+                        <label for="first_name">Họ</label>
+                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" aria-describedby="helpId">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Tên</label>
+                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" aria-describedby="helpId">
                     </div>
                     <div class="form-group">
                         <label>Giới tính</label>
@@ -63,9 +67,8 @@ Into
                         <label for="id_card">Password</label>
                         <input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-describedby="helpId">
                     </div>
-                    <div>
-                        <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
-                        <button type="reset" class="btn btn-primary" name="exit">Thoát</button>
+                    <div style="text-align: right;">
+                        <button type="submit" class="btn btn-primary">Lưu thông tin</button>
                     </div>
                 </form>
             </div>

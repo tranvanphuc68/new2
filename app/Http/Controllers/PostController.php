@@ -16,7 +16,7 @@ class PostController extends Controller
     {
         $posts = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
-        ->select('posts.*', 'users.fullname', 'users.avatar')
+        ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
         ->latest()
         ->paginate(10);
         $countPost = DB::table('posts')
@@ -35,7 +35,7 @@ class PostController extends Controller
         $comments = DB::table('comments')
         ->join('users', 'users.id', '=', 'comments.id_user')
         ->where('comments.id_post', '=', "$post")
-        ->select('comments.*', 'users.fullname', 'users.avatar')
+        ->select('comments.*', 'users.first_name', 'users.last_name', 'users.avatar')
         ->latest()
         ->get();
         $countComment = DB::table('comments')
@@ -50,7 +50,7 @@ class PostController extends Controller
         $post = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
         ->where('posts.id', '=', "$post")
-        ->select('posts.*', 'users.fullname', 'users.avatar')
+        ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
         ->latest()
         ->get();
         $post = $post[0];

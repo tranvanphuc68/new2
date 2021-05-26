@@ -1,3 +1,4 @@
+
 @extends('layouts.users.app')
 
 @section('title')
@@ -6,28 +7,30 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="title-block">
-        <h1 class="title">THÊM HỌC VIÊN VÀO KHÓA HỌC {{ $course[0]->name}}</h1>
+    <div class="card">
+        <h1 class="text-IBM" >Thêm học viên vào khóa học {{ $course[0]->name}}</h1>
     </div>
-    <div class="row ">
-        <div class="col-md-9">
+    <div class="row">
+        <div class="col-md-12">
             <div class="card card-block">
                 <section>
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
+                        <table class="table table-bordered table-hover">
                             <thead>
-                                <tr>
-                                    <th>ID Học Viên</th>
-                                    <th>Tên Học Viên</th>
-                                    <th>Thêm</th>
+                                <tr class="table-primary">
+                                    <th class="w15">ID Học Viên</th>
+                                    <th class="w40">Tên Học Viên</th>
+                                    <th class="w25">Ngày Sinh</th>
+                                    <th class="w20">Thêm</th>
                                 </tr>
                             </thead>
                             @csrf
                             @foreach ($students as $student)
                                 <tr>
-                                    <td>{{ $student->id }}</td>
-                                    <td>{{ $student->fullname }}</td>
-                                    <td><input type="checkbox" name="id_student" value="{{ $student->id }}"></td>
+                                    <td class="w15">{{ $student->id }}</td>
+                                    <td class="w40">{{ $student->first_name." ".$student->last_name }}</td>
+                                    <td class="w25">{{ $student->dob }}</td>
+                                    <td class="w20"><input type="checkbox" name="id_student" value="{{ $student->id }}"></td>
                                 </tr>
                             @endforeach
                         </table>
@@ -49,6 +52,7 @@ Into
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script>
+
 $(document).on('click', "button", function() {
         addedStudent = $('input[type=checkbox]:checked')
         data = []

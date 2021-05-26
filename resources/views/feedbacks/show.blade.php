@@ -7,9 +7,9 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="student">
-        <div class="title-block">
-            <h1 class="title">FEEDBACKS KHÓA HỌC {{ $students[0]->name }}</h1>
+    <div class="feedback">
+        <div class="card">
+            <h1 class="text-IBM">Feedback khóa học {{ $students[0]->name }}</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -20,19 +20,21 @@ Into
                                 @if (count($students) != 0)
                                     @if (Auth::user()->role == 'Admin' or Auth::user()->role == 'Teacher')
                                         <div class="table-responsive">
-                                            <table class="table table-striped table-bordered table-hover">
+                                            <table class="table table-bordered table-hover">
                                                 <thead>
-                                                    <tr>
-                                                        <th>ID</th>
-                                                        <th>Tên Học viên</th>
-                                                        <th>Feedback</th>
+                                                    <tr class="table-primary">
+                                                        <th class="w5">ID</th>
+                                                        <th class="w20">Tên Học Viên</th>
+                                                        <th class="w10">Ngày Sinh</th>
+                                                        <th class="">Feedback</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach($students as $student)
                                                     <tr>
-                                                        <td>{{ $student->id_student }}</td>
-                                                        <td>{{ $student->fullname }}</td>
-                                                        <td>{{ $student->feedback }}</td>
+                                                        <td class="w5">{{ $student->id_student }}</td>
+                                                        <td class="w20">{{ $student->first_name." ".$student->last_name }}</td>
+                                                        <td class="w10">{{ $student->dob }}</td>
+                                                        <td class="">{{ $student->feedback }}</td>
                                                     </tr>
                                                 @endforeach
                                             </table>
@@ -41,12 +43,14 @@ Into
                                         <p>{{ $feedback[0]->feedback}}</p>
                                         @if ($feedback[0]->status == 3)
                                             <p class="mt-3" style="text-align: right;">
-                                                <a class="btn btn-primary" href="{{ url("/feedbacks/edit/{$feedback[0]->id_course}") }}">Sửa</a>
+                                                <a href="{{ url("/feedbacks/edit/{$feedback[0]->id_course}") }}">
+                                                    <i class="fa fa-pencil icon-edit"></i>
+                                                </a>
                                             </p>
                                         @endif 
                                     @endif
                                 @else
-                                <p>Null</p>
+                                    <h3>Null</h3>
                                 @endif
                             </section>
                         </div>

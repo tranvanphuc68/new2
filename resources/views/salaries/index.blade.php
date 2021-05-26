@@ -1,3 +1,4 @@
+
 @extends('layouts.users.app')
 
 @section('title')
@@ -6,9 +7,9 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="student">
-        <div class="title-block">
-            <h1 class="title">LƯƠNG CÁC GIẢNG VIÊN </h1>
+    <div class="salary">
+        <div class="card">
+            <h1 class="text-IBM">Lương của giảng viên</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -26,43 +27,55 @@ Into
                             </div>
                             <section class="example">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
-                                        @if (Auth::user()->role == 'Teacher')
+                                    @if (Auth::user()->role == 'Teacher')
+                                        <table class="table table-bordered table-hover">
                                             <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Tên Khóa Học</th>
-                                                    <th>Tình Trạng</th>
+                                                <tr class="table-primary">
+                                                    <th class="w10">ID</th>
+                                                    <th class="w50">Tên Khóa Học</th>
+                                                    <th class="w20">Lương</th>
+                                                    <th class="w20">Tình Trạng</th>
                                                 </tr>
                                             </thead>
                                             @foreach($salaries as $salary)
                                                 <tr>
-                                                    <td>{{ $salary->id }}</td>
-                                                    <td>{{ $salary->name }}</td>
-                                                    <td><?php echo $salary->status_salary == 0 ? 'Chưa nhận': 'Đã nhận'; ?></td>
+                                                    <td class="w10">{{ $salary->id }}</td>
+                                                    <td class="w50">{{ $salary->name }}</td>
+                                                    <td class="w20">{{ $salary->salary }}</td>
+                                                    <td class="w20"><?php echo $salary->status_salary == 0 ? 'Chưa nhận': 'Đã nhận'; ?></td>
                                                 </tr>
                                             @endforeach
-                                        @else
+                                        </table>
+                                            <div style="text-align: right;">
+                                                <h5>Tổng lương (đã nhận): {{ $sum }}</p>
+                                                <p>Số lượng (đã nhận): {{ $count }} / {{ count($salaries) }}</p>
+                                            </div>
+                                    @endif
+                                    
+                                    @if (Auth::user()->role == 'Admin')
+                                        <table class="table table-bordered table-hover">
                                             <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Tên Giảng Viên</th>
-                                                    <th>Chi Tiết</th>
+                                                <tr class="table-primary">
+                                                    <th class="w10">ID</th>
+                                                    <th class="w50">Tên Giảng Viên</th>
+                                                    <th class="w20">Ngày Sinh</th>
+                                                    <th class="w20">Chi Tiết</th>
                                                 </tr>
                                             </thead>
                                             @foreach($teachers as $teacher)
                                                 <tr>
-                                                    <td>{{ $teacher->id }}</td>
-                                                    <td>{{ $teacher->fullname }}</td>
-                                                    <td>
-                                                        <a class="btn btn-primary" href="{{ url("/salaries/{$teacher->id}") }}">
-                                                            <i class="fa fa-eye"></i>
+                                                    <td class="w10">{{ $teacher->id }}</td>
+                                                    <td class="w50">{{ $teacher->first_name." ".$teacher->last_name }}</td>
+                                                    <td class="w20">{{ $teacher->dob }}</td>
+                                                    <td class="w20">
+                                                        <a href="{{ url("/salaries/{$teacher->id}") }}">
+                                                            <i class="fa fa-eye icon-view"></i>
                                                         </a>
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                        @endif
-                                    </table>
+                                        </table>
+                                    @endif
                                 </div>
                             </section>
                         </div>

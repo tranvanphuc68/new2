@@ -6,11 +6,11 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="title-block">
-        <h1 class="title">TẠO KHÓA HỌC MỚI </h1>
+    <div class="card col-md-12" style="padding: 0px;">
+        <h1 class="text-IBM">Tạo khóa học</h1>
     </div>
     <div class="row sameheight-container">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card card-block sameheight-item">
                 <form action="{{ url("/courses") }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -51,6 +51,10 @@ Into
                         <input type="text" name="salary" id="salary" class="form-control" placeholder="Salary" aria-describedby="helpId" >
                     </div>
                     <div class="form-group">
+                        <label for="link">Link nhận nộp bài tập</label>
+                        <input type="text" name="link" id="link" class="form-control" placeholder="Link" aria-describedby="helpId" >
+                    </div>
+                    <div class="form-group">
                         <label for="status">Tình trạng</label>
                         <input type="text" name="status" id="status" class="form-control" placeholder="Status" aria-describedby="helpId" >
                     </div>
@@ -63,3 +67,4 @@ Into
     </div>
 </article>
 @endsection
+

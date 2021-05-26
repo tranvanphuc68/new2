@@ -5,12 +5,17 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>@yield('title')</title>
 
+    <!-- Favicons -->
+    <link href="{{ asset('assets/img/logo/INT.png') }}" rel="icon" >
+    <link href="{{ asset('assets/img/logo/INT.png') }}" rel="apple-touch-icon">
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,400;0,500;1,500&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&family=Noto+Serif+JP:wght@300;400;500&family=Pattaya&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -31,11 +36,25 @@
   <header id="header" class="fixed-top header-transparent bg-info">
     <div class="container d-flex align-items-center">
       <div class="logo mr-auto">
-        <a href="index.html" class="text-white"><h1>Into</h1></a>
+        <a href="{{ url('/posts') }}" style=" font-family: 'Pattaya', sans-serif ; color: #fff; font-size: 40px; ; margin-left: 6px" >Into</a>
       </div>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
+            <li>
+              <a href="{{ url('/home') }}" style="font-size:13px">
+                <i class="fa fa-home"> Home </i>
+              </a>
+            </li>
             @if (Auth::check())
+              <li>
+                <a href="{{ url('/') }}"> 
+                  <i class="fa fa-dashboard" style="font-size:13px">
+                    @if (Auth::user()->role == "Admin") Admin @endif 
+                    @if (Auth::user()->role == "Teacher") Teacher @endif 
+                    @if (Auth::user()->role == "Student") Student @endif 
+                  </i> 
+                </a>
+              </li>
               <!-- New post -->
               <li>
                 <a href="{{ url('/posts/create') }}"> <i class="fa fa-plus" style="font-size:13px"> New Post </i> </a>
@@ -123,19 +142,8 @@
               <!-- User=>profile + logout -->
               <li>
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    @if (Auth::user()->avatar != '')
-                      <img class="rounded-circle img" width="18px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                    @endif
-
-                    @if (Auth::user()->avatar == '' && Auth::user()->gender == 'Male')
-                      <img class="rounded-circle img" width="18px" src="https://tse2.mm.bing.net/th?id=OIP.8wpigmkTKaGH42dEjT8eUwHaH6&pid=Api&P=0&w=300&h=300">
-                    @endif
-
-                    @if (Auth::user()->avatar == '' && Auth::user()->gender == 'Female')
-                      <img class="rounded-circle img" width="18px" src="https://tse4.mm.bing.net/th?id=OIP.T2ILd2qLXwqlcImvKtXcGgAAAA&pid=Api&P=0&w=184&h=180">
-                    @endif
-
-                    <span> {{ Auth::user()->fullname }} </span>
+                    <img class="rounded-circle img" width="18px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                    <span> {{ Auth::user()->first_name." ".Auth::user()->last_name }} </span>
                 </a>
                 <div class="dropdown-menu profile-dropdown-menu bg-primary" aria-labelledby="dropdownMenu1">
                     <a class="dropdown-item" href="{{ url("/users/self_show") }} "> 

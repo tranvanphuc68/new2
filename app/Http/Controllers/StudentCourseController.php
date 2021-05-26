@@ -11,27 +11,22 @@ class StudentCourseController extends Controller
 {
     public function index()
     {
+        $id = Auth::user()->id;
         $courses = DB::table('courses')
         ->where('status','=','1')
         ->orWhere('status','=','2')
         ->orWhere('status','=','3')
         ->select('courses.*')
         ->get();
-
-        $id = Auth::user()->id;
         $student_courses = DB::table('students_courses')
         ->join('users','users.id','=','students_courses.id_student')
         ->join('courses','courses.id','=','students_courses.id_course')
         ->where('id_student','=',"$id")
-        ->select('students_courses.*','users.fullname','courses.name', 'courses.status')
+        ->select('students_courses.*','users.first_name', 'users.last_name','courses.name', 'courses.status')
         ->get();
-
         $teachers = DB::table('courses')
-        ->where('status','=','1')
-        ->orWhere('status','=','2')
-        ->orWhere('status','=','3')
         ->where('id_teacher','=',"$id")
-        ->select('courses.*')
+        ->select('courses.id','courses.name', 'courses.status')
         ->get();
         return view('students_courses.index', [
             'teachers' => $teachers,
@@ -46,9 +41,12 @@ class StudentCourseController extends Controller
         ->join('users','users.id','=','students_courses.id_student')
         ->join('courses','courses.id','=','students_courses.id_course')
         ->where('id_course','=',"$id_course")
-        ->select('students_courses.*','users.fullname','courses.name')
+        ->select('students_courses.*','users.first_name', 'users.last_name','courses.name','users.dob')
         ->get();
-
+        foreach($students as $student)
+        {
+            $student->dob = Controller::formatDate($student->dob);
+        }
         $course = DB::table('courses')
         ->where('id','=',"$id_course")
         ->select('courses.*')
@@ -72,6 +70,10 @@ class StudentCourseController extends Controller
             ->whereRaw('students_courses.id_student = users.id');
         })
         ->get();
+        foreach($students as $student)
+        {
+            $student->dob = Controller::formatDate($student->dob);
+        }
         $course = DB::table('courses')
         ->where('id','=',"$id_course")
         ->select('courses.*')

@@ -18,7 +18,7 @@ public function index()
     $posts = DB::table('posts')
     ->join('report_posts', 'report_posts.id_post', '=', 'posts.id')
     ->join('users', 'users.id', '=', 'posts.id_user')
-    ->select('posts.*', 'users.fullname', 'users.avatar')->distinct()
+    ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')->distinct()
     ->paginate(10);
     return view('report_posts.index', [
         'posts' => $posts,
@@ -37,13 +37,13 @@ public function show(Post $post)
         ->join('users', 'users.id', '=', 'report_posts.id_user')
         ->join('posts', 'posts.id', '=', 'report_posts.id_post')
         ->where('report_posts.id_post', '=',"$post->id")
-        ->select('report_posts.*', 'users.fullname', 'users.avatar')
+        ->select('report_posts.*','users.first_name', 'users.last_name', 'users.avatar')
         ->latest()
         ->paginate(10);
         $posts = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
         ->where('posts.id', '=', "$post->id")
-        ->select('posts.*', 'users.fullname', 'users.avatar')
+        ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
         ->latest()
         ->get();
         $post = $posts[0];

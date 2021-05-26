@@ -60,11 +60,21 @@ class UserController extends Controller
     }
 
     public function store_teacher(Request $request)
-    {
+    {   
+        if($request->gender == 'Male')
+        {
+            $avatar = 'defaultMale.jpg';
+        }
+        else 
+        {
+            $avatar = 'defaultFemale.jpg';
+        }
         $data = User::create([
-            'fullname' => $request->input('fullname'),
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
             'gender' => $request->input('gender'),
             'dob' => $request->input('dob'),
+            'avatar' => $avatar,
             'hometown' => $request->input('hometown'),
             'id_card' => $request->input('id_card'),
             'academic_level' => $request->input('academic_level'),
@@ -80,10 +90,20 @@ class UserController extends Controller
     
     public function store_student(Request $request)
     {
+        if($request->gender == 'Male')
+        {
+            $avatar = 'defaultMale.jpg';
+        }
+        else 
+        {
+            $avatar = 'defaultFemale.jpg';
+        }
         $data = User::create([
-            'fullname' => $request->input('fullname'),
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
             'gender' => $request->input('gender'),
             'dob' => $request->input('dob'),
+            'avatar' => $avatar,
             'hometown' => $request->input('hometown'),
             'id_card' => $request->input('id_card'),
             'academic_level' => $request->input('academic_level'),

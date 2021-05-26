@@ -6,18 +6,22 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="title-block">
-        <h1 class="title">CẬP NHẬT THÔNG TIN GIẢNG VIÊN ID {{ $user->id }}</h1>
+    <div class="card col-md-12" style="padding: 0px;">
+        <h1 class="text-IBM">Cập nhật thông tin giảng viên ID : {{ $user->id }}</h1>
     </div>
     <div class="row sameheight-container">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card card-block sameheight-item">
                 <form action="{{url("/users/teacher/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="form-group">
-                        <label for="name">Họ tên</label>
-                        <input type="text" name="fullname" id="name" class="form-control" placeholder="Username" aria-describedby="helpId" value="{{ $user->fullname }}">
+                        <label for="first_name">Họ</label>
+                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" aria-describedby="helpId" value="{{ $user->first_name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Tên</label>
+                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" aria-describedby="helpId" value="{{ $user->last_name }}">
                     </div>
                     <div class="form-group">
                         <label>Giới tính</label>

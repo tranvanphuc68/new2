@@ -6,11 +6,11 @@ Into
 
 @section('content')
 <article class="content">
-    <div class="title-block">
-        <h3 class="title"> THÔNG TIN CHI TIẾT GIẢNG VIÊN ID {{ $user->id }}     </h3>
+    <div class="card col-md-12" style="padding: 0px;">
+        <h3 class="text-IBM" > Thông tin giảng viên ID : {{ $user->id }}     </h3>
     </div>
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card card-block ">
                 <img style="max-width: 200px" class="mb-3" src="{{ asset("/uploads/avatars/$user->avatar") }}">
                 <table class="table">
@@ -20,7 +20,7 @@ Into
                     </tr>
                     <tr>
                         <td>Họ tên:</td>
-                        <td>{{ $user->fullname }}</td>
+                        <td>{{ $user->first_name." ".$user->last_name }}</td>
                     </tr>
                     <tr>
                         <td>Giới tính:</td>

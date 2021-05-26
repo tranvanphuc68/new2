@@ -16,7 +16,7 @@ class CourseController extends Controller
         {
             $courses = DB::table('courses')
             ->join('users', 'users.id', '=', 'courses.id_teacher')
-            ->select('courses.*', 'users.fullname')
+            ->select('courses.*', 'users.first_name', 'users.last_name')
             ->paginate(5)->withQueryString();
             return view('courses.index', [
                 'courses' => $courses
@@ -26,7 +26,7 @@ class CourseController extends Controller
             $courses = DB::table('courses')
             ->join('users', 'users.id', '=', 'courses.id_teacher')
             ->where('users.id', '=', "$id")
-            ->select('courses.*', 'users.fullname')
+            ->select('courses.*', 'users.first_name', 'users.last_name')
             ->paginate(5)->withQueryString();
             return view('courses.index', [
                 'courses' => $courses
@@ -37,7 +37,7 @@ class CourseController extends Controller
             ->join('students_courses', 'students_courses.id_course', '=', 'courses.id')
             ->join('users', 'users.id', '=', 'students_courses.id_student')
             ->where('users.id', '=', "$id")
-            ->select('courses.*', 'users.fullname')
+            ->select('courses.*', 'users.first_name', 'users.last_name')
             ->paginate(5)->withQueryString();
             return view('courses.index', [
                 'courses' => $courses
@@ -48,10 +48,14 @@ class CourseController extends Controller
     public function show(Course $course)
     {   
         $id_course = $course->id;
+        $course = DB::table('courses')
+        ->where('courses.id', "$id_course")
+        ->get();
+        $course = $course[0];
         $detail = DB::table('detail_classes')
         ->join('courses', 'id_course', '=', 'id')
         ->where('id_course', '=', "$course->id")
-        ->select('detail_classes.*', 'courses.name')
+        ->select('detail_classes.*', 'courses.name','courses.timetable')
         ->get();
         foreach($detail as $class)
         {
@@ -59,7 +63,8 @@ class CourseController extends Controller
         };
         return view('courses.show', [
             'detail' => $detail,
-            'id_course' => $id_course
+            'id_course' => $id_course,
+            'course' => $course
         ]);
     }
 

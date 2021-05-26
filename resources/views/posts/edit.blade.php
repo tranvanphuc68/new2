@@ -7,7 +7,7 @@
 @section('content')
 @if(Auth::check())
 <div class="container content">
-    @if($post->fullname == Auth::user()->fullname )
+    @if($post->id == Auth::user()->id )
         <form method="POST" action="{{url("/posts/$post->id")}}">
             @csrf
             @method('PUT')
@@ -17,7 +17,7 @@
                         <div class="d-flex flex-row align-items-start mb-3">
                             <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                             <div class="d-flex flex-column justify-content-start ml-2">
-                                <span class="d-block font-weight-bold name">{{ $post->fullname }}</span>
+                                <span class="d-block font-weight-bold name">{{ $post->first_name." ".$post->last_name }}</span>
                             </div>
                         </div>
                         <div class="d-flex flex-row align-items-start">

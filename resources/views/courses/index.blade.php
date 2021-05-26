@@ -7,8 +7,8 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="courses">
-        <div class="title-block">
-            <h1 class="title"> DANH SÁCH KHÓA HỌC </h1>
+        <div class="card">
+            <h1 class="text-IBM"> Danh sách khóa học </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -16,8 +16,10 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <a href=" {{ url("/courses/create") }}" class="btn btn-primary" name="create">THÊM KHÓA HỌC MỚI</a>
-                                <form role="search" style="text-align: right">
+                                @if (Auth::user()->role == 'Admin')
+                                    <a style="float:left" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm khóa học</span></a>
+                                @endif
+                                <form role="search" style="float:right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
                                         <input type="search" placeholder="Search">
@@ -26,37 +28,38 @@ Into
                                 </form>
                             </div>
                             <section class="example">
+                                @if (Auth::user()->role == 'Admin')
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-bordered table-hover">
                                         <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Tên Khóa</th>
-                                                <th>Tên Giảng Viên</th>
-                                                <th>Mô Tả</th>
-                                                <th>Thời Khóa Biểu</th>
-                                                <th>Học Viên Tối Đa</th>
-                                                <th>Tổng Giờ</th>
-                                                <th>Số Tiết</th>
-                                                <th>Lương</th>
-                                                <th>Học Phí</th>
-                                                <th>Tình Trạng</th>
-                                                <th>Chức Năng</th>
+                                            <tr class="table-primary">
+                                                <th class="w3">ID</th>
+                                                <th class="w">Tên Khóa</th>
+                                                <th class="w">Tên Giảng Viên</th>
+                                                <th class="w">Mô Tả</th>
+                                                <th class="w10">Thời Khóa Biểu</th>
+                                                <th class="w6">Học Viên Tối Đa</th>
+                                                <th class="w5">Tổng Giờ</th>
+                                                <th class="w5">Số Tiết</th>
+                                                <th class="w6">Lương</th>
+                                                <th class="w6">Học Phí</th>
+                                                <th class="w6">Tình Trạng</th>
+                                                <th class="w6">Chức Năng</th>
                                             </tr>
                                         </thead>
                                         @foreach($courses as $course)
                                             <tr>
-                                                <td>{{ $course->id }}</td>
-                                                <td>{{ $course->name }}</td>
-                                                <td>{{ $course->fullname }}</td>
-                                                <td>{{ $course->description }}</td>
-                                                <td>{{ $course->timetable }}</td>
-                                                <td>{{ $course->max_students }}</td>
-                                                <td>{{ $course->sum_time }}</td>
-                                                <td>{{ $course->lessons }}</td>
-                                                <td>{{ $course->salary }}</td>
-                                                <td>{{ $course->fee }}</td>
-                                                <td><?php switch ($course->status) {
+                                                <td class="w">{{ $course->id }}</td>
+                                                <td class="w">{{ $course->name }}</td>
+                                                <td class="w">{{ $course->first_name." ".$course->last_name }}</td>
+                                                <td class="w">{{ $course->description }}</td>
+                                                <td class="w">{{ $course->timetable }}</td>
+                                                <td class="w">{{ $course->max_students }}</td>
+                                                <td class="w">{{ $course->sum_time }}</td>
+                                                <td class="w">{{ $course->lessons }}</td>
+                                                <td class="w">{{ $course->salary }}</td>
+                                                <td class="w">{{ $course->fee }}</td>
+                                                <td class="w"><?php switch ($course->status) {
                                                                         case '1':
                                                                             echo 'Chưa Học';
                                                                             break;
@@ -64,19 +67,19 @@ Into
                                                                             echo 'Đang Học';
                                                                             break;
                                                                         case '3':
-                                                                            echo 'Đã Hoàn Thành';
+                                                                            echo 'Hoàn Thành';
                                                                             break; 
                                                             }?>
                                                     </td>
-                                                <td>
-                                                    <a href="{{ url("/courses/{$course->id}") }}" class="btn">
-                                                        
+                                                <td class="center">
+                                                    <a href="{{ url("/courses/{$course->id}") }}" >
+                                                        <i class="fa fa-eye icon-view"></i>
                                                     </a>
-                                                    <a href="{{ url("/courses/{$course->id}/edit") }}" class="btn">
-                                                        <i class="fa fa-pencil"></i>
+                                                    <a href="{{ url("/courses/{$course->id}/edit") }}" >
+                                                        <i class="fa fa-pencil icon-edit"></i>
                                                     </a>
-                                                    <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('course-delete-{{ $course->id }}').submit()" class="btn">
-                                                        <i class="fa fa-trash-o"></i>
+                                                    <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('course-delete-{{ $course->id }}').submit()" >
+                                                        <i class="fa fa-trash-o icon-delete"></i>
                                                     </a>
                                                     <form method="POST" id="course-delete-{{ $course->id }}" action="{{ url("/courses/$course->id") }} >
                                                         @method('DELETE')
@@ -88,6 +91,103 @@ Into
                                     </table>
                                     {{ $courses->links('') }}
                                 </div>
+                                @else
+                                    @if (Auth::user()->role == 'Teacher')
+                                        <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="w3">ID</th>
+                                                    <th class="w20">Tên Khóa</th>
+                                                    <th class="w30">Mô Tả</th>
+                                                    <th class="w15">Thời Khóa Biểu</th>
+                                                    <th class="w10">Học Viên Tối Đa</th>
+                                                    <th class="w6">Tổng Giờ</th>
+                                                    <th class="w6">Số Tiết</th>
+                                                    <th class="w10">Tình Trạng</th>
+                                                    <th class="w5">Xem</th>
+                                                </tr>
+                                            </thead>
+                                            @foreach($courses as $course)
+                                                <tr>
+                                                    <td class="w3">{{ $course->id }}</td>
+                                                    <td class="w20">{{ $course->name }}</td>
+                                                    <td class="w30">{{ $course->description }}</td>
+                                                    <td class="w15">{{ $course->timetable }}</td>
+                                                    <td class="w10">{{ $course->max_students }}</td>
+                                                    <td class="w6">{{ $course->sum_time }}</td>
+                                                    <td class="w6">{{ $course->lessons }}</td>
+                                                    <td class="w10"><?php switch ($course->status) {
+                                                                            case '1':
+                                                                                echo 'Chưa Học';
+                                                                                break;
+                                                                            case '2':
+                                                                                echo 'Đang Học';
+                                                                                break;
+                                                                            case '3':
+                                                                                echo 'Hoàn Thành';
+                                                                                break; 
+                                                                }?>
+                                                        </td>
+                                                    <td class="w5">
+                                                        <a href="{{ url("/courses/{$course->id}") }}">
+                                                            <i class="fa fa-eye icon-view"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                        {{ $courses->links('') }}
+                                    </div>
+                                    @else
+                                        <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="w5">ID</th>
+                                                    <th class="w">Tên Khóa</th>
+                                                    <th class="w">Tên Giảng Viên</th>
+                                                    <th class="w">Mô Tả</th>
+                                                    <th class="w">Thời Khóa Biểu</th>
+                                                    <th class="w">Tổng Giờ</th>
+                                                    <th class="w">Số Tiết</th>
+                                                    <th class="w">Tình Trạng</th>
+                                                    <th class="w">Xem</th>
+                                                </tr>
+                                            </thead>
+                                            @foreach($courses as $course)
+                                                <tr>
+                                                    <td class="w5">{{ $course->id }}</td>
+                                                    <td class="w">{{ $course->name }}</td>
+                                                    <td class="w">{{ $course->first_name." ".$course->last_name }}</td>
+                                                    <td class="w">{{ $course->description }}</td>
+                                                    <td class="w">{{ $course->timetable }}</td>
+                                                    <td class="w">{{ $course->sum_time }}</td>
+                                                    <td class="w">{{ $course->lessons }}</td>
+                                                    <td class="w"><?php switch ($course->status) {
+                                                                            case '1':
+                                                                                echo 'Chưa Học';
+                                                                                break;
+                                                                            case '2':
+                                                                                echo 'Đang Học';
+                                                                                break;
+                                                                            case '3':
+                                                                                echo 'Hoàn Thành';
+                                                                                break; 
+                                                                }?>
+                                                        </td>
+                                                    <td class="w5">
+                                                        <a href="{{ url("/courses/{$course->id}") }}">
+                                                            <i class="fa fa-eye icon-view"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                        {{ $courses->links('') }}
+                                    </div>
+                                    @endif
+                                @endif
                             </section>
                         </div>
                     </div>

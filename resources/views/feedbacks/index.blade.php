@@ -7,9 +7,9 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="student">
-        <div class="title-block">
-            <h1 class="title">FEEDBACKS</h1>
+    <div class="feedback">
+        <div class="card">
+            <h1 class="text-IBM">Feedbacks</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -17,7 +17,7 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">  
-                                <form role="search" style="text-align: right">
+                                <form role="search" style="float: right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
                                         <input type="search" placeholder="Search">
@@ -27,20 +27,20 @@ Into
                             </div>
                             <section class="example">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
+                                    <table class="table table-bordered table-hover">
                                         <thead>
-                                            <tr>
-                                                <th>ID Khóa học</th>
-                                                <th>Tên Khóa học</th>
-                                                <th>Trạng Thái</th>
-                                                <th>Chi tiết</th>
+                                            <tr class="table-primary">
+                                                <th class="w15">ID Khóa Học</th>
+                                                <th class="w30">Tên Khóa Học</th>
+                                                <th class="w40">Trạng Thái</th>
+                                                <th class="w15">Chi Tiết</th>
                                             </tr>
                                         </thead>
                                         @foreach($courses as $course)
                                             <tr>
-                                                <td>{{ $course->id }}</td>
-                                                <td>{{ $course->name }}</td>
-                                                <td><?php switch ($course->status) {
+                                                <td class="w15">{{ $course->id }}</td>
+                                                <td class="w30">{{ $course->name }}</td>
+                                                <td class="w40"><?php switch ($course->status) {
                                                     case '1':
                                                         echo 'Chưa học';
                                                         break;
@@ -51,7 +51,11 @@ Into
                                                         echo 'Đã hoàn thành';
                                                         break; 
                                                     }?></td>
-                                                <td><a class="btn btn-primary" href="{{ url("/feedbacks/{$course->id}") }}">Xem</a></td>
+                                                <td class="center">
+                                                    <a href="{{ url("/feedbacks/{$course->id}") }}">
+                                                        <i class="fa fa-eye icon-view"></i>
+                                                    </a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </table>

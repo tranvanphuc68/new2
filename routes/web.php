@@ -1,10 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ReportPostController;
 use App\Http\Controllers\StudentCourseController;
 use App\Http\Controllers\FeeController;
 use App\Http\Controllers\SalaryController;
@@ -13,6 +10,9 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\DetailCourseController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReportPostController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,8 +30,32 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/home', function () {
     return view('home.index');
 });
+Route::get('/report', function () {
+    return view('report.student');
+});
+Route::get('/about', function () {
+    return view('home.about');
+});
+
+Route::get('/review_course/foudation', function () {
+    return view('home.courses.foudation');
+});
+Route::get('/review_course/pre', function () {
+    return view('home.courses.pre');
+});
+Route::get('/review_course/intermediate', function () {
+    return view('home.courses.intermediate');
+});
+Route::get('/review_course/avanced', function () {
+    return view('home.courses.avanced');
+});
+
+//-----------------------------------------------------------------------------------
 
 Route::get('/login', [AuthController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -77,42 +101,9 @@ Route::group(['middleware'=>'admin'], function(){
     Route::put('/courses/{course}', [CourseController::class, 'update']);
     Route::delete('/courses/{course}', [CourseController::class, 'destroy']);
 });
-//----------------------------------------------------------------------- 
-//post
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/create',[PostController::class, 'create'])->middleware('auth');
-Route::get('/posts/{post}',[PostController::class, 'show']);
-
-Route::group(['middleware'=>'auth'], function(){
- //-> auth 
-Route::post('/posts', [PostController::class, 'store']);//-> auth
-Route::get('/posts/{post}/self_edit', [PostController::class, 'self_edit']);//->auth + $user = Auth::user();
-Route::put('/posts/{post}', [PostController::class, 'update']);
-Route::delete('/posts/{post}', [PostController::class, 'destroy']);//->auth + $user = Auth::user();
-});
-//comment
-Route::group(['middleware'=>'auth'], function(){ 
-Route::post('/comments/{post}', [CommentController::class, 'store']);
-Route::get('/comments/{comment}/self_edit', [CommentController::class, 'self_edit']);//->auth + $user = Auth::user();
-Route::put('/comments/{comment}', [CommentController::class, 'update']);
-Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);//->auth + $user = Auth::user();
-});
-//report_post 
-
-Route::group(['middleware'=>'auth'], function(){
-Route::get('/report_posts', [ReportPostController::class, 'index'])->middleware('admin');
-Route::get('/report_posts/{post}/create',[ReportPostController::class, 'create']);
-Route::get('/report_posts/{post}',[ReportPostController::class, 'show'])->middleware('admin');
-Route::post('/report_posts/{post}', [ReportPostController::class, 'store']); 
-Route::delete('/report_posts/{report_post}', [ReportPostController::class, 'destroy'])->middleware('admin');
-});
-
-Route::get('/home', function () {
-    return view('home.index');
-});
 
 //Attendane
-Route::group(['middleware'=>'auth'], function(){
+Route::group(['middleware'=>'teacher'], function(){
     Route::get('/attendance', [AttendanceController::class, 'index']);
     Route::get('/attendance/{id_course}-{number}',[AttendanceController::class, 'create']);
     Route::post('/attendance', [AttendanceController::class, 'store']);
@@ -182,6 +173,35 @@ Route::group(['middleware'=>'admin'], function(){
     Route::post('/detail_course/{id_course}', [DetailCourseController::class, 'store']);
     Route::get('/detail_course/{id_course}-{number}/edit', [DetailCourseController::class, 'edit']);
     Route::put('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'update']);
-    Route::delete('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'destroy']);
 });
 
+
+//----------------------------------------------------------------------- 
+//post
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/create',[PostController::class, 'create'])->middleware('auth');
+Route::get('/posts/{post}',[PostController::class, 'show']);
+
+Route::group(['middleware'=>'auth'], function(){
+ //-> auth 
+Route::post('/posts', [PostController::class, 'store']);//-> auth
+Route::get('/posts/{post}/self_edit', [PostController::class, 'self_edit']);//->auth + $user = Auth::user();
+Route::put('/posts/{post}', [PostController::class, 'update']);
+Route::delete('/posts/{post}', [PostController::class, 'destroy']);//->auth + $user = Auth::user();
+});
+//comment
+Route::group(['middleware'=>'auth'], function(){ 
+Route::post('/comments/{post}', [CommentController::class, 'store']);
+Route::get('/comments/{comment}/self_edit', [CommentController::class, 'self_edit']);//->auth + $user = Auth::user();
+Route::put('/comments/{comment}', [CommentController::class, 'update']);
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);//->auth + $user = Auth::user();
+});
+//report_post 
+
+Route::group(['middleware'=>'auth'], function(){
+Route::get('/report_posts', [ReportPostController::class, 'index'])->middleware('admin');
+Route::get('/report_posts/{post}/create',[ReportPostController::class, 'create']);
+Route::get('/report_posts/{post}',[ReportPostController::class, 'show'])->middleware('admin');
+Route::post('/report_posts/{post}', [ReportPostController::class, 'store']); 
+Route::delete('/report_posts/{report_post}', [ReportPostController::class, 'destroy'])->middleware('admin');
+});

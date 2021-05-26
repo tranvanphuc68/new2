@@ -7,9 +7,9 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="student">
-        <div class="title-block">
-            <h1 class="title"> Lương của các giảng viên </h1>
+    <div class="mark">
+        <div class="card">
+            <h1 class="text-IBM"> Cập nhật điểm khóa học {{ $students[0]->name}} </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -21,19 +21,21 @@ Into
                                     <form method="POST" action="{{ url("/marks/{$students[0]->id_course}") }}">
                                         @csrf
                                         @method('PUT')
-                                        <table class="table table-striped table-bordered table-hover">
+                                        <table class="table table-bordered table-hover">
                                             <thead>
-                                                <tr>
-                                                    <th>ID Khóa Học</th>
-                                                    <th>Tên Khóa Học</th>
-                                                    <th>Điểm</th>
+                                                <tr class="table-primary">
+                                                    <th class="w15">ID Học Viên</th>
+                                                    <th class="">Tên Học Viên</th>
+                                                    <th class="w25">Ngày Sinh</th>
+                                                    <th class="w25">Điểm</th>
                                                 </tr>
                                             </thead>
                                             @foreach($students as $student)
                                                 <tr>
-                                                    <td>{{ $student->id_student }}</td>
-                                                    <td>{{ $student->fullname }}</td>
-                                                    <td><input type="text" name ="{{ $student->id_student }}" value="{{ $student->mark }}"></td>
+                                                    <td class="w15">{{ $student->id_student }}</td>
+                                                    <td class="">{{ $student->first_name." ".$student->last_name }}</td>
+                                                    <td class="w25">{{ $student->dob }}</td>
+                                                    <td class="w25"><input type="text" name ="{{ $student->id_student }}" value="{{ $student->mark }}"></td>
                                                 </tr>
                                             @endforeach
                                         </table>
