@@ -1543,3 +1543,23 @@ ul {
 #fh5co-features .feature-left p a {
   color: #000 !important;
 }
+
+/*-------------profile-------------*/
+.profile .img {
+display: inline-block;
+width: 33px;
+height: 33px;
+line-height: 33px;
+border-radius: 4px;
+background-color: #8b9cb1;
+color: #ffffff;
+text-align: center;
+margin-right: 10px;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+vertical-align: middle;
+}
+.profile .dropdown-item {
+  color: #000 !important;
+}
