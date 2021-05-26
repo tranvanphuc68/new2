@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-lg-4 col-md-6">
+      <div class="col-lg-4 col-md-6">
           <div class="footer-info" data-aos="fade-up" data-aos-delay="50">
             <h3>INTO</h3>
             <p class="pb-3"><em>Online English learning center</em></p>
@@ -48,6 +48,7 @@
 
         <div class="col-lg-4 col-md-6 footer-newsletter" data-aos="fade-up" data-aos-delay="350">
           <h4>Our Newsletter</h4>
+          <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
           <form action="" method="post">
             <input type="email" name="email"><input type="submit" value="Subscribe">
           </form>
@@ -60,14 +61,13 @@
 
   <div class="container">
     <div class="copyright">
-      &copy; Copyright <strong><span>INTO</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>Squadfree</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-      Designed by a group of students at ITPlus
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
     </div>
   </div>
-</footer>
-<!-- End Footer -->
+</footer><!-- End Footer -->
 
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
@@ -82,6 +82,8 @@
 <script src="{{ asset('vendor/venobox/venobox.min.js') }}"></script>
 <script src="{{ asset('vendor/owl.carousel/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('vendor/aos/aos.js') }}"></script>
+
+<!-- Template Main JS File -->
 <script src="{{ asset('js/forum.js') }}"></script>
 
 

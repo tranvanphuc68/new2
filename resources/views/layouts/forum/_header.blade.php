@@ -145,7 +145,7 @@
                     <img class="rounded-circle img" width="18px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
                     <span> {{ Auth::user()->first_name." ".Auth::user()->last_name }} </span>
                 </a>
-                <div class="dropdown-menu profile-dropdown-menu bg-primary" aria-labelledby="dropdownMenu1">
+                <div class="dropdown-menu profile-dropdown-menu bg-info" aria-labelledby="dropdownMenu1">
                     <a class="dropdown-item" href="{{ url("/users/self_show") }} "> 
                         <i class="fa fa-user icon"></i> Profile </a>
                     <a class="dropdown-item" href="{{url('/logout')}}">
