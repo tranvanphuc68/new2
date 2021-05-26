@@ -43,8 +43,8 @@ Into
                             <tr>
                                 <td class="center">{{ $detail->number }}</td>
                                 <td>{{ $detail->content }}</td>
-                                <td>{{ $detail->date }}</td>
                                 <td>{{ $detail->timetable }}</td>
+                                <td>{{ $detail->date }}</td>
                                 @if (Auth::user()->role == 'Admin')
                                     <td class="center">
                                         <a href="{{ url("/detail_course/{$detail->id_course}-{$detail->number}/edit") }}">

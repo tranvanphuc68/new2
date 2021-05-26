@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Http\Requests\UserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -59,7 +61,7 @@ class UserController extends Controller
         return view('users.students.create');
     }
 
-    public function store_teacher(Request $request)
+    public function store_teacher(UserRequest $request)
     {   
         if($request->gender == 'Male')
         {
@@ -88,7 +90,7 @@ class UserController extends Controller
         return redirect('/users/teacher');
     }
     
-    public function store_student(Request $request)
+    public function store_student(UserRequest $request)
     {
         if($request->gender == 'Male')
         {
@@ -131,13 +133,13 @@ class UserController extends Controller
         ]);
     }
 
-    public function update_teacher(Request $request, User $user)
+    public function update_teacher(UpdateUserRequest $request, User $user)
     {
         $user->update($request->input());
         return redirect('/users/teacher');
     }
 
-    public function update_student(Request $request, User $user)
+    public function update_student(UpdateUserRequest $request, User $user)
     {
         $user->update($request->input());
         return redirect('/users/student');
@@ -172,7 +174,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function self_update(Request $request, User $user)
+    public function self_update(UpdateUserRequest $request, User $user)
     {   
         $user->update($request->input());
         return redirect('/');

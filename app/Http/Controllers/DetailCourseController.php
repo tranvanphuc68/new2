@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DetailCourse;
+use App\Http\Requests\DetailCourseRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class DetailCourseController extends Controller
         ]);
     }
 
-    public function store(Request $request, $id_course)
+    public function store(DetailCourseRequest $request, $id_course)
     {
         $data = DetailCourse::create([
             'id_course' => $id_course,
@@ -48,7 +49,7 @@ class DetailCourseController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id_course, $number)
+    public function update(DetailCourseRequest $request, $id_course, $number)
     {   
         $data = DetailCourse::where('id_course', '=', "$id_course")
         ->where('number', '=', "$number")

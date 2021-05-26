@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Http\Requests\CourseRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -73,7 +74,7 @@ class CourseController extends Controller
         return view('courses.create');
     }
 
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
         $data = Course::create($request->input());
         return redirect('/courses');
@@ -86,7 +87,7 @@ class CourseController extends Controller
         ]);
     }
 
-    public function update(Request $request, Course $course)
+    public function update(CourseRequest $request, Course $course)
     {
         $course->update($request->input());
         return redirect('courses');
