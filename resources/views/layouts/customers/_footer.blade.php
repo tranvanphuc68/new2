@@ -88,5 +88,8 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
+  <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('js/popper.js') }}"></script>
+  <script src="{{ asset('js/carousel.js') }}"></script>
 
  

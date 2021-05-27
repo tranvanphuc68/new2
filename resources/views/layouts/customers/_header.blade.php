@@ -25,8 +25,10 @@
   <link href="{{ asset('vendor/aos/aos.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
+  <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet">
 </head>
 
 <body>

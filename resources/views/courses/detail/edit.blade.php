@@ -19,10 +19,16 @@ Into
                         <label for="content">Nội dung</label>
                         <textarea type="text" name="content" id="content" class="form-control" placeholder="Content" aria-describedby="helpId" value="">{{ $course->content }}</textarea>
                     </div>
+                    @error('content')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="date">Ngày học</label>
                         <input type="date" name="date" id="date" class="form-control" placeholder="Date" aria-describedby="helpId" value="{{ $course->date }}" >
                     </div>
+                    @error('date')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div style="text-align: right;">
                         <button type="submit" class="btn btn-primary">Lưu thông tin</button>
                     </div>

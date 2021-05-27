@@ -3,8 +3,7 @@
 --------------------------------------------------------------*/
     
     body {
-        background-color: #f9f9fa;
-        font-family: "Open Sans", sans-serif;
+        background-color: #f9f9fa font-family: "Open Sans", sans-serif;
     }
     
     a {
@@ -516,6 +515,7 @@
             margin: -20px 0 30px 0;
             text-align: center;
             font-size: 13px;
+            color: #fff;
         }
     }
     

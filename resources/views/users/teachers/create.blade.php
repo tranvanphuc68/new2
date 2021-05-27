@@ -17,12 +17,18 @@ Into
                     @csrf
                     <div class="form-group">
                         <label for="first_name">Họ</label>
-                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" aria-describedby="helpId">
+                        <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}" class="form-control" placeholder="First Name" aria-describedby="helpId">
                     </div>
+                    @error('first_name')
+                    <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="last_name">Tên</label>
-                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" aria-describedby="helpId">
+                        <input type="text" name="last_name" id="last_name" value="{{ old('last_name') }}" class="form-control" placeholder="Last Name" aria-describedby="helpId">
                     </div>
+                    @error('last_name')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label>Giới tính</label>
                         <input type="radio" name="gender" value="Male" />
@@ -30,43 +36,72 @@ Into
                         <input type="radio" name="gender" value="Female" />
                         <label for="female">Nữ</label>
                     </div>
+                    @error('gender')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="dob">Ngày sinh</label>
-                        <input type="date" name="dob" id="dob" class="form-control" placeholder="Date of birth" aria-describedby="helpId">
+                        <input type="date" name="dob" id="dob" value="{{ old('dob') }}" class="form-control" placeholder="Date of birth" aria-describedby="helpId">
                     </div>
+                    @error('dob')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="hometown">Nơi sinh</label>
-                        <input type="text" name="hometown" id="hometown" class="form-control" placeholder="Hometown" aria-describedby="helpId">
+                        <input type="text" name="hometown" id="hometown" value="{{ old('hometown') }}" class="form-control" placeholder="Hometown" aria-describedby="helpId">
                     </div>
+                    @error('hometown')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="id_card">Căn cước công dân</label>
-                        <input type="text" name="id_card" id="id_card" class="form-control" placeholder="id card" aria-describedby="helpId">
+                        <input type="text" name="id_card" id="id_card" value="{{ old('id_card') }}" class="form-control" placeholder="id card" aria-describedby="helpId">
                     </div>
+                    @error('id_card')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="phone">Số điện thoại</label>
-                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone number" aria-describedby="helpId">
+                        <input type="text" name="phone" id="phone" value="{{ old('phone') }}" class="form-control" placeholder="Phone number" aria-describedby="helpId">
                     </div>
+                    @error('phone')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="account">Số tài khoản</label>
-                        <input type="text" name="account" id="account" class="form-control" placeholder="Account" aria-describedby="helpId">
+                        <input type="text" name="account" id="account" value="{{ old('account') }}" class="form-control" placeholder="Account" aria-describedby="helpId">
                     </div>
+                    @error('account')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="academic_level">Trình độ học vấn</label>
-                        <input type="text" name="academic_level" id="academic_level" class="form-control" placeholder="Academic level" aria-describedby="helpId">
+                        <input type="text" name="academic_level" id="academic_level" value="{{ old('academic_level') }}" class="form-control" placeholder="Academic level" aria-describedby="helpId">
                     </div>
+                    @error('academic_level')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
-                        <label for="academic_level">Tài năng</label>
-                        <input type="text" name="accomplishment" id="academic_level" class="form-control" placeholder="accomplishment" aria-describedby="helpId">
+                        <label for="accomplishment">Tài năng</label>
+                        <input type="text" name="accomplishment" id="accomplishment" value="{{ old('accomplishment') }}" class="form-control" placeholder="accomplishment" aria-describedby="helpId">
                     </div>
-                    
+                    @error('accomplishment')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
-                        <label for="id_card">Email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" aria-describedby="helpId">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" value="{{ old('email') }}" class="form-control" placeholder="Email" aria-describedby="helpId">
                     </div>
+                    @error('email')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
-                        <label for="id_card">Password</label>
+                        <label for="password">Password</label>
                         <input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-describedby="helpId">
                     </div>
+                    @error('password')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div style="text-align: right;">
                         <button type="submit" class="btn btn-primary">Lưu thông tin</button>
                     </div>
