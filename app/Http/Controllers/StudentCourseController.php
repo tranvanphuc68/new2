@@ -23,6 +23,7 @@ class StudentCourseController extends Controller
         ->join('courses','courses.id','=','students_courses.id_course')
         ->where('id_student','=',"$id")
         ->select('students_courses.*','users.first_name', 'users.last_name','courses.name', 'courses.status')
+        ->orderBy('last_name')
         ->get();
         $teachers = DB::table('courses')
         ->where('id_teacher','=',"$id")
@@ -42,6 +43,7 @@ class StudentCourseController extends Controller
         ->join('courses','courses.id','=','students_courses.id_course')
         ->where('id_course','=',"$id_course")
         ->select('students_courses.*','users.first_name', 'users.last_name','courses.name','users.dob')
+        ->orderBy('last_name')
         ->get();
         foreach($students as $student)
         {
@@ -69,6 +71,7 @@ class StudentCourseController extends Controller
             ->where('students_courses.id_course', "$id_course")
             ->whereRaw('students_courses.id_student = users.id');
         })
+        ->orderBy('last_name')
         ->get();
         foreach($students as $student)
         {
