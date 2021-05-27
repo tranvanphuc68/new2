@@ -6,11 +6,11 @@ Into
 <!-- ======= Hero Section ======= -->
 @section('content')
 <section id="hero">
-  <div class="hero-container" data-aos="fade-up">
+    <div class="hero-container" data-aos="fade-up">
     <h1>Welcome to Into</h1>
     <h2  style="font-size: 30px;" >Chinh phục IELTS 6.5+ với hệ thống giáo dục trực tuyến tại INTO</h2>
     <a href="#about" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
-  </div>
+    </div>
 </section><!-- End Hero -->
 <main id="main">
 
@@ -56,6 +56,8 @@ Into
         </div>
     </section><!-- End Counts Section -->
 
+
+
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
         <div class="container" data-aos="zoom-in">
@@ -68,6 +70,55 @@ Into
 
         </div>
     </section><!-- End Cta Section -->
+
+    <section id="testimonials" class="testimonials team section-bg">
+        <div class="container">
+
+            <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+                <h2>Học viên nói gì về INTO ?</h2>
+            </div>
+
+            <div class="owl-carousel testimonials-carousel">
+
+                <div class="testimonial-item member mr-3" data-aos="fade-up">
+                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Walter White</h4>
+                            <span>giảng viên IELTS khóa 4.5-5.0 </span>
+                        </div>
+                </div>
+                <div class="testimonial-item member mr-3" data-aos="fade-up">
+                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Walter White</h4>
+                            <span>giảng viên IELTS khóa 4.5-5.0 </span>
+                        </div>
+                </div>
+                <div class="testimonial-item member mr-3" data-aos="fade-up">
+                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Walter White</h4>
+                            <span>giảng viên IELTS khóa 4.5-5.0 </span>
+                        </div>
+                </div>
+                <div class="testimonial-item member mr-2" data-aos="fade-up">
+                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Walter White</h4>
+                            <span>giảng viên IELTS khóa 4.5-5.0 </span>
+                        </div>
+                </div>
+                <div class="testimonial-item member mr-2" data-aos="fade-up">
+                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Walter White</h4>
+                            <span>giảng viên IELTS khóa 4.5-5.0 </span>
+                        </div>
+                </div>
+    
+            </div>
+
+        </div>
 
 
     <!-- ======= Teachers Section ======= -->
