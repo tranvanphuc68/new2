@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
+        <title>Into</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-          <!-- Favicons -->
-            <link href="{{ asset('assets/img/logo/INT.png') }}" rel="icon" >
-            <link href="{{ asset('assets/img/logo/INT.png') }}" rel="apple-touch-icon">
+        <!-- Favicons -->
+        <link href="{{ asset('assets/img/logo/INT.png') }}" rel="icon" >
+        <link href="{{ asset('assets/img/logo/INT.png') }}" rel="apple-touch-icon">
 
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet"  href="{{ asset('css/vendor.css') }}">

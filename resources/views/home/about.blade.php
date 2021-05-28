@@ -1,19 +1,71 @@
-@extends('layouts.customers.app')
+@extends('layouts.customers.courses.app')
 
 @section('title')
 Into
 @endsection
 <!-- ======= Hero Section ======= -->
 @section('content')
-<section id="hero">
-    <div class="hero-container" data-aos="fade-up">
-    <h1>Welcome to Into</h1>
-    <h2  style="font-size: 30px;" >Chinh phục IELTS 6.5+ với hệ thống giáo dục trực tuyến tại INTO</h2>
-    <a href="#about" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
-    </div>
-</section><!-- End Hero -->
 <main id="main">
 
+    <section id="about-into" class="about-course" data-aos="fade-up" date-aos-delay="100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center">
+                    <img src="{{ asset('assets/img/courses/course3.jpg') }}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
+                    <div class="about-box">
+                        <h2 class="border-bottom-blue">Giới thiệu về INTO</h2>
+                        <p>
+                            INTO là tổ chức giáo dục trực tuyến được thành lập vào năm 2018, chuyên tập trung đào tạo IELTS. Suốt những năm qua, INTO luôn được khách hàng đánh giá là một trong những trung tâm IELTS có chất lượng đào tạo cao tại Việt Nam. Và cho đến nay, KTDC tiếp tục duy trì tiêu chuẩn đó và gìn giữ sự hài lòng thông qua chất lượng giáo dục và dịch vụ khách hàng mà KTDC cung cấp.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ======= Features Section ======= -->
+    <section id="courses" class="detail" data-aos="fade-up" date-aos-delay="100">
+        <div class="container">
+            <div class="row" data-aos="fade-up" date-aos-delay="200">
+                <div class="col-md-5 order-1 order-md-2">
+                    <img src="{{ asset('assets/img/icon/features-2.svg') }}" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-7 order-2 order-md-1 pt-4">
+                    <div class="">
+                        <h3 class="border-bottom-blue">Tầm nhìn</h3>
+                        <p>INTO đặt tầm nhìn trở thành một trong những đơn vị đào tạo IELTS hàng đầu, truyền cảm hứng cho việc học tập và giảng dạy IELTS cho người Việt.</p>
+                    </div>
+                    <div class="">
+                        <h3 class="border-bottom-blue">Sứ mệnh</h3>
+                        <p>INTO IELTS mong muốn góp phần tạo ra các tiêu chuẩn cao nhất trong lĩnh vực đào tạo IELTS, thúc đẩy học viên giao tiếp tự tin, củng cố kỹ năng cần thiết để thành công trong học tập, công việc và cuộc sống.
+                            Thông qua kiến thức và kỹ năng được cung cấp, các bạn có thể xây dựng sự độc lập trong tư duy và hành động, nhận thức văn hóa, và trở thành công dân toàn cầu.</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+    <!-- End Features Section -->
+
+    <section id="commit">
+        <div class="container">
+            <div class="row" data-aos="fade-up" date-aos-delay="300">
+                <div class="col-md-5 ">
+                    <img src="{{ asset('assets/img/icon/features-4.svg') }}" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-7 pt-5 ">
+                    <h3 class="border-bottom-blue">Cam kết</h3>
+                    <p class="font-italic">
+                        Trong trường hợp học viên không đạt điểm đầu ra, các bạn sẽ được học lại 01 khóa học hoàn toàn miễn phí tại trung tâm. Tuy nhiên, các bạn học viên chú ý thực hiệu đầy đủ điều kiện làm đủ bài tập về nhà, đi học đủ số buổi học, trên lớp học tập chăm chỉ
+                        dưới sự hướng dẫn của giáo viên giảng dạy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts  section-bg">
@@ -71,118 +123,85 @@ Into
         </div>
     </section><!-- End Cta Section -->
 
-    <section id="testimonials" class="testimonials team section-bg">
-        <div class="container">
-
-            <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-                <h2>Học viên nói gì về INTO ?</h2>
-            </div>
-
-            <div class="owl-carousel testimonials-carousel">
-
-                <div class="testimonial-item member mr-3" data-aos="fade-up">
-                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>giảng viên IELTS khóa 4.5-5.0 </span>
-                        </div>
-                </div>
-                <div class="testimonial-item member mr-3" data-aos="fade-up">
-                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>giảng viên IELTS khóa 4.5-5.0 </span>
-                        </div>
-                </div>
-                <div class="testimonial-item member mr-3" data-aos="fade-up">
-                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>giảng viên IELTS khóa 4.5-5.0 </span>
-                        </div>
-                </div>
-                <div class="testimonial-item member mr-2" data-aos="fade-up">
-                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>giảng viên IELTS khóa 4.5-5.0 </span>
-                        </div>
-                </div>
-                <div class="testimonial-item member mr-2" data-aos="fade-up">
-                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>giảng viên IELTS khóa 4.5-5.0 </span>
-                        </div>
-                </div>
-    
-            </div>
-
-        </div>
-
 
     <!-- ======= Teachers Section ======= -->
-    <section id="team" class="team">
+    <section id="team" class="ftco-section team">
         <div class="container">
-
-            <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-                <h2>Đội ngũ giảng viên của INTO</h2>
-            </div>
-
             <div class="row">
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="member" data-aos="fade-up">
-                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>giảng viên IELTS khóa 4.5-5.0 </span>
-                            <div class="social">
-                                <a href=""><i class="icofont-twitter"></i></a>
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-linkedin"></i></a>
+                <div class="col-md-12 text-center">
+                    <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+                        <h2>Đội ngũ giảng viên của INTO</h2>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="featured-carousel owl-carousel">
+                        <div class="item member" data-aos="fade-up" data-aos-delay="100">
+                            <div class="work">
+                                <div class="pic"><img src="{{ asset('assets/img/team/team-1.jpg') }}" class="img-fluid" alt=""></div>
+                                <div class="member-info">
+                                    <h4>Walter White</h4>
+                                    <span>giảng viên IELTS khóa 4.5-5.0 </span>
+                                    <div class="social">
+                                        <a href=""><i class="icofont-twitter"></i></a>
+                                        <a href=""><i class="icofont-facebook"></i></a>
+                                        <a href=""><i class="icofont-instagram"></i></a>
+                                        <a href=""><i class="icofont-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item member" data-aos="fade-up" data-aos-delay="100">
+                            <div class="work">
+                                <div class="pic"><img src="{{ asset('assets/img/team/team-2.jpg') }}" class="img-fluid" alt=""></div>
+                                <div class="member-info">
+                                    <h4>Walter White</h4>
+                                    <span>giảng viên IELTS khóa 4.5-5.0 </span>
+                                    <div class="social">
+                                        <a href=""><i class="icofont-twitter"></i></a>
+                                        <a href=""><i class="icofont-facebook"></i></a>
+                                        <a href=""><i class="icofont-instagram"></i></a>
+                                        <a href=""><i class="icofont-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item member" data-aos="fade-up" data-aos-delay="100">
+                            <div class="work">
+                                <div class="pic"><img src="{{ asset('assets/img/team/team-3.jpg') }}" class="img-fluid" alt=""></div>
+                                <div class="member-info">
+                                    <h4>Walter White</h4>
+                                    <span>giảng viên IELTS khóa 4.5-5.0 </span>
+                                    <div class="social">
+                                        <a href=""><i class="icofont-twitter"></i></a>
+                                        <a href=""><i class="icofont-facebook"></i></a>
+                                        <a href=""><i class="icofont-instagram"></i></a>
+                                        <a href=""><i class="icofont-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item member" data-aos="fade-up" data-aos-delay="100">
+                            <div class="work">
+                                <div class="pic"><img src="{{ asset('assets/img/team/team-3.jpg') }}" class="img-fluid" alt=""></div>
+                                <div class="member-info">
+                                    <h4>Walter White</h4>
+                                    <span>giảng viên IELTS khóa 4.5-5.0 </span>
+                                    <div class="social">
+                                        <a href=""><i class="icofont-twitter"></i></a>
+                                        <a href=""><i class="icofont-facebook"></i></a>
+                                        <a href=""><i class="icofont-instagram"></i></a>
+                                        <a href=""><i class="icofont-linkedin"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="member" data-aos="fade-up" data-aos-delay="150">
-                        <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Sarah Jhonson</h4>
-                            <span>giảng viên TOEIC 605-780</span>
-                            <div class="social">
-                                <a href=""><i class="icofont-twitter"></i></a>
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="member" data-aos="fade-up" data-aos-delay="300">
-                        <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>William Anderson</h4>
-                            <span>giảng viên TOEFL IBT 110-114</span>
-                            <div class="social">
-                                <a href=""><i class="icofont-twitter"></i></a>
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
         </div>
-    </section><!-- End Team Section -->
+    </section>
+
+    <!-- End Team Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact section-bg">
