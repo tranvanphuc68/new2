@@ -102,6 +102,7 @@ class CourseController extends Controller
     public function search()
     {   
         $courseName = $_GET['search'];
+        $id = Auth::user()->id;
         if( Auth::user()->role == 'Admin' )
         {   
             $courses = DB::table('courses')

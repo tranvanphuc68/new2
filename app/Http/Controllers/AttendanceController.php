@@ -64,5 +64,11 @@ class AttendanceController extends Controller
                 'status' => $data['status']
             ]);
         }
+        $detail = DB::table('detail_classes')
+        ->where('id_course', "$request->id_course")
+        ->where('number', "$request->number")
+        ->update([
+            'status' => 1
+        ]);
     }
 }
