@@ -19,10 +19,11 @@ Into
                                 @if (Auth::user()->role == 'Admin')
                                     <a style="float:left" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm khóa học</span></a>
                                 @endif
-                                <form role="search" style="float:right">
+                                <form action="{{ url('/search/courses') }}" method="GET" style="float:right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
-                                        <input type="search" placeholder="Search">
+                                            <input type="text" name="search" placeholder="Search">
+                                            <button type="submit">Search</button>
                                         <div class="underline"></div>
                                     </div>
                                 </form>

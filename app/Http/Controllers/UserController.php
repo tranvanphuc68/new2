@@ -12,8 +12,26 @@ use Intervention\Image\Facades\Image;
 class UserController extends Controller
 {
     public function index_teacher()
-    {
-        $teachers = User::where('role', 'teacher')->paginate(5)->withQueryString();
+    {   
+        //search
+        if(isset($_GET['search']))
+        {
+            $last_name = $_GET['search'];
+            $teachers = User::where('role', 'teacher')
+            ->where('last_name','LIKE', "%".$last_name."%")
+            ->orderBy('last_name')
+            ->paginate(5)->withQueryString();
+            foreach($teachers as $teacher)
+            {
+                $teacher->dob = Controller::formatDate($teacher->dob);
+            }
+            return view('users.teachers.index', [
+                'teachers' => $teachers,
+            ]);
+        }
+        //full information
+        $teachers = User::where('role', 'teacher')->orderBy('last_name')
+        ->paginate(5)->withQueryString();
         foreach($teachers as $teacher)
         {
             $teacher->dob = Controller::formatDate($teacher->dob);
@@ -25,7 +43,25 @@ class UserController extends Controller
 
     public function index_student()
     {
-        $students = User::where('role', 'student')->paginate(10)->withQueryString();
+        //search
+        if(isset($_GET['search']))
+        {
+            $last_name = $_GET['search'];
+            $students = User::where('role', 'student')
+            ->where('last_name','LIKE', "%".$last_name."%")
+            ->orderBy('last_name')
+            ->paginate(5)->withQueryString();
+            foreach($students as $student)
+            {
+                $student->dob = Controller::formatDate($student->dob);
+            }
+            return view('users.students.index', [
+                'students' => $students,
+            ]);
+        }
+        //full information
+        $students = User::where('role', 'student')->orderBy('last_name')
+        ->paginate(10)->withQueryString();
         foreach($students as $student)
         {
             $student->dob = Controller::formatDate($student->dob);

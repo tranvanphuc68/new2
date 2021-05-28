@@ -17,10 +17,11 @@ Into
                         <div class="card-block">
                             <div class="card-title-block">
                                 <a style="float:left" href="{{ url("/users/student/create") }}" ><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm học viên</span></a>
-                                <form role="search" style="float:right">
-                                    <div class="input-container">
-                                        <i class="fa fa-search"></i>
-                                        <input type="search" placeholder="Search">
+                                <form method="GET" style="float:right">
+                                    <div  class="input-container">
+                                        <i class="fa fa-search"></i>                
+                                            <input type="text" name="search" placeholder="Search">
+                                            <button type="submit">Search</button>
                                         <div class="underline"></div>
                                     </div>
                                 </form>

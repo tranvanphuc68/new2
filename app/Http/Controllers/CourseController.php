@@ -14,7 +14,7 @@ class CourseController extends Controller
     {   
         $id = Auth::user()->id;
         if( Auth::user()->role == 'Admin' )
-        {
+        {   
             $courses = DB::table('courses')
             ->join('users', 'users.id', '=', 'courses.id_teacher')
             ->select('courses.*', 'users.first_name', 'users.last_name')
@@ -99,4 +99,43 @@ class CourseController extends Controller
         return redirect('courses');
     }
 
+    public function search()
+    {   
+        $courseName = $_GET['search'];
+        $id = Auth::user()->id;
+        if( Auth::user()->role == 'Admin' )
+        {   
+            $courses = DB::table('courses')
+            ->join('users', 'users.id', '=', 'courses.id_teacher')
+            ->select('courses.*', 'users.first_name', 'users.last_name')
+            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->paginate(5)->withQueryString();
+            return view('courses.index', [
+                'courses' => $courses
+            ]);
+        } 
+        elseif( Auth::user()->role == 'Teacher' ){
+            $courses = DB::table('courses')
+            ->join('users', 'users.id', '=', 'courses.id_teacher')
+            ->where('users.id', '=', "$id")
+            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->select('courses.*', 'users.first_name', 'users.last_name')
+            ->paginate(5)->withQueryString();
+            return view('courses.index', [
+                'courses' => $courses
+            ]);
+        }
+        else{ 
+            $courses = DB::table('courses')
+            ->join('students_courses', 'students_courses.id_course', '=', 'courses.id')
+            ->join('users', 'users.id', '=', 'students_courses.id_student')
+            ->where('users.id', '=', "$id")
+            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->select('courses.*', 'users.first_name', 'users.last_name')
+            ->paginate(5)->withQueryString();
+            return view('courses.index', [
+                'courses' => $courses
+            ]);
+        }
+    }
 }

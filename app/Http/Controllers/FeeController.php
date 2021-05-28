@@ -20,6 +20,7 @@ class FeeController extends Controller
         ->join('courses','courses.id','=','students_courses.id_course')
         ->where('id_student','=',"$id")
         ->select('students_courses.*','users.first_name', 'users.last_name', 'courses.name','courses.fee')
+        ->orderBy('last_name')
         ->get();
         return view('fees.index', [
             'fees' => $fees,
@@ -34,6 +35,7 @@ class FeeController extends Controller
         ->join('courses','courses.id','=','students_courses.id_course')
         ->where('id_course','=',"$id_course")
         ->select('students_courses.*','users.first_name', 'users.last_name','users.dob','courses.name','courses.fee')
+        ->orderBy('last_name')
         ->get();
         foreach($students as $student)
         {
@@ -66,6 +68,7 @@ class FeeController extends Controller
         ->join('courses', 'courses.id', '=', 'students_courses.id_course')
         ->where('id_course',$id_course)
         ->select('students_courses.*','users.first_name', 'users.last_name','users.dob','courses.name','courses.fee')
+        ->orderBy('last_name')
         ->get();
         foreach($students as $student)
         {

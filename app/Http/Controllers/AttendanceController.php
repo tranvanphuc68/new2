@@ -38,6 +38,7 @@ class AttendanceController extends Controller
         ->join('courses', 'courses.id', '=', 'students_courses.id_course')
         ->where('students_courses.id_course', '=', "$id_course")
         ->select('students_courses.*', 'users.first_name', 'users.last_name', 'users.dob','courses.name')
+        ->orderBy('last_name')
         ->get();
         foreach($data as $item)
         {
@@ -63,5 +64,11 @@ class AttendanceController extends Controller
                 'status' => $data['status']
             ]);
         }
+        $detail = DB::table('detail_classes')
+        ->where('id_course', "$request->id_course")
+        ->where('number', "$request->number")
+        ->update([
+            'status' => 1
+        ]);
     }
 }

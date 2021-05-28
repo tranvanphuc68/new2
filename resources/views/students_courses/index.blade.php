@@ -1,4 +1,3 @@
-
 @extends('layouts.users.app')
 
 @section('title')
@@ -17,10 +16,11 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <form role="search" style="float:right">
-                                    <div class="input-container">
-                                        <i class="fa fa-search"></i>
-                                        <input type="search" placeholder="Search">
+                                <form method="GET" style="float:right">
+                                    <div  class="input-container">
+                                        <i class="fa fa-search"></i>                
+                                            <input type="text" name="search" placeholder="Search">
+                                            <button type="submit">Search</button>
                                         <div class="underline"></div>
                                     </div>
                                 </form>

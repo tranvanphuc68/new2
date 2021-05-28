@@ -1,4 +1,3 @@
-
 @extends('layouts.users.app')
 
 @section('title')
@@ -38,9 +37,13 @@ Into
                                                 <td class="w15">{{ $data->timetable }}</td>
                                                 <td>{{ $data->content }}</td>
                                                 <td class="center">
-                                                    <a href="{{ url("/attendance/{$data->id_course}-{$data->number}") }}">
-                                                        <img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 40px"alt="">
-                                                    </a>
+                                                    @if ( $data->status == 0 )
+                                                        <a href="{{ url("/attendance/{$data->id_course}-{$data->number}") }}">
+                                                            <img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 40px"alt="">
+                                                        </a>
+                                                    @else
+                                                            <img src="{{ asset('assets/img/complete-icon.png') }}"  style = "max-width: 40px"alt="">
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach

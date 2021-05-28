@@ -20,6 +20,7 @@ class SalaryController extends Controller
             ->whereRaw('courses.id_teacher = users.id');
         })
         ->select('users.*')
+        ->orderBy('last_name')
         ->get();
         foreach($teachers as $teacher)
         {
@@ -30,6 +31,7 @@ class SalaryController extends Controller
         ->join('users', 'users.id', '=', 'courses.id_teacher')
         ->where('id_teacher', "$id")
         ->select('courses.*', 'users.first_name', 'users.last_name')
+        ->orderBy('last_name')
         ->get();
     $sum = DB::table('courses')
     ->join('users', 'users.id', '=', 'courses.id_teacher')
@@ -56,6 +58,7 @@ class SalaryController extends Controller
         ->join('users', 'users.id', '=', 'courses.id_teacher')
         ->where('id_teacher', "$id_teacher")
         ->select('courses.*', 'users.first_name', 'users.last_name')
+        ->orderBy('last_name')
         ->get();
 
         $sum = DB::table('courses')
@@ -84,6 +87,7 @@ class SalaryController extends Controller
         ->join('users', 'users.id', '=', 'courses.id_teacher')
         ->where('id_teacher', "$id_teacher")
         ->select('courses.*', 'users.first_name', 'users.last_name')
+        ->orderBy('last_name')
         ->get();
         return view('salaries.edit', [
             'teachers' => $teachers,
