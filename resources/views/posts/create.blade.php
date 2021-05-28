@@ -22,10 +22,16 @@
                         </div>
                     </div>
                     <div class="mt-3 mb-2">
-                        <input type="textarea" class="form-control ml-1 shadow-none textarea" name="title" placeholder="Post title">
+                        <input type="textarea" class="form-control ml-1 shadow-none textarea" name="title" value="{{ old('title') }}" placeholder="Post title">
+                        @error('title')
+                            <div>{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="d-flex flex-row align-items-start">
-                        <textarea class="form-control ml-1 shadow-none textarea" name="content" placeholder="Post content"></textarea>
+                        <textarea class="form-control ml-1 shadow-none textarea" name="content" value="{{ old('content') }}" placeholder="Post content"></textarea>
+                    @error('content')
+                        <div>{{ $message }}</div>
+                    @enderror
                     </div>
                     <div class="mt-2 text-right">
                         <button class="btn btn-primary btn-sm shadow-none" type="submit">Post</button>

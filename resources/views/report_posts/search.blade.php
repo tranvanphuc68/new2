@@ -1,7 +1,7 @@
 @extends('layouts.forum.app')
 
 @section('title')
-    report post
+    Search
 @endsection
 
 @section('content')
@@ -20,6 +20,7 @@
             <div class="underline"></div>
         </div>
     </form>
+
     <table class="table table-striped table-hover"  style="border: 2px solid black; ">
         <thead class="bg-dark text-white">
             <tr>
@@ -56,6 +57,6 @@
             </tr>
         @endforeach
     </table>
-    {{ $posts->links() }}
+
 </div>
 @endsection

@@ -190,6 +190,7 @@ Route::post('/posts', [PostController::class, 'store']);//-> auth
 Route::get('/posts/{post}/self_edit', [PostController::class, 'self_edit']);//->auth + $user = Auth::user();
 Route::put('/posts/{post}', [PostController::class, 'update']);
 Route::delete('/posts/{post}', [PostController::class, 'destroy']);//->auth + $user = Auth::user();
+Route::get('/post/search', [PostController::class, 'search'])->name('search'); 
 });
 //comment
 Route::group(['middleware'=>'auth'], function(){ 
@@ -206,4 +207,5 @@ Route::get('/report_posts/{post}/create',[ReportPostController::class, 'create']
 Route::get('/report_posts/{post}',[ReportPostController::class, 'show'])->middleware('admin');
 Route::post('/report_posts/{post}', [ReportPostController::class, 'store']); 
 Route::delete('/report_posts/{report_post}', [ReportPostController::class, 'destroy'])->middleware('admin');
+Route::get('/report_post/search', [ReportPostController::class, 'search'])->name('search')->middleware('admin'); 
 });
