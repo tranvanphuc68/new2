@@ -76,7 +76,7 @@ Into
             @foreach ($review_course as $item)
                 <div class="item card" data-aos="fade-up" data-aos-delay="100">
                   <div class="work">
-                    <img src="{{ asset('assets/img/courses/course9.jpg') }}" alt="">
+                  <img  style="height: 250px" src="{{ asset("/uploads/courses/$item->image") }}">
                     <div class="card-body" style=" display: flex; flex-direction: column;align-items: center; justify-content: space-between;">
                       <h5 class="card-title" style="font-weight: bold;">{{ $item->course_name }} </h5>
                       <h6 class="card-subtitle mb-1 text-muted">Đầu vào: {{ $item->input }} </h6>

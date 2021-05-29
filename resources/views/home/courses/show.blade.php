@@ -51,7 +51,7 @@ Into
                     </div>
                     <div class="col-md-7 pt-4">
                         <h3>ĐỐI TƯỢNG PHÙ HỢP VỚI KHÓA HỌC NÀY</h3>
-                        {{ $review_course->student }}"
+                        {{ $review_course->student }}
                     </div>
                 </div>
 
