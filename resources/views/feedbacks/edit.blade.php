@@ -21,7 +21,10 @@ Into
                                     <form method="POST" action="{{ url("/feedbacks/{$feedback->id_course}") }}">
                                         @csrf
                                         @method('PUT')
-                                            <textarea class="form-control" rows="5" name="feedback">{{ $feedback->feedback }}</textarea>
+                                            <textarea class="form-control" rows="5" name="feedback">{{ old('feedback', $feedback->feedback) }}</textarea>
+                                            @error('feedback')
+                                                <div>{{ $message }}</div>
+                                            @enderror
                                             <div class="mt-3" style="text-align: right;">
                                                 <button class="btn btn-primary" type="submit"> Cập Nhật</button>
                                             </div>
