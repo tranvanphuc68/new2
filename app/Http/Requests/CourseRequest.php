@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Teacher;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CourseRequest extends FormRequest
@@ -25,7 +26,7 @@ class CourseRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'id_teacher' => 'required',
+            'id_teacher' => ['required','exists:users,id', new Teacher],
             'description' => 'required',
             'timetable' => 'required',
             'max_students' => 'required|numeric',

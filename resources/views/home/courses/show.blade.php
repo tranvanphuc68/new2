@@ -10,25 +10,25 @@ Into
         <section id="about-course" class="about-course" data-aos="fade-up" date-aos-delay="200">
             <div class="container">
                 <div class="row">
+                
                     <div class="col-lg-6 d-flex flex-column justify-content-center">
-                        <img src="{{ asset('assets/img/courses/course7.jpg') }}"  class="img-fluid" alt="">
+                        <img src="{{ asset("/uploads/courses/$review_course->image") }}" class="img-fluid">
                     </div>
                     <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
                         <div class="about-box">
-                            <h2>KHÓA HỌC AVANCED</h2>
+                            <h2>{{ $review_course->course_name }}</h2>
                             <p class="description text-primary">
-                                <span><i class="fad fa-file-certificate"></i> Đầu vào: 6.5 </span>
-                                <span class="ml-5"><i class="fad fa-graduation-cap"></i> Đầu ra: 7.5+</span>
+                                <span><i class="fad fa-file-certificate"></i> Đầu vào: {{ $review_course->input }} </span>
+                                <span class="ml-5"><i class="fad fa-graduation-cap"></i> Đầu ra: {{ $review_course->output }}+</span>
                             </p>
                             <ul class="m-3">
-                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời gian: 1.5h/buổi </li>
-                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời lượng: 51 giờ</li>
-                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Học phí: 9.000.000 VNĐ</li>
+                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời gian: {{ $review_course->time }} h/buổi </li>
+                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời lượng: {{ $review_course->duration }} giờ</li>
+                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Học phí: {{ $review_course->tuition }} VNĐ</li>
                             </ul>
                             <h4>Mục tiêu khóa học</h4>
                             <p>
-                                IELTS Avanced là khóa học nâng cao nhất tại INTO cung cấp các kỹ thuật làm bài phức tạp, vốn từ vựng và ngữ pháp nâng cao, kế hoạch câu trả lời hoàn chỉnh ở cả 4 kỹ năng. Khóa học tập trung nhiều hơn vào hai kỹ năng Speaking và Writing mức độ cao cấp,
-                                giúp học viên đạt mục tiêu điểm IELTS từ 7.5 trở lên.
+                                {{ $review_course->target }}
                             </p>
                         </div>
                     </div>
@@ -51,12 +51,7 @@ Into
                     </div>
                     <div class="col-md-7 pt-4">
                         <h3>ĐỐI TƯỢNG PHÙ HỢP VỚI KHÓA HỌC NÀY</h3>
-                        <ul>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Học viên ở trình độ Advanced trở lên, có kỹ năng Đọc và Nghe rất tốt ( 7-8.0), có từ vựng phong phú, nền tảng tốt về Nói và Viết, đạt được điểm số cần thiết trong bài kiểm
-                                tra đầu vào của INTO</li>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Học viên đã hoàn thành khóa IELTS INTERMEDIATE và được giáo viên đánh giá là đủ điều kiện tham gia lớp học.</li>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Có nền tảng tiếng Anh vững chắc</li>
-                        </ul>
+                        {{ $review_course->student }}"
                     </div>
                 </div>
 
@@ -83,8 +78,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>SPEAKING</h3>
-                                    <p>Khóa học tập trung chuyên sâu cả 3 phần trong bài thi Speaking. Học viên sẽ được hướng dẫn và thực hành kỹ part 1 và part 2 là nền tảng giúp đạt tối đa band điểm ở part 3, được dạy chuyên sâu việc sử dụng linking word
-                                        trong bài thi IELTS để đạt 7.0 trở lên.</p>
+                                    <p>{{ $review_course->skill_speaking }}</p>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +90,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>WRITING</h3>
-                                    <p>Phân tích kỹ thuật viết bài writing với các cấu trúc phù hợp nhưng chặt chẽ, logic để đạt band điểm cao. Học viên sẽ thực hành 7 bài viết Task 1 và 4 bài viết Task 2, do trực tiếp giảng viên chấm điểm và nhận xét.</p>
+                                    <p>{{ $review_course->skill_writing }}</p>
                                 </div>
                             </div>
 
@@ -108,7 +102,8 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>LISTENING & READING</h3>
-                                    <p>Các dạng câu hỏi thường gặp trong bài thi Listening & Reading sẽ được hướng dẫn về kỹ thuật làm bài và luyện tập.</p>
+                                    <p>{{ $review_course->skill_listening }}</p>
+                                    <p>{{ $review_course->skill_reading }}</p>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +119,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>NGỮ PHÁP</h3>
-                                    <p>Những điểm ngữ pháp chính cần cho bài thi IELTS sẽ được review và hướng dẫn đối với từng dạng bài cụ thể.</p>
+                                    <p>{{ $review_course->grammar }}</p>
                                 </div>
                             </div>
 
@@ -137,7 +132,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>TỪ VỰNG</h3>
-                                    <p>Khóa học sẽ dùng rất nhiều từ vựng học thuật nâng cao qua rất nhiều topic trong bài thi IELTS được thảo luận.</p>
+                                    <p>{{ $review_course->vocabulary }}</p>
                                 </div>
                             </div>
 
@@ -149,7 +144,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>BÀI THI CUỐI KHÓA</h3>
-                                    <p>theo hình thức bài thi IELTS hoàn chỉnh giúp học viên có cách nhìn tổng quan về 4 kỹ năng sau khi khóa học kết thúc.</p>
+                                    <p>{{ $review_course->final_test }}</p>
                                 </div>
                             </div>
                         </div>
@@ -162,7 +157,7 @@ Into
             <div class="container">
                 <div class="row" data-aos="fade-up">
                     <div class="col-md-5 order-1 order-md-2">
-                        <img src="{{ asset('assets/img/icon/features-4.svg') }" class="img-fluid" alt="">
+                        <img src="{{ asset('assets/img/icon/features-4.svg') }}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-7 pt-5 order-2 order-md-1">
                         <h3>Cam kết</h3>
@@ -175,7 +170,6 @@ Into
             </div>
         </section>
         <!-- End #main -->
-
     </main>
     <!-- End #main -->
 

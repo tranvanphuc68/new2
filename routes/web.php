@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ReviewCourseController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentCourseController;
 use App\Http\Controllers\FeeController;
 use App\Http\Controllers\SalaryController;
@@ -33,9 +35,6 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function () {
-    return view('home.index');
-});
 Route::get('/report', function () {
     return view('report.student');
 });
@@ -43,19 +42,13 @@ Route::get('/about', function () {
     return view('home.about');
 });
 
-Route::get('/review_course/foudation', function () {
-    return view('home.courses.foudation');
-});
-Route::get('/review_course/pre', function () {
-    return view('home.courses.pre');
-});
-Route::get('/review_course/intermediate', function () {
-    return view('home.courses.intermediate');
-});
-Route::get('/review_course/avanced', function () {
-    return view('home.courses.avanced');
-});
+Route::get('/home', [HomeController::class, 'index']);
 
+Route::get('/review_course/create', [ReviewCourseController::class, 'create']);
+Route::post('/review_course', [ReviewCourseController::class, 'store']);
+Route::get('/review_course/{id}', [ReviewCourseController::class, 'show']);
+Route::get('/review_course/edit/{id}', [ReviewCourseController::class, 'edit']);
+Route::put('/review_course/{id}', [ReviewCourseController::class, 'update']);
 //-----------------------------------------------------------------------------------
 
 Route::get('/login', [AuthController::class, 'index']);

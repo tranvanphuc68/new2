@@ -6,29 +6,33 @@ Into
 
 @section('content')
 <main id="main">
+    <form action="{{ url("/review_course/$review_course->id") }}" method="post" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
         <!-- ======= About Us Section ======= -->
         <section id="about-course" class="about-course" data-aos="fade-up" date-aos-delay="200">
             <div class="container">
                 <div class="row">
+                
                     <div class="col-lg-6 d-flex flex-column justify-content-center">
-                        <img src="{{ asset('assets/img/courses/course7.jpg') }}"  class="img-fluid" alt="">
+                        <img src="{{ asset("/uploads/courses/$review_course->image") }}" class="img-fluid">
+                        <input type="file" name="image">
                     </div>
                     <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
                         <div class="about-box">
-                            <h2>KHÓA HỌC PRE</h2>
+                            <h2><input type="text" name="course_name" value="{{ $review_course->course_name }}"></h2>
                             <p class="description text-primary">
-                                <span><i class="fad fa-file-certificate"></i> Đầu vào: 4.0 </span>
-                                <span class="ml-5"><i class="fad fa-graduation-cap"></i> Đầu ra: 5.5+</span>
+                                <span><i class="fad fa-file-certificate"></i> Đầu vào: <input type="text" name="input" value="{{ $review_course->input }}"> </span>
+                                <span class="ml-5"><i class="fad fa-graduation-cap"></i> Đầu ra: <input type="text" name="output" value="{{ $review_course->output }}">+</span>
                             </p>
                             <ul class="m-3">
-                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời gian: 1.5h/buổi </li>
-                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời lượng: 48 giờ</li>
-                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Học phí: 5.000.000 VNĐ</li>
+                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời gian: <input type="text" name="time" value="{{ $review_course->time }}">h/buổi </li>
+                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời lượng: <input type="text" name="duration" value="{{ $review_course->duration }}"> giờ</li>
+                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Học phí: <input type="text" name="tuition" value="{{ $review_course->tuition }}"> VNĐ</li>
                             </ul>
                             <h4>Mục tiêu khóa học</h4>
                             <p>
-                                Khóa học Pre IELTS là sự tiếp nối của Foundation, cung cấp các kiến thức nền tảng cho kỳ thi IELTS. Được thiết kế dành riêng cho các bạn chưa tự tin sử dụng tiếng anh trong môi trường học thuật và giao tiếp hằng ngày, khóa học giúp nâng cao khả năng phản
-                                xạ, sự tự tin, vốn từ vựng và khả năng phát âm chuẩn xác.
+                                <input type="text" name="target" value="{{ $review_course->target }}">
                             </p>
                         </div>
                     </div>
@@ -51,13 +55,7 @@ Into
                     </div>
                     <div class="col-md-7 pt-4">
                         <h3>ĐỐI TƯỢNG PHÙ HỢP VỚI KHÓA HỌC NÀY</h3>
-                        <ul>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Đã có những kiến thức cơ bản về tiếng Anh nhưng kiến thức chưa vững</li>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Khó khăn trong việc nhận dạng và sử dụng các dạng từ phổ thông (danh - động - tính - trạng)</li>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Phát âm không chuẩn; Còn nhầm lẫn trong cách phát âm một số âm</li>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Giọng nói đơn điệu Không để ý nhấn trọng âm của từ</li>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Chưa hiểu về IELTS, Không biết cấu trúc bài thi, Không quen với các dạng câu hỏi trong từng phần thi</li>
-                        </ul>
+                        <input type="text" name="student" value="{{ $review_course->student }}">
                     </div>
                 </div>
 
@@ -84,8 +82,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>SPEAKING</h3>
-                                    <p>Khóa học tập trung chuyên sâu vào Speaking part 1 và 2. Hướng dẫn chiến thuật làm bài, cấu trúc câu trả lời, sắp xếp ý tưởng, sử dụng từ vựng. Ngoài ra, học viên được giới thiệu cơ bản về part 3 trong thời gian thực
-                                        hành trên lớp.</p>
+                                    <p><input type="text" name="skill_speaking" value="{{ $review_course->skill_speaking }}"></p>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +94,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>WRITING</h3>
-                                    <p>Khóa học giới thiệu về Writing task 1, task 2 và chiến lược làm bài cơ bản. Luyện tập viết task 1 cho 2 dạng: pie chart và line/bar graph dưới dạng các câu so sánh cơ bản. Thực hành viết task 2 dạng Problem – Solution.</p>
+                                    <p><input type="text" name="skill_writing" value="{{ $review_course->skill_writing }}"></p>
                                 </div>
                             </div>
 
@@ -109,7 +106,8 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>LISTENING & READING</h3>
-                                    <p>Học viên sẽ được thực hành với các dạng câu hỏi khác nhau trong phần thi IELTS Listening và IELTS Reading: Gap fills, multiple choice, classification, labeling a diagram,… và một số chiến lược làm bài hiệu quả.</p>
+                                    <p><input type="text" name="skill_listening" value="{{ $review_course->skill_listening }}"></p>
+                                    <p><input type="text" name="skill_reading" value="{{ $review_course->skill_reading }}"></p>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +123,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>NGỮ PHÁP</h3>
-                                    <p>Khóa học hệ thống các điểm ngữ pháp căn bản cho bài thi IELTS: thì của động từ, số đếm, câu điều kiện, mệnh đề.... cung cấp các hướng dẫn ngữ pháp quan trọng từ đại học Cambridge.</p>
+                                    <p><input type="text" name="grammar" value="{{ $review_course->grammar }}"></p>
                                 </div>
                             </div>
 
@@ -138,7 +136,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>TỪ VỰNG</h3>
-                                    <p>Gồm 08 chủ đề phổ biến khác nhau: relationships, places and building, food and drink, leisure time, nature world,...</p>
+                                    <p><input type="text" name="vocabulary" value="{{ $review_course->vocabulary }}"></p>
                                 </div>
                             </div>
 
@@ -150,7 +148,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>BÀI THI CUỐI KHÓA</h3>
-                                    <p>Bài kiểm tra gồm 4 kỹ năng giúp học viên đánh giá năng lực sau khóa học.</p>
+                                    <p><input type="text" name="final_test" value="{{ $review_course->final_test }}"></p>
                                 </div>
                             </div>
                         </div>
@@ -176,9 +174,9 @@ Into
             </div>
         </section>
         <!-- End #main -->
-
+        <button type="submit">SAVE</button>
+    </form>
     </main>
     <!-- End #main -->
-
 
 @endsection

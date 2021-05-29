@@ -6,29 +6,31 @@ Into
 
 @section('content')
 <main id="main">
+    <form action="{{ url('/review_course') }}" method="post" enctype="multipart/form-data">
+        @csrf
         <!-- ======= About Us Section ======= -->
         <section id="about-course" class="about-course" data-aos="fade-up" date-aos-delay="200">
             <div class="container">
                 <div class="row">
+                
                     <div class="col-lg-6 d-flex flex-column justify-content-center">
-                        <img src="{{ asset('assets/img/courses/course7.jpg') }}"  class="img-fluid" alt="">
+                        <input type="file" name="image">
                     </div>
                     <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
                         <div class="about-box">
-                            <h2>KHÓA HỌC INTERMEDIATE</h2>
+                            <h2><input type="text" name="course_name"></h2>
                             <p class="description text-primary">
-                                <span><i class="fad fa-file-certificate"></i> Đầu vào: 5.5 </span>
-                                <span class="ml-5"><i class="fad fa-graduation-cap"></i> Đầu ra: 6.5+</span>
+                                <span><i class="fad fa-file-certificate"></i> Đầu vào: <input type="text" name="input"> </span>
+                                <span class="ml-5"><i class="fad fa-graduation-cap"></i> Đầu ra: <input type="text" name="output">+</span>
                             </p>
                             <ul class="m-3">
-                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời gian: 1.5h/buổi </li>
-                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời lượng: 51 giờ</li>
-                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Học phí: 7.000.000 VNĐ</li>
+                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời gian: <input type="text" name="time">h/buổi </li>
+                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời lượng: <input type="text" name="duration"> giờ</li>
+                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Học phí: <input type="text" name="tuition"> VNĐ</li>
                             </ul>
                             <h4>Mục tiêu khóa học</h4>
                             <p>
-                                Khóa học cung cấp đầy đủ tất cả các kiến thức nâng cao về từ vựng, cấu trúc, cách phân tích, tổ chức bài thi để đạt được mức điểm 6.5+ trong bài thi IELTS. Khóa học đặc biệt chú trọng vào hai kỹ năng Nói và Viết giúp học viên có nhiều cơ hội luyện tập,
-                                được chỉnh sửa dưới sự hướng dẫn của giáo viên bản ngữ.
+                                <input type="text" name="target">
                             </p>
                         </div>
                     </div>
@@ -51,14 +53,7 @@ Into
                     </div>
                     <div class="col-md-7 pt-4">
                         <h3>ĐỐI TƯỢNG PHÙ HỢP VỚI KHÓA HỌC NÀY</h3>
-                        <ul>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Có nền tảng ngữ pháp cơ bản</li>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Có thể nhận dạng được các loại từ phổ biến (danh, động, tính, trạng) nhưng sử dụng trong văn nói/ viết còn sai, đặc biệt là khi viết câu dài</li>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Giọng nói đơn điệu; Không để ý nhấn trọng âm của từ</li>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Hiểu biết về IELTS</li>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Không có chiến thuật làm bài rõ ràng, đặc biệt là trong phần thi Listening và Reading</li>
-                            <li><i class="fal fa-check-circle mr-2 text-primary"></i>Không quen với các loại đề trong Writing và Speaking</li>
-                        </ul>
+                        <input type="text" name="student">
                     </div>
                 </div>
 
@@ -85,7 +80,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>SPEAKING</h3>
-                                    <p>Học viên được luyện tập cả 3 phần trong bài thi Speaking vào mỗi buổi học nhằm biết được phương pháp hình thành nên bài nói theo đúng format bài thi IELTS.</p>
+                                    <p><input type="text" name="skill_speaking"></p>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +92,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>WRITING</h3>
-                                    <p>Khóa học sẽ tập trung vào tất cả các dạng bài Writing reports và essays, cách sử dụng các điểm từ ngữ để làm bài viết trở nên mượt mà hơn và xây dựng được vốn từ vựng theo từng chủ đề.</p>
+                                    <p><input type="text" name="skill_writing"></p>
                                 </div>
                             </div>
 
@@ -109,7 +104,8 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>LISTENING & READING</h3>
-                                    <p>Toàn bộ các dạng câu hỏi trong bài thi Listening và Reading đều được luyện tập theo các chủ đề với độ dài và độ khó như bài thi thật.</p>
+                                    <p><input type="text" name="skill_listening"></p>
+                                    <p><input type="text" name="skill_reading"></p>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +121,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>NGỮ PHÁP</h3>
-                                    <p>Bổ sung những điểm ngữ pháp nâng cao, xen kẽ các điểm ngữ pháp cần thiết giúp nâng cao điểm Writing và Speaking trên 6.5.</p>
+                                    <p><input type="text" name="grammar"></p>
                                 </div>
                             </div>
 
@@ -138,7 +134,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>TỪ VỰNG</h3>
-                                    <p>Phát triển vốn từ vựng với các chủ đề thường gặp xuyên suốt 32 bài học tại lớp. Cung cấp các từ vựng phổ biến bổ trợ luyện tập Speaking.</p>
+                                    <p><input type="text" name="vocabulary"></p>
                                 </div>
                             </div>
 
@@ -150,7 +146,7 @@ Into
                   </span>
                                 <div class="feature-copy">
                                     <h3>BÀI THI CUỐI KHÓA</h3>
-                                    <p>Theo hình thức bài thi IELTS hoàn chỉnh giúp học viên có cách nhìn tổng quan về 4 kỹ năng sau khi khóa học kết thúc.</p>
+                                    <p><input type="text" name="final_test"></p>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +172,8 @@ Into
             </div>
         </section>
         <!-- End #main -->
-
+        <button type="submit">SAVE</button>
+    </form>
     </main>
     <!-- End #main -->
 
