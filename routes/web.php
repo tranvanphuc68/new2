@@ -9,6 +9,7 @@ use App\Http\Controllers\MarkController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\DetailCourseController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportPostController;
@@ -177,6 +178,8 @@ Route::group(['middleware'=>'admin'], function(){
     Route::put('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'update']);
 });
 
+Route::get('/calendar/teacher', [CalendarController::class, 'index_teacher'])->middleware('teacher');
+Route::get('/calendar/student', [CalendarController::class, 'index_student'])->middleware('student');
 
 //----------------------------------------------------------------------- 
 //post

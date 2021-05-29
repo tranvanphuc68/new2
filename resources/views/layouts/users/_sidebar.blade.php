@@ -121,7 +121,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ url("/calendar/teacher") }}">
                             <i class="fa fa-table"></i> Lịch dạy </i>
                         </a>
                     </li>
@@ -161,7 +161,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ url("/calendar/student") }}">
                             <i class="fa fa-th-large"></i> Lịch học </i>
                         </a>
                     </li>
