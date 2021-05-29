@@ -123,6 +123,7 @@ class PostController extends Controller
             ->join('users', 'users.id', '=', 'posts.id_user')
             ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
             ->where('posts.title', 'LIKE', "%".$search."%")
+            ->latest()
             ->get();
         return view('posts.search',[
             'posts' => $posts,

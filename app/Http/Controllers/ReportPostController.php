@@ -88,8 +88,10 @@ public function create($post)
         {
             $search = $_GET['search'];
             $posts = DB::table('posts')
+            ->join('report_posts', 'report_posts.id_post', '=', 'posts.id')
             ->join('users', 'users.id', '=', 'posts.id_user')
-            ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
+            ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')->distinct()
+            ->orderBy('id')
             ->where('posts.title', 'LIKE', "%".$search."%")
             ->get();
         return view('report_posts.search',[
