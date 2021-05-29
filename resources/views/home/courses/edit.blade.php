@@ -1,3 +1,79 @@
+@extends('layouts.users.app')
+
+@section('title')
+Into
+@endsection
+
+@section('content')
+<article class="content forms-page">
+    <div class="card col-md-12" style="padding: 0px;">
+        <h1 class="text-IBM">Tạo khóa học</h1>
+    </div>
+    <div class="row sameheight-container">
+        <div class="col-md-12">
+            <div class="card card-block sameheight-item">
+            <form action="{{ url("/review_course/$review_course->id") }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label for="name">Tên khóa học</label>
+                        <input type="text" name="course_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Ảnh mô tả</label>
+                        <img src="{{ asset("/uploads/courses/$review_course->image") }}" class="img-fluid">
+                        <input type="file" name="image">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Mục tiêu khóa học</label>
+                        <input type="text" name="target">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Đối tượng</label>
+                        <input type="text" name="student">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">SPEAKING</label>
+                        <input type="text" name="skill_speaking">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">WRITING</label>
+                        <input type="text" name="skill_writing">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">LISTENING</label>
+                        <input type="text" name="skill_listening">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">READING</label>
+                        <input type="text" name="skill_reading">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">NGỮ PHÁP</label>
+                        <input type="text" name="grammar">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">TỪ VỰNG</label>
+                        <input type="text" name="vocabulary">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">BÀI THI CUỐI KHÓA</label>
+                        <input type="text" name="final_test">
+                    </div>
+                    <div style="text-align: right;">
+                        <button type="submit" class="btn btn-primary" >Lưu thông tin</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</article>
+@endsection
+
+
+
+
+
 @extends('layouts.customers.courses.app')
 
 @section('title')
