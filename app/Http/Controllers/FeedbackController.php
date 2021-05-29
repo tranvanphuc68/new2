@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Feedback;
 use Illuminate\Http\Request;
+use App\Http\Requests\FeedbackRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -90,7 +91,7 @@ class FeedbackController extends Controller
            
     }
 
-    public function update(Request $request, $id_course)
+    public function update(FeedbackRequest $request, $id_course)
     {
         $id = Auth::user()->id;
         $feedback = Feedback::where('id_student', '=', "$id")
