@@ -1,7 +1,7 @@
 @extends('layouts.forum.app')
 
 @section('title')
-    Forum of INTO
+    Search
 @endsection
 
 @section('content')
@@ -17,14 +17,14 @@
             <form action="{{ url("/post/search") }}" method="GET" role="search">
 
                 <div class="input-group">
-                    <span class="input-group-btn">
+                     <span class="input-group-btn">
                             <button class="btn btn-danger" type="button" title="Refresh page">
                                 <span class="fas fa-sync-alt">Refresh</span>
                             </button>
                         </span>
                     <input type="text" class="form-control mr-2" name="search" placeholder="Search posts" id="search">
                     <a href="{{ url("/posts") }}" class=" mt-1">
-                    <span class="input-group-btn mr-5 mt-1">
+                       <span class="input-group-btn mr-5 mt-1">
                         <button class="btn btn-info" type="submit" title="Search posts">
                             <span class="fas fa-search">Search</span>
                         </button>
@@ -32,13 +32,6 @@
                     </a>
                 </div>
             </form>
-        </div>
-    </div>
-</div>
-<div class="mb-2 container">
-    <div class="d-flex justify-content-center row">
-        <div class="col-md-8">
-            <h2 style="color:hsl(276, 98%, 48%); text-transform: uppercase; text-align: center;">number of posts ({{ $countPost }})</h2>
         </div>
     </div>
 </div>
@@ -69,12 +62,6 @@
     </div>
 </div>
 @endforeach
-
-<div class="mb-2 container mt-5">
-    <div class="d-flex justify-content-center row">
-            {{ $posts->links() }}
-    </div>
-</div>
 
 </div>
 </div>

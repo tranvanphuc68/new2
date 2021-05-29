@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommentRequest;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller
 {
    //
-public function store(Request $request, $post)
+public function store(CommentRequest $request, $post)
 {   
     $data = Comment::create([
         'id_post' => $post,
@@ -39,7 +40,7 @@ public function self_edit(Comment $comment)
     }
 }
 
-public function update(Request $request, Comment $comment)
+public function update(CommentRequest $request, Comment $comment)
 {
     $comment->update([
         'content' => $request->content

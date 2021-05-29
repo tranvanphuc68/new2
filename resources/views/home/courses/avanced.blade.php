@@ -7,7 +7,7 @@ Into
 @section('content')
 <main id="main">
         <!-- ======= About Us Section ======= -->
-        <!-- <section id="about-course" class="about-course" data-aos="fade-up" date-aos-delay="200">
+        <section id="about-course" class="about-course" data-aos="fade-up" date-aos-delay="200">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 d-flex flex-column justify-content-center">
@@ -34,7 +34,7 @@ Into
                     </div>
                 </div>
             </div>
-        </section> -->
+        </section>
         <!-- End Why Us Section -->
 
         <!-- ======= Features Section ======= -->

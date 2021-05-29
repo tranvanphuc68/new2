@@ -70,6 +70,10 @@
                                                             <div class="form-group">
                                                               <label for="recipient-name" class="col-form-label">Content report:</label>
                                                               <textarea class="form-control ml-1 shadow-none textarea" name="content" placeholder="Content"></textarea>
+                                                              @error('content')
+                                                              <div>{{ $message }}</div>
+                                                          @enderror
+                                                        
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
@@ -132,6 +136,9 @@
                         <div class="d-flex flex-row align-items-start mt-4">
                             <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
                             <textarea class="form-control ml-1 shadow-none textarea" name="content"></textarea>
+                            @error('content')
+                            <div>{{ $message }}</div>
+                        @enderror
                         </div>
                         <div class="mt-2 text-right">
                             <button class="btn btn-primary btn-sm shadow-none" type="submit">Post comment</button>
@@ -169,6 +176,7 @@
                                             <i class="fa fa-pencil"></i>
                                             <span class="ml-1"></span>
                                         </a>
+                         
                                     </div>
 
                                     <!-- Delete comment-->
@@ -178,6 +186,7 @@
                                                 <span class="ml-1"></span>
                                             </i>
                                         </a>
+                                        
 
                                         <form action='{{ url("/comments/{$comment->id}") }}' method="POST" id="comment-delete-{{ $comment->id }}">
                                             @method('DELETE')
