@@ -184,6 +184,7 @@ Route::get('/calendar/student', [CalendarController::class, 'index_student'])->m
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/create',[PostController::class, 'create'])->middleware('auth');
 Route::get('/posts/{post}',[PostController::class, 'show']);
+Route::get('/post/search', [PostController::class, 'search'])->name('search'); 
 
 Route::group(['middleware'=>'auth'], function(){
  //-> auth 
@@ -191,7 +192,6 @@ Route::post('/posts', [PostController::class, 'store']);//-> auth
 Route::get('/posts/{post}/self_edit', [PostController::class, 'self_edit']);//->auth + $user = Auth::user();
 Route::put('/posts/{post}', [PostController::class, 'update']);
 Route::delete('/posts/{post}', [PostController::class, 'destroy']);//->auth + $user = Auth::user();
-Route::get('/post/search', [PostController::class, 'search'])->name('search'); 
 });
 //comment
 Route::group(['middleware'=>'auth'], function(){ 
