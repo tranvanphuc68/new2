@@ -11,7 +11,7 @@ Into
     <h2 style="font-size: 30px;">Chinh phục IELTS 6.5+ với hệ thống giáo dục trực tuyến tại INTO</h2>
     <a href="#about" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
   </div>
-</section><!-- End Hero -->
+</section>  <!-- End Hero -->
 
 <main id="main">
 
@@ -23,7 +23,7 @@ Into
         <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
           <div class="content">
             <h3>VỀ CHÚNG TÔI</h3>
-            <img src="{{ asset('assets/img/about-us.jpg') }}" class="about-img" alt="">
+            <img src="{{ asset('assets/img/about-us.jpg') }}" class="about-img img-fluid" alt="">
             <p>
               INTO IELTS tập trung đào tạo IELTS với tôn chỉ phát triển về chất lượng thay vì số lượng. INTO tự hào mang đến những khóa học IELTS online hiệu quả với chất lượng giảng dạy hàng đầu.
             </p>

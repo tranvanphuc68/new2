@@ -26,7 +26,7 @@ Into
                                                         <th class="w5">ID</th>
                                                         <th class="w20">Tên Học Viên</th>
                                                         <th class="w10">Ngày Sinh</th>
-                                                        <th class="">Feedback</th>
+                                                        <th>Feedback</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach($students as $student)
@@ -34,7 +34,8 @@ Into
                                                         <td class="w5">{{ $student->id_student }}</td>
                                                         <td class="w20">{{ $student->first_name." ".$student->last_name }}</td>
                                                         <td class="w10">{{ $student->dob }}</td>
-                                                        <td class="">{{ $student->feedback }}</td>
+                                                        <td style="height: 50px;"><p class="over_flow">{{ $student->feedback }}</p> 
+                                                    </td>
                                                     </tr>
                                                 @endforeach
                                             </table>
