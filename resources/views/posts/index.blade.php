@@ -11,7 +11,7 @@
         <div class="mb-3">
             <div class="d-flex justify-content-center row">
                 <div class="col-md-8">
-                    <h2 style="color:hsl(276, 98%, 48%); text-transform: uppercase; text-align: center;">number of posts ({{ $countPost }})</h2>
+                    <h2 class="number_post">number of posts ({{ $countPost }})</h2>
                 </div>
             </div>
         </div>

@@ -23,9 +23,11 @@ public function index(Post $post)
     $posts = DB::table('posts')
     ->join('report_posts', 'report_posts.id_post', '=', 'posts.id')
     ->join('users', 'users.id', '=', 'posts.id_user')
-    ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')->distinct()
+    ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
+    ->distinct()
     ->orderBy('id')
-    ->paginate(10);
+    ->paginate(10)
+    ->withQueryString();
     $post = $posts[0];
     return view('report_posts.index', [
         'posts' => $posts,
@@ -47,7 +49,8 @@ public function show(Post $post)
         ->where('report_posts.id_post', '=',"$post->id")
         ->select('report_posts.*','users.first_name', 'users.last_name', 'users.avatar')
         ->latest()
-        ->paginate(10);
+        ->paginate(10)
+        ->withQueryString();
         $posts = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
         ->where('posts.id', '=', "$post->id")
@@ -93,7 +96,8 @@ public function create($post)
             ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')->distinct()
             ->orderBy('id')
             ->where('posts.title', 'LIKE', "%".$search."%")
-            ->get();
+            ->paginate(10)
+            ->withQueryString();
         return view('report_posts.search',[
             'posts' => $posts,
             'countPostHadBeenReported' => $countPostHadBeenReported

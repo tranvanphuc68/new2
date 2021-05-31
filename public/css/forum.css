@@ -564,11 +564,17 @@ css create post, edit
             resize: none;
         }
         /*-----------------------------------------------------------------------
-css index post
+css index post, search
 -------------------------------------------------------------------------*/
         
         body {
             background: #eee;
+        }
+        
+        .number_post {
+            color: hsl(276, 98%, 48%);
+            text-transform: uppercase;
+            text-align: center;
         }
         
         .fa-facebook {

@@ -63,6 +63,8 @@
             </tr>
         @endforeach
     </table>
+    
+    <!-- Pagination -->
     {{ $posts->links() }}
 </div>
 @endsection

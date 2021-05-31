@@ -18,7 +18,8 @@ class PostController extends Controller
         ->join('users', 'users.id', '=', 'posts.id_user')
         ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
         ->latest()
-        ->paginate(10);
+        ->paginate(10)
+        ->withQueryString();
         $countPost = DB::table('posts')
         ->count();
         $countPostHadBeenReported = DB::table('report_posts')
@@ -124,7 +125,8 @@ class PostController extends Controller
             ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
             ->where('posts.title', 'LIKE', "%".$search."%")
             ->latest()
-            ->get();
+            ->paginate(10)
+            ->withQueryString();
         return view('posts.search',[
             'posts' => $posts,
             'countPostHadBeenReported' => $countPostHadBeenReported

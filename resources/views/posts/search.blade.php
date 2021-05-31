@@ -57,6 +57,14 @@
             </div>
         </div>
         @endforeach
+
+        <!--Pagination post-->
+        <div class="mb-2 mt-5">
+            <div class="d-flex justify-content-center row">
+                    {{ $posts->links() }}
+            </div>
+        </div>
     </div>
 </div>
 @endsection
+
