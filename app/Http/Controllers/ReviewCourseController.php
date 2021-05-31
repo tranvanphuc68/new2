@@ -5,9 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\ReviewCourse;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ReviewCourseController extends Controller
-{
+{   
+    public function index() 
+    {
+        $review_course = ReviewCourse::all();
+        return view('home.courses.index', [
+            'review_course' => $review_course
+        ]);
+    }
     public function create()
     {
         return view('home.courses.create');
@@ -87,5 +96,11 @@ class ReviewCourseController extends Controller
         }
         else $id->update($request->input());
         return redirect("/review_course/$id->id");
+    }
+
+    public function destroy(ReviewCourse $id)
+    {
+        $id->delete();
+        return redirect('/review_course');
     }
 }

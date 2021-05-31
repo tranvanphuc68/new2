@@ -28,7 +28,7 @@ Into
                     @error('course_name')
                         <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
-                    <h2 style="text-align: center;">Chi tiết khóa học</h2>
+                    <h2 style="text-align: center; color: #67b0d1">Chi tiết khóa học</h2>
                     <div class="row">
                         <div class="col-md-4">
                             <label for="input">Đầu vào</label>
@@ -84,7 +84,7 @@ Into
                             @enderror
                         </div>
                     </div>
-                    <h2 style="text-align: center;">Nội dung khóa học</h1>
+                    <h2 style="text-align: center; color: #67b0d1">Nội dung khóa học</h2>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="name">SPEAKING</label>
