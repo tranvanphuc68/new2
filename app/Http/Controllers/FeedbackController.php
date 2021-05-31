@@ -44,6 +44,10 @@ class FeedbackController extends Controller
 
     public function show($id_course)
     {
+        $course = DB::table('courses')
+                ->where('id', '=', "$id_course")
+                ->select('courses.*')
+                ->get();
         $students = DB::table('students_courses')
         ->join('users','users.id','=','students_courses.id_student')
         ->join('courses','courses.id','=','students_courses.id_course')
@@ -55,7 +59,7 @@ class FeedbackController extends Controller
             $student->dob = Controller::formatDate($student->dob);
         }
         $id = Auth::user()->id;
-        $feedback = DB::table('students_courses')
+        $feedbacks = DB::table('students_courses')
         ->join('users','users.id','=','students_courses.id_student')
         ->join('courses','courses.id','=','students_courses.id_course')
         ->where('id_student',"$id")
@@ -64,7 +68,8 @@ class FeedbackController extends Controller
         ->get();
         
         return view('feedbacks.show', [
-            'feedback' => $feedback,
+            'course' => $course,
+            'feedbacks' => $feedbacks,
             'students' => $students,
             'id_course' => $id_course
         ]);
@@ -100,5 +105,39 @@ class FeedbackController extends Controller
             'feedback' => $request->feedback
         ]);
         return redirect("feedbacks/{$id_course}");
+    }
+
+    public function search()
+    {   
+        $courseName = $_GET['search'];
+        $id = Auth::user()->id;
+        if( Auth::user()->role == 'Admin' )
+        {   
+            $courses = DB::table('courses')
+            ->where('status','=','3')
+            ->select('courses.*')
+            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->paginate(5)->withQueryString();
+        } 
+        elseif( Auth::user()->role == 'Teacher' ){
+            $courses = DB::table('courses')
+            ->where('status','=','3')
+            ->where('id_teacher', '=', "$id")
+            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->select('courses.*')
+            ->paginate(5)->withQueryString();
+        }
+        else{ 
+            $courses = DB::table('students_courses')
+            ->join('users', 'users.id', '=', 'students_courses.id_student')
+            ->join('courses', 'courses.id', '=', 'students_courses.id_course')
+            ->where('id_student', '=', "$id")
+            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->select('students_courses.*', 'users.first_name', 'users.last_name', 'courses.name', 'courses.id', 'courses.status')
+            ->paginate(5)->withQueryString();
+        }
+        return view('feedbacks.index', [
+            'courses' => $courses,
+        ]);
     }
 }

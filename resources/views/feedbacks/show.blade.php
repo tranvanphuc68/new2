@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="feedback">
         <div class="card">
-            <h1 class="text-IBM">Feedback khóa học {{ $students[0]->name }}</h1>
+            <h1 class="text-IBM">Feedback khóa học {{ $course[0]->name }}</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -40,10 +40,10 @@ Into
                                             </table>
                                         </div>
                                     @else
-                                        <p>{{ $feedback[0]->feedback}}</p>
-                                        @if ($feedback[0]->status == 3)
+                                        <p>{{ $feedbacks[0]->feedback}}</p>
+                                        @if ($feedbacks[0]->status == 3)
                                             <p class="mt-3" style="text-align: right;">
-                                                <a href="{{ url("/feedbacks/edit/{$feedback[0]->id_course}") }}">
+                                                <a href="{{ url("/feedbacks/edit/{$id_course}") }}">
                                                     <i class="fa fa-pencil icon-edit"></i>
                                                 </a>
                                             </p>

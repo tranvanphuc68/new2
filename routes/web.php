@@ -111,6 +111,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/students_courses', [StudentCourseController::class, 'index']);
     Route::get('/students_courses/create/{id_course}',[StudentCourseController::class, 'create'])->middleware('admin');   
     Route::get('/students_courses/{id_course}',[StudentCourseController::class, 'show']);
+    Route::get('/search/students_courses',[StudentCourseController::class, 'search']);
 });
 
 Route::group(['middleware'=>'admin'], function(){
@@ -147,6 +148,7 @@ Route::group(['middleware'=>'admin'], function(){
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/marks', [MarkController::class, 'index']); 
     Route::get('/marks/{id_course}',[MarkController::class, 'show']); 
+    Route::get('/search/marks',[MarkController::class, 'search']);
 });
 
 Route::group(['middleware'=>'teacher'], function(){
@@ -160,6 +162,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/feedbacks/{id_course}',[FeedbackController::class, 'show']);
     Route::get('/feedbacks/edit/{id_course}', [FeedbackController::class, 'student_edit']);
     Route::put('/feedbacks/{id_course}', [FeedbackController::class, 'update']);
+    Route::get('/search/feedbacks',[FeedbackController::class, 'search']);
 });
 
 //--------------------------------------------------------------------------

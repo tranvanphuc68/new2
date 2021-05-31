@@ -8,7 +8,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="fee">
         <div class="card">
-            <h1 class="text-IBM">Khóa học {{ $students[0]->name }}</h1>
+            <h1 class="text-IBM">Khóa học {{ $course[0]->name }}</h1>
         </div>
         <section class="section">
             <div class="row">

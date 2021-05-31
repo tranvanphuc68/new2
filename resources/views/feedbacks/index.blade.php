@@ -17,10 +17,10 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">  
-                                <form role="search" style="float: right">
+                                <form action="{{ url('/search/feedbacks') }}" method="GET" style="float: right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
-                                        <input type="search" placeholder="Search">
+                                        <input type="text" name="search" placeholder="Search" value="{{ old('search') }}">
                                         <div class="underline"></div>
                                     </div>
                                 </form>

@@ -12,26 +12,22 @@ class StudentCourseController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
-        $courses = DB::table('courses')
-        ->where('status','=','1')
-        ->orWhere('status','=','2')
-        ->orWhere('status','=','3')
-        ->select('courses.*')
-        ->get();
-        $student_courses = DB::table('students_courses')
-        ->join('users','users.id','=','students_courses.id_student')
-        ->join('courses','courses.id','=','students_courses.id_course')
-        ->where('id_student','=',"$id")
-        ->select('students_courses.*','users.first_name', 'users.last_name','courses.name', 'courses.status')
-        ->orderBy('last_name')
-        ->get();
-        $teachers = DB::table('courses')
-        ->where('id_teacher','=',"$id")
-        ->select('courses.id','courses.name', 'courses.status')
-        ->get();
+        if (Auth::user()->role == 'Admin') {
+            $courses = DB::table('courses')
+            ->select('courses.*')
+            ->get();
+        }
+        else if (Auth::user()->role == 'Teacher') {
+            $courses = DB::table('courses')
+            ->where('id_teacher','=',"$id")
+            ->select('courses.*')
+            ->get();
+        }
+        else 
+        {
+            abort (401);
+        }
         return view('students_courses.index', [
-            'teachers' => $teachers,
-            'student_courses' => $student_courses,
             'courses' => $courses
         ]);
     }
@@ -107,5 +103,28 @@ class StudentCourseController extends Controller
         ->where('id_student', '=', "$id_student")
         ->delete();
         return redirect("students_courses/{$id_course}");
+    }
+
+    public function search()
+    {   
+        $courseName = $_GET['search'];
+        $id = Auth::user()->id;
+        if( Auth::user()->role == 'Admin' )
+        {   
+            $courses = DB::table('courses')
+            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->select('courses.*')
+            ->paginate(5)->withQueryString();
+        } 
+        elseif ( Auth::user()->role == 'Teacher' ){
+            $courses = DB::table('courses')
+            ->where('id_teacher', "$id")
+            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->select('courses.*')
+            ->paginate(5)->withQueryString();
+        }
+        return view('students_courses.index', [
+            'courses' => $courses,
+        ]);
     }
 }

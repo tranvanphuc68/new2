@@ -112,4 +112,6 @@ class SalaryController extends Controller
         }
         return redirect("/salaries/{$teachers[0]->id_teacher}");
     }
+
+    
 }
