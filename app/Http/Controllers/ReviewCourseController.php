@@ -48,7 +48,7 @@ class ReviewCourseController extends Controller
             'final_test' => $request->input('final_test'),
             'image' => $name
         ]);
-        return redirect('home');
+        return redirect('/review_course');
     }
 
     public function show(ReviewCourse $id)

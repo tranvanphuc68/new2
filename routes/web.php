@@ -44,13 +44,16 @@ Route::get('/about', function () {
 
 Route::get('/home', [HomeController::class, 'index']);
 
-Route::get('/review_course', [ReviewCourseController::class, 'index'])->middleware('admin'); 
-Route::get('/review_course/create', [ReviewCourseController::class, 'create']);
-Route::post('/review_course', [ReviewCourseController::class, 'store']);
+Route::group(['middleware'=>'admin'], function(){
+    Route::get('/review_course', [ReviewCourseController::class, 'index']); 
+    Route::get('/review_course/create', [ReviewCourseController::class, 'create']);
+    Route::post('/review_course', [ReviewCourseController::class, 'store']);
+    Route::get('/review_course/edit/{id}', [ReviewCourseController::class, 'edit']);
+    Route::put('/review_course/{id}', [ReviewCourseController::class, 'update']);
+    Route::delete('/review_course/{id}', [ReviewCourseController::class, 'destroy']);
+});
 Route::get('/review_course/{id}', [ReviewCourseController::class, 'show']);
-Route::get('/review_course/edit/{id}', [ReviewCourseController::class, 'edit']);
-Route::put('/review_course/{id}', [ReviewCourseController::class, 'update']);
-Route::delete('/review_course/{id}', [ReviewCourseController::class, 'destroy']);
+
 //-----------------------------------------------------------------------------------
 
 Route::get('/login', [AuthController::class, 'index']);

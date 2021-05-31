@@ -21,8 +21,8 @@ class CreateReviewCourse extends Migration
             $table->float('output');
             $table->float('time');
             $table->float('duration');
-            $table->float('tuition');
-            $table->string('target');
+            $table->float('tuition', $total = 11);
+            $table->text('target');
             $table->string('student');
 
             $table->string('skill_speaking');
