@@ -33,8 +33,7 @@ class DetailCourseController extends Controller
             'id_course' => $id_course,
             'number' => $request->number,
             'date' => $request->date,
-            'content' => $request->content,
-            'status' => 0
+            'content' => $request->content
         ]);
         return redirect("courses/{$request->id_course}");
     }
