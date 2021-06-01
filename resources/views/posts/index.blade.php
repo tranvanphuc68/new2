@@ -1,3 +1,4 @@
+
 @extends('layouts.forum.app')
 
 @section('title')
@@ -5,74 +6,49 @@
 @endsection
 
 @section('content')
-<div class="content">
+<main id="tt-pageContent" class="tt-offset-small">
     <div class="container">
-        <!-- Number of posts -->
-        <div class="mb-3">
-            <div class="d-flex justify-content-center row">
-                <div class="col-md-8">
-                    <h2 class="number_post">number of posts ({{ $countPost }})</h2>
+        <div class="tt-topic-list">
+            <div class="tt-list-header">
+                <div class="tt-col-topic">Topic</div>
+                <div class="tt-col-category">Hashtag</div>
+                <div class="tt-col-value hide-mobile">Likes</div>
+                <div class="tt-col-value hide-mobile">Replies</div>
+                <div class="tt-col-value hide-mobile">Day</div>
+                <div class="tt-col-value">Time</div>
+            </div>
+            <div class="tt-topic-alert tt-alert-default" role="alert">
+              <a href="#" target="_blank">4 new posts</a> are added recently, click here to load them.
+            </div>
+            @foreach ($posts as $post)
+            <div class="tt-item">
+                <div class="tt-col-avatar">
+                    <img class="rounded-circle img" width="60" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                 </div>
-            </div>
-        </div>
-
-        <!-- Search post -->
-        <div class="mb-5">
-            <div class="mx-auto d-flex justify-content-center row">
-                <form action="{{ url("/post/search") }}" method="GET" role="search">
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <button class="btn btn-danger mr-3" type="reset" title="Refresh page">
-                                <span class="fa fa-refresh"> Refresh </span>
-                            </button>
-                        </span>
-                        <input type="text" class="form-control mr-3" name="search" placeholder="Search by post title" id="search">
-                        <a href="{{ url("/posts") }}">
-                            <span class="input-group-btn">
-                                <button class="btn btn-info" type="submit" title="Search posts">
-                                    <span class="fa fa-search"> Search </span>
-                                </button>
-                            </span>
-                        </a>
-                    </div>
-                </form>
-            </div>
-        </div>
-        
-        <!-- posts -->
-        @foreach ($posts as $post)
-        <div class="mb-2">
-            <div class="d-flex justify-content-center row">
-                <div class="col-md-8">
-                    <div class="d-flex flex-column comment-section" id="myGroup">
-                        <a href="{{ url("/posts/$post->id") }}">
-                            <div style="background-color: rgb(207, 213, 241); border: 2px solid rgb(160, 158, 241); border-radius: 10px;" class="p-3">
-                                <div class="d-flex flex-row user-info mb-1">
-                                    <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
-                                    <div class="d-flex flex-column justify-content-start ml-3">
-                                        <span class="d-block font-weight-bold name" style="color: #08168dd5; ">{{ $post->first_name." ".$post->last_name }}</span>
-                                        <span class="date" style="color: hsl(202, 73%, 51%); ">{{ $post->created_at }}</span>
-                                    </div>
-                                </div>
-                                <div class="mt-4">
-                                    <div>
-                                        <h5 style="color: #0e0e3de5; " class="ml-4 mr-1">{{ $post->title }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                <div class="tt-col-description">
+                    <h6 class="tt-title"><a href="{{ url("/posts/$post->id") }}">
+                        {{ $post->first_name." ".$post->last_name }}
+                    </a></h6>
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-12">
+                            {{ $post->title }}
+                        </div>
+                        <div class="col-1 ml-auto show-mobile">
+                            <div class="tt-value" style="font-size: 10px">{{ date('d M Y', strtotime($post->created_at))  }}</div>
+                        </div>
                     </div>
                 </div>
+                <div class="tt-col-category"><span class="tt-color01 tt-badge">politics</span></div>
+                <div class="tt-col-value hide-mobile">985</div>
+                <div class="tt-col-value tt-color-select hide-mobile">502</div>
+                <div class="tt-col-value hide-mobile" style="font-size: 14px">{{ date('d M Y', strtotime($post->created_at))  }}</div>
+                <div class="tt-col-value hide-mobile" style="font-size: 14px"> {{ date('h', strtotime($post->created_at))}} :  {{ date('m', strtotime($post->created_at))}}</div>
             </div>
+            @endforeach
         </div>
-        @endforeach
-
-        <!--Pagination post-->
-        <div class="mb-2 mt-5">
-            <div class="d-flex justify-content-center row">
-                    {{ $posts->links() }}
-            </div>
-        </div>
+            
+            
     </div>
-</div>
+</main>
+
 @endsection
