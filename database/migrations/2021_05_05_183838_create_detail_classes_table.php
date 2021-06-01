@@ -18,7 +18,7 @@ class CreateDetailClassesTable extends Migration
             $table->integer('number');
             $table->string('content');
             $table->date('date');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->nullable();
             $table->timestamps();
 
             $table->foreign('id_course')->references('id')->on('courses')->onDelete('cascade');

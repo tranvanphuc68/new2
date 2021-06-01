@@ -86,8 +86,19 @@ Into
                         <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
                     <div class="form-group">
-                        <label for="status">Tình trạng</label>
-                        <input type="text" name="status" id="status" class="form-control" placeholder="Status" aria-describedby="helpId" value="{{ $course->status }}">
+                        <label>Tình trạng</label>
+                        <div>   
+                            <input type="radio" name="status" id="status0" value="1" <?php if($course->status == 1) echo "checked" ?>>
+                            <label for="status1">Chưa học</label>
+                        </div>
+                        <div>                           
+                            <input type="radio" name="status" id="status1" value="2" <?php if($course->status == 2) echo "checked" ?>>
+                            <label for="status2">Đang học</label>
+                        </div>
+                        <div> 
+                            <input type="radio" name="status" id="status2" value="3" <?php if($course->status == 3) echo "checked" ?>>
+                            <label for="status3">Hoàn thành</label>
+                        </div>
                     </div>
                     @error('status')
                         <div class="form-text text-danger">{{ $message }}</div>

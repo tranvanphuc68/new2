@@ -17,8 +17,8 @@ Into
                     @csrf
                     <div class="form-group">
                         <label for="name">Ảnh mô tả</label>
-                        <div class=""><img src="{{ asset("/uploads/courses/$review_course->image") }}" class="img-fluid"></div>
-                        <input type="file" name="image" >
+                        <div class=""><img src="{{ asset("/uploads/courses/$review_course->image") }}" class="img-fluid" width=40% id='img'></div>
+                        <input type="file" name="image" value="{{ $review_course->image }}">
                     </div>
                     @error('image')
                         <div class="form-text text-danger">{{ $message }}</div>
@@ -150,6 +150,23 @@ Into
         </div>
     </div>
 </article>
+<script>
+    const input = document.querySelector('input[type="file"]')
+
+    function handleFiles (files) {
+      console.log(files)
+      const reader = new FileReader()
+      reader.onload = function () {
+        const img = document.querySelector('#img')
+        img.src = reader.result
+      }
+      reader.readAsDataURL(files[0])
+    }
+
+    input.addEventListener('change', function (e) {
+      handleFiles(input.files)
+    })
+</script>
 @endsection
 
 

@@ -30,7 +30,7 @@ class UserController extends Controller
             ]);
         }
         //full information
-        $teachers = User::where('role', 'teacher')->orderBy('last_name')
+        $teachers = User::where('role', 'teacher')->orderBy('created_at', 'desc')
         ->paginate(5)->withQueryString();
         foreach($teachers as $teacher)
         {
@@ -60,7 +60,7 @@ class UserController extends Controller
             ]);
         }
         //full information
-        $students = User::where('role', 'student')->orderBy('last_name')
+        $students = User::where('role', 'student')->orderBy('created_at', 'desc')
         ->paginate(10)->withQueryString();
         foreach($students as $student)
         {

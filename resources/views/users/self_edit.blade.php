@@ -15,7 +15,7 @@ Into
                 <form action="{{url("/users/update_avt/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <img style="border-radius: 7px;" class="mb-3" width="20%" src="{{ asset("/uploads/avatars/$user->avatar") }}">
+                    <img style="border-radius: 7px;" class="mb-3" id="img" width="20%" src="{{ asset("/uploads/avatars/$user->avatar") }}">
                     <div class="row">
                         <div class="col-md-6">
                             <input type="file" name="avatar">
@@ -110,18 +110,21 @@ Into
         </div>
     </div>
 </article>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-	<!-- Popper JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script>
+    const input = document.querySelector('input[type="file"]')
 
-// if ( window.history.replaceState ) {
-//   window.history.replaceState( null, null, window.location.href );
-// }
- 
+    function handleFiles (files) {
+      console.log(files)
+      const reader = new FileReader()
+      reader.onload = function () {
+        const img = document.querySelector('#img')
+        img.src = reader.result
+      }
+      reader.readAsDataURL(files[0])
+    }
+
+    input.addEventListener('change', function (e) {
+      handleFiles(input.files)
+    })
 </script>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ReviewCourse;
+use App\Http\Requests\ReviewCourseRequest;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth;
@@ -22,8 +23,11 @@ class ReviewCourseController extends Controller
         return view('home.courses.create');
     }
 
-    public function store(Request $request)
+    public function store(ReviewCourseRequest $request)
     {   
+        $validate = $request->validate([
+            'image' => 'required'
+        ]);
         if($request->hasFile('image'))
         {
             $file = $request->file('image');
@@ -67,7 +71,7 @@ class ReviewCourseController extends Controller
         ]);
     }
 
-    public function update(Request $request, ReviewCourse $id)
+    public function update(ReviewCourseRequest $request, ReviewCourse $id)
     {
         if($request->hasFile('image'))
         {

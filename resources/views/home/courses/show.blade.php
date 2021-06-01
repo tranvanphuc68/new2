@@ -24,7 +24,7 @@ Into
                             <ul class="m-3">
                                 <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời gian: {{ $review_course->time }} h/buổi </li>
                                 <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời lượng: {{ $review_course->duration }} giờ</li>
-                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Học phí: {{ $review_course->tuition }} VNĐ</li>
+                                <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Học phí: {{ number_format($review_course->tuition) }} VNĐ</li>
                             </ul>
                             <h4>Mục tiêu khóa học</h4>
                             <p>
