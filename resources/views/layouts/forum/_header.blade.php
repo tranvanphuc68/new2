@@ -29,7 +29,7 @@
     <link href="{{ asset('vendor/venobox/venobox.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('css/forum.css') }}" >
+    {{-- <link rel="stylesheet" href="{{ asset('css/forum.css') }}" > --}}
     <link rel="stylesheet" href="{{ asset('css/style_test.css') }}" >
 </head>
 <body>
@@ -38,7 +38,7 @@
     <ul>
 
     </ul>
-    <div class="mm-navbtn-names">
+    {{-- <div class="mm-navbtn-names">
         <div class="mm-closebtn">
             Close
             <div class="tt-icon">
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="mm-backbtn">Back</div>
-    </div>
+    </div> --}}
 </nav>
 <header id="tt-header" class="bg-info">
     <div class="container">
@@ -72,13 +72,13 @@
                             <!-- Home -->
                             <li>
                                 <a href="{{ url('/home') }}">
-                                  <i class="fa fa-home"><span> Home </span></i>
+                                  <i class="fa fa-home"><span>Home</span></i>
                                 </a>
                             </li>
                             @if (Auth::check())
                                 <li>
                                   <a href="{{ url('/') }}"> 
-                                    <i class="fa fa-dashboard" style="font-size:13px">
+                                    <i class="fa fa-dashboard">
                                       @if (Auth::user()->role == "Admin") <span> Admin </span> @endif 
                                       @if (Auth::user()->role == "Teacher") <span> Teacher </span> @endif 
                                       @if (Auth::user()->role == "Student") <span> Student </span> @endif 
@@ -87,23 +87,22 @@
                                 </li>
                                 <!-- New post -->
                                 <li>
-                                    <a href="{{ url('/posts/create') }}"> <i class="fa fa-plus" style="font-size:13px"> <span>New post</span> </i> </a>
+                                    <a href="{{ url('/posts/create') }}"> <i class="fa fa-plus"> <span>New post</span> </i> </a>
                                 </li>
                                 <!-- Manage reportes posts -->
                                 @if (Auth::user()->role == "Admin")
                                     <li>
                                         <a href="{{ url('/report_posts') }}">
-                                            <i class="fa fa-bell-o" style="text-transform: uppercase;"> <span>Reported posts</span></i>
+                                            <i class="fa fa-bell-o"> <span>Reported posts</span></i>
                                             <sup>
-                                            <span class="counter">{{ $countPostHadBeenReported }}</span>
-                                        </sup>
+                                                <span class="counter">{{ $countPostHadBeenReported }}</span>
+                                            </sup>
                                         </a>
                                     </li>
                                 @endif
                             @endif
 
                             <li>
-                                <a href="page-single-user.html"><span>Pages</span></a>
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="page-single-topic.html">Single Topic</a></li>
@@ -216,8 +215,25 @@
             </div>
             <div class="col-auto ml-auto">
                 <div class="tt-account-btn">
-                    <a href="page-login.html" class="btn btn-primary">Log in</a>
-                    <a href="page-signup.html" class="btn btn-secondary">Sign up</a>
+                    <!-- User=>profile + logout -->
+                        @if (Auth::check())
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle img" width="18px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                            <span> {{ Auth::user()->first_name." ".Auth::user()->last_name }} </span>
+                        </a>
+                        <div class="dropdown-menu profile-dropdown-menu bg-info" aria-labelledby="dropdownMenu1">
+                            <a class="dropdown-item" href="{{ url("/users/self_show") }} "> 
+                                <i class="fa fa-user icon"></i> Profile </a>
+                            <a class="dropdown-item" href="{{url('/logout')}}">
+                                <i class="fa fa-power-off icon"></i> Logout </a>
+                        </div>
+                        @endif
+
+                        @if (!Auth::check())
+                        <!-- Login -->
+                        <a href="{{ url('/login') }}"> <span  style="color: #fff">Login</span> </a>
+                        @endif
+                    
                 </div>
             </div>
         </div>

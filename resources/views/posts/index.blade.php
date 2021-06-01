@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-<main id="tt-pageContent" class="tt-offset-small">
+<main id="tt-pageContent" class="tt-offset-small content">
     <div class="container">
         <div class="tt-topic-list">
             <div class="tt-list-header">
