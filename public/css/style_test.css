@@ -6177,16 +6177,17 @@ hr {
 }
 
 .tt-desktop-menu nav>ul>li>a {
-    font-size: 16px;
+    font-size: 13px;
     line-height: 30px;
-    color: #182730;
+    color: #ffffff;
+    text-transform: uppercase;
     font-weight: 500;
     padding: 0 15px;
     display: inline-block;
     text-decoration: none;
     letter-spacing: .01em;
     -webkit-transition: .2s linear;
-    transition: .2s linear
+    transition: .2s linear;
 }
 
 .tt-desktop-menu nav>ul>li>a span {
