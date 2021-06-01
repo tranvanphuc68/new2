@@ -182,28 +182,40 @@
                     </form>
                 </div>
                 <!-- /tt-search -->
+
+                <!-- User=>profile + logout -->
+                <div class="tt-desktop-menu">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a>
+                                    <img class="rounded-circle img" width="18px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                                    <span> {{ Auth::user()->first_name." ".Auth::user()->last_name }} </span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url("/users/self_show") }} "> 
+                                            <i class="fa fa-user icon"></i> Profile 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{url('/logout')}}">
+                                            <i class="fa fa-power-off icon"></i> Logout 
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
+
             <div class="col-auto ml-auto">
                 <div class="tt-account-btn">
-                    <!-- User=>profile + logout -->
-                        @if (Auth::check())
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle img" width="18px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                            <span> {{ Auth::user()->first_name." ".Auth::user()->last_name }} </span>
-                        </a>
-                        <div class="dropdown-menu profile-dropdown-menu bg-info" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="{{ url("/users/self_show") }} "> 
-                                <i class="fa fa-user icon"></i> Profile </a>
-                            <a class="dropdown-item" href="{{url('/logout')}}">
-                                <i class="fa fa-power-off icon"></i> Logout </a>
-                        </div>
-                        @endif
-
                         @if (!Auth::check())
                         <!-- Login -->
                         <a href="{{ url('/login') }}"> <span  style="color: #fff">Login</span> </a>
                         @endif
-                    
                 </div>
             </div>
         </div>
