@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
+use App\Http\Requests\ReportPostRequest;
 use App\Models\ReportPost;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -11,18 +13,26 @@ use Illuminate\Support\Facades\DB;
 class ReportPostController extends Controller
 {
     //
-public function index()
+public function index(Post $post)
 {
     $countPostHadBeenReported = DB::table('report_posts')
     ->count(DB::raw('DISTINCT id_post'));
+    $countReportPost = DB::table('report_posts')
+        ->where('report_posts.id_post', '=', "$post->id")
+        ->count();
     $posts = DB::table('posts')
     ->join('report_posts', 'report_posts.id_post', '=', 'posts.id')
     ->join('users', 'users.id', '=', 'posts.id_user')
-    ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')->distinct()
-    ->paginate(10);
+    ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
+    ->distinct()
+    ->orderBy('id')
+    ->paginate(10)
+    ->withQueryString();
+    $post = $posts[0];
     return view('report_posts.index', [
         'posts' => $posts,
-        'countPostHadBeenReported' => $countPostHadBeenReported
+        'countPostHadBeenReported' => $countPostHadBeenReported,
+        'countReportPost' => $countReportPost
     ]);
 }
 
@@ -39,7 +49,8 @@ public function show(Post $post)
         ->where('report_posts.id_post', '=',"$post->id")
         ->select('report_posts.*','users.first_name', 'users.last_name', 'users.avatar')
         ->latest()
-        ->paginate(10);
+        ->paginate(10)
+        ->withQueryString();
         $posts = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
         ->where('posts.id', '=', "$post->id")
@@ -55,7 +66,7 @@ public function show(Post $post)
     ]);
     }
 
-public function store(Request $request, $post)
+public function store(ReportPostRequest $request, $post)
 {
     $data = ReportPost::create([
         'id_post' => $post, 
@@ -71,5 +82,27 @@ public function create($post)
             'post' => $post
         ]);
     }
+
+    public function search(){
+        $countPostHadBeenReported = DB::table('report_posts')
+        ->count(DB::raw('DISTINCT id_post'));
+        // Get the search value from the request, ok 
+        if(isset($_GET['search']))
+        {
+            $search = $_GET['search'];
+            $posts = DB::table('posts')
+            ->join('report_posts', 'report_posts.id_post', '=', 'posts.id')
+            ->join('users', 'users.id', '=', 'posts.id_user')
+            ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')->distinct()
+            ->orderBy('id')
+            ->where('posts.title', 'LIKE', "%".$search."%")
+            ->paginate(10)
+            ->withQueryString();
+        return view('report_posts.search',[
+            'posts' => $posts,
+            'countPostHadBeenReported' => $countPostHadBeenReported
+        ]);
+        }
+}
 
 }

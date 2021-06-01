@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ReviewCourseController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentCourseController;
 use App\Http\Controllers\FeeController;
 use App\Http\Controllers\SalaryController;
@@ -9,6 +11,7 @@ use App\Http\Controllers\MarkController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\DetailCourseController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportPostController;
@@ -32,9 +35,6 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function () {
-    return view('home.index');
-});
 Route::get('/report', function () {
     return view('report.student');
 });
@@ -42,18 +42,17 @@ Route::get('/about', function () {
     return view('home.about');
 });
 
-Route::get('/review_course/foudation', function () {
-    return view('home.courses.foudation');
+Route::get('/home', [HomeController::class, 'index']);
+
+Route::group(['middleware'=>'admin'], function(){
+    Route::get('/review_course', [ReviewCourseController::class, 'index']); 
+    Route::get('/review_course/create', [ReviewCourseController::class, 'create']);
+    Route::post('/review_course', [ReviewCourseController::class, 'store']);
+    Route::get('/review_course/edit/{id}', [ReviewCourseController::class, 'edit']);
+    Route::put('/review_course/{id}', [ReviewCourseController::class, 'update']);
+    Route::delete('/review_course/{id}', [ReviewCourseController::class, 'destroy']);
 });
-Route::get('/review_course/pre', function () {
-    return view('home.courses.pre');
-});
-Route::get('/review_course/intermediate', function () {
-    return view('home.courses.intermediate');
-});
-Route::get('/review_course/avanced', function () {
-    return view('home.courses.avanced');
-});
+Route::get('/review_course/{id}', [ReviewCourseController::class, 'show']);
 
 //-----------------------------------------------------------------------------------
 
@@ -72,6 +71,7 @@ Route::group(['middleware'=>'admin'], function(){
     Route::put('/users/teacher/{user}', [UserController::class, 'update_teacher']);
     Route::delete('/users/teacher/{user}', [UserController::class, 'destroy_teacher']);
 });
+
     Route::get('/users/student', [UserController::class, 'index_student']);
 Route::group(['middleware'=>'admin'], function(){ 
     Route::get('/users/student/create',[UserController::class, 'create_student']);
@@ -93,6 +93,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/courses', [CourseController::class, 'index']);
     Route::get('/courses/create',[CourseController::class, 'create'])->middleware('admin');   
     Route::get('/courses/{course}',[CourseController::class, 'show']);
+    Route::get('/search/courses',[CourseController::class, 'search']);
 });
 
 Route::group(['middleware'=>'admin'], function(){
@@ -102,7 +103,7 @@ Route::group(['middleware'=>'admin'], function(){
     Route::delete('/courses/{course}', [CourseController::class, 'destroy']);
 });
 
-//Attendane
+//Attendance
 Route::group(['middleware'=>'teacher'], function(){
     Route::get('/attendance', [AttendanceController::class, 'index']);
     Route::get('/attendance/{id_course}-{number}',[AttendanceController::class, 'create']);
@@ -115,6 +116,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/students_courses', [StudentCourseController::class, 'index']);
     Route::get('/students_courses/create/{id_course}',[StudentCourseController::class, 'create'])->middleware('admin');   
     Route::get('/students_courses/{id_course}',[StudentCourseController::class, 'show']);
+    Route::get('/search/students_courses',[StudentCourseController::class, 'search']);
 });
 
 Route::group(['middleware'=>'admin'], function(){
@@ -151,6 +153,7 @@ Route::group(['middleware'=>'admin'], function(){
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/marks', [MarkController::class, 'index']); 
     Route::get('/marks/{id_course}',[MarkController::class, 'show']); 
+    Route::get('/search/marks',[MarkController::class, 'search']);
 });
 
 Route::group(['middleware'=>'teacher'], function(){
@@ -164,6 +167,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/feedbacks/{id_course}',[FeedbackController::class, 'show']);
     Route::get('/feedbacks/edit/{id_course}', [FeedbackController::class, 'student_edit']);
     Route::put('/feedbacks/{id_course}', [FeedbackController::class, 'update']);
+    Route::get('/search/feedbacks',[FeedbackController::class, 'search']);
 });
 
 //--------------------------------------------------------------------------
@@ -175,12 +179,15 @@ Route::group(['middleware'=>'admin'], function(){
     Route::put('/detail_course/{id_course}-{number}', [DetailCourseController::class, 'update']);
 });
 
+Route::get('/calendar/teacher', [CalendarController::class, 'index_teacher'])->middleware('teacher');
+Route::get('/calendar/student', [CalendarController::class, 'index_student'])->middleware('student');
 
 //----------------------------------------------------------------------- 
 //post
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/create',[PostController::class, 'create'])->middleware('auth');
 Route::get('/posts/{post}',[PostController::class, 'show']);
+Route::get('/post/search', [PostController::class, 'search'])->name('search'); 
 
 Route::group(['middleware'=>'auth'], function(){
  //-> auth 
@@ -204,4 +211,5 @@ Route::get('/report_posts/{post}/create',[ReportPostController::class, 'create']
 Route::get('/report_posts/{post}',[ReportPostController::class, 'show'])->middleware('admin');
 Route::post('/report_posts/{post}', [ReportPostController::class, 'store']); 
 Route::delete('/report_posts/{report_post}', [ReportPostController::class, 'destroy'])->middleware('admin');
+Route::get('/report_post/search', [ReportPostController::class, 'search'])->name('search')->middleware('admin'); 
 });

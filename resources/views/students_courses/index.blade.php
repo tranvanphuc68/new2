@@ -1,3 +1,4 @@
+
 @extends('layouts.users.app')
 
 @section('title')
@@ -16,11 +17,10 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <form method="GET" style="float:right">
-                                    <div  class="input-container">
-                                        <i class="fa fa-search"></i>                
-                                            <input type="text" name="search" placeholder="Search">
-                                            <button type="submit">Search</button>
+                                <form action="{{ url('/search/students_courses') }}" method="GET" style="float: right">
+                                    <div class="input-container">
+                                        <i class="fa fa-search"></i>
+                                        <input type="text" name="search" placeholder="Search" value="{{ old('search') }}">
                                         <div class="underline"></div>
                                     </div>
                                 </form>
@@ -28,7 +28,6 @@ Into
                             <section class="example">
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover">
-                                        @if (Auth::user()->role == 'Admin')
                                             <thead>
                                                 <tr class="table-primary">
                                                     <th class="w10">ID Khóa Học</th>
@@ -61,41 +60,6 @@ Into
                                                     </td>
                                                 </tr>
                                             @endforeach 
-                                        @endif
-                                        @if (Auth::user()->role == 'Teacher')                
-                                            <thead>
-                                                <tr class="table-primary">
-                                                    <th class="w10">ID Khóa Học</th>
-                                                    <th class="w40">Tên Khóa Học</th>
-                                                    <th class="w30">Trạng Thái</th>
-                                                    <th class="w20">Xem</th>
-                                                </tr>
-                                            </thead>
-                                            @foreach($teachers as $teacher)
-                                                <tr>
-                                                    <td class="w10">{{ $teacher->id }}</td>
-                                                    <td class="w40">{{ $teacher->name }}</td>
-                                                    <td class="w30">
-                                                        <?php switch ($teacher->status) {
-                                                                case '1':
-                                                                    echo 'Chưa Học';
-                                                                    break;
-                                                                case '2':
-                                                                    echo 'Đang Học';
-                                                                    break;
-                                                                case '3':
-                                                                    echo 'Đã Hoàn Thành';
-                                                                    break; 
-                                                        }?>
-                                                    </td>
-                                                    <td class="w20">
-                                                        <a href="{{ url("/students_courses/{$teacher->id}") }}">
-                                                            <i class="fa fa-eye icon-view"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        @endif
                                     </table>
                                 </div>
                             </section>

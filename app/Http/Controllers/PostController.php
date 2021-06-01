@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Builder;
 use App\Models\Comment;
 
 class PostController extends Controller
@@ -18,7 +18,8 @@ class PostController extends Controller
         ->join('users', 'users.id', '=', 'posts.id_user')
         ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
         ->latest()
-        ->paginate(10);
+        ->paginate(10)
+        ->withQueryString();
         $countPost = DB::table('posts')
         ->count();
         $countPostHadBeenReported = DB::table('report_posts')
@@ -72,18 +73,17 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $data = Post::create([
             'id_user' => Auth::user()->id,
             'content' => $request->content,
             'title' => $request->title
-
         ]);
         return redirect('/posts');
     }
 
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         $post->update([
             'content' => $request->content,
@@ -112,4 +112,27 @@ class PostController extends Controller
             abort (401);
         }
     }
+
+    public function search(){
+        $countPostHadBeenReported = DB::table('report_posts')
+        ->count(DB::raw('DISTINCT id_post'));
+        // Get the search value from the request, ok 
+        if(isset($_GET['search']))
+        {
+            $search = $_GET['search'];
+            $posts = DB::table('posts')
+            ->join('users', 'users.id', '=', 'posts.id_user')
+            ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
+            ->where('posts.title', 'LIKE', "%".$search."%")
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
+        return view('posts.search',[
+            'posts' => $posts,
+            'countPostHadBeenReported' => $countPostHadBeenReported
+        ]);
+        }
+}
+
+
 }

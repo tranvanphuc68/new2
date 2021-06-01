@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>@yield('title')</title>
+  <title>Into</title>
 
     <!-- Favicons -->
     <link href="{{ asset('assets/img/logo/INT.png') }}" rel="icon" >
@@ -62,9 +62,9 @@
             @endif
 
             <!-- Search -->
-            <li>
+            {{-- <li>
               <a href="#search"> <i class="fa fa-search" style="font-size:13px"> Search </i> </a>
-            </li>
+            </li> --}}
 
             @if (Auth::check())
               <!-- Manage reportes posts -->
@@ -145,7 +145,7 @@
                     <img class="rounded-circle img" width="18px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
                     <span> {{ Auth::user()->first_name." ".Auth::user()->last_name }} </span>
                 </a>
-                <div class="dropdown-menu profile-dropdown-menu bg-primary" aria-labelledby="dropdownMenu1">
+                <div class="dropdown-menu profile-dropdown-menu bg-info" aria-labelledby="dropdownMenu1">
                     <a class="dropdown-item" href="{{ url("/users/self_show") }} "> 
                         <i class="fa fa-user icon"></i> Profile </a>
                     <a class="dropdown-item" href="{{url('/logout')}}">

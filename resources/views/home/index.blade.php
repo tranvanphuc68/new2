@@ -11,7 +11,7 @@ Into
     <h2 style="font-size: 30px;">Chinh phục IELTS 6.5+ với hệ thống giáo dục trực tuyến tại INTO</h2>
     <a href="#about" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
   </div>
-</section><!-- End Hero -->
+</section>  <!-- End Hero -->
 
 <main id="main">
 
@@ -23,7 +23,7 @@ Into
         <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
           <div class="content">
             <h3>VỀ CHÚNG TÔI</h3>
-            <img src="{{ asset('assets/img/about-us.jpg') }}" class="about-img" alt="">
+            <img src="{{ asset('assets/img/about-us.jpg') }}" class="about-img img-fluid" alt="">
             <p>
               INTO IELTS tập trung đào tạo IELTS với tôn chỉ phát triển về chất lượng thay vì số lượng. INTO tự hào mang đến những khóa học IELTS online hiệu quả với chất lượng giảng dạy hàng đầu.
             </p>
@@ -73,50 +73,20 @@ Into
         </div>
         <div class="col-md-12">
           <div class="featured-carousel owl-carousel">
-            <div class="item card" data-aos="fade-up" data-aos-delay="100">
-              <div class="work">
-                <img src="{{ asset('assets/img/courses/course9.jpg') }}" alt="">
-                <div class="card-body" style=" display: flex; flex-direction: column;align-items: center; justify-content: space-between;">
-                  <h5 class="card-title" style="font-weight: bold;">KHÓA FOUNDATION </h5>
-                  <h6 class="card-subtitle mb-1 text-muted">Đầu vào: 3.0 </h6>
-                  <h6 class="card-subtitle mb-1 text-muted">Đầu ra: 4.0+</h6>
-                  <a href="{{url('/review_course/foudation')}}" class="btn btn-primary" style="background-color: #5AB9EA">Xem chi tiết</a>
+            @foreach ($review_course as $item)
+                <div class="item card" data-aos="fade-up" data-aos-delay="100">
+                  <div class="work">
+                  <img  style="height: 250px" src="{{ asset("/uploads/courses/$item->image") }}">
+                    <div class="card-body" style=" display: flex; flex-direction: column;align-items: center; justify-content: space-between;">
+                      <h5 class="card-title" style="font-weight: bold;">{{ $item->course_name }} </h5>
+                      <h6 class="card-subtitle mb-1 text-muted">Đầu vào: {{ $item->input }} </h6>
+                      <h6 class="card-subtitle mb-1 text-muted">Đầu ra: {{ $item->output }}+</h6>
+                      <a href="{{ url("/review_course/$item->id") }}" class="btn btn-primary" style="background-color: #5AB9EA">Xem chi tiết</a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="item card" data-aos="fade-up" data-aos-delay="100">
-              <div class="work">
-                <img src="{{ asset('assets/img/courses/course9.jpg') }}" alt="">
-                <div class="card-body" style=" display: flex; flex-direction: column;align-items: center; justify-content: space-between;">
-                  <h5 class="card-title" style="font-weight: bold;">KHÓA PRE </h5>
-                  <h6 class="card-subtitle mb-1 text-muted">Đầu vào: 4.0 </h6>
-                  <h6 class="card-subtitle mb-1 text-muted">Đầu ra: 5.5+</h6>
-                  <a href="{{url('/review_course/pre')}}" class="btn btn-primary" style="background-color: #5AB9EA">Xem chi tiết</a>
-                </div>
-              </div>
-            </div>
-            <div class="item card" data-aos="fade-up" data-aos-delay="100">
-              <div class="work">
-                <img src="{{ asset('assets/img/courses/course9.jpg') }}" alt="">
-                <div class="card-body" style=" display: flex; flex-direction: column;align-items: center; justify-content: space-between;">
-                  <h5 class="card-title" style="font-weight: bold;">KHÓA INTERMEDIATE </h5>
-                  <h6 class="card-subtitle mb-1 text-muted">Đầu vào: 5.5 </h6>
-                  <h6 class="card-subtitle mb-1 text-muted">Đầu ra: 6.5+</h6>
-                  <a href="{{url('/review_course/intermediate')}}" class="btn btn-primary" style="background-color: #5AB9EA">Xem chi tiết</a>
-                </div>
-              </div>
-            </div>
-            <div class="item card" data-aos="fade-up" data-aos-delay="100">
-              <div class="work">
-                <img src="{{ asset('assets/img/courses/course9.jpg') }}" alt="">
-                <div class="card-body" style=" display: flex; flex-direction: column;align-items: center; justify-content: space-between;">
-                  <h5 class="card-title" style="font-weight: bold;">KHÓA AVANCED </h5>
-                  <h6 class="card-subtitle mb-1 text-muted">Đầu vào: 6.5 </h6>
-                  <h6 class="card-subtitle mb-1 text-muted">Đầu ra: 7.5+</h6>
-                  <a href="{{url('/review_course/avanced')}}" class="btn btn-primary" style="background-color: #5AB9EA">Xem chi tiết</a>
-                </div>
-              </div>
-            </div>
+            @endforeach
+            
           </div>
         </div>
       </div>

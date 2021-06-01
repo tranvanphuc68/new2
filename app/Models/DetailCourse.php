@@ -12,5 +12,4 @@ class DetailCourse extends Model
     protected $guarded = [];
 
     protected $table = 'detail_classes';
-
 }

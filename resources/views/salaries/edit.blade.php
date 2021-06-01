@@ -37,7 +37,7 @@ Into
                                                     <td class="w30">{{ $teacher->name }}</td>
                                                     <td class="w20">{{ $teacher->salary }}</td>
                                                     <td class="w20">
-                                                        <input type="radio" id="{{$teacher->id_teacher}}_0" name ="{{$teacher->id}}" value="0" <?php echo ($teacher->status_salary == 0) ? 'checked' : ''?>>
+                                                        <input type="radio" id="{{$teacher->id_teacher}}_0" name ="{{$teacher->id}}" value="0" <?php echo ($teacher->status_salary == 0) ? 'checked' : 'disabled'?>>
                                                         <label for="{{$teacher->id_teacher}}_0"></label>
                                                     </td>
                                                     <td class="w20">

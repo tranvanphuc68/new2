@@ -7,7 +7,7 @@
 
   <meta content="" name="description">
   <meta content="" name="keywords">
-
+  <title>Into</title>
   <!-- Favicons -->
   <link href="{{ asset('assets/img/logo/INT.png') }}" rel="icon">
   <link href="{{ asset('assets/img/logo/INT.png') }}" rel="apple-touch-icon">

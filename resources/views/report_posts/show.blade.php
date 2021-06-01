@@ -12,23 +12,21 @@
             <div class="d-flex justify-content-center row">
                 <div style="width: 100%">
                     <div class="d-flex flex-column comment-section" >
-                        <div class="p-2">
-                        </div>
-                            <h2 style="color: steelblue">Số báo cáo {{ $countReportPost }}</h2>
-                            <table class="table table-striped table-hover"  style="border: 2px solid black; ">
-                                <thead class="bg-dark text-white">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Content report</th>
+                            <h3 class="title text-Noto">Số báo cáo {{ $countReportPost }}</h3>
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr class="bg-blue text-white">
+                                        <th class="left" style="width: 30%">Name</th>
+                                        <th class="left" style="width: 70%">Content report</th>
                                     </tr>
                                 </thead>
                                 @foreach ($report_posts as $report_post)
-                                    <tr>
-                                        <td>
-                                            <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$report_post->avatar") }}">
+                                    <tr class="bg-white">
+                                        <td class="left" style="width: 30%">
+                                            <img class="rounded-circle img" width="30" src="{{ asset("/uploads/avatars/$report_post->avatar") }}">
                                             {{ $report_post->first_name." ".$report_post->last_name }}
                                         </td>
-                                        <td>{{ $report_post->content }}</td>
+                                        <td class="left" style="width: 70%">{{ $report_post->content }}</td>
                                     </tr>
                                 @endforeach
                             </table>

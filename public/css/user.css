@@ -102,3 +102,13 @@ a {
     text-align: center;
     width: 60%;
 }
+
+.over_flow { 
+    width:100%;
+    white-space: pre-wrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}

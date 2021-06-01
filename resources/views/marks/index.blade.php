@@ -17,10 +17,10 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <form role="search" style="text-align: right">
+                                <form action="{{ url('/search/marks') }}" method="GET" style="text-align: right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
-                                        <input type="search" placeholder="Search">
+                                        <input type="text" name="search" placeholder="Search">
                                         <div class="underline"></div>
                                     </div>
                                 </form>
@@ -36,7 +36,7 @@ Into
                                                     <th class="w20" >Điểm</th>
                                                 </tr>
                                             </thead>
-                                            @foreach ($marks as $mark)
+                                            @foreach ($studentView as $mark)
                                                 <tr>
                                                     <td class="w20">{{ $mark->id_course}}</td>
                                                     <td class="w60">{{ $mark->name }}</td>
@@ -52,7 +52,7 @@ Into
                                                         <th class="w20" >Xem Điểm</th>
                                                     </tr>
                                                 </thead>
-                                                @foreach($courses as $course)
+                                                @foreach($adminView as $course)
                                                     <tr>
                                                         <td class="w20">{{ $course->id }}</td>
                                                         <td class="w60">{{ $course->name }}</td>
@@ -71,12 +71,12 @@ Into
                                                         <th class="w20">Điểm</th>
                                                     </tr>
                                                 </thead>
-                                                @foreach($teachers as $teacher)
+                                                @foreach($teacherView as $course)
                                                     <tr>
-                                                        <td class="w20">{{ $teacher->id }}</td>
-                                                        <td class="w60">{{ $teacher->name }}</td>
+                                                        <td class="w20">{{ $course->id }}</td>
+                                                        <td class="w60">{{ $course->name }}</td>
                                                         <td class="w20" >
-                                                            <a href="{{ url("/marks/{$teacher->id}") }}">
+                                                            <a href="{{ url("/marks/{$course->id}") }}">
                                                                 <i class="fa fa-eye icon-view"></i>
                                                             </a>
                                                         </td>
