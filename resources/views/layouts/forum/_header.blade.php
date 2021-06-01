@@ -9,6 +9,15 @@
     <!-- Favicons -->
     <link href="{{ asset('assets/img/logo/INT.png') }}" rel="icon" >
     <link href="{{ asset('assets/img/logo/INT.png') }}" rel="apple-touch-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,400;0,500;1,500&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&family=Noto+Serif+JP:wght@300;400;500&family=Pattaya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -63,26 +72,36 @@
                             <!-- Home -->
                             <li>
                                 <a href="{{ url('/home') }}">
-                                  <i class="fa fa-home"> Home </i>
+                                  <i class="fa fa-home"><span> Home </span></i>
                                 </a>
                             </li>
                             @if (Auth::check())
                                 <li>
                                   <a href="{{ url('/') }}"> 
                                     <i class="fa fa-dashboard" style="font-size:13px">
-                                      @if (Auth::user()->role == "Admin") Admin @endif 
-                                      @if (Auth::user()->role == "Teacher") Teacher @endif 
-                                      @if (Auth::user()->role == "Student") Student @endif 
+                                      @if (Auth::user()->role == "Admin") <span> Admin </span> @endif 
+                                      @if (Auth::user()->role == "Teacher") <span> Teacher </span> @endif 
+                                      @if (Auth::user()->role == "Student") <span> Student </span> @endif 
                                     </i> 
                                   </a>
                                 </li>
                                 <!-- New post -->
                                 <li>
-                                    <a href="{{ url('/posts/create') }}"> <i class="fa fa-plus" style="font-size:13px"> New Post </i> </a>
+                                    <a href="{{ url('/posts/create') }}"> <i class="fa fa-plus" style="font-size:13px"> <span>New post</span> </i> </a>
                                 </li>
+                                <!-- Manage reportes posts -->
+                                @if (Auth::user()->role == "Admin")
+                                    <li>
+                                        <a href="{{ url('/report_posts') }}">
+                                            <i class="fa fa-bell-o" style="text-transform: uppercase;"> <span>Reported posts</span></i>
+                                            <sup>
+                                            <span class="counter">{{ $countPostHadBeenReported }}</span>
+                                        </sup>
+                                        </a>
+                                    </li>
+                                @endif
                             @endif
 
-                            <li><a href="page-create-topic.html"><span>New</span></a></li>
                             <li>
                                 <a href="page-single-user.html"><span>Pages</span></a>
                                 <ul>
