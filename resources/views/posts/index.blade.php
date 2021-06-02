@@ -17,11 +17,11 @@
                 <div class="tt-col-value hide-mobile">Day</div>
                 <div class="tt-col-value">Time</div>
             </div>
-            
+
             @foreach ($posts as $post)
             <div class="tt-item">
                 <div class="tt-col-avatar">
-                    <img class="rounded-circle img" width="60" src="{{ asset("/uploads/avatars/$post->avatar") }}">
+                    <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                 </div>
                 <div class="tt-col-description">
                     <h6 class="tt-title">
@@ -42,7 +42,7 @@
                 <div class="tt-col-value hide-mobile">985</div>
                 <div class="tt-col-value tt-color-select hide-mobile">{{-- {{ $countComment }} --}}</div>
                 <div class="tt-col-value hide-mobile" style="font-size: 14px">{{ date('d M Y', strtotime($post->created_at))  }}</div>
-                <div class="tt-col-value hide-mobile" style="font-size: 14px"> {{ date('h', strtotime($post->created_at))}} :  {{ date('m', strtotime($post->created_at))}}</div>
+                <div class="tt-col-value hide-mobile" style="font-size: 14px"> {{ date('h : m', strtotime($post->created_at)) }}</div>
             </div>
             @endforeach
 

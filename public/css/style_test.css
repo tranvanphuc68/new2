@@ -6302,12 +6302,12 @@ hr {
     border: none;
     outline: 0;
     font-size: 16px;
-    color: #182730;
+    color: #000000;
     font-weight: 500;
     letter-spacing: .01em;
     padding: 3px 15px 5px 47px;
     width: 100%;
-    background-color: #e2e7ea;
+    background-color: #ffffff;
     border-radius: 3px;
     height: 39px
 }
@@ -6472,7 +6472,7 @@ hr {
 .tt-search-toggle .tt-icon {
     width: 18px;
     height: 18px;
-    fill: #666f74
+    fill: #ffffff
 }
 
 .tt-search-toggle:hover .tt-icon {
@@ -6520,7 +6520,7 @@ hr {
 .toggle-mobile-menu .tt-icon {
     width: 16px;
     height: 14px;
-    fill: #666f74;
+    fill: #ffffff;
     -webkit-transition: fill .2s linear;
     transition: fill .2s linear
 }

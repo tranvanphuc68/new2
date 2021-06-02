@@ -37,7 +37,7 @@
     <ul>
 
     </ul>
-    {{-- <div class="mm-navbtn-names">
+    <div class="mm-navbtn-names">
         <div class="mm-closebtn">
             Close
             <div class="tt-icon">
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="mm-backbtn">Back</div>
-    </div> --}}
+    </div>
 </nav>
 <header id="tt-header" class="bg-info">
     <div class="container">
@@ -55,7 +55,7 @@
             <div class="col-auto">
                 <!-- toggle mobile menu -->
                 <a class="toggle-mobile-menu" href="#">
-                    <svg class="tt-icon">
+                    <svg class="tt-icon text-white">
                       <use xlink:href="#icon-menu_icon"></use>
                     </svg>
                 </a>
