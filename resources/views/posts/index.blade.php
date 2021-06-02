@@ -17,18 +17,18 @@
                 <div class="tt-col-value hide-mobile">Day</div>
                 <div class="tt-col-value">Time</div>
             </div>
-            <div class="tt-topic-alert tt-alert-default" role="alert">
-              <a href="#" target="_blank">4 new posts</a> are added recently, click here to load them.
-            </div>
+            
             @foreach ($posts as $post)
             <div class="tt-item">
                 <div class="tt-col-avatar">
                     <img class="rounded-circle img" width="60" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                 </div>
                 <div class="tt-col-description">
-                    <h6 class="tt-title"><a href="{{ url("/posts/$post->id") }}">
-                        {{ $post->first_name." ".$post->last_name }}
-                    </a></h6>
+                    <h6 class="tt-title">
+                        <a href="{{ url("/posts/$post->id") }}">
+                            {{ $post->first_name." ".$post->last_name }}
+                        </a>
+                    </h6>
                     <div class="row align-items-center no-gutters">
                         <div class="col-12">
                             {{ $post->title }}
@@ -40,14 +40,19 @@
                 </div>
                 <div class="tt-col-category"><span class="tt-color01 tt-badge">politics</span></div>
                 <div class="tt-col-value hide-mobile">985</div>
-                <div class="tt-col-value tt-color-select hide-mobile">502</div>
+                <div class="tt-col-value tt-color-select hide-mobile">{{-- {{ $countComment }} --}}</div>
                 <div class="tt-col-value hide-mobile" style="font-size: 14px">{{ date('d M Y', strtotime($post->created_at))  }}</div>
                 <div class="tt-col-value hide-mobile" style="font-size: 14px"> {{ date('h', strtotime($post->created_at))}} :  {{ date('m', strtotime($post->created_at))}}</div>
             </div>
             @endforeach
+
+             <!--Pagination post-->
+            <div class="mb-2 mt-5">
+                <div class="d-flex justify-content-center row">
+                        {{ $posts->links() }}
+                </div>
+            </div>
         </div>
-            
-            
     </div>
 </main>
 

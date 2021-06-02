@@ -184,6 +184,7 @@
                 <!-- /tt-search -->
 
                 <!-- User=>profile + logout -->
+                @if (Auth::check())
                 <div class="tt-desktop-menu">
                     <nav>
                         <ul>
@@ -209,6 +210,7 @@
                     </nav>
                 </div>
             </div>
+            @endif
 
             <div class="col-auto ml-auto">
                 <div class="tt-account-btn">

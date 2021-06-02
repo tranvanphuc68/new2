@@ -88,6 +88,9 @@
 		</div>
 		</form>
 </div>
+
+<!--create post-->
+@if (Auth::check())
 <a href="{{ url('/posts/create') }}" class="tt-btn-create-topic">
     <span class="tt-icon">
         <svg>
@@ -95,6 +98,7 @@
         </svg>
     </span>
 </a>
+@endif
 
 <div class="modal fade" id="modalAdvancedSearch" tabindex="-1" role="dialog" aria-label="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-sm">
