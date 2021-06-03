@@ -71,17 +71,19 @@
                             <!-- Home -->
                             <li>
                                 <a href="{{ url('/home') }}">
-                                  <i class="fa fa-home"><span>Home</span></i>
+                                  <span><i class="fa fa-home">Home</i></span>
                                 </a>
                             </li>
                             @if (Auth::check())
                                 <li>
-                                  <a href="{{ url('/') }}"> 
-                                    <i class="fa fa-dashboard">
-                                      @if (Auth::user()->role == "Admin") <span> Admin </span> @endif 
-                                      @if (Auth::user()->role == "Teacher") <span> Teacher </span> @endif 
-                                      @if (Auth::user()->role == "Student") <span> Student </span> @endif 
-                                    </i> 
+                                  <a href="{{ url('/') }}">
+                                    <span> 
+                                        <i class="fa fa-dashboard">
+                                        @if (Auth::user()->role == "Admin")  Admin  @endif 
+                                        @if (Auth::user()->role == "Teacher")  Teacher  @endif 
+                                        @if (Auth::user()->role == "Student")  Student  @endif 
+                                        </i> 
+                                    </span>
                                   </a>
                                 </li>
             
@@ -89,10 +91,12 @@
                                 @if (Auth::user()->role == "Admin")
                                     <li>
                                         <a href="{{ url('/report_posts') }}">
-                                            <i class="fa fa-bell-o"> <span>Reported posts</span></i>
-                                            <sup>
-                                                <span class="counter">{{ $countPostHadBeenReported }}</span>
-                                            </sup>
+                                            <span>
+                                                <i class="fa fa-bell-o"> Reported posts</i>
+                                                <sup>
+                                                    {{ $countPostHadBeenReported }}
+                                                </sup>
+                                            </span>
                                         </a>
                                     </li>
                                 @endif
@@ -193,13 +197,13 @@
                               <img class="rounded-circle img" width="40px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
                               <span class="name"> {{ Auth::user()->fullname }} </span>
                             </a>
-                            <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
-                              <a class="dropdown-item" href="{{ url("/users/self_show") }} ">
+                            <div class="dropdown-menu profile-dropdown-menu bg-info" aria-labelledby="dropdownMenu1">
+                              <a class="dropdown-item text-white" href="{{ url("/users/self_show") }} ">
                                 <i class="fa fa-user icon"></i> Profile </a>
-                              <a class="dropdown-item" href="#">
+                              <a class="dropdown-item text-white" href="#">
                                 <i class="fa fa-bell icon"></i> Notifications </a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="{{url('/logout')}}">
+                              <a class="dropdown-item text-white" href="{{url('/logout')}}">
                                 <i class="fa fa-power-off icon"></i> Logout </a>
                             </div>
                         </li>
