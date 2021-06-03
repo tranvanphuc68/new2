@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-{{-- <div class="content">
+<div class="content">
         <div class="container mt-5">
             <div class="d-flex justify-content-center row">
                 <div class="col-md-8" style="border-top: 3px solid rgb(201, 220, 221); border-left: 2px solid rgb(201, 220, 221); border-right: 2px solid rgb(201, 220, 221); background-color:rgb(255, 255, 255); border-radius: 10px; border-bottom: 5px solid rgb(218, 227, 245); background-color:rgb(228, 238, 255)">
@@ -201,29 +201,30 @@
                 @endforeach
             </div>
         </div>
-    </div> --}}
+    </div>
 
 
 
     <main id="tt-pageContent">
         <div class="container">
             <div class="tt-single-topic-list">
+
                 <div class="tt-item">
                      <div class="tt-single-topic">
                         <div class="tt-item-header">
                             <div class="tt-item-info info-top">
                                 <div class="tt-avatar-icon">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-ava-d"></use></svg></i>
+                                    <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                                 </div>
                                 <div class="tt-avatar-title">
-                                   <a href="#">dylan89</a>
+                                    {{ $post->first_name." ".$post->last_name }}
                                 </div>
                                 <a href="#" class="tt-info-time">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
+                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>{{ $post->created_at }}
                                 </a>
                             </div>
                             <h3 class="tt-item-title">
-                                <a href="#">Web Hosting Packages for ThemeForest WordPress</a>
+                                <a href="#">{{ $post->title }}</a>
                             </h3>
                             <div class="tt-item-tag">
                                 <ul class="tt-list-badge">
@@ -234,20 +235,11 @@
                             </div>
                         </div>
                         <div class="tt-item-description">
-                            <h6 class="tt-title">Get ready for Movember!</h6>
                             <p>
-                                It’s time to channel your inner Magnum P.I., Ron Swanson or Hercule Poroit! It’s the time that all guys (or gals) love and all our
-                                partners hate It’s Movember!
-                            </p>
-                            <p>
-                                Throughout November we will be inviting all community members to help raise awareness and funds for the lives of men affected
-                                by cancer and mental health problems via the Movember Foundation 10.
-                            </p>
-                            <h6 class="tt-title">How Does it Work?</h6>
-                            <p>
-                                Authors and customers with facial hair unite! Simply grow, groom, and share your facial hair during November! Even females can enter if they desire (be creative, ladies!). Be inspired by checking out last year’s highlights 28.
+                                {{ $post->content }}
                             </p>
                         </div>
+
                         <div class="tt-item-info info-bottom">
                             <a href="#" class="tt-icon-btn">
                                 <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
@@ -262,9 +254,6 @@
                                 <span class="tt-text">12</span>
                             </a>
                             <div class="col-separator"></div>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-share"></use></svg></i>
-                            </a>
                             <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
                                 <i class="tt-icon"><svg><use xlink:href="#icon-flag"></use></svg></i>
                             </a>
@@ -374,24 +363,25 @@
                         </div>
                     </div>
                 </div>
+
+                @foreach ($comments as $comment)
                 <div class="tt-item">
                      <div class="tt-single-topic">
                         <div class="tt-item-header pt-noborder">
                             <div class="tt-item-info info-top">
                                 <div class="tt-avatar-icon">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-ava-t"></use></svg></i>
+                                      <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
                                 </div>
                                 <div class="tt-avatar-title">
-                                   <a href="#">tesla02</a>
+                                   <a href="#">{{ $comment->first_name." ".$comment->last_name }}</a>
                                 </div>
                                 <a href="#" class="tt-info-time">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
+                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>{{ $comment->created_at }}
                                 </a>
                             </div>
                         </div>
                         <div class="tt-item-description">
-                            Finally!<br>
-                            Are there any special recommendations for design or an updated guide that includes new preview sizes, including retina displays?
+                            {{ $comment->content }}
                         </div>
                         <div class="tt-item-info info-bottom">
                             <a href="#" class="tt-icon-btn">
@@ -408,9 +398,6 @@
                             </a>
                             <div class="col-separator"></div>
                             <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-share"></use></svg></i>
-                            </a>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
                                 <i class="tt-icon"><svg><use xlink:href="#icon-flag"></use></svg></i>
                             </a>
                             <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
@@ -418,339 +405,13 @@
                             </a>
                         </div>
                     </div>
-                </div>
-                <div class="tt-item">
-                     <div class="tt-single-topic">
-                        <div class="tt-item-header pt-noborder">
-                            <div class="tt-item-info info-top">
-                                <div class="tt-avatar-icon">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-ava-k"></use></svg></i>
-                                </div>
-                                <div class="tt-avatar-title">
-                                   <a href="#">kolis27</a>
-                                </div>
-                                <a href="#" class="tt-info-time">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
-                                </a>
-                            </div>
-                        </div>
-                        <div class="tt-item-description">
-                            <p>
-                                It’s too big preview image, it should be smaller even five in row. On one page there are 30 items to 60 pages it is 1800 items in
-                            categories eg in Add-Ons category have 22749 items, why not see all of them but only those 1800 items? This is a bad thing.
-                            </p>
-                            <p>
-                                <img class="tt-offset-11" src="images/single-topic-img01.jpg" alt="">
-                            </p>
-                        </div>
-                        <div class="tt-item-info info-bottom">
-                            <a href="#" class="tt-icon-btn">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                                <span class="tt-text">671</span>
-                            </a>
-                            <a href="#" class="tt-icon-btn">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-dislike"></use></svg></i>
-                                <span class="tt-text">39</span>
-                            </a>
-                            <a href="#" class="tt-icon-btn">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                                <span class="tt-text">12</span>
-                            </a>
-                            <div class="col-separator"></div>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-share"></use></svg></i>
-                            </a>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-flag"></use></svg></i>
-                            </a>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-reply"></use></svg></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tt-item">
-                     <div class="tt-single-topic">
-                        <div class="tt-item-header pt-noborder">
-                            <div class="tt-item-info info-top">
-                                <div class="tt-avatar-icon">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-ava-k"></use></svg></i>
-                                </div>
-                                <div class="tt-avatar-title">
-                                   <a href="#">kolis27</a>
-                                </div>
-                                <a href="#" class="tt-info-time">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
-                                </a>
-                            </div>
-                        </div>
-                        <div class="tt-item-description">
-                            <p>
-                               I do not like. Choosing a template has become more difficult.<br>Small thumbnails 80x80px were better.
-                            </p>
-                            <div class="video-container">
-                                <iframe title="YouTube video player" src="https://www.youtube.com/embed/BbW8djS7kI4" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="tt-item-info info-bottom">
-                            <a href="#" class="tt-icon-btn">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                                <span class="tt-text">671</span>
-                            </a>
-                            <a href="#" class="tt-icon-btn">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-dislike"></use></svg></i>
-                                <span class="tt-text">39</span>
-                            </a>
-                            <a href="#" class="tt-icon-btn">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                                <span class="tt-text">12</span>
-                            </a>
-                            <div class="col-separator"></div>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-share"></use></svg></i>
-                            </a>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-flag"></use></svg></i>
-                            </a>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-reply"></use></svg></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tt-item">
-                     <div class="tt-single-topic">
-                        <div class="tt-item-header pt-noborder">
-                            <div class="tt-item-info info-top">
-                                <div class="tt-avatar-icon">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-ava-v"></use></svg></i>
-                                </div>
-                                <div class="tt-avatar-title">
-                                   <a href="#">vickey03</a>
-                                </div>
-                                <a href="#" class="tt-info-time">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
-                                </a>
-                            </div>
-                        </div>
-                        <div class="tt-item-description">
-                            Finally!<br>
-                            Are there any special recommendations for design or an updated guide that includes new preview sizes, including retina displays?
-                            <div class="topic-inner-list">
-                                <div class="topic-inner">
-                                    <div class="topic-inner-title">
-                                        <div class="topic-inner-avatar">
-                                            <i class="tt-icon"><svg><use xlink:href="#icon-ava-s"></use></svg></i>
-                                        </div>
-                                        <div class="topic-inner-title"><a href="#">summit92</a></div>
-                                    </div>
-                                    <div class="topic-inner-description">
-                                        Finally!<br>
-                                        Are there any special recommendations for design or an updated guide that includes new preview sizes, including retina displays?
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tt-item-info info-bottom">
-                            <a href="#" class="tt-icon-btn">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                                <span class="tt-text">671</span>
-                            </a>
-                            <a href="#" class="tt-icon-btn">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-dislike"></use></svg></i>
-                                <span class="tt-text">39</span>
-                            </a>
-                            <a href="#" class="tt-icon-btn">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                                <span class="tt-text">12</span>
-                            </a>
-                            <div class="col-separator"></div>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-share"></use></svg></i>
-                            </a>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-flag"></use></svg></i>
-                            </a>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-reply"></use></svg></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tt-item tt-wrapper-success">
-                     <div class="tt-single-topic">
-                        <div class="tt-item-header pt-noborder">
-                            <div class="tt-item-info info-top">
-                                <div class="tt-avatar-icon">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-ava-t"></use></svg></i>
-                                </div>
-                                <div class="tt-avatar-title">
-                                   <a href="#">tesla02</a>
-                                   <span class="tt-color13 tt-badge">best answer</span>
-                                </div>
-                                <a href="#" class="tt-info-time">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
-                                </a>
-                            </div>
-                        </div>
-                        <div class="tt-item-description">
-                            Finally!<br>
-                            Are there any special recommendations for design or an updated guide that includes new preview sizes, including retina displays?
-                        </div>
-                        <div class="tt-item-info info-bottom">
-                            <a href="#" class="tt-icon-btn">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                                <span class="tt-text">671</span>
-                            </a>
-                            <a href="#" class="tt-icon-btn">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-dislike"></use></svg></i>
-                                <span class="tt-text">39</span>
-                            </a>
-                            <a href="#" class="tt-icon-btn">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                                <span class="tt-text">12</span>
-                            </a>
-                            <div class="col-separator"></div>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-share"></use></svg></i>
-                            </a>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-flag"></use></svg></i>
-                            </a>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-reply"></use></svg></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tt-item tt-wrapper-danger">
-                     <div class="tt-single-topic">
-                        <div class="tt-item-header pt-noborder">
-                            <div class="tt-item-info info-top">
-                                <div class="tt-avatar-icon">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-ava-u"></use></svg></i>
-                                </div>
-                                <div class="tt-avatar-title">
-                                   <a href="#">usain31</a>
-                                </div>
-                                <a href="#" class="tt-info-time">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
-                                </a>
-                            </div>
-                        </div>
-                        <div class="tt-item-description">
-                           This post has been flagged by a moderator, received too many downvotes.
-                        </div>
-                        <div class="row">
-                            <div class="col-auto">
-                                <div class="tt-item-info info-bottom">
-                                    <a href="#" class="tt-icon-btn">
-                                         <i class="tt-icon"><svg><use xlink:href="#icon-dislike"></use></svg></i>
-                                        <span class="tt-text">39</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-auto ml-auto">
-                                <a href="#" class="btn btn-primary tt-offset-27">Show Reply</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tt-item">
-                     <div class="tt-single-topic">
-                        <div class="tt-item-header pt-noborder">
-                            <div class="tt-item-info info-top">
-                                <div class="tt-avatar-icon">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-ava-f"></use></svg></i>
-                                </div>
-                                <div class="tt-avatar-title">
-                                   <a href="#">kolis27</a>
-                                </div>
-                                <a href="#" class="tt-info-time">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>6 Jan,2019
-                                </a>
-                            </div>
-                        </div>
-                        <div class="tt-item-description">
-                           <p>
-                                It’s too big preview image, it should be smaller even five in row. On one page there are 30 items to 60 pages it is 1800 items in categories eg in Add-Ons category have 22749 items, why not see all of them but only those 1800 items? This is a bad thing.
-                           </p>
-                           <div class="row tt-offset-37">
-                               <div class="col-lg-10">
-                                   <div class="tt-gallery-layout">
-                                        <div class="tt-item">
-                                            <a href="images/single-topic-img03.jpg" class="tt-gallery-obj"><img src="images/single-topic-img03.jpg" alt=""></a>
-                                        </div>
-                                        <div class="tt-item">
-                                            <a href="images/single-topic-img04.jpg" class="tt-gallery-obj"><img src="images/single-topic-img04.jpg" alt=""></a>
-                                        </div>
-                                        <div class="tt-item">
-                                            <a href="images/single-topic-img05.jpg" class="tt-gallery-obj"><img src="images/single-topic-img05.jpg" alt=""></a>
-                                        </div>
-                                        <div class="tt-item">
-                                            <a href="images/single-topic-img06.jpg" class="tt-gallery-obj"><img src="images/single-topic-img06.jpg" alt=""></a>
-                                        </div>
-                                        <div class="tt-item">
-                                            <a href="images/single-topic-img07.jpg" class="tt-gallery-obj"><img src="images/single-topic-img07.jpg" alt=""></a>
-                                        </div>
-                                        <div class="tt-item">
-                                            <a href="images/single-topic-img08.jpg" class="tt-gallery-obj"><img src="images/single-topic-img08.jpg" alt=""></a>
-                                        </div>
-                                    </div>
-                               </div>
-                           </div>
-                        </div>
-                        <div class="tt-item-info info-bottom">
-                            <a href="#" class="tt-icon-btn">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                                <span class="tt-text">671</span>
-                            </a>
-                            <a href="#" class="tt-icon-btn">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-dislike"></use></svg></i>
-                                <span class="tt-text">39</span>
-                            </a>
-                            <a href="#" class="tt-icon-btn">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                                <span class="tt-text">12</span>
-                            </a>
-                            <div class="col-separator"></div>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-share"></use></svg></i>
-                            </a>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-flag"></use></svg></i>
-                            </a>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-reply"></use></svg></i>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="tt-wrapper-inner">
                 <h4 class="tt-title-separator"><span>You’ve reached the end of replies</span></h4>
             </div>
-            <div class="tt-topic-list">
-                <div class="tt-item tt-item-popup">
-                    <div class="tt-col-avatar">
-                        <svg class="tt-icon">
-                          <use xlink:href="#icon-ava-f"></use>
-                        </svg>
-                    </div>
-                    <div class="tt-col-message">
-                        Looks like you are new here. Register for free, learn and contribute.
-                    </div>
-                    <div class="tt-col-btn">
-                        <button type="button" class="btn btn-primary">Log in</button>
-                        <button type="button" class="btn btn-secondary">Sign up</button>
-                        <button type="button" class="btn-icon">
-                            <svg class="tt-icon">
-                              <use xlink:href="#icon-cancel"></use>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            
             <div class="tt-wrapper-inner">
                 <div class="pt-editor form-default">
                     <h6 class="pt-title">Post Your Reply</h6>
