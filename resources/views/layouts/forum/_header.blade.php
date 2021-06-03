@@ -9,11 +9,13 @@
     <!-- Favicons -->
     <link href="{{ asset('assets/img/logo/INT.png') }}" rel="icon" >
     <link href="{{ asset('assets/img/logo/INT.png') }}" rel="apple-touch-icon">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,400;0,500;1,500&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&family=Noto+Serif+JP:wght@300;400;500&family=Pattaya&display=swap" rel="stylesheet">
@@ -182,47 +184,61 @@
                     </form>
                 </div>
                 <!-- /tt-search -->
+            </div>
 
-                <!-- User=>profile + logout -->
-                @if (Auth::check())
-                <div class="tt-desktop-menu">
-                    <nav>
-                        <ul>
-                            <li>
-                                <a>
-                                    <img class="rounded-circle img" width="18px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                                    <span> {{ Auth::user()->first_name." ".Auth::user()->last_name }} </span>
-                                </a>
+            @if (Auth::check())
+            <!-- User=>profile + logout -->
+            <div class="col-auto ml-auto">
+                <div class="tt-user-info d-flex justify-content-center">
+                    <a href="#" class="tt-btn-icon">
+                        <i class="tt-icon"><svg><use xlink:href="#icon-notification"></use></svg></i>
+                    </a>
+                    <div class="tt-avatar-icon tt-size-md">
+                        <img class="rounded-circle img" width="40px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                        <div class="tt-desktop-menu">
+                            <nav>
                                 <ul>
                                     <li>
-                                        <a class="dropdown-item" href="{{ url("/users/self_show") }} "> 
-                                            <i class="fa fa-user icon"></i> Profile 
+                                        <a>
+                                            <span> {{ Auth::user()->first_name." ".Auth::user()->last_name }} </span>
                                         </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{url('/logout')}}">
-                                            <i class="fa fa-power-off icon"></i> Logout 
-                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a class="dropdown-item" href="{{ url("/users/self_show") }} "> 
+                                                    <i class="fa fa-user icon"></i> Profile 
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="{{url('/logout')}}">
+                                                    <i class="fa fa-power-off icon"></i> Logout 
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
-                            </li>
-                        </ul>
-                    </nav>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            @endif
+                    
+                @endif
 
-            <div class="col-auto ml-auto">
-                <div class="tt-account-btn">
-                        @if (!Auth::check())
-                        <!-- Login -->
-                        <a href="{{ url('/login') }}"> <span  style="color: #fff">Login</span> </a>
-                        @endif
+                @if (!Auth::check())
+                <!-- Login -->
+                <div class="col-auto ml-auto">
+                    <div class="tt-user-info d-flex justify-content-center">
+                        <div class="tt-account-btn">
+                            <a href="{{ url('/login') }}"> <span  style="color: #fff">Login</span> </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                @endif
+           </div>
         </div>
     </div>
 </header>
+    
+
 
 
 

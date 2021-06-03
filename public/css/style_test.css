@@ -5263,7 +5263,6 @@ select:disabled.simple-control::-ms-expand {
     top: 0;
     width: 12px;
     height: 12px;
-    background: #fff
 }
 
 .custom-select-01::after {
