@@ -28,8 +28,10 @@
     <link href="{{ asset('vendor/venobox/venobox.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
-    {{-- <link rel="stylesheet" href="{{ asset('css/forum.css') }}" > --}}
     <link rel="stylesheet" href="{{ asset('css/style_test.css') }}" >
+    <link rel="stylesheet"  href="{{ asset('css/vendor.css') }}">
+    <link rel="stylesheet" id="blue-style" href="{{ asset('css/app-blue.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/forum.css') }}" > --}}
 </head>
 <body>
 <!-- tt-mobile menu -->
@@ -49,7 +51,7 @@
         <div class="mm-backbtn">Back</div>
     </div>
 </nav>
-<header id="tt-header" class="bg-info">
+<header id="tt-header">
     <div class="container">
         <div class="row tt-row no-gutters">
             <div class="col-auto">
@@ -225,6 +227,7 @@
         </div>
     </div>
 </header>
+
     
 
 

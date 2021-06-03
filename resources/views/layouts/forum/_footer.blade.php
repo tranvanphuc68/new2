@@ -135,7 +135,6 @@
 		</div>
 	</div>
 </div>
-<script src="js/bundle.js"></script>
 <svg width="0" height="0" class="hidden">
   <symbol aria-hidden="true" data-prefix="fab" data-icon="facebook-f" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 264 512" id="facebook-f-brands">
     <path fill="currentColor" d="M215.8 85H264V3.6C255.7 2.5 227.1 0 193.8 0 124.3 0 76.7 42.4 76.7 120.3V192H0v91h76.7v229h94V283h73.6l11.7-91h-85.3v-62.7c0-26.3 7.3-44.3 45.1-44.3z"></path>
@@ -370,7 +369,27 @@
 <script src="{{ asset('vendor/owl.carousel/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('vendor/aos/aos.js') }}"></script>
 <script src="{{ asset('js/bundle.js') }}"></script>
+<script src=" {{ asset('js/bundle.js') }} "></script>
 <script src="{{ asset('js/forum.js') }}"></script>
+<script>
+            (function(i, s, o, g, r, a, m)
+            {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function()
+                {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-80463319-4', 'auto');
+            ga('send', 'pageview');
+</script>
+<script src="{{ asset('js/vendor.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 
 </body>
 </html>

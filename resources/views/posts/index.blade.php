@@ -11,7 +11,7 @@
         <div class="tt-topic-list">
             <div class="tt-list-header">
                 <div class="tt-col-topic">Topic</div>
-                <div class="tt-col-category">Hashtag</div>
+                <div class="tt-col-category">Type</div>
                 <div class="tt-col-value hide-mobile">Likes</div>
                 <div class="tt-col-value hide-mobile">Replies</div>
                 <div class="tt-col-value hide-mobile">Day</div>
@@ -42,7 +42,7 @@
                 <div class="tt-col-value hide-mobile">985</div>
                 <div class="tt-col-value tt-color-select hide-mobile">{{-- {{ $countComment }} --}}</div>
                 <div class="tt-col-value hide-mobile" style="font-size: 14px">{{ date('d M Y', strtotime($post->created_at))  }}</div>
-                <div class="tt-col-value hide-mobile" style="font-size: 14px"> {{ date('h : m', strtotime($post->created_at)) }}</div>
+                <div class="tt-col-value hide-mobile" style="font-size: 14px"> {{ date('h : i', strtotime($post->created_at)) }}</div>
             </div>
             @endforeach
 
