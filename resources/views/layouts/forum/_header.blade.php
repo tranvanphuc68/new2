@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Forum - Responsive HTML5 Template</title>
-    <meta name="keywords" content="HTML5 Template">
-    <meta name="description" content="Forum - Responsive HTML5 Template">
-    <meta name="author" content="Forum">
+    <title>Forum</title>
+    <meta name="description" content="Forum">
     <!-- Favicons -->
     <link href="{{ asset('assets/img/logo/INT.png') }}" rel="icon" >
     <link href="{{ asset('assets/img/logo/INT.png') }}" rel="apple-touch-icon">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -190,35 +188,21 @@
             <!-- User=>profile + logout -->
             <div class="col-auto ml-auto">
                 <div class="tt-user-info d-flex justify-content-center">
-                    <a href="#" class="tt-btn-icon">
-                        <i class="tt-icon"><svg><use xlink:href="#icon-notification"></use></svg></i>
-                    </a>
-                    <div class="tt-avatar-icon tt-size-md">
-                        <img class="rounded-circle img" width="40px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                        <div class="tt-desktop-menu">
-                            <nav>
-                                <ul>
-                                    <li>
-                                        <a>
-                                            <span> {{ Auth::user()->first_name." ".Auth::user()->last_name }} </span>
-                                        </a>
-                                        <ul>
-                                            <li>
-                                                <a class="dropdown-item" href="{{ url("/users/self_show") }} "> 
-                                                    <i class="fa fa-user icon"></i> Profile 
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="{{url('/logout')}}">
-                                                    <i class="fa fa-power-off icon"></i> Logout 
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+                        <li class="profile dropdown" style="display: table-cell;">
+                            <a class="nav-link dropdown-toggle" style="padding: 13px 15px;" data-toggle="dropdown" href="{{ url("") }}" role="button" aria-haspopup="true" aria-expanded="false">
+                              <img class="rounded-circle img" width="40px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                              <span class="name"> {{ Auth::user()->fullname }} </span>
+                            </a>
+                            <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
+                              <a class="dropdown-item" href="{{ url("/users/self_show") }} ">
+                                <i class="fa fa-user icon"></i> Profile </a>
+                              <a class="dropdown-item" href="#">
+                                <i class="fa fa-bell icon"></i> Notifications </a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="{{url('/logout')}}">
+                                <i class="fa fa-power-off icon"></i> Logout </a>
+                            </div>
+                        </li>
                 </div>
                     
                 @endif
