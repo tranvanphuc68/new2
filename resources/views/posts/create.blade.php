@@ -107,7 +107,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
                                 <div class="col-sm-10">
-                                    <div class="wyswyg" type="input" name="content" value="{{ old('content') }}">
+                                    <div class="wyswyg" name="content" value="{{ old('content') }}">
                                         <div class="toolbar">
                                             <select class="ql-size">
                                                 <option value="small"></option>
@@ -209,12 +209,28 @@
                                         <div class="editor">
                                         </div>
                                     </div>
+                                    {{-- <textarea name="content" class="form-control" value="{{ old('content') }}"></textarea> --}}
                                     @error('content')
                                         <div>{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
-                           
+
+                            <script>
+                                //Hàm đọc giá trị và hiện thị thông tin
+                                function textthaydoi() {
+                                    var value = $( this ).val();
+                                    $( "[content]" ).text( value );
+                                }
+
+                                //Bắt sự kiện keyup của textbox
+                                $( ".editor" ).keyup(textthaydoi);
+
+                                //Cho #inputext phát sinh một sự kiện keyup ban đầu
+                                $( ".editor" ).keyup();
+
+                            </script>
+
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label text-xs-right"> Images: </label>
                                 <div class="col-sm-10">
