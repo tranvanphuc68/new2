@@ -34,8 +34,7 @@ Into
                                                         <td class="w5">{{ $student->id_student }}</td>
                                                         <td class="w20">{{ $student->first_name." ".$student->last_name }}</td>
                                                         <td class="w10">{{ $student->dob }}</td>
-                                                        <td style="height: 50px;"><p class="over_flow">{{ $student->feedback }}</p> 
-                                                    </td>
+                                                        <td><p class="over_flow">{{ $student->feedback }}</p></td>
                                                     </tr>
                                                 @endforeach
                                             </table>

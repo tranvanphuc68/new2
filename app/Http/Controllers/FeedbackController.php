@@ -66,7 +66,6 @@ class FeedbackController extends Controller
         ->where('id_course',"$id_course")
         ->select('students_courses.*','courses.status')
         ->get();
-        
         return view('feedbacks.show', [
             'course' => $course,
             'feedbacks' => $feedbacks,
@@ -87,13 +86,11 @@ class FeedbackController extends Controller
             ->select('students_courses.*','courses.name')
             ->get();
             $feedback = $data[0];
-           
             return view('feedbacks.edit', [
                 'feedback' => $feedback,
                 'id_course' => $id_course,
                 'students' => $students
             ]);     
-           
     }
 
     public function update(FeedbackRequest $request, $id_course)
