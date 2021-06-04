@@ -405,7 +405,7 @@
 </footer>
 <!-- End Footer -->
 
-<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+{{-- <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a> --}}
 
 <script>
 	(function(i, s, o, g, r, a, m)

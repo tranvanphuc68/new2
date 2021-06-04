@@ -73,16 +73,10 @@
                             <ul class="tt-list-badge tt-size-lg">
                                 <li><a href="#"><span class="tt-badge">Recent</span></a></li>
                                 <li><a href="#"><span class="tt-color02 tt-badge">Most Liked</span></a></li>
-                                <li><a href="#"><span class="tt-badge">Longest</span></a></li>
-                                <li><a href="#"><span class="tt-badge">Shortest</span></a></li>
-                                <li><a href="#"><span class="tt-badge">Accepted Answers</span></a></li>
                             </ul>
                             <select class="tt-select form-control">
                                 <option value="Recent">Recent</option>
                                 <option value="Most Liked">Most Liked</option>
-                                <option value="Longest">Longest</option>
-                                <option value="Shortest">Shortest</option>
-                                <option value="Accepted Answer">Accepted Answer</option>
                             </select>
                         </div>
                     </div>
@@ -111,21 +105,6 @@
                             <a href="#" class="tt-icon-btn">
                                 <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
                                 <span class="tt-text">671</span>
-                            </a>
-                            <a href="#" class="tt-icon-btn">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-dislike"></use></svg></i>
-                                <span class="tt-text">39</span>
-                            </a>
-                            <a href="#" class="tt-icon-btn">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-favorite"></use></svg></i>
-                                <span class="tt-text">12</span>
-                            </a>
-                            <div class="col-separator"></div>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-flag"></use></svg></i>
-                            </a>
-                            <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
-                                 <i class="tt-icon"><svg><use xlink:href="#icon-reply"></use></svg></i>
                             </a>
                         </div>
                     </div>
