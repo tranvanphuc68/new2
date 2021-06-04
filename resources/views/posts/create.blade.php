@@ -107,7 +107,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
                                 <div class="col-sm-10">
-                                    <div class="wyswyg" name="content" value="{{ old('content') }}">
+                                    <div class="wyswyg">
                                         <div class="toolbar">
                                             <select class="ql-size">
                                                 <option value="small"></option>
@@ -207,16 +207,17 @@
                                             </button>
                                         </div>
                                         <div class="editor">
+                                            Hello
                                         </div>
                                     </div>
                                     {{-- <textarea name="content" class="form-control" value="{{ old('content') }}"></textarea> --}}
-                                    @error('content')
+                                    {{-- @error('content')
                                         <div>{{ $message }}</div>
-                                    @enderror
+                                    @enderror --}}
                                 </div>
                             </div>
 
-                            <script>
+                            {{-- <script>
                                 //Hàm đọc giá trị và hiện thị thông tin
                                 function textthaydoi() {
                                     var value = $( this ).val();
@@ -226,7 +227,7 @@
                                 $( ".editor" ).keyup(textthaydoi);
                                 //Cho #inputext phát sinh một sự kiện keyup ban đầu
                                 $( ".editor" ).keyup();
-                            </script>
+                            </script> --}}
 
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label text-xs-right"> Images: </label>
