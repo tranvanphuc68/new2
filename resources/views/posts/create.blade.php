@@ -222,13 +222,10 @@
                                     var value = $( this ).val();
                                     $( "[content]" ).text( value );
                                 }
-
                                 //Bắt sự kiện keyup của textbox
                                 $( ".editor" ).keyup(textthaydoi);
-
                                 //Cho #inputext phát sinh một sự kiện keyup ban đầu
                                 $( ".editor" ).keyup();
-
                             </script>
 
                             <div class="form-group row">
