@@ -28,7 +28,7 @@
                                 <div class="col-sm-10">
                                     <input type="text" name="title" class="form-control boxed" placeholder="Describe your post well, while keeping the subject as short as possible" value="{{ old('title') }}">
                                     @error('title')
-                                        <div>{{ $message }}</div>
+                                    <div class="form-text text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -212,7 +212,7 @@
                                     </div>
                                     {{-- <textarea name="content" class="form-control" value="{{ old('content') }}"></textarea> --}}
                                     {{-- @error('content')
-                                        <div>{{ $message }}</div>
+                                    <div class="form-text text-danger">{{ $message }}</div>
                                     @enderror --}}
                                 </div>
                             </div>

@@ -22,11 +22,16 @@
                         </div>
                         <div class="d-flex flex-row align-items-start">
                             <input type="textarea" name="title" value="{{ $post->title }}" class="form-control mb-3" placeholder="Title">
-                        </div>
-                            <input type="textarea" name="content" value="{{ $post->content }}" class="form-control" placeholder="Content">
+                        </div>  
+                        @error('title')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                        @enderror
                         <div class="d-flex flex-row align-items-start">
-
+                            <input type="textarea" name="content" value="{{ $post->content }}" class="form-control" placeholder="Content">
                         </div>
+                        @error('content')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                        @enderror
                         <div class="mt-2 text-right">
                             <button class="btn btn-primary btn-sm shadow-none" type="submit">Edit</button>
                             <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="reset">Cancel</button>

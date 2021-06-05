@@ -100,11 +100,14 @@ class PostController extends Controller
 
     public function self_edit(Post $post)
     {
+        $countPostHadBeenReported = DB::table('report_posts')
+        ->count(DB::raw('DISTINCT id_post'));
         $id_user = Auth::user()->id;
         if($post->id_user == $id_user)
         {
             return view('posts.edit', [
-                'post' => $post
+                'post' => $post,
+                'countPostHadBeenReported' => $countPostHadBeenReported
             ]);
         }
         else 
