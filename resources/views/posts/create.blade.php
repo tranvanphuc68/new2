@@ -24,13 +24,13 @@
                     <div class="mt-3 mb-2">
                         <input type="textarea" class="form-control ml-1 shadow-none textarea" name="title" value="{{ old('title') }}" placeholder="Post title">
                         @error('title')
-                            <div>{{ $message }}</div>
+                        <div class="form-text text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="d-flex flex-row align-items-start">
                         <textarea class="form-control ml-1 shadow-none textarea" name="content" value="{{ old('content') }}" placeholder="Post content"></textarea>
                     @error('content')
-                        <div>{{ $message }}</div>
+                    <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
                     </div>
                     <div class="mt-2 text-right">

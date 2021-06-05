@@ -78,8 +78,11 @@ public function store(ReportPostRequest $request, $post)
 
 public function create($post)
     {   
+        $countPostHadBeenReported = DB::table('report_posts')
+        ->count(DB::raw('DISTINCT id_post'));
         return view('report_posts.create', [
-            'post' => $post
+            'post' => $post,
+            'countPostHadBeenReported' => $countPostHadBeenReported
         ]);
     }
 

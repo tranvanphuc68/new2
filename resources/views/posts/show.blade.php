@@ -29,11 +29,14 @@
                             <div class="d-flex flex-row fs-12" style="justify-content:flex-end">
                                 <!-- Edit post -->
                                 @if ($post->id_user == Auth::user()->id )
-                                    <div class="like cursor action-collapse" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-1" href="#collapse-1">
-                                        <span class="ml-3"><i class="fa fa-pencil"></i></span>
-                                    </div>
+                                <span class="ml-3">
+                                        <a href="{{ url("/posts/$post->id/self_edit") }}" style="color: black">
+                                            <i class="fa fa-pencil"></i>
+                                            </a>
+                                        </span>
+                                        
                                 @endif
-
+                                
                                 <!-- Delete post -->
                                 @if (($post->id_user == Auth::user()->id) || (Auth::user()->role == "Admin") )
                                     <span class="ml-3">
@@ -50,74 +53,13 @@
 
                                 <!-- Report post -->
                                     <span class="ml-3">
-                                        <form method="POST" action="{{ url("/report_posts/$post->id") }}">
-                                            @csrf
-                                            <a type="button" data-toggle="modal" data-target="#report">
+                                            <a href="{{ url("/report_posts/$post->id/create")}}" style="color: black">
                                                 <i class="fa fa-flag"></i>
                                                 <span class="counter">({{ $countReportPost }})</span>
                                             </a>
-                                            <div class="modal fade" id="report" tabindex="-1" aria-labelledby="reportLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <img class="modal-title rounded-circle img" id="report" width="40" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                                                            <span class="d-block font-weight-bold name">{{ Auth::user()->first_name." ".Auth::user()->last_name }}</span>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="form-group">
-                                                              <label for="recipient-name" class="col-form-label">Content report:</label>
-                                                              <textarea class="form-control ml-1 shadow-none textarea" name="content" placeholder="Content"></textarea>
-                                                              @error('content')
-                                                              <div>{{ $message }}</div>
-                                                          @enderror
-                                                        
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-primary btn-sm shadow-none" type="submit">Create report</button>
-                                                            <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button" data-dismiss="modal">Cancel</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
                                     </span>
                             </div>
                         </div>
-
-                        <!-- Edit post -->
-                        @if($post->id_user == Auth::user()->id )
-                        <form method="POST" action="{{url("/posts/$post->id")}}">
-                                @csrf
-                                @method('PUT')
-                                <div id="collapse-1" class="p-2 collapse mb-3" data-parent="#myGroup">
-                                    <div class="d-flex flex-column comment-section" >
-                                        <div class="p-2" style="background-color: rgb(207, 213, 241); border: 2px solid rgb(160, 158, 241); border-radius: 10px;">
-                                            <div class="d-flex flex-row align-items-start mb-3">
-                                                <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
-                                                <div class="d-flex flex-column justify-content-start ml-2">
-                                                    <span class="d-block font-weight-bold name">{{ $post->first_name." ".$post->last_name }}</span>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-start">
-                                                <input type="textarea" name="title" value="{{ $post->title }}" class="form-control mb-3" placeholder="Title">
-                                            </div>
-                                                <input type="textarea" name="content" value="{{ $post->content }}" class="form-control" placeholder="Content">
-                                            <div class="d-flex flex-row align-items-start">
-
-                                            </div>
-                                            <div class="mt-2 text-right">
-                                                <button class="btn btn-primary btn-sm shadow-none" type="submit">Edit</button>
-                                                <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="reset">Cancel</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </form>
-                        @endif
                         @endif
                     </div>
                 </div>
@@ -135,9 +77,9 @@
                         @csrf
                         <div class="d-flex flex-row align-items-start mt-4">
                             <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                            <textarea class="form-control ml-1 shadow-none textarea" name="content"></textarea>
+                            <textarea class="form-control ml-1 shadow-none textarea" name="content" placeholder="Comment your idea"></textarea>
                             @error('content')
-                            <div>{{ $message }}</div>
+                            <div class="form-text text-danger">{{ $message }}</div>
                         @enderror
                         </div>
                         <div class="mt-2 text-right">
@@ -176,7 +118,7 @@
                                             <i class="fa fa-pencil"></i>
                                             <span class="ml-1"></span>
                                         </a>
-                         
+                
                                     </div>
 
                                     <!-- Delete comment-->

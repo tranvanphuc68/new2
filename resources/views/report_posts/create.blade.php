@@ -14,7 +14,7 @@
                 <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
                 <textarea class="form-control ml-1 shadow-none textarea" name="content" placeholder="Content"></textarea>
                 @error('content')
-                <div>{{ $message }}</div>
+                <div class="form-text text-danger">{{ $message }}</div>
             @enderror
             </div>
             <div class="mt-2 text-right">
