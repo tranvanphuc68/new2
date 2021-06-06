@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="mt-4">
                                     <div>
-                                        <h5 style="color: #0e0e3de5; " class="ml-4 mr-1">{{ $post->title }}</h5>
+                                        <h5 style="color: #0e0e3de5; " class="ml-4 mr-1">{!! $post->title !!}</h5>
                                     </div>
                                 </div>
                             </div>

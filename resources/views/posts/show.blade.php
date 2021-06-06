@@ -19,8 +19,8 @@
                                 </div>
                             </div>
                             <div class="mt-2 ml-4">
-                                <h4>{{ $post->title }}</h4>
-                                <div>{{ $post->content }}</div>
+                                <h4>{!! $post->title !!}</h4>
+                                <div>{!! $post->content !!}</div>
                             </div>
                         </div>
 
