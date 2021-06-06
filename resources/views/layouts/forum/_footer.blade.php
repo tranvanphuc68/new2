@@ -431,15 +431,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="{{ asset('summernote-bs4.js') }}"></script>
+<script src="{{ asset('vendor/tam-emoji/js/config.js') }}"></script>
 {{-- <script src="{{ asset('summernote-lite.css') }}"></script> --}}
+<!--include tam-emoji js-->
+<script src="{{ asset('vendor/tam-emoji/js/tam-emoji.min.js') }}"></script>
 
 <script>
+$(document).ready(function () {
+	document.emojiType = 'unicode';
+	document.emojiSource = "{{ asset('vendor/tam-emoji/img') }}";
 	$('.summernoteTitle').summernote({
 		placeholder: 'Describe your post well, while keeping the subject as short as possible',
         height: 100,
 		minHeight: null,             
 		maxHeight: null,             
-		focus: false,
+		focus: true,
 		toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'italic', 'clear']],
@@ -447,15 +453,31 @@
 		  ['fontsize', ['fontsize']],
           ['color', ['color']],
           ['para', ['ul', 'ol', 'paragraph']],
-          ['view', ['fullscreen', 'codeview', 'help']]
+		  ['insert', ['emoji']],
+		  ['tool', ['undo', 'redo']],
+          ['view', ['fullscreen', 'help']],
         ],   
 	});
     $('.summernoteContent').summernote({
 		height: 300,                 
 		minHeight: null,             
 		maxHeight: null,             
-		focus: false
+		focus: true,
+		toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'italic', 'clear']],
+		  ['fontname', ['fontname']],
+		  ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+		  ['table', ['table']],
+          ['insert', ['emoji', 'link', 'picture', 'video']],
+		  ['tool', ['undo', 'redo']],
+          ['view', ['fullscreen', 'help']],
+        ],   
+
 	});
+})
 </script>
 
 </body>

@@ -21,12 +21,22 @@
                     </div>
                     <form name="item">
                         <div class="card card-block">
-
+                            <!-- Avatar -->
+                            <div class="form-group row mb-5">
+                                <div class="col-sm-2 text-xs-right">
+                                    <img class="rounded-circle img" width="50" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                                </div>
+                                <div class="col-sm-10 mt-3">
+                                    <h4>
+                                        {{ Auth::user()->first_name." ".Auth::user()->last_name }}
+                                    </h4>
+                                </div>
+                            </div>
                             <!-- Title -->
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
                                 <div class="col-sm-10">
-                                    <textarea class="summernoteTitle" name="title" class="form-control">
+                                    <textarea class="summernoteTitle" name="title">
                                         {{ old('title') }}
                                     </textarea>
                                     @error('title')
@@ -36,7 +46,7 @@
                             </div>
 
                             <!-- Type -->
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label class="col-sm-2 form-control-label text-xs-right">Type:</label>
                                 <div class="col-sm-10">
                                     <div class="tt-js-active-btn tt-wrapper-btnicon">
@@ -104,12 +114,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- Content -->
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
                                 <div class="col-sm-10">
-                                    <textarea class="summernoteContent" type="text" name="content" class="form-control boxed">
+                                    <textarea class="summernoteContent" name="content">
                                         {{ old('content') }}
                                     </textarea>
                                     @error('content')
