@@ -24,7 +24,7 @@
                                 </a>
                             </div>
                             <h3 class="tt-item-title">
-                                <a href="#">{{ $post->title }}</a>
+                                <a href="#">{!! $post->title !!}</a>
                             </h3>
                             <div class="tt-item-tag">
                                 <ul class="tt-list-badge">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="tt-item-description">
                             <p>
-                                {{ $post->content }}
+                                {!! $post->content !!}
                             </p>
                         </div>
 

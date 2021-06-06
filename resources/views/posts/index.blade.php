@@ -31,7 +31,7 @@
                     </h6>
                     <div class="row align-items-center no-gutters">
                         <div class="col-12">
-                            {{ $post->title }}
+                            {!! $post->title !!}
                         </div>
                         <div class="col-1 ml-auto show-mobile">
                             <div class="tt-value" style="font-size: 10px">{{ date('d M Y', strtotime($post->created_at))  }}</div>

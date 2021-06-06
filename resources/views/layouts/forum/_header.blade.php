@@ -32,6 +32,10 @@
     <link rel="stylesheet"  href="{{ asset('css/vendor.css') }}">
     <link rel="stylesheet" id="blue-style" href="{{ asset('css/app-blue.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('css/forum.css') }}" > --}}
+
+    <!-- Summernote -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('summernote-bs4.css') }}">
 </head>
 <body>
 <!-- tt-mobile menu -->
