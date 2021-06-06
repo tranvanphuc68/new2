@@ -36,6 +36,7 @@
     <!-- Summernote -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('summernote-bs4.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('summernote-lite.css') }}"> --}}
 </head>
 <body>
 <!-- tt-mobile menu -->

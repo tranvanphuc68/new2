@@ -431,8 +431,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="{{ asset('summernote-bs4.js') }}"></script>
+{{-- <script src="{{ asset('summernote-lite.css') }}"></script> --}}
+
 <script>
-    $('.summernote').summernote();
+	$('.summernoteTitle').summernote({
+		placeholder: 'Describe your post well, while keeping the subject as short as possible',
+        height: 100,
+		minHeight: null,             
+		maxHeight: null,             
+		focus: false,
+		toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'italic', 'clear']],
+		  ['fontname', ['fontname']],
+		  ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ],   
+	});
+    $('.summernoteContent').summernote({
+		height: 300,                 
+		minHeight: null,             
+		maxHeight: null,             
+		focus: false
+	});
 </script>
 
 </body>

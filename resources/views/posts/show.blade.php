@@ -23,9 +23,9 @@
                                     <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>{{ $post->created_at }}
                                 </a>
                             </div>
-                            <h3 class="tt-item-title">
-                                <a href="#">{!! $post->title !!}</a>
-                            </h3>
+                            <div>
+                                {!! $post->title !!}
+                            </div>
                             <div class="tt-item-tag">
                                 <ul class="tt-list-badge">
                                     <li><a href="#"><span class="tt-color03 tt-badge">exchange</span></a></li>

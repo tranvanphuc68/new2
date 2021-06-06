@@ -26,7 +26,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
                                 <div class="col-sm-10">
-                                    <textarea class="summernote" name="title" class="form-control" placeholder="Describe your post well, while keeping the subject as short as possible" value="{!! old('title') !!}">
+                                    <textarea class="summernoteTitle" name="title" class="form-control">
+                                        {{ old('title') }}
                                     </textarea>
                                     @error('title')
                                     <div class="form-text text-danger">{{ $message }}</div>
@@ -108,7 +109,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
                                 <div class="col-sm-10">
-                                    <textarea class="summernote" type="text" name="content" class="form-control boxed" value="{!! old('content') !!}">
+                                    <textarea class="summernoteContent" type="text" name="content" class="form-control boxed">
+                                        {{ old('content') }}
                                     </textarea>
                                     @error('content')
                                     <div class="form-text text-danger">{{ $message }}</div>
