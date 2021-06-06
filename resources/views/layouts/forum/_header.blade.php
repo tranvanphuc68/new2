@@ -28,10 +28,9 @@
     <link href="{{ asset('vendor/venobox/venobox.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('css/style_test.css') }}" >
+    <link rel="stylesheet" href="{{ asset('css/forum.css') }}" >
     <link rel="stylesheet"  href="{{ asset('css/vendor.css') }}">
     <link rel="stylesheet" id="blue-style" href="{{ asset('css/app-blue.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('css/forum.css') }}" > --}}
 
     <!-- Summernote -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -233,9 +232,3 @@
         </div>
     </div>
 </header>
-
-    
-
-
-
-
