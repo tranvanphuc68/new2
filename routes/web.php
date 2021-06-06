@@ -31,9 +31,6 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/forum', function () {
-    return view('forum.forum');
-});
 
 Route::get('/', function () {
     return view('welcome');
