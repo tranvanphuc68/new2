@@ -11,9 +11,6 @@
 
 <main id="tt-pageContent">
     <div class="container">
-                <div class="sidebar-overlay" id="sidebar-overlay"></div>
-                <div class="sidebar-mobile-menu-handle" id="sidebar-mobile-menu-handle"></div>
-                <div class="mobile-menu-handle"></div>
                 <article class="content item-editor-page">
                     <div class="title-block">
                         <h3 class="title"> Create New Post <span class="sparkline bar" data-type="bar"></span>
