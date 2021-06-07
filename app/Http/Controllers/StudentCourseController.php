@@ -77,9 +77,19 @@ class StudentCourseController extends Controller
         ->where('id','=',"$id_course")
         ->select('courses.*')
         ->get();
+        $data = DB::table('courses')
+        ->where('id','=',"$id_course")
+        ->select('courses.*')
+        ->get();
+        $max = $data[0]->max_students;
+        $countStu = DB::table('students_courses')
+        ->where('id_course','=',"$id_course")
+        ->count('id_student');
         return view('students_courses.create', [
             'students' => $students,
             'id_course' => $id_course,
+            'max' => $max,
+            'countStu' => $countStu,
             'course' => $course
             ]);
     }
@@ -87,14 +97,22 @@ class StudentCourseController extends Controller
     public function store(Request $request)
     {  
         $students = json_decode($request->data,true);
+        //max = 9
+        //Dem danh sach sinh vien da co trong lop => COUNT(*) => ['count' => 7]
+        //So luong inh vien moi = 6
 
-        foreach ( $students as $student ) {
+        //giai thuat
+        //max - sinh vien hien co = 2
+        //array_chunk || collection chunk (2) => [[student_1, studennt_2],[student_3, student_4],[student_5]]
+        //chunked[0];
+        foreach ( $students as $student ) {  
             $create = StudentCourse::create([
                 'id_student' =>$student['id_student'],
                 'id_course' => $request->id_course
             ]);
         }
-        //return redirect("/students_courses/{$id_course}"); 
+        //return redirect("/students_courses/{$id_course}")->with('students', chunked(2)); 
+        //@foreach(students as $student) => alert (studennt->info|id|name)
     }
 
     public function destroy($id_student, $id_course)

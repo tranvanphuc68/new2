@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mark;
+use App\Http\Requests\MarkRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
 class MarkController extends Controller
 {
     public function index()
@@ -87,7 +87,6 @@ class MarkController extends Controller
         ->where('id_course',$id_course)
         ->select('students_courses.*','users.first_name', 'users.last_name','courses.name')
         ->get();
-        //
         foreach ($students as $student) {
             DB::table('students_courses')
             ->where('id_student','=',$student->id_student)
@@ -96,7 +95,7 @@ class MarkController extends Controller
                 'mark' => $request->input("$student->id_student")
             ]);
         }
-        return redirect("/marks/{$students[1]->id_course}");
+        return redirect("/marks/{$id_course}");
     }
 
     public function search()

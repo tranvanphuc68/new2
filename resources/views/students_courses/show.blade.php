@@ -16,12 +16,19 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <section class="example">
+                                <p>Số lượng học viên: {{ count($students) }}/{{$course[0]->max_students}}</p>
                                 @if (count($students) != 0)
                                 <div class="table-responsive">
                                     @if (Auth::user()->role == 'Admin')
-                                    <div class="card-title-block" style="float:left" >
-                                        <a href="{{ url("/students_courses/create/{$students[0]->id_course}") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm học viên</span></a>
-                                    </div>
+                                        @if (count($students) == $course[0]->max_students)
+                                            <div class="card-title-block" style="float:left" >
+                                                <p>Số học viên đã tối đa</p>
+                                            </div>
+                                        @else
+                                            <div class="card-title-block" style="float:left" >
+                                                <a href="{{ url("/students_courses/create/{$students[0]->id_course}") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm học viên</span></a>
+                                            </div>
+                                        @endif
                                     @endif
                                     <div class="card-title-block" style="float:right">
                                         <form role="search" >

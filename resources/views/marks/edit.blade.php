@@ -18,7 +18,7 @@ Into
                         <div class="card-block">
                             <section class="example">
                                 <div class="table-responsive">
-                                    <form method="POST" action="{{ url("/marks/{$students[0]->id_course}") }}">
+                                    <form method="POST" action="{{ url("/marks/{$students[0]->id_course}") }}" >
                                         @csrf
                                         @method('PUT')
                                         <table class="table table-bordered table-hover">
@@ -35,7 +35,9 @@ Into
                                                     <td class="w15">{{ $student->id_student }}</td>
                                                     <td class="">{{ $student->first_name." ".$student->last_name }}</td>
                                                     <td class="w25">{{ $student->dob }}</td>
-                                                    <td class="w25"><input type="text" name ="{{ $student->id_student }}" value="{{ $student->mark }}"></td>
+                                                    <td class="w25"><input type="text" name ="{{ $student->id_student }}" value="{{ old("$student->id_student",$student->mark )}}">
+                                                    <p class="error"></p>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </table>

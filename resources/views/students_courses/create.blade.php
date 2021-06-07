@@ -10,6 +10,7 @@ Into
     <div class="card">
         <h1 class="text-IBM" >Thêm học viên vào khóa học {{ $course[0]->name}}</h1>
     </div>
+    <p>Số lượng học viên hiện tại: {{ $countStu }}/{{$max}}</p>
     <div class="row">
         <div class="col-md-12">
             <div class="card card-block">
@@ -54,31 +55,43 @@ Into
 <script>
 
 $(document).on('click', "button", function() {
+        max = {{ $max }}
+        countStu = {{ $countStu }}
+        limit = max - countStu
         addedStudent = $('input[type=checkbox]:checked')
         data = []
-        for(i=0;i<addedStudent.length;i++) {
-            std = {
-                'id_student': $(addedStudent[i]).val(),
-            }
-            data.push(std)
+        countAddedStudent = addedStudent.length
+        check = countAddedStudent - limit
+        if (check > 0) {
+            alert("Bạn chỉ có thể thêm " + limit + " học viên! \nBạn đang vượt quá " + check + " học viên");
+            return
         }
-        data = JSON.stringify(data)
-        console.log(data)
-        $.ajax({
-                url: "{{ url("/students_courses") }}",
-                method: 'POST',
-                data:{
-                    '_token': '{{ csrf_token() }}',
-                    'data' : data,
-                    'id_course': {{ $id_course }}
-                },
-                success: function(res) {
-                    location.assign("{{ url("/students_courses/{$id_course}") }}")
-                },
-                error: function(err) {
-                    console.error(err)
+        else {
+            for(i=0;i<addedStudent.length;i++) {
+                std = {
+                    'id_student': $(addedStudent[i]).val(),
                 }
-            });  
+                data.push(std)
+            }
+                
+            data = JSON.stringify(data)
+            console.log(data)
+            $.ajax({
+                    url: "{{ url("/students_courses") }}",
+                    method: 'POST',
+                    data:{
+                        '_token': '{{ csrf_token() }}',
+                        'data' : data,
+                        'id_course': {{ $id_course }}
+                    },
+                    success: function(res) {
+                        location.assign("{{ url("/students_courses/{$id_course}") }}")
+                    },
+                    error: function(err) {
+                        console.error(err)
+                    }
+                });  
+            }
         })
 </script>
 
