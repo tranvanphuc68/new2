@@ -46,7 +46,7 @@
                             <!-- Edit post -->
                             @if ($post->id_user == Auth::user()->id )
                             <a href="{{ url("/posts/$post->id/self_edit") }}" class="tt-icon-btn">
-                                <i class="tt-icon fa fa-pencil"></i>
+                                <i class="text-dark fa fa-pencil"></i>
                             </a>
                             @endif
                             <div class="col-separator"></div>

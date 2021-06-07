@@ -34,7 +34,6 @@
                                     <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
                                     <div class="col-sm-10">
                                         <textarea class="summernoteTitle" name="title" value="{!! $post->title !!}">
-                                            {{-- {!! old('title') !!} --}}
                                         </textarea>
                                         @error('title')
                                         <div class="form-text text-danger">{{ $message }}</div>
@@ -46,7 +45,6 @@
                                     <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
                                     <div class="col-sm-10">
                                         <textarea class="summernoteContent" name="content" value="{!! $post->content !!}">
-                                            {{-- {!! old('content') !!} --}}
                                         </textarea>
                                         @error('content')
                                         <div class="form-text text-danger">{{ $message }}</div>
