@@ -221,12 +221,3 @@
         </div>
     </main>
 @endsection
-
- {{-- <!-- Edit post -->
- @if ($post->id_user == Auth::user()->id )
- <span class="ml-3">
-     <a href="{{ url("/posts/$post->id/self_edit") }}" style="color: black">
-         <i class="fa fa-pencil"></i>
-     </a>
- </span>
- @endif --}}
