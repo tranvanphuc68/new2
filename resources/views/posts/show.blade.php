@@ -73,9 +73,9 @@
                 </div>
 
                 <!-- Show comment -->
-                @foreach ($comments as $comment)
-                <div class="tt-item">
-                     <div class="tt-single-topic">
+                <div class="tt-item card card-block">
+                    @foreach ($comments as $comment)
+                    {{-- <div class="tt-single-topic">
                         <div class="tt-item-header pt-noborder">
                             <div class="tt-item-info info-top">
                                 <div class="tt-avatar-icon">
@@ -90,13 +90,25 @@
                             </div>
                         </div>
                         <div class="tt-item-description">
-                            {{ $comment->content }}
+                            {!! $comment->content !!}
                         </div>
-                        <div class="tt-item-info info-bottom">
-                            <a href="#" class="tt-icon-btn">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                                <span class="tt-text">671</span>
-                            </a>
+                    </div> --}}
+                     <!--FIRST LIST ITEM-->
+                    <div class="media ml-lg-5">
+                        <span class="round pt-2">
+                            <img class="mr-lg-5 rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
+                        </span>
+                        <div class="media-body">
+                            <div class="row d-flex">
+                                <h6 class="user pt-2">{{ $comment->first_name." ".$comment->last_name }}</h6>
+                                <div class="ml-auto mr-lg-5">
+                                    <p class="text">3m</p>
+                                </div>
+                            </div>
+                            <p class="text">{{ $comment->created_at }}</p>
+                            <div class="images mt-2"> 
+                                {!! $comment->content !!}
+                            </div>
                         </div>
                     </div>
                     @endforeach
