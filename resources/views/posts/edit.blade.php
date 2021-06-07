@@ -6,7 +6,7 @@
 @section('content')
 @if(Auth::check())
 @if ($post->id_user == Auth::user()->id )
-<div class="container content">
+<div class="container content" style="margin-top: 200px;">
     <form method="POST" action="{{url("/posts/$post->id")}}">
         @csrf
         @method('PUT')
@@ -18,7 +18,9 @@
                     </div>
                     <!-- Title -->
                     <div class="d-flex flex-row align-items-start">
-                        <input type="textarea" name="title" value="{{ $post->title }}" class="form-control mb-3" placeholder="Title">
+                        <textarea name="title" class="summernoteTitle">
+                            {{ $post->title }}
+                        </textarea>
                     </div>
                     @error('title')
                     <div class="form-text text-danger">{{ $message }}</div>
@@ -26,7 +28,9 @@
                     
                     <!-- Content -->
                     <div class="d-flex flex-row align-items-start">
-                        <input type="textarea" name="content" value="{{ $post->content }}" class="form-control" placeholder="Content">
+                        <textarea name="content" class="summernoteContent">
+                            {{ $post->content }}
+                        </textarea>
                     </div>
                     @error('content')
                     <div class="form-text text-danger">{{ $message }}</div>

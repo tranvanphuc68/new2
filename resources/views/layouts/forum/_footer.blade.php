@@ -107,7 +107,7 @@
     document.emojiSource = "{{ asset('vendor/tam-emoji/img') }}";
     $('.summernoteTitle').summernote({
       placeholder: 'Describe your post well, while keeping the subject as short as possible',
-          height: 100,
+      height: 100,
       minHeight: null,             
       maxHeight: null,             
       focus: true,
