@@ -24,7 +24,7 @@
                 </div>
                 <div class="tt-col-description">
                     <h6 class="tt-title">
-                        {{ $post->first_name." ".$post->last_name }}
+                        {{ Auth::user()->first_name." ".Auth::user()->last_name }}
                     </h6>
                     <div class="row align-items-center no-gutters">
                         <div class="col-12">

@@ -6,7 +6,7 @@
 
 @section('content')
     @if(Auth::check())
-        @if($post->id == Auth::user()->id )
+        @if($post->id_user == Auth::user()->id )
             <!-- Edit post -->
             <form  method="POST" action="{{url("/posts/$post->id")}}">
                 @csrf
@@ -15,7 +15,7 @@
                     <div class="container">
                         <div class="title-block">
                             <h3 class="title"> 
-                                Edit posts with id {{$post->id}} <span class="sparkline bar" data-type="bar"></span>
+                                Edit Post <span class="sparkline bar" data-type="bar"></span>
                             </h3>
                         </div>
                         <form name="item">
@@ -23,17 +23,18 @@
                                 <!-- Avatar -->
                                 <div class="form-group row mb-5">
                                     <div class="col-sm-2 text-xs-right">
-                                        <img class="rounded-circle img" width="50" src="{{ asset("/uploads/avatars/".$post->avatar) }}">
+                                        <img class="rounded-circle img" width="50" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
                                     </div>
                                     <div class="col-sm-10 mt-3">
-                                        <h4> {{ $post->first_name." ".$post->last_name }} </h4>
+                                        <h4> {{ Auth::user()->first_name." ".Auth::user()->last_name }} </h4>
                                     </div>
                                 </div>
                                 <!-- Title -->
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
                                     <div class="col-sm-10">
-                                        <textarea class="summernoteTitle" name="title" value="{!! $post->title !!}">
+                                        <textarea class="summernoteTitle" name="title">
+                                            {{ $post->title }}
                                         </textarea>
                                         @error('title')
                                         <div class="form-text text-danger">{{ $message }}</div>
@@ -44,7 +45,8 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
                                     <div class="col-sm-10">
-                                        <textarea class="summernoteContent" name="content" value="{!! $post->content !!}">
+                                        <textarea class="summernoteContent" name="content">
+                                            {{ $post->content }}
                                         </textarea>
                                         @error('content')
                                         <div class="form-text text-danger">{{ $message }}</div>
