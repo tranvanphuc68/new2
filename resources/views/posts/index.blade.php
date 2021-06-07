@@ -1,4 +1,3 @@
-{{-- 
 @extends('layouts.forum.app')
 
 @section('title')
@@ -25,13 +24,13 @@
                 </div>
                 <div class="tt-col-description">
                     <h6 class="tt-title">
-                        <a href="{{ url("/posts/$post->id") }}">
-                            {{ $post->first_name." ".$post->last_name }}
-                        </a>
+                        {{ $post->first_name." ".$post->last_name }}
                     </h6>
                     <div class="row align-items-center no-gutters">
                         <div class="col-12">
-                            {!! $post->title !!}
+                            <a href="{{ url("/posts/$post->id") }}">
+                                {!! $post->title !!}
+                            </a>
                         </div>
                         <div class="col-1 ml-auto show-mobile">
                             <div class="tt-value" style="font-size: 10px">{{ date('d M Y', strtotime($post->created_at))  }}</div>
@@ -55,9 +54,9 @@
     </div>
 </main>
 
-@endsection --}}
+@endsection
 
-
+{{-- 
 @extends('layouts.forum.app')
 
 @section('title')
@@ -70,36 +69,14 @@ body {
     background: #eee
 }
 
-/* .date {
-    font-size: 11px
-} */
-
-/* .comment-text {
-    font-size: 12px
-} */
-
-/* .shadow-none {
-    box-shadow: none
-}
-
 .name {
-    color: #007bff
+    font-size: 15px;
 }
-
-.cursor:hover {
-    color: blue
+.date {
+    font-size: 10px;
 }
-
-.cursor {
-    cursor: pointer
-}
-
-.textarea {
-    resize: none
-} */
-
 .shadow {
-    box-shadow: 10px 10px 5px #aaaaaa;
+    box-shadow: 15px 15px 5px #3b3b3b;
 }
 </style>
 <main id="tt-pageContent">
@@ -127,7 +104,6 @@ body {
                 </div>
             </div>
 
-            <!--Pagination post-->
             <div class="mb-2 mt-5">
                 <div class="d-flex justify-content-center row">
                     {{ $posts->links() }}
@@ -136,19 +112,4 @@ body {
         </div>
     </div>
 </main>
-@endsection
-
-{{-- <div class="d-flex justify-content-center py-2">
-    <div class="second py-2 px-2"> 
-        <a class="decoration" href="{{ url("/posts/$post->id") }}">
-            <span class="text1">{!! $post->title !!}</span>
-        </a>
-        <div class="d-flex justify-content-between py-1 pt-2">
-            <div>
-                <img src="{{ asset("/uploads/avatars/$post->avatar") }}" width="30">
-                <span class="text2">{{ $post->first_name." ".$post->last_name }}</span>
-            </div>
-            <div><span class="text3">{{ $post->created_at }}</span></div>
-        </div>
-    </div>
-</div> --}}
+@endsection --}}

@@ -5,42 +5,66 @@
 @endsection
 
 @section('content')
-@if(Auth::check())
-<div class="container content">
-    @if($post->id == Auth::user()->id )
-        <form method="POST" action="{{url("/posts/$post->id")}}">
-            @csrf
-            @method('PUT')
-            <div id="collapse-1" class="p-2 collapse mb-3" data-parent="#myGroup">
-                <div class="d-flex flex-column comment-section" >
-                    <div class="p-2" style="background-color: rgb(207, 213, 241); border: 2px solid rgb(160, 158, 241); border-radius: 10px;">
-                        <div class="d-flex flex-row align-items-start mb-3">
-                            <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
-                            <div class="d-flex flex-column justify-content-start ml-2">
-                                <span class="d-block font-weight-bold name">{{ $post->first_name." ".$post->last_name }}</span>
+    @if(Auth::check())
+        @if($post->id == Auth::user()->id )
+            <!-- Edit post -->
+            <form  method="POST" action="{{url("/posts/$post->id")}}">
+                @csrf
+                @method('PUT')
+                <main id="tt-pageContent">
+                    <div class="container">
+                        <div class="title-block">
+                            <h3 class="title"> 
+                                Edit posts with id {{$post->id}} <span class="sparkline bar" data-type="bar"></span>
+                            </h3>
+                        </div>
+                        <form name="item">
+                            <div class="card card-block">
+                                <!-- Avatar -->
+                                <div class="form-group row mb-5">
+                                    <div class="col-sm-2 text-xs-right">
+                                        <img class="rounded-circle img" width="50" src="{{ asset("/uploads/avatars/".$post->avatar) }}">
+                                    </div>
+                                    <div class="col-sm-10 mt-3">
+                                        <h4> {{ $post->first_name." ".$post->last_name }} </h4>
+                                    </div>
+                                </div>
+                                <!-- Title -->
+                                <div class="form-group row">
+                                    <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
+                                    <div class="col-sm-10">
+                                        <textarea class="summernoteTitle" name="title" value="{!! $post->title !!}">
+                                            {{-- {!! old('title') !!} --}}
+                                        </textarea>
+                                        @error('title')
+                                        <div class="form-text text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <!-- Content -->
+                                <div class="form-group row">
+                                    <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
+                                    <div class="col-sm-10">
+                                        <textarea class="summernoteContent" name="content" value="{!! $post->content !!}">
+                                            {{-- {!! old('content') !!} --}}
+                                        </textarea>
+                                        @error('content')
+                                        <div class="form-text text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <!-- Button -->
+                                <div class="row form-group">
+                                    <div class="col-auto ml-md-auto">
+                                        <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                                        <button class="btn btn-danger btn-sm ml-2" type="reset">Cancel</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="d-flex flex-row align-items-start">
-                            <input type="textarea" name="title" value="{{ $post->title }}" class="form-control mb-3" placeholder="Title">
-                        </div>  
-                        @error('title')
-                        <div class="form-text text-danger">{{ $message }}</div>
-                        @enderror
-                        <div class="d-flex flex-row align-items-start">
-                            <input type="textarea" name="content" value="{{ $post->content }}" class="form-control" placeholder="Content">
-                        </div>
-                        @error('content')
-                        <div class="form-text text-danger">{{ $message }}</div>
-                        @enderror
-                        <div class="mt-2 text-right">
-                            <button class="btn btn-primary btn-sm shadow-none" type="submit">Edit</button>
-                            <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="reset">Cancel</button>
-                        </div>
+                        </form>
                     </div>
-                </div>
-            </div>
-        </form>
+                </main>
+            </form>
+        @endif
     @endif
-</div>
-@endif
 @endsection

@@ -26,13 +26,14 @@
                             <div>
                                 {!! $post->title !!}
                             </div>
-                            <div class="tt-item-tag">
+
+                            {{-- <div class="tt-item-tag">
                                 <ul class="tt-list-badge">
                                     <li><a href="#"><span class="tt-color03 tt-badge">exchange</span></a></li>
                                     <li><a href="#"><span class="tt-badge">themeforest</span></a></li>
                                     <li><a href="#"><span class="tt-badge">elements</span></a></li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="tt-item-description">
                             <p>
@@ -40,11 +41,14 @@
                             </p>
                         </div>
 
+                        @if (Auth::check())
                         <div class="tt-item-info info-bottom">
-                            <a href="#" class="tt-icon-btn">
-                                <i class="tt-icon"><svg><use xlink:href="#icon-like"></use></svg></i>
-                                <span class="tt-text">671</span>
+                            <!-- Edit post -->
+                            @if ($post->id_user == Auth::user()->id )
+                            <a href="{{ url("/posts/$post->id/self_edit") }}" class="tt-icon-btn">
+                                <i class="tt-icon fa fa-pencil"></i>
                             </a>
+                            @endif
                             <div class="col-separator"></div>
                             <a href="#" class="tt-icon-btn tt-hover-02 tt-small-indent">
                                 <i class="tt-icon"><svg><use xlink:href="#icon-flag"></use></svg></i>
@@ -55,6 +59,7 @@
                                  <span class="tt-text">{{ $countComment }}</span>
                             </a>
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="tt-item">
@@ -216,3 +221,12 @@
         </div>
     </main>
 @endsection
+
+ {{-- <!-- Edit post -->
+ @if ($post->id_user == Auth::user()->id )
+ <span class="ml-3">
+     <a href="{{ url("/posts/$post->id/self_edit") }}" style="color: black">
+         <i class="fa fa-pencil"></i>
+     </a>
+ </span>
+ @endif --}}
