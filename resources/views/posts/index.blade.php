@@ -24,12 +24,12 @@
                 </div>
                 <div class="tt-col-description">
                     <h6 class="tt-title">
-                        {{ Auth::user()->first_name." ".Auth::user()->last_name }}
+                        {{ $post->first_name." ".$post->last_name }}
                     </h6>
                     <div class="row align-items-center no-gutters">
                         <div class="col-12">
-                            <a href="{{ url("/posts/$post->id") }}">
-                                {!! $post->title !!}
+                            <a href="{{ url("/posts/$post->id") }}" style="color: black;">
+                                <p>{!! $post->title !!}</p>
                             </a>
                         </div>
                         <div class="col-1 ml-auto show-mobile">

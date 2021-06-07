@@ -7551,11 +7551,12 @@ hr {
 }
 
 .tt-single-topic .tt-item-header .tt-item-info.info-top .tt-avatar-title {
-    color: #666f74;
-    font-size: 14px;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
     line-height: 26px;
     letter-spacing: .01em;
-    padding-right: 15px
+    padding-right: 15px;
 }
 
 .tt-single-topic .tt-item-header .tt-item-info.info-top .tt-avatar-title a {
@@ -7608,8 +7609,8 @@ hr {
 }
 
 .tt-single-topic .tt-item-header:not(.pt-noborder) {
-    border-bottom: 1px solid #e2e7ea;
-    padding: 0 0 30px
+    border-bottom: 1px solid #7a7c7e;
+    padding: 0 0 20px;
 }
 
 .tt-single-topic .tt-item-header.pt-noborder+.tt-item-description {
@@ -8944,11 +8945,11 @@ html.ie.gecko body.modal-open {
 .pt-editor .pt-title {
     color: #182730;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 26px;
     margin: 0;
     padding: 0 0 12px;
-    letter-spacing: .01em
+    letter-spacing: .01em;
 }
 
 .pt-editor .pt-row {

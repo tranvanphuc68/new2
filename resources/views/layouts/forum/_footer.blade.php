@@ -475,6 +475,25 @@ $(document).ready(function () {
 		  ['tool', ['undo', 'redo']],
           ['view', ['fullscreen', 'help']],
         ],   
+	});
+
+	$('.summernoteContentComment').summernote({
+		height: 100,                 
+		minHeight: null,             
+		maxHeight: null,             
+		focus: true,
+		toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'italic', 'clear']],
+		  ['fontname', ['fontname']],
+		  ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+		  ['table', ['table']],
+          ['insert', ['emoji', 'link', 'picture', 'video']],
+		  ['tool', ['undo', 'redo']],
+          ['view', ['fullscreen', 'help']],
+        ],   
 
 	});
 })
