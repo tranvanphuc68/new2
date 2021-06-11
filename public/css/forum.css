@@ -6332,6 +6332,10 @@
         -webkit-transition: opacity .2s linear;
         transition: opacity .2s linear
     }
+    
+    .tt-user-info .bg-blue {
+        background-color: #67b0d1;
+    }
     /* a:hovel {
         color: none;
     } */

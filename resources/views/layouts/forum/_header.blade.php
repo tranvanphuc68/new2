@@ -85,13 +85,13 @@
                             </li>
                             @if (Auth::check())
                                 <li>
-                                  <a href="{{ url('/') }}">
+                                    <a href="{{ url('/') }}">
                                         <i class="fa fa-dashboard">
                                         @if (Auth::user()->role == "Admin")  Admin  @endif 
                                         @if (Auth::user()->role == "Teacher")  Teacher  @endif 
                                         @if (Auth::user()->role == "Student")  Student  @endif 
                                         </i> 
-                                  </a>
+                                    </a>
                                 </li>
             
                                 <!-- Manage reportes posts -->
@@ -199,21 +199,21 @@
             <!-- User=>profile + logout -->
             <div class="col-auto ml-auto">
                 <div class="tt-user-info d-flex justify-content-center">
-                        <li class="profile dropdown" style="display: table-cell;">
+                        {{-- <li class="profile dropdown" style="display: table-cell;"> --}}
                             <a class="nav-link dropdown-toggle" style="padding: 13px 15px;" data-toggle="dropdown" href="{{ url("") }}" role="button" aria-haspopup="true" aria-expanded="false">
                               <img class="rounded-circle img" width="40px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
                               <span class="name"> {{ Auth::user()->fullname }} </span>
                             </a>
-                            <div class="dropdown-menu profile-dropdown-menu bg-info" aria-labelledby="dropdownMenu1">
-                              <a class="dropdown-item text-white" href="{{ url("/users/self_show") }} ">
+                            <div class="dropdown-menu profile-dropdown-menu bg-blue" aria-labelledby="dropdownMenu1">
+                              <a class="dropdown-item text-white mb-2" href="{{ url("/users/self_show") }} ">
                                 <i class="fa fa-user icon"></i> Profile </a>
-                              <a class="dropdown-item text-white" href="#">
+                              <a class="dropdown-item text-white mb-2" href="#">
                                 <i class="fa fa-bell icon"></i> Notifications </a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item text-white" href="{{url('/logout')}}">
                                 <i class="fa fa-power-off icon"></i> Logout </a>
                             </div>
-                        </li>
+                        {{-- </li> --}}
                 </div>
                     
                 @endif
@@ -223,7 +223,7 @@
                 <div class="col-auto ml-auto">
                     <div class="tt-user-info d-flex justify-content-center">
                         <div class="tt-account-btn">
-                            <a href="{{ url('/login') }}"> <span  style="color: #fff">Login</span> </a>
+                            <a href="{{ url('/login') }}"> <span>Login</span> </a>
                         </div>
                     </div>
                 </div>
