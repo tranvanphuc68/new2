@@ -432,7 +432,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="{{ asset('summernote-bs4.js') }}"></script>
 <script src="{{ asset('vendor/tam-emoji/js/config.js') }}"></script>
-{{-- <script src="{{ asset('summernote-lite.css') }}"></script> --}}
 <!--include tam-emoji js-->
 <script src="{{ asset('vendor/tam-emoji/js/tam-emoji.min.js') }}"></script>
 
