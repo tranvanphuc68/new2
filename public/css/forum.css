@@ -6174,7 +6174,7 @@
     @media (max-width:440px) {
         #tt-header .tt-account-btn [class^=btn] {
             padding-left: 7px;
-            padding-right: 7px
+            padding-right: 7px;
         }
     }
     
@@ -6218,7 +6218,7 @@
     }
     
     .tt-desktop-menu nav>ul>li {
-        position: relative
+        position: relative;
     }
     
     .tt-desktop-menu nav>ul>li>a {
@@ -6227,12 +6227,16 @@
         color: #ffffff;
         text-transform: uppercase;
         font-weight: 500;
-        padding: 0 15px;
+        padding: 20px 15px;
         display: inline-block;
         text-decoration: none;
         letter-spacing: .01em;
         -webkit-transition: .2s linear;
         transition: .2s linear;
+    }
+    
+    .tt-desktop-menu nav>ul>li>a:hover {
+        color: #003d69;
     }
     
     .tt-desktop-menu nav>ul>li>a span {

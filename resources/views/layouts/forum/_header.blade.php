@@ -78,35 +78,36 @@
                     <nav>
                         <ul>
                             <!-- Home -->
-                            <li class="border-0">
+                            <li>
                                 <a href="{{ url('/home') }}">
-                                  <span><i class="fa fa-home">Home</i></span>
+                                  <i class="fa fa-home">Home</i>
                                 </a>
                             </li>
                             @if (Auth::check())
-                                <li>
-                                    <a href="{{ url('/') }}">
-                                        <i class="fa fa-dashboard">
-                                        @if (Auth::user()->role == "Admin")  Admin  @endif 
-                                        @if (Auth::user()->role == "Teacher")  Teacher  @endif 
-                                        @if (Auth::user()->role == "Student")  Student  @endif 
-                                        </i> 
-                                    </a>
-                                </li>
+                            <!-- User -->
+                            <li>
+                                <a href="{{ url('/') }}">
+                                    <i class="fa fa-dashboard">
+                                    @if (Auth::user()->role == "Admin")  Admin  @endif 
+                                    @if (Auth::user()->role == "Teacher")  Teacher  @endif 
+                                    @if (Auth::user()->role == "Student")  Student  @endif 
+                                    </i> 
+                                </a>
+                            </li>
+                            <!-- Manage reportes posts -->
+                            @if (Auth::user()->role == "Admin")
+                            <li>
+                                <a href="{{ url('/report_posts') }}">
+                                    <i class="fa fa-bell-o"> 
+                                        Reported posts
+                                        <sup>
+                                            {{ $countPostHadBeenReported }}
+                                        </sup>
+                                    </i>
+                                </a>
+                            </li>
+                            @endif
             
-                                <!-- Manage reportes posts -->
-                                @if (Auth::user()->role == "Admin")
-                                    <li>
-                                        <a href="{{ url('/report_posts') }}">
-                                            <span>
-                                                <i class="fa fa-bell-o"> Reported posts</i>
-                                                <sup>
-                                                    {{ $countPostHadBeenReported }}
-                                                </sup>
-                                            </span>
-                                        </a>
-                                    </li>
-                                @endif
                             @endif
                         </ul>
                     </nav>
