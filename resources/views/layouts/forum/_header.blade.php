@@ -58,7 +58,7 @@
 </nav>
 <header id="tt-header">
     <div class="container">
-        <div class="row tt-row no-gutters">
+        <div class="row tt-row">
             <div class="col-auto">
                 <!-- toggle mobile menu -->
                 <a class="toggle-mobile-menu" href="#">
@@ -68,15 +68,17 @@
                 </a>
                 <!-- /toggle mobile menu -->
                 <!-- logo -->
-                <div class="tt-logo">
-                    <a href="{{ url('/posts') }}" style=" font-family: 'Pattaya', sans-serif ; color: #fff; font-size: 40px; ; margin-left: 6px" >Into</a>
-                </div>
-                <!-- desctop menu -->
+                <a href="{{ url('/posts') }}">
+                    <div class="tt-logo">
+                        Into
+                    </div>
+                </a>
+                <!-- desktop menu -->
                  <div class="tt-desktop-menu">
                     <nav>
                         <ul>
                             <!-- Home -->
-                            <li>
+                            <li class="border-0">
                                 <a href="{{ url('/home') }}">
                                   <span><i class="fa fa-home">Home</i></span>
                                 </a>
@@ -84,13 +86,11 @@
                             @if (Auth::check())
                                 <li>
                                   <a href="{{ url('/') }}">
-                                    <span> 
                                         <i class="fa fa-dashboard">
                                         @if (Auth::user()->role == "Admin")  Admin  @endif 
                                         @if (Auth::user()->role == "Teacher")  Teacher  @endif 
                                         @if (Auth::user()->role == "Student")  Student  @endif 
                                         </i> 
-                                    </span>
                                   </a>
                                 </li>
             
