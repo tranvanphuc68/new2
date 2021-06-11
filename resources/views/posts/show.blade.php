@@ -30,46 +30,42 @@
                         <div class="tt-item-description">
                             {!! $post->content !!}
                         </div>
+                    </div>
 
-                        @if (Auth::check())
-                        <div class="tt-item-info info-bottom">
-                            <!-- create Comment -->
-                            <a href="#reply" class="tt-icon-btn text-dark nav-link">
-                                <i class="fa fa-reply"> Reply  ({{ $countComment }})</i>
+                    @if (Auth::check())
+                    <div class="row" style="justify-content: space-evenly;">
+                        
+                        <!-- create Comment -->
+                        <a href="#reply" class="tt-icon-btn text-dark">
+                            <i class="fa fa-reply"> ({{ $countComment }})</i>
+                        </a>
+
+                        {{-- <div class="col-separator"></div> --}}
+
+                        <!-- Edit post -->
+                        @if ($post->id_user == Auth::user()->id )
+                            <a href="{{ url("/posts/$post->id/self_edit") }}" class="tt-icon-btn text-dark">
+                                <i class="fa fa-pencil"></i>
                             </a>
+                        @endif
 
-                            <div class="col-separator"></div>
-
-                            <!-- Edit post -->
-                            @if ($post->id_user == Auth::user()->id )
-                                <a href="{{ url("/posts/$post->id/self_edit") }}" class="tt-icon-btn text-dark">
-                                    <i class="fa fa-pencil"> Edit post</i>
-                                </a>
-                            @endif
-
-                            <div class="col-separator"></div>
-
-                            <!-- Delete post -->
-                            @if (($post->id_user == Auth::user()->id) || (Auth::user()->role == "Admin") )
-                                <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" class="tt-icon-btn text-dark">
-                                    <i class="fa fa-trash"> Delete post</i>
-                                </a>
-                             
+                        <!-- Delete post -->
+                        @if (($post->id_user == Auth::user()->id) || (Auth::user()->role == "Admin") )
+                            <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" class="tt-icon-btn text-dark">
+                                <i class="fa fa-trash"></i>
                                 <form action='{{ url("/posts/$post->id") }}' method="POST" id="post-delete-{{$post->id }}">
                                     @method('DELETE')
                                     @csrf
                                 </form>
-                            @endif
-
-                            <div class="col-separator"></div>
-
-                            <!-- Report post -->
-                            <a href="{{ url("/report_posts/$post->id/create")}}" class="tt-icon-btn text-dark">
-                                <i class="fa fa-exclamation-circle"> Report post  ({{ $countReportPost }})</i>
                             </a>
-                        </div>
                         @endif
+
+                        <!-- Report post -->
+                        <a href="{{ url("/report_posts/$post->id/create")}}" class="tt-icon-btn text-dark">
+                            <i class="fa fa-exclamation-circle"> ({{ $countReportPost }})</i>
+                        </a>
                     </div>
+                    @endif
                 </div>
 
                 @if ($countComment > 0)
@@ -125,24 +121,22 @@
             @if (Auth::check())
             <form method="POST" action="{{ url("/comments/{$post->id}") }}" >
                 @csrf
-                <div class="tt-wrapper-inner" id="reply">
-                    <div class="pt-editor form-default">
-                        <h5 class="pt-title">Post Your Reply</h5>
+                <div class="pt-editor form-default" id="reply">
+                    <h5 class="pt-title">Post Your Reply</h5>
 
-                        <div class="form-group">
-                            <textarea class="summernoteContentComment" name="content">
-                                {{ old('content') }}
-                            </textarea>
-                            @error('content')
-                            <div class="form-text text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        
-                        <div class="row form-group">
-                            <div class="col-auto ml-md-auto">
-                                <button class="btn btn-primary btn-width-lg" type="submit">Reply</button>
-                                <button class="btn btn-danger btn-sm ml-2" type="reset">Cancel</button>
-                            </div>
+                    <div class="form-group">
+                        <textarea class="summernoteContentComment" name="content">
+                            {{ old('content') }}
+                        </textarea>
+                        @error('content')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    
+                    <div class="row form-group">
+                        <div class="col-auto ml-md-auto">
+                            <button class="btn btn-primary btn-width-lg" type="submit">Reply</button>
+                            <button class="btn btn-danger btn-sm ml-2" type="reset">Cancel</button>
                         </div>
                     </div>
                 </div>
