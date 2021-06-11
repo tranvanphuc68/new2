@@ -10734,7 +10734,7 @@
         padding: 0 0 30px 0;
         color: #fff;
         font-size: 14px;
-        margin-top: 150px;
+        margin-top: 30px;
     }
     
     #footer .footer-top {
@@ -10891,4 +10891,31 @@
         #footer .footer-top .footer-info {
             margin: -20px 0 30px 0;
         }
+    }
+    /*--------------------------------------------------------------
+    index report post 
+    --------------------------------------------------------------*/
+    
+    .note {
+        margin-top: 0.75em;
+        margin-bottom: 0.75em;
+        background: rgb(245, 245, 245);
+        border-width: 1px 1px 1px 3px;
+        border-style: solid;
+        border-color: rgb(231, 231, 231) rgb(231, 231, 231) rgb(231, 231, 231) rgb(242, 147, 13);
+        border-image: initial;
+        overflow: hidden;
+        transition: -xf-height 0.25s ease 0s, height 0.25s ease 0s, padding 0.25s ease 0s, margin 0.25s ease 0s, border 0.25s ease 0s;
+    }
+    
+    .note_content {
+        position: relative;
+        padding: 6px 10px;
+        overflow: hidden;
+        font-size: 14px;
+    }
+    
+    .note_expandcontent {
+        max-height: 150px;
+        overflow: hidden;
     }

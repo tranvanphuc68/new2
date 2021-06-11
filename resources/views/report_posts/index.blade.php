@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+@if ($countPostHadBeenReported > 0)
 <main id="tt-pageContent" class="tt-offset-small">
     <div class ="container content">
         <h3 class="title text-Noto"> Danh sách post bị báo cáo </h3>
@@ -67,6 +68,61 @@
         
         <!-- Pagination -->
         {{ $posts->links() }}
+
     </div>
 </main>
+
+@else 
+
+<main id="tt-pageContent" class="tt-offset-small mt-lg-5">
+    <div class ="container">
+        <blockquote class="bbCodeBlock bbCodeBlock--expandable bbCodeBlock--quote note">
+            <div class="bbCodeBlock-content note_content">
+                <div class="bbCodeBlock-expandContent note_expandcontent">
+                    <div><span style="font-weight: 700;">Chưa có bài post nào bị báo cáo.</span>
+                    </div>
+                </div>
+            </div>
+        </blockquote>
+        <blockquote class="bbCodeBlock bbCodeBlock--expandable bbCodeBlock--quote note">
+            <div class="bbCodeBlock-content note_content">
+                <div class="bbCodeBlock-expandContent note_expandcontent ">
+                    <div><span style="font-weight: 700;"> Ấn INTO để quay lại trang chủ của forum.</span>
+                    </div>
+                </div>
+            </div>
+        </blockquote>
+        <blockquote class="bbCodeBlock bbCodeBlock--expandable bbCodeBlock--quote note">
+            <div class="bbCodeBlock-content note_content">
+                <div class="bbCodeBlock-expandContent note_expandcontent ">
+                    <div><span style="font-weight: 700;"> Ấn HOME để sang trang chủ chính của trang web.</span>
+                    </div>
+                </div>
+            </div>
+        </blockquote>
+        <blockquote class="bbCodeBlock bbCodeBlock--expandable bbCodeBlock--quote note">
+            <div class="bbCodeBlock-content note_content">
+                <div class="bbCodeBlock-expandContent note_expandcontent ">
+                    <div><span style="font-weight: 700;"> 
+                        Ấn 
+                        @if (Auth::user()->role == "Admin")  Admin  @endif 
+                        @if (Auth::user()->role == "Teacher")  Teacher  @endif 
+                        @if (Auth::user()->role == "Student")  Student  @endif  
+                        để sang tài khoản chính của người dùng tại INTO.</span>
+                    </div>
+                </div>
+            </div>
+        </blockquote>
+        <blockquote class="bbCodeBlock bbCodeBlock--expandable bbCodeBlock--quote note">
+            <div class="bbCodeBlock-content note_content">
+                <div class="bbCodeBlock-expandContent note_expandcontent ">
+                    <div><span style="font-weight: 700;"> Ấn + để tạo một post mới.</span>
+                    </div>
+                </div>
+            </div>
+        </blockquote>
+    </div>
+</main>
+
+@endif
 @endsection

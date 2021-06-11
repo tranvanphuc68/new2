@@ -17,7 +17,7 @@
                         </h3>
                     </div>
                     <form name="item">
-                        @csrf
+                        {{-- @csrf --}}
                         <div class="card card-block">
                             <!-- Avatar -->
                             <div class="form-group row mb-5">
