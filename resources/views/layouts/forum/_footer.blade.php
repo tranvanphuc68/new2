@@ -477,7 +477,7 @@ $(document).ready(function () {
 	});
 
 	$('.summernoteContentComment').summernote({
-		height: 100,                 
+		height: 150,                 
 		minHeight: null,             
 		maxHeight: null,             
 		focus: true,
