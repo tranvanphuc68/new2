@@ -10919,3 +10919,18 @@
         max-height: 150px;
         overflow: hidden;
     }
+    /*--------------------------------------------------------------
+    show post 
+    --------------------------------------------------------------*/
+    
+    .justify-content-space-evenly {
+        justify-content: space-evenly;
+    }
+    
+    .ml_30px {
+        margin-left: 30px;
+    }
+    
+    .size_10px {
+        font-size: 10px;
+    }

@@ -33,14 +33,12 @@
                     </div>
 
                     @if (Auth::check())
-                    <div class="row" style="justify-content: space-evenly;">
+                    <div class="row justify-content-space-evenly">
                         
                         <!-- create Comment -->
                         <a href="#reply" class="tt-icon-btn text-dark">
                             <i class="fa fa-reply"> ({{ $countComment }})</i>
                         </a>
-
-                        {{-- <div class="col-separator"></div> --}}
 
                         <!-- Edit post -->
                         @if ($post->id_user == Auth::user()->id )
@@ -76,36 +74,39 @@
                         <span class="round pt-2 ml-lg-5">
                             <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
                         </span>
-                        <div class="media-body" style="margin-left: 30px;">
+                        <div class="media-body ml_30px">
                             <div class="row mr-4">
                                 <h6 class="pt-2">{{ $comment->first_name." ".$comment->last_name }}</h6>
 
                                 @if (Auth::check())
-                                @if(($comment->id_user == Auth::user()->id))
-                                <div class="ml-auto btn-group dropleft">
-                                    <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-ellipsis-v tt-icon-btn text-dark"></i>
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item mt-2" href="{{ url("/comments/$comment->id/self_edit") }}">
-                                            <i class="fa fa-pencil"> Edit comment </i>
-                                        </a>
-                                        <a class="dropdown-item mt-2 mb-2" href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('comment-delete-{{ $comment->id }}').submit()">
-                                            <i class="fa fa-trash"> Delete comment </i>
-                                            <form action='{{ url("/comments/{$comment->id}") }}' method="POST" id="comment-delete-{{ $comment->id }}">
-                                                @method('DELETE')
-                                                @csrf
-                                            </form>
-                                        </a>
-                                    </div>
-                                </div>
-                                @endif
+                                    @if(($comment->id_user == Auth::user()->id))
+                                        <div class="ml-auto btn-group dropleft">
+                                            <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-ellipsis-v tt-icon-btn text-dark"></i>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <!--Edit comment-->
+                                                <a class="dropdown-item mt-3 text-black" href="{{ url("/comments/$comment->id/self_edit") }}">
+                                                    <i class="fa fa-pencil"> Edit comment </i>
+                                                </a>
+
+                                                <!--Delete comment-->
+                                                <a class="dropdown-item mt-3 mb-3" href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('comment-delete-{{ $comment->id }}').submit()">
+                                                    <i class="fa fa-trash"> Delete comment </i>
+                                                    <form action='{{ url("/comments/{$comment->id}") }}' method="POST" id="comment-delete-{{ $comment->id }}">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                    </form>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endif
                                 @endif
                             </div>
 
-                            <div class="row" style="font-size: 10px;">{{ $comment->created_at }}</div>
-                            
-                            <div class="mt-2 row"> 
+                            <div class="row size_10px">{{ $comment->created_at }}</div>
+
+                            <div class="mt-2 mr-4 row"> 
                                 {!! $comment->content !!}
                             </div>
                         </div>
@@ -115,7 +116,7 @@
             </div>
 
             <div class="tt-wrapper-inner">
-                <h4 class="tt-title-separator"><span>You’ve reached the end of replies</span></h4>
+                <h4 class="tt-title-separator"><span>End the comments of this post</span></h4>
             </div>
             @endif
             
@@ -144,27 +145,6 @@
                 </div>
             </form>
             @endif
-
         </div>
     </main>
 @endsection
-
-
-{{-- <div class="tt-single-topic">
-                        <div class="tt-item-header pt-noborder">
-                            <div class="tt-item-info info-top">
-                                <div class="tt-avatar-icon">
-                                      <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
-                                </div>
-                                <div class="tt-avatar-title">
-                                   <a href="#">{{ $comment->first_name." ".$comment->last_name }}</a>
-                                </div>
-                                <a href="#" class="tt-info-time">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>{{ $comment->created_at }}
-                                </a>
-                            </div>
-                        </div>
-                        <div class="tt-item-description">
-                            {!! $comment->content !!}
-                        </div>
-                    </div> --}}
