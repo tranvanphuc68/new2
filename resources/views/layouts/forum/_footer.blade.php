@@ -472,7 +472,7 @@ $(document).ready(function () {
 		  ['table', ['table']],
           ['insert', ['emoji', 'link', 'picture', 'video']],
 		  ['tool', ['undo', 'redo']],
-          ['view', ['fullscreen', 'help']],
+          ['view', ['fullscreen', 'codeview', 'help']],
         ],   
 	});
 
@@ -488,7 +488,6 @@ $(document).ready(function () {
 		  ['fontsize', ['fontsize']],
           ['color', ['color']],
           ['para', ['ul', 'ol', 'paragraph']],
-		  ['table', ['table']],
           ['insert', ['emoji', 'link', 'picture', 'video']],
 		  ['tool', ['undo', 'redo']],
           ['view', ['fullscreen', 'help']],

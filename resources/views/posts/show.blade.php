@@ -72,38 +72,40 @@
                 <!-- Show comment -->
                 <div class="tt-item card card-block">
                     @foreach ($comments as $comment)
-                    {{-- <div class="tt-single-topic">
-                        <div class="tt-item-header pt-noborder">
-                            <div class="tt-item-info info-top">
-                                <div class="tt-avatar-icon">
-                                      <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
-                                </div>
-                                <div class="tt-avatar-title">
-                                   <a href="#">{{ $comment->first_name." ".$comment->last_name }}</a>
-                                </div>
-                                <a href="#" class="tt-info-time">
-                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>{{ $comment->created_at }}
-                                </a>
-                            </div>
-                        </div>
-                        <div class="tt-item-description">
-                            {!! $comment->content !!}
-                        </div>
-                    </div> --}}
-                     <!--FIRST LIST ITEM-->
-                    <div class="media ml-lg-5">
-                        <span class="round pt-2">
-                            <img class="mr-lg-5 rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
+                    <div class="media mt-3 ml-lg-4">
+                        <span class="round pt-2 ml-lg-5">
+                            <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
                         </span>
-                        <div class="media-body">
-                            <div class="row d-flex">
-                                <h6 class="user pt-2">{{ $comment->first_name." ".$comment->last_name }}</h6>
-                                <div class="ml-auto mr-lg-5">
-                                    <p class="text">3m</p>
+                        <div class="media-body" style="margin-left: 30px;">
+                            <div class="row mr-4">
+                                <h6 class="pt-2">{{ $comment->first_name." ".$comment->last_name }}</h6>
+
+                                @if (Auth::check())
+                                @if(($comment->id_user == Auth::user()->id))
+                                <div class="ml-auto btn-group dropleft">
+                                    <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-ellipsis-v tt-icon-btn text-dark"></i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item mt-2" href="{{ url("/comments/$comment->id/self_edit") }}">
+                                            <i class="fa fa-pencil"> Edit comment </i>
+                                        </a>
+                                        <a class="dropdown-item mt-2 mb-2" href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('comment-delete-{{ $comment->id }}').submit()">
+                                            <i class="fa fa-trash"> Delete comment </i>
+                                            <form action='{{ url("/comments/{$comment->id}") }}' method="POST" id="comment-delete-{{ $comment->id }}">
+                                                @method('DELETE')
+                                                @csrf
+                                            </form>
+                                        </a>
+                                    </div>
                                 </div>
+                                @endif
+                                @endif
                             </div>
-                            <p class="text">{{ $comment->created_at }}</p>
-                            <div class="images mt-2"> 
+
+                            <div class="row" style="font-size: 10px;">{{ $comment->created_at }}</div>
+                            
+                            <div class="mt-2 row"> 
                                 {!! $comment->content !!}
                             </div>
                         </div>
@@ -146,3 +148,23 @@
         </div>
     </main>
 @endsection
+
+
+{{-- <div class="tt-single-topic">
+                        <div class="tt-item-header pt-noborder">
+                            <div class="tt-item-info info-top">
+                                <div class="tt-avatar-icon">
+                                      <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
+                                </div>
+                                <div class="tt-avatar-title">
+                                   <a href="#">{{ $comment->first_name." ".$comment->last_name }}</a>
+                                </div>
+                                <a href="#" class="tt-info-time">
+                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>{{ $comment->created_at }}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="tt-item-description">
+                            {!! $comment->content !!}
+                        </div>
+                    </div> --}}
