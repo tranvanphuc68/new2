@@ -30,7 +30,7 @@
                             </a>
                         </div>
                         <div class="col-3 ml-auto show-mobile">
-                            <div class="tt-value" style="font-size: 10px">{{ date('d M Y', strtotime($post->created_at))  }}</div>
+                            <div class="tt-value size_10px">{{ date('d M Y', strtotime($post->created_at))  }}</div>
                         </div>
                     </div>
                 </div>

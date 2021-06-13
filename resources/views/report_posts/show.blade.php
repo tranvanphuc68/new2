@@ -13,10 +13,10 @@
                 <div class="d-flex justify-content-center row">
                     <div style="width: 100%">
                         <div class="d-flex flex-column comment-section" >
-                                <h3 class="title text-Noto">Số báo cáo {{ $countReportPost }}</h3>
+                                <h3 class="title text-Noto mb-lg-5">Số báo cáo {{ $countReportPost }}</h3>
                                 <table class="table table-bordered table-hover">
                                     <thead>
-                                        <tr class="bg-blue text-white">
+                                        <tr class="bg-blue">
                                             <th class="left" style="width: 30%">Name</th>
                                             <th class="left" style="width: 70%">Content report</th>
                                         </tr>
