@@ -47,8 +47,8 @@
                         <img class="rounded-circle img" width="30px"  src="{{ asset("/uploads/avatars/$post->avatar") }}">
                         {{ $post->first_name." ".$post->last_name }}
                     </td>
-                    <td class="left">{{ $post->title }}</td>
-                    <td class="left">{{ $post->content }}</td>
+                    <td class="left">{!! $post->title !!}</td>
+                    <td class="left">{!! $post->content !!}</td>
                     <td class="center">
                         <!-- Show report post -->
                         <a href="{{ url("/report_posts/{$post->id}") }}" class="btn"><i class="fa fa-eye icon-view"></i></a>
