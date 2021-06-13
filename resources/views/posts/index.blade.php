@@ -25,7 +25,7 @@
                     </h6>
                     <div class="row align-items-center no-gutters">
                         <div class="col-12">
-                            <a href="{{ url("/posts/$post->id") }}" style="color: black;">
+                            <a href="{{ url("/posts/$post->id") }}" class="text-black">
                                 <p>{!! $post->title !!}</p>
                             </a>
                         </div>

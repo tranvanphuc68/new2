@@ -81,10 +81,10 @@
                                 @if (Auth::check())
                                     @if(($comment->id_user == Auth::user()->id))
                                         <div class="ml-auto btn-group dropleft">
-                                            <a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a type="button" id="dropdownMenuComment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fa fa-ellipsis-v tt-icon-btn text-dark"></i>
                                             </a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuComment">
                                                 <!--Edit comment-->
                                                 <a class="dropdown-item mt-3 text-black" href="{{ url("/comments/$comment->id/self_edit") }}">
                                                     <i class="fa fa-pencil"> Edit comment </i>

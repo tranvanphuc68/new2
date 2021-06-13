@@ -6,24 +6,79 @@
 
 @section('content')
 @if(Auth::check())
-<main id="tt-pageContent" class="tt-offset-small">
-    <div class ="container content">
-        <form method="POST" action="{{ url("/report_posts/{$post}") }}">
-            @csrf
-            <!-- Report post-->
-                <div class="d-flex flex-row align-items-start">
-                    <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                    <textarea class="form-control ml-1 shadow-none textarea" name="content" placeholder="Content"></textarea>
-                    @error('content')
-                    <div class="form-text text-danger">{{ $message }}</div>
-                    @enderror
+    <!-- Create new report post -->
+    <form method="POST" action="{{ url("/report_posts/{$post}") }}">
+        @csrf
+        <main id="tt-pageContent">
+            <!-- Modal report-->
+            <div tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h5 class="center mt_50px" style="text-align: center; margin-top: 50px;">Report post</h5>
+                            <p class="center mt_10px" style="text-align: center; margin-top: 10px;">Help us understand what is wrong with this post.</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="content" id="reportPost1" value="Nội dung xúc phạm" checked>
+                                <label class="form-check-label" for="reportPost1">
+                                    Nội dung xúc phạm
+                                </label>
+                                <hr>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="content" id="reportPost2" value="Phương tiện công kích">
+                                <label class="form-check-label" for="reportPost2">
+                                    Phương tiện công kích
+                                </label>
+                                <hr>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="content" id="reportPost3" value="Spam">
+                                <label class="form-check-label" for="reportPost3">
+                                    Spam
+                                </label>
+                                <hr>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="content" id="reportPost4" value="Thông tin sai sự thật">
+                                <label class="form-check-label" for="reportPost4">
+                                    Thông tin sai sự thật
+                                </label>
+                                <hr>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="content" id="reportPost5" value="Ngôn từ gây thù ghét">
+                                <label class="form-check-label" for="reportPost5">
+                                    Ngôn từ gây thù ghét
+                                </label>
+                                <hr>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="content" id="reportPost6" value="Đăng nội dung không phù hợp" checked>
+                                <label class="form-check-label" for="reportPost6">
+                                    Đăng nội dung không phù hợp
+                                </label>
+                                <hr>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="content" id="reportPost7" value="Vấn đề khác">
+                                <label class="form-check-label" for="reportPost7">
+                                    Vấn đề khác
+                                </label>
+                            </div>
+                                
+                            @error('content')
+                                <div class="form-text text-danger mt-4">{{ $message }}</div>
+                            @enderror
+
+                            <div class="row justify-content-center mt-5">
+                                <button type="button" class="btn btn-secondary mr-3" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Report</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mt-2 text-right">
-                    <button class="btn btn-primary btn-sm shadow-none" type="submit">Create report</button>
-                    <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="reset">Cancel</button>
-                </div>
-        </form>
-    </div>
-</main>
+            </div>
+        </main>
+    </form>
 @endif
 @endsection
