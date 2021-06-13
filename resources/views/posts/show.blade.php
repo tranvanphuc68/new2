@@ -5,142 +5,146 @@
 @endsection
 
 @section('content')
-<div class="content">
-        <div class="container mt-5">
-            <div class="d-flex justify-content-center row">
-                <div class="col-md-8" style="border-top: 3px solid rgb(201, 220, 221); border-left: 2px solid rgb(201, 220, 221); border-right: 2px solid rgb(201, 220, 221); background-color:rgb(255, 255, 255); border-radius: 10px; border-bottom: 5px solid rgb(218, 227, 245); background-color:rgb(228, 238, 255)">
-                    <div class="d-flex flex-column comment-section" id="myGroup">
-                        <div class="pt-3">
-                            <div class="d-flex flex-row user-info">
-                                <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
-                                <div class="d-flex flex-column justify-content-start ml-2">
-                                    <span class="d-block font-weight-bold name">{{ $post->first_name." ".$post->last_name }}</span>
-                                    <span class="date" style="color:rgb(117, 117, 117)">{{ $post->created_at }}</span>
+    <main id="tt-pageContent">
+        <div class="container">
+            <div class="tt-single-topic-list">
+                <!--Show post-->
+                <div class="tt-item card card-block">
+                     <div class="tt-single-topic">
+                        <div class="tt-item-header">
+                            <div class="tt-item-info info-top">
+                                <div class="tt-avatar-icon">
+                                    <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                                 </div>
+                                <div class="tt-avatar-title">
+                                    {{ $post->first_name." ".$post->last_name }}
+                                </div>
+                                <a href="#" class="tt-info-time">
+                                    <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>{{ $post->created_at }}
+                                </a>
                             </div>
-                            <div class="mt-2 ml-4">
-                                <h4>{!! $post->title !!}</h4>
-                                <div>{!! $post->content !!}</div>
-                            </div>
-                        </div>
-
-                        @if (Auth::check())
-                        <div class="p-2">
-                            <div class="d-flex flex-row fs-12" style="justify-content:flex-end">
-                                <!-- Edit post -->
-                                @if ($post->id_user == Auth::user()->id )
-                                <span class="ml-3">
-                                    <a href="{{ url("/posts/$post->id/self_edit") }}" style="color: black">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-                                </span>
-                                @endif
-                                
-                                <!-- Delete post -->
-                                @if (($post->id_user == Auth::user()->id) || (Auth::user()->role == "Admin") )
-                                    <span class="ml-3">
-                                        <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" style="color: black">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    
-                                        <form action='{{ url("/posts/$post->id") }}' method="POST" id="post-delete-{{ $post->id }}">
-                                            @method('DELETE')
-                                            @csrf
-                                        </form>
-                                    </span>
-                                @endif
-
-                                <!-- Report post -->
-                                    <span class="ml-3">
-                                            <a href="{{ url("/report_posts/$post->id/create")}}" style="color: black">
-                                                <i class="fa fa-flag"></i>
-                                                <span class="counter">({{ $countReportPost }})</span>
-                                            </a>
-                                    </span>
+                            <div>
+                                {!! $post->title !!}
                             </div>
                         </div>
-                        @endif
+                        <div class="tt-item-description">
+                            {!! $post->content !!}
+                        </div>
                     </div>
+
+                    @if (Auth::check())
+                    <div class="row justify-content-space-evenly">
+                        
+                        <!-- create Comment -->
+                        <a href="#reply" class="tt-icon-btn text-dark">
+                            <i class="fa fa-reply"> ({{ $countComment }})</i>
+                        </a>
+
+                        <!-- Edit post -->
+                        @if ($post->id_user == Auth::user()->id )
+                            <a href="{{ url("/posts/$post->id/self_edit") }}" class="tt-icon-btn text-dark">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                        @endif
+
+                        <!-- Delete post -->
+                        @if (($post->id_user == Auth::user()->id) || (Auth::user()->role == "Admin") )
+                            <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" class="tt-icon-btn text-dark">
+                                <i class="fa fa-trash"></i>
+                                <form action='{{ url("/posts/$post->id") }}' method="POST" id="post-delete-{{$post->id }}">
+                                    @method('DELETE')
+                                    @csrf
+                                </form>
+                            </a>
+                        @endif
+
+                        <!-- Report post -->
+                        <a href="{{ url("/report_posts/$post->id/create")}}" class="tt-icon-btn text-dark">
+                            <i class="fa fa-exclamation-circle"> ({{ $countReportPost }})</i>
+                        </a>
+                    </div>
+                    @endif
+                </div>
+
+                @if ($countComment > 0)
+                <!-- Show comment -->
+                <div class="tt-item card card-block">
+                    @foreach ($comments as $comment)
+                    <div class="media mt-3 ml-lg-4">
+                        <span class="round pt-2 ml-lg-5">
+                            <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
+                        </span>
+                        <div class="media-body ml_30px">
+                            <div class="row mr-4">
+                                <h6 class="pt-2">{{ $comment->first_name." ".$comment->last_name }}</h6>
+
+                                @if (Auth::check())
+                                    @if(($comment->id_user == Auth::user()->id))
+                                        <div class="ml-auto btn-group dropleft">
+                                            <a type="button" id="dropdownMenuComment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-ellipsis-v tt-icon-btn text-dark"></i>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuComment">
+                                                <!--Edit comment-->
+                                                <a class="dropdown-item mt-3 text-black" href="{{ url("/comments/$comment->id/self_edit") }}">
+                                                    <i class="fa fa-pencil"> Edit comment </i>
+                                                </a>
+
+                                                <!--Delete comment-->
+                                                <a class="dropdown-item mt-3 mb-3" href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('comment-delete-{{ $comment->id }}').submit()">
+                                                    <i class="fa fa-trash"> Delete comment </i>
+                                                    <form action='{{ url("/comments/{$comment->id}") }}' method="POST" id="comment-delete-{{ $comment->id }}">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                    </form>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endif
+                            </div>
+
+                            <div class="row size_10px">{{ $comment->created_at }}</div>
+
+                            <div class="mt-2 mr-4 row"> 
+                                {!! $comment->content !!}
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-        
-        <!-- Comment -->
-        <div class="container">
-            <div class="d-flex justify-content-center row">
-                <div class="col-md-8" style="border-bottom: 3px solid rgb(201, 220, 221); border-left: 2px solid rgb(201, 220, 221); border-right: 2px solid rgb(201, 220, 221); background-color:rgb(255, 255, 255); border-radius: 10px; border-top: 5px solid rgb(64, 124, 235);">
 
-                    <!-- Create comment -->
-                    @if (Auth::check())
-                    <form method="POST" action="{{ url("/comments/{$post->id}") }}" >
-                        @csrf
-                        <div class="d-flex flex-row align-items-start mt-4">
-                            <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                            <textarea class="form-control ml-1 shadow-none textarea" name="content" placeholder="Comment your idea"></textarea>
-                        </div>
+            <div class="tt-wrapper-inner">
+                <h4 class="tt-title-separator"><span>End the comments of this post</span></h4>
+            </div>
+            @endif
+            
+            <!-- create comment -->
+            @if (Auth::check())
+            <form method="POST" action="{{ url("/comments/{$post->id}") }}" >
+                @csrf
+                <div class="pt-editor form-default" id="reply">
+                    <h5 class="pt-title">Post Your Reply</h5>
+
+                    <div class="form-group">
+                        <textarea class="summernoteContentComment" name="content">
+                            {{ old('content') }}
+                        </textarea>
                         @error('content')
                         <div class="form-text text-danger">{{ $message }}</div>
                         @enderror
-                        <div class="mt-2 text-right">
-                            <button class="btn btn-primary btn-sm shadow-none" type="submit">Post comment</button>
-                            <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="reset">Cancel</button>
-                        </div>
-                    </form>
-                    @endif
-
-                    <!--count comment -->
-                    <h5 class="mb-3 ml-5" style="color:rgb(64, 124, 235);">Comments ({{ $countComment }})</h5>
-
-                    <!-- Show comment -->
-                    @foreach ($comments as $comment)
-                    <div class="d-flex flex-column comment-section mt-2 ml-4" id="myGroup">
-                        <div class="ml-4" style="background-color:rgb(209, 213, 235); border-radius: 10px; ">
-                            <div class="d-flex flex-row user-info">
-                                <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$comment->avatar") }}">
-                                <div class="d-flex flex-column justify-content-start ml-2">
-                                    <span class="d-block font-weight-bold name">{{ $comment->first_name." ".$comment->last_name }}</span>
-                                    <span class="date text-black-50">{{ $comment->created_at }}</span>
-                                </div>
-                            </div>
-                            <div class="mt-2 ml-5">
-                                <div style="color: rgb(8, 8, 8)">{{ $comment->content }}</div>
-                            </div>
-                        </div>
-
-                        @if (Auth::check())
-                            @if(($comment->id_user == Auth::user()->id))
-                            <div class="mb-1">
-                                <div class="d-flex flex-row fs-12 justify-content-end ml-4" style="background-color:rgb(209, 213, 235);">
-                                    <!-- Edit comment -->
-                                    <div class="like p-2">
-                                        <a href="{{ url("/comments/$comment->id/self_edit") }}">
-                                            <i class="fa fa-pencil"></i>
-                                            <span class="ml-1"></span>
-                                        </a>
-                
-                                    </div>
-
-                                    <!-- Delete comment-->
-                                    <div class="like p-2">
-                                        <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('comment-delete-{{ $comment->id }}').submit()">
-                                            <i class="fa fa-trash">
-                                                <span class="ml-1"></span>
-                                            </i>
-                                        </a>
-                                        
-
-                                        <form action='{{ url("/comments/{$comment->id}") }}' method="POST" id="comment-delete-{{ $comment->id }}">
-                                            @method('DELETE')
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            @endif
-                        @endif
                     </div>
-                @endforeach
-            </div>
+                    
+                    <div class="row form-group">
+                        <div class="col-auto ml-md-auto">
+                            <button class="btn btn-primary btn-width-lg" type="submit">Reply</button>
+                            <button class="btn btn-danger btn-sm ml-2" type="reset">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            @endif
         </div>
-    </div>
+    </main>
 @endsection

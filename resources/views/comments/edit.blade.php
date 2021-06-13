@@ -4,34 +4,54 @@
     Edit comment
 @endsection
 @section('content')
-@if(Auth::check())
-<div class="content">
-    <form method="POST" action="{{url("/comments/$comment->id")}}">
-        @csrf
-        @method('PUT')
-        <div class="container mt-5">
-            <div class="d-flex justify-content-center row">
-                <div class="col-md-10">
-                    <div class="bg-light p-2">
-                        <div class="d-flex flex-row align-items-start">
-                            <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                            <div class="d-flex flex-column justify-content-start ml-2">
-                                <span class="d-block font-weight-bold name">{{ Auth::user()->first_name." ".Auth::user()->last_name }}</span>
-                            </div>
-                            <input type="textarea" name="content" value="{{ $comment->content }}" class="form-control" placeholder="Content comment">
-                        </div>
-                        @error('content')
-                        <div class="form-text text-danger">{{ $message }}</div>
-                        @enderror
-                        <div class="mt-2 text-right">
-                            <button class="btn btn-primary btn-sm shadow-none" type="submit">Edit</button>
-                            <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="reset">Cancel</button>
-                        </div>
+    @if(Auth::check())
+        @if(($comment->id_user == Auth::user()->id))
+        <!-- Edit comment -->
+        <form  method="POST" action="{{url("/comments/$comment->id")}}">
+            @csrf
+            @method('PUT')
+            <main id="tt-pageContent">
+                <div class="container">
+                    <div class="title-block">
+                        <h3 class="title"> 
+                            Edit Comment <span class="sparkline bar" data-type="bar"></span>
+                        </h3>
                     </div>
+                    <form name="item">
+                        <div class="card card-block">
+                            <!-- Avatar -->
+                            <div class="form-group row mb-5">
+                                <div class="col-sm-2 text-xs-right">
+                                    <img class="rounded-circle img" width="50" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                                </div>
+                                <div class="col-sm-10 mt-3">
+                                    <h4> {{ Auth::user()->first_name." ".Auth::user()->last_name }} </h4>
+                                </div>
+                            </div>
+                            <!-- Content -->
+                            <div class="form-group row">
+                                <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
+                                <div class="col-sm-10">
+                                    <textarea class="summernoteContentComment" name="content">
+                                        {{ $comment->content }}
+                                    </textarea>
+                                    @error('content')
+                                    <div class="form-text text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <!-- Button -->
+                            <div class="row form-group">
+                                <div class="col-auto ml-md-auto">
+                                    <button class="btn btn-primary btn-sm" type="submit">Edit</button>
+                                    <button class="btn btn-danger btn-sm ml-2" type="reset">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div>
-        </div>
-    </form>
-</div>
-@endif
+            </main>
+        </form>
+        @endif
+    @endif
 @endsection
