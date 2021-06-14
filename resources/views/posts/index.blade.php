@@ -7,6 +7,18 @@
 @section('content')
 <main id="tt-pageContent" class="tt-offset-small">
     <div class="container">
+        <!-- search -->
+        <div class="mx-auto d-flex justify-content-end row mt-4">
+            <form action="{{ url("/post/search") }}" method="GET" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control mr-3" name="search" placeholder="Search by post title" id="search">
+                    <button class="btn btn-info" type="submit" title="Search posts">
+                        <span class="fa fa-search text-white"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!-- /search -->
         <div class="tt-topic-list">
             <div class="tt-list-header">
                 <div class="tt-col-topic">Topic</div>

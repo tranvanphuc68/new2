@@ -72,6 +72,7 @@
                         Into
                     </div>
                 </a>
+                <!-- /logo -->
                 <!-- desktop menu -->
                  <div class="tt-desktop-menu">
                     <nav>
@@ -113,17 +114,10 @@
                 </div>
                 <!-- /desctop menu -->
                 <!-- tt-search -->
-                <div class="tt-search">
-                    <!-- toggle -->
-                    <button class="tt-search-toggle" data-toggle="modal" data-target="#modalAdvancedSearch">
-                       <svg class="tt-icon">
-                          <use xlink:href="#icon-search"></use>
-                        </svg>
-                    </button>
-                    <!-- /toggle -->
-                    <form class="search-wrapper">
+                {{-- <div class="tt-search">
+                    <form action="{{ url("/post/search") }}" method="GET" role="search">
                         <div class="search-form">
-                            <input type="text" class="tt-search__input" placeholder="Search">
+                            <input type="text" class="tt-search__input" name="search" placeholder="Search by post title" id="search">
                             <button class="tt-search__btn" type="submit">
                                <svg class="tt-icon">
                                   <use xlink:href="#icon-search"></use>
@@ -135,87 +129,31 @@
                                 </svg>
                             </button>
                         </div>
-                        <div class="search-results">
-                            <div class="tt-search-scroll">
-                                <ul>
-                                    <li>
-                                        <a href="page-single-topic.html">
-                                            <h6 class="tt-title">Rdr2 secret easter eggs</h6>
-                                            <div class="tt-description">
-                                               Here’s what I’ve found in Red Dead Redem..
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                       <a href="page-single-topic.html">
-                                            <h6 class="tt-title">Top 10 easter eggs in Red Dead Rede..</h6>
-                                            <div class="tt-description">
-                                                You can find these easter eggs in Red Dea..
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                       <a href="page-single-topic.html">
-                                            <h6 class="tt-title">Red Dead Redemtion: Arthur Morgan..</h6>
-                                            <div class="tt-description">
-                                                Here’s what I’ve found in Red Dead Redem..
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="page-single-topic.html">
-                                            <h6 class="tt-title">Rdr2 secret easter eggs</h6>
-                                            <div class="tt-description">
-                                               Here’s what I’ve found in Red Dead Redem..
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                       <a href="page-single-topic.html">
-                                            <h6 class="tt-title">Top 10 easter eggs in Red Dead Rede..</h6>
-                                            <div class="tt-description">
-                                                You can find these easter eggs in Red Dea..
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                       <a href="page-single-topic.html">
-                                            <h6 class="tt-title">Red Dead Redemtion: Arthur Morgan..</h6>
-                                            <div class="tt-description">
-                                                Here’s what I’ve found in Red Dead Redem..
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <button type="button" class="tt-view-all" data-toggle="modal" data-target="#modalAdvancedSearch">Advanced Search</button>
-                        </div>
                     </form>
-                </div>
+                </div> --}}
                 <!-- /tt-search -->
             </div>
+
 
             @if (Auth::check())
             <!-- User=>profile + logout -->
             <div class="col-auto ml-auto">
                 <div class="tt-user-info d-flex justify-content-center">
-                        {{-- <li class="profile dropdown" style="display: table-cell;"> --}}
-                            <a class="nav-link dropdown-toggle" style="padding: 13px 15px;" data-toggle="dropdown" href="{{ url("") }}" role="button" aria-haspopup="true" aria-expanded="false">
-                              <img class="rounded-circle img" width="40px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
-                              <span class="name"> {{ Auth::user()->fullname }} </span>
-                            </a>
-                            <div class="dropdown-menu profile-dropdown-menu bg-blue" aria-labelledby="dropdownMenu1">
-                              <a class="dropdown-item text-white mb-2" href="{{ url("/users/self_show") }} ">
-                                <i class="fa fa-user icon"></i> Profile </a>
-                              <a class="dropdown-item text-white mb-2" href="#">
-                                <i class="fa fa-bell icon"></i> Notifications </a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item text-white" href="{{url('/logout')}}">
-                                <i class="fa fa-power-off icon"></i> Logout </a>
-                            </div>
-                        {{-- </li> --}}
+                    <a class="nav-link dropdown-toggle" style="padding: 13px 15px;" data-toggle="dropdown" href="{{ url("") }}" role="button" aria-haspopup="true" aria-expanded="false">
+                      <img class="rounded-circle img" width="40px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                      <span class="name"> {{ Auth::user()->fullname }} </span>
+                    </a>
+                    <div class="dropdown-menu profile-dropdown-menu bg-blue" aria-labelledby="dropdownMenu1">
+                      <a class="dropdown-item text-white mb-2" href="{{ url("/users/self_show") }} ">
+                        <i class="fa fa-user icon"></i> Profile </a>
+                      <a class="dropdown-item text-white mb-2" href="#">
+                        <i class="fa fa-bell icon"></i> Notifications </a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item text-white" href="{{url('/logout')}}">
+                        <i class="fa fa-power-off icon"></i> Logout </a>
+                    </div>
                 </div>
-                    
+                <!-- /User=>profile + logout -->   
                 @endif
 
                 @if (!Auth::check())

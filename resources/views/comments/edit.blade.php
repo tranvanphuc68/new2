@@ -43,8 +43,7 @@
                             <!-- Button -->
                             <div class="row form-group">
                                 <div class="col-auto ml-md-auto">
-                                    <button class="btn btn-primary btn-sm" type="submit">Edit</button>
-                                    <button class="btn btn-danger btn-sm ml-2" type="reset">Cancel</button>
+                                    <button class="btn btn-primary btn-width-lg" type="submit">Edit</button>
                                 </div>
                             </div>
                         </div>
