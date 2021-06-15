@@ -35,8 +35,19 @@ Into
                                                     <td class="w15">{{ $student->id_student }}</td>
                                                     <td class="">{{ $student->first_name." ".$student->last_name }}</td>
                                                     <td class="w25">{{ $student->dob }}</td>
-                                                    <td class="w25"><input type="text" name ="{{ $student->id_student }}" value="{{ old("$student->id_student",$student->mark )}}">
-                                                    <p class="error"></p>
+                                                    <td class="w25"><input type="text" name ="{{ $student->id_student }}" id="{{ $student->id_student }}" value="{{ number_format(("$student->mark"),1,'.','') }}" pattern="/(^([0-8]{1}(\.[0|5]))$)|9.0/gm"
+                                                        oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" >
+                                                        <script>
+                                                            function InvalidMsg(textbox) {
+                                                                if(textbox.validity.patternMismatch){
+                                                                    textbox.setCustomValidity('Điểm không hợp lệ');
+                                                                }    
+                                                                else {
+                                                                    textbox.setCustomValidity('');
+                                                                }
+                                                                return true;
+                                                                }
+                                                        </script>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -54,4 +65,5 @@ Into
         </section>
     </div>
 </article>
+
 @endsection

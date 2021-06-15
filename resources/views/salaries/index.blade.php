@@ -41,13 +41,13 @@ Into
                                                 <tr>
                                                     <td class="w10">{{ $salary->id }}</td>
                                                     <td class="w50">{{ $salary->name }}</td>
-                                                    <td class="w20">{{ $salary->salary }}</td>
+                                                    <td class="w20">{{ number_format($salary->salary, 0, ' ', ' ') }}</td>
                                                     <td class="w20"><?php echo $salary->status_salary == 0 ? 'Chưa nhận': 'Đã nhận'; ?></td>
                                                 </tr>
                                             @endforeach
                                         </table>
                                             <div style="text-align: right;">
-                                                <h5>Tổng lương (đã nhận): {{ $sum }}</p>
+                                                <h5>Tổng lương (đã nhận): {{ number_format($sum, 0, ' ', ' ') }}</p>
                                                 <p>Số lượng (đã nhận): {{ $count }} / {{ count($salaries) }}</p>
                                             </div>
                                     @endif

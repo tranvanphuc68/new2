@@ -87,6 +87,7 @@ class MarkController extends Controller
         ->where('id_course',$id_course)
         ->select('students_courses.*','users.first_name', 'users.last_name','courses.name')
         ->get();
+
         foreach ($students as $student) {
             DB::table('students_courses')
             ->where('id_student','=',$student->id_student)

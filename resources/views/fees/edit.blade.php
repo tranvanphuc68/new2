@@ -45,7 +45,7 @@ Into
                                                 <td class="w5">{{ $student->id_student }}</td>
                                                 <td class="w30">{{ $student->first_name." ".$student->last_name }}</td>
                                                 <td class="w15">{{ $student->dob }}</td>
-                                                <td class="w20">{{ $student->fee }}</td>
+                                                <td class="w20">{{  number_format($student->fee, 0, ' ', ' ') }}</td>
                                                 <td class="w15">
                                                     <input type="radio" id="{{$student->id_student}}_0" name="{{$student->id_student}}" value="0" <?php echo ($student->status_fee == 0) ? 'checked' : 'disabled' ?>>
                                                     <label for="{{$student->id_student}}_0"></label>

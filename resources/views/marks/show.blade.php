@@ -46,7 +46,7 @@ Into
                                             <td class="w10">{{ $student->id_student }}</td>
                                             <td class="w40">{{ $student->first_name." ".$student->last_name }}</td>
                                             <td class="w25">{{ $student->dob }}</td>
-                                            <td class="w25">{{ $student->mark }}</td>
+                                            <td class="w25">{{ number_format(("$student->mark"),1,'.','') }}</td>
                                         </tr>
                                         @endforeach
                                     </table>

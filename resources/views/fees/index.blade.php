@@ -40,7 +40,7 @@ Into
                                                 <tr>
                                                     <td class="w10">{{ $fee->id_course }}</td>
                                                     <td class="w40">{{ $fee->name }}</td>
-                                                    <td class="w25">{{ $fee->fee }}</td>
+                                                    <td class="w25">{{  number_format($fee->fee, 0, ' ', ' ') }}</td>
                                                     <td class="w25"><?php echo $fee->status_fee == 0 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
                                                 </tr>
                                             @endforeach

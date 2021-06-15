@@ -40,7 +40,7 @@ Into
                                                 <tr>
                                                     <td class="w20">{{ $mark->id_course}}</td>
                                                     <td class="w60">{{ $mark->name }}</td>
-                                                    <td class="w20">{{ $mark->mark }}</td>
+                                                    <td class="w20">{{ number_format(("$mark->mark"),1,'.','') }}</td>
                                                 </tr>
                                             @endforeach
                                         @else
