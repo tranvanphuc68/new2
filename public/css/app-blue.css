@@ -2207,6 +2207,7 @@ a:not(.btn) {
     -webkit-transition: initial;
     transition: initial;
     text-decoration: none;
+    color: #4f5f6f;
 }
 
 a:not(.btn):hover {
