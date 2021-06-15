@@ -27,7 +27,6 @@ Into
             <p>
               INTO IELTS tập trung đào tạo IELTS với tôn chỉ phát triển về chất lượng thay vì số lượng. INTO tự hào mang đến những khóa học IELTS online hiệu quả với chất lượng giảng dạy hàng đầu.
             </p>
-            <a href="{{ url('/about') }}" class="about-btn">TÌM HIỂU THÊM <i class="bx bx-chevron-right"></i></a>
           </div>
         </div>
         <div class="col-xl-7 d-flex align-items-stretch">
@@ -234,12 +233,13 @@ Into
         </div>
         <div class="col-md-12">
           <div class="featured-carousel owl-carousel">
+          @foreach($teachers as $teacher)
             <div class="item member" data-aos="fade-up" data-aos-delay="100">
               <div class="work">
-                <div class="pic"><img src="{{ asset('assets/img/team/team-1.jpg') }}" class="img-fluid" alt=""></div>
+                <div class="pic"><img src="{{ asset("/uploads/avatars/$teacher->avatar") }}" class="img-fluid" alt=""></div>
                 <div class="member-info">
-                  <h4>Walter White</h4>
-                  <span>giảng viên IELTS khóa 4.5-5.0 </span>
+                  <h4>{{ $teacher->first_name." ".$teacher->last_name }}</h4>
+                  <span>{{ $teacher->accomplishment }}</span>
                 <div class="social">
                   <a href=""><i class="icofont-twitter"></i></a>
                   <a href=""><i class="icofont-facebook"></i></a>
@@ -249,51 +249,7 @@ Into
                 </div>
               </div>
             </div>
-            <div class="item member" data-aos="fade-up" data-aos-delay="100">
-              <div class="work">
-                <div class="pic"><img src="{{ asset('assets/img/team/team-2.jpg') }}" class="img-fluid" alt=""></div>
-                <div class="member-info">
-                  <h4>Walter White</h4>
-                  <span>giảng viên IELTS khóa 4.5-5.0 </span>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-                </div>
-              </div>
-            </div>
-            <div class="item member" data-aos="fade-up" data-aos-delay="100">
-              <div class="work">
-                <div class="pic"><img src="{{ asset('assets/img/team/team-3.jpg') }}" class="img-fluid" alt=""></div>
-                <div class="member-info">
-                  <h4>Walter White</h4>
-                  <span>giảng viên IELTS khóa 4.5-5.0 </span>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-                </div>
-              </div>
-            </div>
-            <div class="item member" data-aos="fade-up" data-aos-delay="100">
-              <div class="work">
-                <div class="pic"><img src="{{ asset('assets/img/team/team-3.jpg') }}" class="img-fluid" alt=""></div>
-                <div class="member-info">
-                  <h4>Walter White</h4>
-                  <span>giảng viên IELTS khóa 4.5-5.0 </span>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-                </div>
-              </div>
-            </div>
+          @endforeach
           </div>
         </div>
       </div>
