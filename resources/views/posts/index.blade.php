@@ -37,7 +37,7 @@
                     </h6>
                     <div class="row align-items-center no-gutters">
                         <div class="col-12">
-                            <a href="{{ url("/posts/$post->id") }}" class="text-black">
+                            <a href="{{ url("/posts/$post->id") }}" class="text-dark">
                                 <p>{!! $post->title !!}</p>
                             </a>
                         </div>

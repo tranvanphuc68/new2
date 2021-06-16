@@ -27,15 +27,16 @@
     <link href="{{ asset('vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/venobox/venobox.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ asset('css/forum.css') }}" >
-    <link rel="stylesheet"  href="{{ asset('css/vendor.css') }}">
-    <link rel="stylesheet" id="blue-style" href="{{ asset('css/app-blue.css') }}">
-
+    
     <!-- Summernote -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('vendor/summernote/summernote-bs4.css') }}">
     <link href="{{ asset('vendor/tam-emoji/css/emoji.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" id="blue-style" href="{{ asset('css/app-blue.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forum.css') }}" >
+    <link rel="stylesheet"  href="{{ asset('css/vendor.css') }}">
+
 </head>
 <body>
 <!-- tt-mobile menu -->
@@ -113,25 +114,6 @@
                     </nav>
                 </div>
                 <!-- /desctop menu -->
-                <!-- tt-search -->
-                {{-- <div class="tt-search">
-                    <form action="{{ url("/post/search") }}" method="GET" role="search">
-                        <div class="search-form">
-                            <input type="text" class="tt-search__input" name="search" placeholder="Search by post title" id="search">
-                            <button class="tt-search__btn" type="submit">
-                               <svg class="tt-icon">
-                                  <use xlink:href="#icon-search"></use>
-                                </svg>
-                            </button>
-                             <button class="tt-search__close">
-                               <svg class="tt-icon">
-                                  <use xlink:href="#cancel"></use>
-                                </svg>
-                            </button>
-                        </div>
-                    </form>
-                </div> --}}
-                <!-- /tt-search -->
             </div>
 
 
@@ -161,7 +143,7 @@
                 <div class="col-auto ml-auto">
                     <div class="tt-user-info d-flex justify-content-center">
                         <div class="tt-account-btn">
-                            <a href="{{ url('/login') }}"> <span>Login</span> </a>
+                            <a href="{{ url('/login') }}"> <span class="text-white">Login</span> </a>
                         </div>
                     </div>
                 </div>
