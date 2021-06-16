@@ -10981,3 +10981,18 @@ index report post
         color: #ddc703;
         padding: 5px;
     }
+    
+    .over_flow {
+        width: 100%;
+        white-space: pre-wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+    }
+    
+    .over_flow:hover {
+        overflow: unset;
+        -webkit-line-clamp: 99;
+    }

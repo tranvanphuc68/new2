@@ -41,8 +41,7 @@
                         <img class="rounded-circle img" width="30px"  src="{{ asset("/uploads/avatars/$post->avatar") }}">
                         {{ $post->first_name." ".$post->last_name }}
                     </td>
-                    <td class="left">{!! $post->title !!}</td>
-                    {{-- <td class="left">{!! $post->content !!}</td> --}}
+                    <td class="left"><div class="over_flow">{!! $post->title !!}</div></td>
                     <td class="center">
                         <!-- Show post -->
                         <a href="{{ url("/posts/$post->id") }}" class="btn"><i class="fa fa-eye icon-view-post"></i></a>

@@ -106,7 +106,7 @@
 
                             <div class="row size_10px">{{ $comment->created_at }}</div>
 
-                            <div class="mt-2 mr-4 row"> 
+                            <div class="mt-2 mr-4 row" style="word-break: break-word;"> 
                                 {!! $comment->content !!}
                             </div>
                         </div>
