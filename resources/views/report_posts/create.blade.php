@@ -71,7 +71,7 @@
                             @enderror
 
                             <div class="row justify-content-center mt-5">
-                                <button type="button" class="btn btn-secondary mr-3" data-dismiss="modal">Cancel</button>
+                                <a href="{{ url("posts/$post") }}" class="btn btn-secondary mr-3" data-dismiss="modal">Cancel</a>
                                 <button type="submit" class="btn btn-primary">Report</button>
                             </div>
                         </div>

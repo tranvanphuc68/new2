@@ -73,7 +73,7 @@ public function store(ReportPostRequest $request, $post)
         'id_user' => Auth::user()->id,
         'content' => $request->content
     ]);
-    return redirect('/posts');
+    return redirect("/posts/$post");
 }
 
 public function create($post)
