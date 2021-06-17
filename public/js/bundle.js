@@ -78,7 +78,7 @@ var e, t, n, i, r, o, s;
             J = new RegExp("\\\\([\\da-f]{1,6}" + H + "?|(" + H + ")|.)", "ig"),
             ee = function(e, t, n) { var i = "0x" + t - 65536; return i != i || n ? t : i < 0 ? String.fromCharCode(i + 65536) : String.fromCharCode(i >> 10 | 55296, 1023 & i | 56320) },
             te = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g,
-            ne = function(e, t) { return t ? "\0" === e ? "�" : e.slice(0, -1) + "\\" + e.charCodeAt(e.length - 1).toString(16) + " " : "\\" + e },
+            ne = function(e, t) { return t ? "\0" === e ? "ï¿½" : e.slice(0, -1) + "\\" + e.charCodeAt(e.length - 1).toString(16) + " " : "\\" + e },
             ie = function() { C() },
             re = ye(function(e) { return !0 === e.disabled && ("form" in e || "label" in e) }, { dir: "parentNode", next: "legend" }); try { O.apply(t = L.call(y.childNodes), y.childNodes), t[y.childNodes.length].nodeType } catch (n) { O = { apply: t.length ? function(e, t) { N.apply(e, L.call(t)) } : function(e, t) { for (var n = e.length, i = 0; e[n++] = t[i++];);
                     e.length = n - 1 } } }

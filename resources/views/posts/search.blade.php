@@ -7,7 +7,6 @@
 @section('content')
 <main id="tt-pageContent" class="tt-offset-small">
     <div class="container">
-        
         <!-- search -->
         <div class="mx-auto d-flex justify-content-end row mt-4">
             <form action="{{ url("/post/search") }}" method="GET" role="search">
@@ -20,6 +19,7 @@
             </form>
         </div>
         <!-- /search -->
+        <!-- search post -->
         <div class="tt-topic-list">
             <div class="tt-list-header">
                 <div class="tt-col-topic">Topic</div>
@@ -39,7 +39,7 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col-12">
                             <a href="{{ url("/posts/$post->id") }}" class="text-black">
-                                <p>{!! $post->title !!}</p>
+                                <div class="word-break">{!! $post->title !!}</div>
                             </a>
                         </div>
                         <div class="col-3 ml-auto show-mobile">
@@ -47,8 +47,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="tt-col-value hide-mobile" style="font-size: 14px">{{ date('d M Y', strtotime($post->created_at))  }}</div>
-                <div class="tt-col-value hide-mobile" style="font-size: 14px"> {{ date('h : i', strtotime($post->created_at)) }}</div>
+                <div class="tt-col-value hide-mobile size_14px">{{ date('d M Y', strtotime($post->created_at))  }}</div>
+                <div class="tt-col-value hide-mobile size_14px"> {{ date('h : i', strtotime($post->created_at)) }}</div>
             </div>
             @endforeach
 
@@ -59,6 +59,7 @@
                 </div>
             </div>           
         </div>
+        <!-- search post -->
     </div>
 </main>
 @endsection

@@ -1,93 +1,3 @@
-<div id="js-popup-settings" class="tt-popup-settings">
-	<div class="tt-btn-col-close">
-		<a href="#">
-			<span class="tt-icon-title">
-				<svg>
-					<use xlink:href="#icon-settings_fill"></use>
-				</svg>
-			</span>
-			<span class="tt-icon-text">
-				Settings
-			</span>
-			<span class="tt-icon-close">
-				<svg>
-					<use xlink:href="#icon-cancel"></use>
-				</svg>
-			</span>
-		</a>
-	</div>
-	<form class="form-default">
-		<div class="tt-form-upload">
-			<div class="row no-gutter">
-				<div class="col-auto">
-					<div class="tt-avatar">
-		                <svg>
-		                  <use xlink:href="#icon-ava-d"></use>
-		                </svg>
-		            </div>
-				</div>
-				<div class="col-auto ml-auto">
-					<a href="#" class="btn btn-primary">Upload Picture</a>
-				</div>
-			</div>
-		</div>
-		<div class="form-group">
-		    <label for="settingsUserName">Username</label>
-		   <input type="text" name="name" class="form-control" id="settingsUserName" placeholder="azyrusmax">
-		</div>
-		<div class="form-group">
-		    <label for="settingsUserEmail">Email</label>
-		   <input type="text" name="name" class="form-control" id="settingsUserEmail" placeholder="Sample@sample.com">
-		</div>
-		<div class="form-group">
-		    <label for="settingsUserPassword">Password</label>
-		   <input type="password" name="name" class="form-control" id="settingsUserPassword" placeholder="************">
-		</div>
-		<div class="form-group">
-		    <label for="settingsUserLocation">Location</label>
-		   <input type="text" name="name" class="form-control" id="settingsUserLocation" placeholder="Slovakia">
-		</div>
-		<div class="form-group">
-		    <label for="settingsUserWebsite">Website</label>
-		   <input type="text" name="name" class="form-control" id="settingsUserWebsite" placeholder="Sample.com">
-		</div>
-		<div class="form-group">
-		    <label for="settingsUserAbout">About</label>
-		    <textarea name="" placeholder="Few words about you" class="form-control" id="settingsUserAbout"></textarea>
-		</div>
-		<div class="form-group">
-			<label for="settingsUserAbout">Notify me via Email</label>
-			<div class="checkbox-group">
-		        <input type="checkbox" id="settingsCheckBox01" name="checkbox">
-		        <label for="settingsCheckBox01">
-		            <span class="check"></span>
-		            <span class="box"></span>
-		            <span class="tt-text">When someone replies to my thread</span>
-		        </label>
-		    </div>
-		    <div class="checkbox-group">
-		        <input type="checkbox" id="settingsCheckBox02" name="checkbox">
-		        <label for="settingsCheckBox02">
-		            <span class="check"></span>
-		            <span class="box"></span>
-		            <span class="tt-text">When someone likes my thread or reply</span>
-		        </label>
-		    </div>
-		    <div class="checkbox-group">
-		        <input type="checkbox" id="settingsCheckBox03" name="checkbox">
-		        <label for="settingsCheckBox03">
-		            <span class="check"></span>
-		            <span class="box"></span>
-		            <span class="tt-text">When someone mentions me</span>
-		        </label>
-		    </div>
-		</div>
-		<div class="form-group">
-			<a href="#" class="btn btn-secondary">Save</a>
-		</div>
-	</form>
-</div>
-
 <!--create post-->
 @if (Auth::check())
 <a href="{{ url('/posts/create') }}" class="tt-btn-create-topic">
@@ -258,44 +168,32 @@
         &copy; Copyright <strong><span>INTO</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/squadfree-free-bootstrap-template-creative/ -->
         Designed by <a href="https://bootstrapmade.com/">Nhom3</a>
       </div>
     </div>
   </footer>
   <!-- End Footer -->
 
-{{-- <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a> --}}
-
-<!-- Vendor JS Files -->
-<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('vendor/jquery.easing/jquery.easing.min.js') }}"></script>
-<script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
-<script src="{{ asset('vendor/waypoints/jquery.waypoints.min.js') }}"></script>
-<script src="{{ asset('vendor/counterup/counterup.min.js') }}"></script>
-<script src="{{ asset('vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-<script src="{{ asset('vendor/venobox/venobox.min.js') }}"></script>
-<script src="{{ asset('vendor/owl.carousel/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('vendor/aos/aos.js') }}"></script>
-<script src="{{ asset('js/vendor.js') }}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/forum.js') }}"></script>
-<script src="{{ asset('js/bundle.js') }}"></script>
+<!-- bootstrap -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-
+  
 <!-- Summernote -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- Vendor JS Files -->
+<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('js/forum.js') }}"></script>
+<script src="{{ asset('js/vendor.js') }}"></script>
+<script src="{{ asset('js/bundle.js') }}"></script>
 <script src="{{ asset('vendor/summernote/summernote-bs4.js') }}"></script>
-<script src="{{ asset('vendor/tam-emoji/js/config.js') }}"></script>
+
 <!--include tam-emoji js-->
+<script src="{{ asset('vendor/tam-emoji/js/config.js') }}"></script>
 <script src="{{ asset('vendor/tam-emoji/js/tam-emoji.min.js') }}"></script>
 
 <script>
@@ -342,7 +240,7 @@ $(document).ready(function () {
 		height: 150,                 
 		minHeight: null,             
 		maxHeight: null,             
-		focus: true,
+		focus: false,
 		toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'italic', 'clear']],
@@ -350,7 +248,7 @@ $(document).ready(function () {
 		  ['fontsize', ['fontsize']],
           ['color', ['color']],
           ['para', ['ul', 'ol', 'paragraph']],
-          ['insert', ['emoji', 'link', 'picture', 'video']],
+          ['insert', ['emoji', 'link']],
 		  ['tool', ['undo', 'redo']],
           ['view', ['fullscreen', 'help']],
         ],   

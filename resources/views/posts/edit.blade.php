@@ -56,6 +56,7 @@
                                 <!-- Button -->
                                 <div class="row form-group">
                                     <div class="col-auto ml-md-auto">
+                                        <a href="{{ url("/posts/$post->id") }}" class="btn btn-secondary mr-3">Cancel</a>
                                         <button class="btn btn-primary btn-width-lg" type="submit">Edit</button>
                                     </div>
                                 </div>

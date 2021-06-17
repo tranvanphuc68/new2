@@ -43,6 +43,7 @@
                             <!-- Button -->
                             <div class="row form-group">
                                 <div class="col-auto ml-md-auto">
+                                    <a href="{{ url("/posts/{$comment->id_post}") }}" class="btn btn-secondary mr-3">Cancel</a>
                                     <button class="btn btn-primary btn-width-lg" type="submit">Edit</button>
                                 </div>
                             </div>
