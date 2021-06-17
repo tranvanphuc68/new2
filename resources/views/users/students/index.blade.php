@@ -19,9 +19,7 @@ Into
                                 <a style="float:left" href="{{ url("/users/student/create") }}" ><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm học viên</span></a>
                                 <form method="GET" style="float:right">
                                     <div  class="input-container">
-                                        <i class="fa fa-search"></i>                
-                                            <input type="text" name="search" placeholder="Search">
-                                            <button type="submit">Search</button>
+                                        <input type="text" class="search" name="search" placeholder="Search by last name" value="{{ old('search') }}">
                                         <div class="underline"></div>
                                     </div>
                                 </form>
