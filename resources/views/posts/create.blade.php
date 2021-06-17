@@ -56,7 +56,7 @@
                             <div class="row form-group">
                                 <div class="col-auto ml-md-auto">
                                     <button class="btn btn-primary btn-sm" type="submit">Create Post</button>
-                                    <button class="btn btn-danger btn-sm ml-2" type="reset">Cancel</button>
+                                    <a class="btn btn-danger btn-sm ml-2" href="{{ url("/posts") }}">Cancel</a>
                                 </div>
                             </div>
                         </div>

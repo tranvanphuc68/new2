@@ -27,7 +27,7 @@
                                 {!! $post->title !!}
                             </div>
                         </div>
-                        <div class="tt-item-description">
+                        <div class="tt-item-description" style="width:100%; overflow: auto;">
                             {!! $post->content !!}
                         </div>
                     </div>
@@ -106,11 +106,27 @@
 
                             <div class="row size_10px">{{ $comment->created_at }}</div>
 
-                            <div class="mt-2 mr-4 row" style="word-break: break-word;"> 
-                                {!! $comment->content !!}
+                            <div class="mt-2 mr-4 row"> 
+                                <div class="word-break">
+                                    {!! $comment->content !!}
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {{-- <div class="media mt-2 ml-lg-5">
+                        <div class="round pt-2 ml-lg-5">
+                            <div class="margin-left: 40px;">
+
+                            </div>
+                        </div>
+                        <div  class="ml_30px mr-4">
+                            <div class="media-body" style="overflow: auto;">
+                                <div class="row word-break"> 
+                                    {!! $comment->content !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
                     @endforeach
                 </div>
             </div>

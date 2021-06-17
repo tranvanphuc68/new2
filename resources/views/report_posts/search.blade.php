@@ -28,7 +28,7 @@
                     <th class="center">ID</th>
                     <th class="center">Name</th>
                     <th class="center">Title</th>
-                    <th class="center">Content</th>
+                    {{-- <th class="center">Content</th> --}}
                     <th class="center">Action</th>
                 </tr>
             </thead>
@@ -40,15 +40,17 @@
                         <img class="rounded-circle img" width="30px"  src="{{ asset("/uploads/avatars/$post->avatar") }}">
                         {{ $post->first_name." ".$post->last_name }}
                     </td>
-                    <td class="left">{!! $post->title !!}</td>
-                    <td class="left">{!! $post->content !!}</td>
+                    <td class="left"><div class="over_flow word-break">{!! $post->title !!}</div></td>
                     <td class="center">
+                        <!-- Show post -->
+                        <a href="{{ url("/posts/$post->id") }}" class="btn"><i class="fa fa-eye icon-view-post"></i></a>
+
                         <!-- Show report post -->
-                        <a href="{{ url("/report_posts/{$post->id}") }}" class="btn"><i class="fa fa-eye icon-view"></i></a>
+                        <a href="{{ url("/report_posts/{$post->id}") }}" class="btn"><i class="fa fa-exclamation-circle icon-view-report"></i></a>
                         
                         <!-- Delete post -->
                         <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" class="btn">
-                            <i class="fa fa-trash icon-delete"></i>
+                            <i class="fa fa-trash icon-delete-post"></i>
                         </a>
                         <form action='{{ url("/posts/$post->id") }}' method="POST" id="post-delete-{{ $post->id }}">
                             @method('DELETE')
@@ -61,6 +63,7 @@
         
         <!-- Pagination -->
         {{ $posts->links() }}
+
     </div>
 </main>
 @endsection

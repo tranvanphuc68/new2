@@ -39,7 +39,7 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col-12">
                             <a href="{{ url("/posts/$post->id") }}" class="text-black">
-                                <p>{!! $post->title !!}</p>
+                                <div class="word-break">{!! $post->title !!}</div>
                             </a>
                         </div>
                         <div class="col-3 ml-auto show-mobile">

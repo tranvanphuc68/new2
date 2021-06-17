@@ -10898,34 +10898,7 @@
         }
     }
     /*--------------------------------------------------------------
-index report post 
---------------------------------------------------------------*/
-    
-    .note {
-        margin-top: 0.75em;
-        margin-bottom: 0.75em;
-        background: rgb(245, 245, 245);
-        border-width: 1px 1px 1px 3px;
-        border-style: solid;
-        border-color: rgb(231, 231, 231) rgb(231, 231, 231) rgb(231, 231, 231) rgb(242, 147, 13);
-        border-image: initial;
-        overflow: hidden;
-        transition: -xf-height 0.25s ease 0s, height 0.25s ease 0s, padding 0.25s ease 0s, margin 0.25s ease 0s, border 0.25s ease 0s;
-    }
-    
-    .note_content {
-        position: relative;
-        padding: 6px 10px;
-        overflow: hidden;
-        font-size: 14px;
-    }
-    
-    .note_expandcontent {
-        max-height: 150px;
-        overflow: hidden;
-    }
-    /*--------------------------------------------------------------
-show post 
+show post, index post
 --------------------------------------------------------------*/
     
     .justify-content-space-evenly {
@@ -10942,6 +10915,10 @@ show post
     
     .btn-width-lg {
         min-width: 160px;
+    }
+    
+    .word-break {
+        word-break: break-word;
     }
     /*--------------------------------------------------------------
 index report post 
@@ -10995,4 +10972,28 @@ index report post
     .over_flow:hover {
         overflow: unset;
         -webkit-line-clamp: 99;
+    }
+    
+    .note {
+        margin-top: 0.75em;
+        margin-bottom: 0.75em;
+        background: rgb(245, 245, 245);
+        border-width: 1px 1px 1px 3px;
+        border-style: solid;
+        border-color: rgb(231, 231, 231) rgb(231, 231, 231) rgb(231, 231, 231) rgb(242, 147, 13);
+        border-image: initial;
+        overflow: hidden;
+        transition: -xf-height 0.25s ease 0s, height 0.25s ease 0s, padding 0.25s ease 0s, margin 0.25s ease 0s, border 0.25s ease 0s;
+    }
+    
+    .note_content {
+        position: relative;
+        padding: 6px 10px;
+        overflow: hidden;
+        font-size: 14px;
+    }
+    
+    .note_expandcontent {
+        max-height: 150px;
+        overflow: hidden;
     }
