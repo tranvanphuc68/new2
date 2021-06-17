@@ -19,8 +19,7 @@ Into
                             <div class="card-title-block">
                                 <form action="{{ url('/search/students_courses') }}" method="GET" style="float: right">
                                     <div class="input-container">
-                                        <i class="fa fa-search"></i>
-                                        <input type="text" name="search" placeholder="Search" value="{{ old('search') }}">
+                                        <input type="text" class="search" name="search" placeholder="Search by course name" value="{{ old('search') }}">
                                         <div class="underline"></div>
                                     </div>
                                 </form>
@@ -30,10 +29,10 @@ Into
                                     <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr class="table-primary">
-                                                    <th class="w10">ID Khóa Học</th>
+                                                    <th class="w15">ID Khóa Học</th>
                                                     <th class="w40">Tên Khóa Học</th>
                                                     <th class="w30">Trạng Thái</th>
-                                                    <th class="w20">Xem</th>
+                                                    <th class="w15">Xem</th>
                                                 </tr>
                                             </thead>
                                             @foreach($courses as $course)

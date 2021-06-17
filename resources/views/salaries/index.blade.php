@@ -18,9 +18,8 @@ Into
                         <div class="card-block">
                             <div class="card-title-block">
                                 <form role="search" style="text-align: right">
-                                    <div class="input-container">
-                                        <i class="fa fa-search"></i>
-                                        <input type="search" placeholder="Search">
+                                    <div  class="input-container">
+                                        <input type="text" class="search" name="search" placeholder="Search by last name" value="{{ old('search') }}">
                                         <div class="underline"></div>
                                     </div>
                                 </form>

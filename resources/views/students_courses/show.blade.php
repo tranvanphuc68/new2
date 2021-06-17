@@ -32,9 +32,8 @@ Into
                                     @endif
                                     <div class="card-title-block" style="float:right">
                                         <form role="search" >
-                                            <div class="input-container">
-                                                <i class="fa fa-search"></i>
-                                                <input type="search" placeholder="Search">
+                                            <div  class="input-container">
+                                                <input type="text" class="search" name="search" placeholder="Search by last name" value="{{ old('search') }}">
                                                 <div class="underline"></div>
                                             </div>
                                         </form>
