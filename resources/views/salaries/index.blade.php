@@ -16,18 +16,18 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <div class="card-title-block">
-                                <form role="search" style="text-align: right">
-                                    <div class="input-container">
-                                        <i class="fa fa-search"></i>
-                                        <input type="search" placeholder="Search">
-                                        <div class="underline"></div>
-                                    </div>
-                                </form>
-                            </div>
                             <section class="example">
                                 <div class="table-responsive">
                                     @if (Auth::user()->role == 'Teacher')
+                                        <div class="card-title-block">
+                                            <form method="GET" style="text-align: right">
+                                                <div class="input-container">
+                                                    <i class="fa fa-search"></i>
+                                                    <input type="text" name="searchCourse" placeholder="Search">
+                                                    <div class="underline"></div>
+                                                </div>
+                                            </form>
+                                        </div>
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr class="table-primary">
@@ -53,6 +53,15 @@ Into
                                     @endif
                                     
                                     @if (Auth::user()->role == 'Admin')
+                                        <div class="card-title-block">
+                                            <form method="GET" style="text-align: right">
+                                                <div class="input-container">
+                                                    <i class="fa fa-search"></i>
+                                                    <input type="text" name="searchTeacher" placeholder="Search">
+                                                    <div class="underline"></div>
+                                                </div>
+                                            </form>
+                                        </div>
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr class="table-primary">

@@ -106,6 +106,7 @@ class MarkController extends Controller
         {   
             $adminView = DB::table('courses')
             ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->orWhere('id', 'LIKE', '%'.$courseName.'%')
             ->select('courses.*')
             ->paginate(5)->withQueryString();
             return view('marks.index', [
@@ -115,7 +116,10 @@ class MarkController extends Controller
         elseif( Auth::user()->role == 'Teacher' ){
             $teacherView = DB::table('courses')
             ->where('id_teacher', "$id")
-            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->where(function ($query) use ($courseName){
+                $query->where('name', 'LIKE', '%'.$courseName.'%')
+                    ->orWhere('id','LIKE', "%".$courseName."%");
+                })
             ->select('courses.*')
             ->paginate(5)->withQueryString();
             return view('marks.index', [
@@ -127,7 +131,12 @@ class MarkController extends Controller
             ->join('users', 'users.id', '=', 'students_courses.id_student')
             ->join('courses', 'courses.id', '=', 'students_courses.id_course')
             ->where('id_student', '=', "$id")
-            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->where(function ($query) use ($courseName){
+                $query->select(DB::raw(1))
+                    ->from('courses')
+                    ->whereRaw('name', 'LIKE', '%'.$courseName.'%')
+                    ->orWhereRaw('id', 'LIKE', '%'.$courseName.'%');
+                })
             ->select('students_courses.*', 'users.first_name', 'users.last_name', 'courses.name')
             ->orderBy('last_name')
             ->paginate(5)->withQueryString();

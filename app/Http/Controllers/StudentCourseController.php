@@ -131,13 +131,19 @@ class StudentCourseController extends Controller
         {   
             $courses = DB::table('courses')
             ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->orWhere('id', 'LIKE', '%'.$courseName.'%')
             ->select('courses.*')
             ->paginate(5)->withQueryString();
         } 
         elseif ( Auth::user()->role == 'Teacher' ){
             $courses = DB::table('courses')
             ->where('id_teacher', "$id")
-            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->whereExists(function($query)
+                {
+                    $query->select(DB::raw(1))
+                    ->from('courses')
+                    ->whereRaw('courses.id_teacher = users.id');
+                })
             ->select('courses.*')
             ->paginate(5)->withQueryString();
         }
