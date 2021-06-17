@@ -20,10 +20,8 @@ Into
                                     <a style="float:left" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm khóa học</span></a>
                                 @endif
                                 <form action="{{ url('/search/courses') }}" method="GET" style="float:right">
-                                    <div class="input-container">
-                                        <i class="fa fa-search"></i>
-                                            <input type="text" name="search" placeholder="Search">
-                                            <button type="submit">Search</button>
+                                <div  class="input-container">
+                                        <input type="text" class="search" name="search" placeholder="Search by course name" value="{{ old('search') }}">
                                         <div class="underline"></div>
                                     </div>
                                 </form>

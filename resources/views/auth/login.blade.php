@@ -34,25 +34,25 @@
                     <form id="login-form" action="{{ url('login') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="username">Email</label>
-                            <input type="text" class="form-control underlined" name="email" id="username" placeholder="Your email address">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control underlined" name="email" id="email" placeholder="Your email address" value="{{ old('email') }}">
                         </div>
                         @error('email')
-                            <div>{{ $message }}</div>
+                            <div class="text-danger">{{ $message }}</div>
                         @enderror
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control underlined" name="password" id="password" placeholder="Your password">
                         </div>
                         @error('password')
-                            <div>{{ $message }}</div>
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                        @error('invalid')
+                            <div class="text-danger">{{ $message }}</div>
                         @enderror
                         <div class="form-group">
                             <button type="submit" class="btn btn-block btn-primary">Login</button>
                         </div>
-                        @error('invalid')
-                            <div>{{ $message }}</div>
-                        @enderror
                     </form>
                 </div>
 

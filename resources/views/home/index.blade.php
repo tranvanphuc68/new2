@@ -24,7 +24,7 @@ Into
           <div class="content">
             <h3>VỀ CHÚNG TÔI</h3>
             <img src="{{ asset('assets/img/about-us.jpg') }}" class="about-img img-fluid" alt="">
-            <p>
+            <p class="icon-box">
               INTO IELTS tập trung đào tạo IELTS với tôn chỉ phát triển về chất lượng thay vì số lượng. INTO tự hào mang đến những khóa học IELTS online hiệu quả với chất lượng giảng dạy hàng đầu.
             </p>
           </div>
@@ -103,35 +103,27 @@ Into
 
       <div class="row no-gutters">
 
-        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-          <div class="count-box">
-            <i class="icofont-simple-smile"></i>
-            <span data-toggle="counter-up">1,000</span>
-            <p><strong>Học viên hài lòng</strong></p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+        <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
             <i class="icofont-teacher"></i>
-            <span data-toggle="counter-up">300</span>
+            <span data-toggle="counter-up">{{ $count_teachers }}</span>
             <p><strong>Giáo viên bản ngữ</strong></p>
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+        <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
-            <i class="icofont-live-support"></i>
-            <span data-toggle="counter-up">1,463</span>
-            <p><strong>Giờ hỗ trợ</strong></p>
+            <i class="icofont-users-alt-5"></i>
+            <span data-toggle="counter-up">{{ $count_students}}</span>
+            <p><strong>Học viên đã tham gia</strong></p>
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+        <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
-            <i class="icofont-users-alt-5"></i>
-            <span data-toggle="counter-up">1,300</span>
-            <p><strong>Học viên đã tham gia</strong></p>
+            <i class="icofont-simple-smile"></i>
+            <span data-toggle="counter-up">{{ $count_courses }}</span>
+            <p><strong>Khóa học tại INTO</strong></p>
           </div>
         </div>
       </div>
@@ -161,61 +153,18 @@ Into
       </div>
 
       <div class="owl-carousel testimonials-carousel">
-
+        @foreach($students as $student)
         <div class="testimonial-item" data-aos="fade-up">
           <p>
             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            "Với một lộ trình cụ thể, phù hợp cùng với việc sử dụng tiếng Anh rèn luyện kỹ năng mềm giúp nâng cao phản xạ ngôn ngữ, tiếng Anh giờ đây đã trở thành ngôn ngữ thứ hai của tôi"
+            {{$student->feedback}}
             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
           </p>
-          <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-          <h3>Trần Trung Nam</h3>
-          <h4>Sinh viên NUCE</h4>
+          <img src="{{ asset("/uploads/avatars/$student->avatar") }}" class="testimonial-img" alt="">
+          <h3>{{$student->first_name." ".$student->last_name}}</h3>
+          <h4>{{$student->accomplishment }}</h4>
         </div>
-
-        <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            "Người đi làm khá bận với công việc nên không có nhiều thời gian vì vậy sau một ngày làm việc căng thẳng và mệt, tôi chọn một lớp học tiếng Anh tạo INTO. Thật may mắn, INTO đã giúp tôi tìm lại được niềm đam mê, hứng thú với Anh ngữ. Học Tiếng Anh giờ đây chỉ là chuyện nhỏ. "
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-          <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-          <h3>Nguyễn Minh Ngọc</h3>
-          <h4>Lễ tân khách sạn</h4>
-        </div>
-
-        <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            "Vì em bị kém phần phát âm nên thầy cô luôn tranh thủ dạy ngoài giờ, chỉnh sửa cho em từng chút một. Điều khiến em ấn tượng và xúc động nhất là sự tận tâm, nhiệt huyết của các thầy cô tại đây. Những người luôn cố gắng, nỗ lực dốc hết sức mình để giúp học viên chinh phục được mục tiêu tiếng Anh."
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-          <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-          <h3>Nguyễn Xuân Bắc</h3>
-          <h4>Học sinh THPT</h4>
-        </div>
-
-        <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            "Trước đây, mục tiêu học Tiếng Anh của mình chỉ là để tốt nghiệp nhưng khi theo học tại INTO mình đã có mục tiêu mới đó đi là đi du học…"
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-          <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-          <h3>Lê Thu Huyền</h3>
-          <h4>học viên khóa TOEFL IBT 94-101</h4>
-        </div>
-
-        <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            "Lựa chọn INTO là một quyết định sáng suốt của bản thân vì không chỉ được cải thiện cả 4 kỹ năng nghe – nói – đọc – viết tiếng Anh mà ở đó Tuấn Anh cảm thấy mình tự tin hơn nhiều, quen được nhiều người bạn mới, thầy cô tận tình giúp đỡ,… ""
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-          <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-          <h3>Tuấn Anh</h3>
-          <h4>sinh viên NEU</h4>
-        </div>
+        @endforeach
 
       </div>
 
@@ -279,7 +228,7 @@ Into
           <div class="info-box  mb-4">
             <i class="bx bx-envelope"></i>
             <h3>Email Us</h3>
-            <p>contact@example.com</p>
+            <p>intoieltsonline@gmail.com</p>
           </div>
         </div>
 
@@ -287,7 +236,7 @@ Into
           <div class="info-box  mb-4">
             <i class="bx bx-phone-call"></i>
             <h3>Call Us</h3>
-            <p>+1 5589 55488 55</p>
+            <p>+84858712522</p>
           </div>
         </div>
 
@@ -295,37 +244,8 @@ Into
 
       <div class="row" data-aos="fade-up" data-aos-delay="200">
 
-        <div class="col-lg-6 ">
+        <div class="col-lg-12 ">
           <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.499196683438!2d105.848478367625!3d21.01270284160628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab8bc402bd27%3A0x125318f068f125c9!2zVHJ1bmcgdMOibSBUaMawxqFuZyBt4bqhaSB2w6AgVsSDbiBwaMOybmcgVsOibiBI4buTLCA1MSBQaOG7kSBMw6ogxJDhuqFpIEjDoG5oLCBMw6ogxJDhuqFpIEjDoG5oLCBIYWkgQsOgIFRyxrBuZywgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1620641734188!5m2!1svi!2s" width="100%" height="384" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-
-        <div class="col-lg-6">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-            <div class="form-row">
-              <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validate"></div>
-              </div>
-              <div class="col-md-6 form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validate"></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-              <div class="validate"></div>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-              <div class="validate"></div>
-            </div>
-            <div class="mb-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
-          </form>
         </div>
 
       </div>

@@ -15,10 +15,10 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <h5 class="center mt_50px" style="text-align: center; margin-top: 50px;">Report post</h5>
-                            <p class="center mt_10px" style="text-align: center; margin-top: 10px;">Help us understand what is wrong with this post.</p>
+                            <h5 class="center mt_50px">Report post</h5>
+                            <p class="center mt_10px">Help us understand what is wrong with this post.</p>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="content" id="reportPost1" value="Nội dung xúc phạm" checked>
+                                <input class="form-check-input" type="radio" name="content" id="reportPost1" value="Nội dung xúc phạm">
                                 <label class="form-check-label" for="reportPost1">
                                     Nội dung xúc phạm
                                 </label>
@@ -71,7 +71,7 @@
                             @enderror
 
                             <div class="row justify-content-center mt-5">
-                                <button type="button" class="btn btn-secondary mr-3" data-dismiss="modal">Cancel</button>
+                                <a href="{{ url("posts/$post") }}" class="btn btn-secondary mr-3">Cancel</a>
                                 <button type="submit" class="btn btn-primary">Report</button>
                             </div>
                         </div>
