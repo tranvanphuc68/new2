@@ -27,7 +27,7 @@
                                 {!! $post->title !!}
                             </div>
                         </div>
-                        <div class="tt-item-description" style="width:100%; overflow: auto;">
+                        <div class="tt-item-description overflow_auto width_100">
                             {!! $post->content !!}
                         </div>
                     </div>
@@ -120,7 +120,7 @@
                             </div>
                         </div>
                         <div  class="ml_30px mr-4">
-                            <div class="media-body" style="overflow: auto;">
+                            <div class="media-body overflow_auto">
                                 <div class="row word-break"> 
                                     {!! $comment->content !!}
                                 </div>
