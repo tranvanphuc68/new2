@@ -27,22 +27,6 @@
     <link rel="stylesheet" id="blue-style" href="{{ asset('css/app-blue.css') }}">
     <link rel="stylesheet" href="{{ asset('css/forum.css') }}" >
     <link rel="stylesheet"  href="{{ asset('css/vendor.css') }}">
-    <style>
-        body {
-            background-color: #f8f9fb;
-            font-family: Krub, sans-serif;
-            font-weight: 400;
-            color: #666f74;
-            text-align: left;
-        }
-        .font a {
-            font-family: Krub, sans-serif;
-        }
-        .search {
-            border-radius: 20px !important;
-        }
-
-    </style>
 </head>
 <body>
 <!-- tt-mobile menu -->
@@ -74,7 +58,7 @@
                 </a>
                 <!-- /toggle mobile menu -->
                 <!-- logo -->
-                <a href="{{ url('/posts') }}">
+                <a href="{{ url('/posts') }}" class="mr-lg-5">
                     <div class="tt-logo">
                         Into
                     </div>

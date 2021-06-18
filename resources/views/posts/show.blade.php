@@ -27,7 +27,7 @@
                                 {!! $post->title !!}
                             </div>
                         </div>
-                        <div class="tt-item-description overflow_auto width_100">
+                        <div class="tt-item-description reponsive youtube-video-container">
                             {!! $post->content !!}
                         </div>
                     </div>
@@ -107,26 +107,12 @@
                             <div class="row size_10px">{{ $comment->created_at }}</div>
 
                             <div class="mt-2 mr-4 row"> 
-                                <div class="word-break">
+                                <div class="word-break reponsive youtube-video-container">
                                     {!! $comment->content !!}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="media mt-2 ml-lg-5">
-                        <div class="round pt-2 ml-lg-5">
-                            <div class="margin-left: 40px;">
-
-                            </div>
-                        </div>
-                        <div  class="ml_30px mr-4">
-                            <div class="media-body overflow_auto">
-                                <div class="row word-break"> 
-                                    {!! $comment->content !!}
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                     @endforeach
                 </div>
             </div>
