@@ -34,7 +34,7 @@
                                     <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
                                     <div class="col-sm-10">
                                         <textarea class="summernoteTitle" name="title">
-                                            {{ $post->title }}
+                                            {!! $post->title !!}
                                         </textarea>
                                         @error('title')
                                         <div class="form-text text-danger">{{ $message }}</div>

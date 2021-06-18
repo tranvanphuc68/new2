@@ -22,6 +22,7 @@
     <!-- Summernote -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('vendor/summernote/summernote-bs4.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/summernote/summernote-audio.css') }}">
     <link href="{{ asset('vendor/tam-emoji/css/emoji.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" id="blue-style" href="{{ asset('css/app-blue.css') }}">
