@@ -6019,7 +6019,7 @@
                 top: 0;
                 width: 100%;
                 background-color: #67b0d1;
-                border-bottom: 1px solid #ffffff;
+                box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
                 z-index: 17
             }
             
@@ -6222,7 +6222,7 @@
             }
             
             .tt-desktop-menu nav>ul>li>a {
-                font-size: 13px;
+                font-size: 14px;
                 line-height: 30px;
                 color: #ffffff;
                 text-transform: uppercase;
@@ -7043,8 +7043,8 @@
             }
             
             .tt-topic-list .tt-topic-alert.tt-alert-default {
-                background-color: #d1e4f9;
-                border-left: 2px solid #2172cd
+                background-color: #f7e9b7;
+                border-left: 2px solid #e1c34e
             }
             
             .tt-topic-list .tt-topic-alert.tt-alert-default a {
