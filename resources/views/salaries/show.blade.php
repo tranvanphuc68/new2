@@ -42,7 +42,7 @@ Into
                                 </div>
                                 <div style="text-align: right;">
                                     <h5>Tổng lương (đã trả): {{ number_format($sum, 0, ' ', ' ') }}</p>
-                                    <p>Số lượng (đã nhận): {{ $count }} / {{ count($salaries) }}</p>
+                                    <p>Số lượng (đã nhận): {{ $received }} / {{ $count }}</p>
                                 </div>
                             </section>
                         </div>

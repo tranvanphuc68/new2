@@ -52,35 +52,23 @@ class SalaryController extends Controller
                 }
         }
         $id = Auth::user()->id;
-        if(isset($_GET['searchTeacher']))
+        if(isset($_GET['searchCourse']))
         {
-            $searchTeacher = $_GET['searchTeacher'];
-            $teachers = DB::table('users')
-            ->where('role', 'teacher')
-            ->whereExists(function($query)
-                {
-                    $query->select(DB::raw(1))
-                    ->from('courses')
-                    ->whereRaw('courses.id_teacher = users.id');
+            $searchCourse = $_GET['searchCourse'];
+            $salaries = DB::table('courses')
+            ->where('id_teacher', "$id")
+            ->where(function ($query) use ($searchCourse){
+                $query->where('name', 'LIKE', '%'.$searchCourse.'%')
+                    ->orWhere('id','LIKE', "%".$searchCourse."%");
                 })
-            ->where(function ($query) use ($searchTeacher){
-                $query->where('last_name','LIKE', "%".$searchTeacher."%")
-                    ->orWhere('first_name','LIKE', "%".$searchTeacher."%")
-                    ->orWhere('id','LIKE', "%".$searchTeacher."%");
-                })
-            ->orderBy('last_name')
+            ->select('courses.*')
             ->paginate(5)->withQueryString();
-            foreach($teachers as $teacher)
-            {
-                $teacher->dob = Controller::formatDate($teacher->dob);
-            }
         }
         else {
             $salaries = DB::table('courses')
             ->join('users', 'users.id', '=', 'courses.id_teacher')
             ->where('id_teacher', "$id")
-            ->select('courses.*', 'users.first_name', 'users.last_name')
-            ->orderBy('last_name')
+            ->select('courses.*')
             ->get();
         } 
         $sum = DB::table('courses')
@@ -88,11 +76,16 @@ class SalaryController extends Controller
         ->where('id_teacher', "$id")
         ->sum('courses.salary');
 
+        $received = DB::table('courses')
+        ->join('users', 'users.id', '=', 'courses.id_teacher')
+        ->where('id_teacher', "$id")
+        ->where('status_salary','1')
+        ->count('courses.salary');
+
         $count = DB::table('courses')
-            ->join('users', 'users.id', '=', 'courses.id_teacher')
-            ->where('id_teacher', "$id")
-            ->where('status_salary','1')
-            ->count('courses.salary');
+        ->join('users', 'users.id', '=', 'courses.id_teacher')
+        ->where('id_teacher', "$id")
+        ->count('courses.salary');
         if (Auth::user()->role == 'Student')
             {
                 abort(401);
@@ -101,6 +94,7 @@ class SalaryController extends Controller
                 'teachers' => $teachers,
                 'salaries' => $salaries,
                 'count' => $count,
+                'received' => $received,
                 'sum' => $sum
             ]);
     }
@@ -120,15 +114,21 @@ class SalaryController extends Controller
         ->where('status_salary','1')
         ->sum('courses.salary');
 
-        $count = DB::table('courses')
+        $received = DB::table('courses')
         ->join('users', 'users.id', '=', 'courses.id_teacher')
         ->where('id_teacher', "$id_teacher")
         ->where('status_salary','1')
         ->count('courses.salary');
 
+        $count = DB::table('courses')
+        ->join('users', 'users.id', '=', 'courses.id_teacher')
+        ->where('id_teacher', "$id_teacher")
+        ->count('courses.salary');
+
         return view('salaries.show', [
             'count' => $count,
             'sum' => $sum,
+            'received' => $received,
             'salaries' => $salaries,
             'id_teacher' => $id_teacher
         ]);

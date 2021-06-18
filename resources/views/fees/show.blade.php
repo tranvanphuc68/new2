@@ -8,7 +8,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="student">
         <div class="card">
-            <h1 class="text-IBM"> Học viên đăng kí lớp : {{ $students[0]->name }} </h1>
+            <h1 class="text-IBM"> Học viên đăng kí lớp : {{ $course[0]->name }} </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -20,7 +20,7 @@ Into
                                 <form role="search" style="float:right">
                                     <div class="input-container">
                                         <i class="fa fa-search"></i>
-                                        <input type="search" placeholder="Search">
+                                        <input type="text" name="search" placeholder="Search" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">
                                         <div class="underline"></div>
                                     </div>
                                 </form>
@@ -43,7 +43,7 @@ Into
                                             <td class="w5">{{ $student->id_student }}</td>
                                             <td class="w40">{{ $student->first_name." ".$student->last_name }}</td>
                                             <td class="w20">{{ $student->dob }}</td>
-                                            <td class="w20">{{ number_format($student->fee, 0, ' ', ' ') }}</td>
+                                            <td class="w20">{{ number_format($course[0]->fee, 0, ' ', ' ') }}</td>
                                             <td class="w15"><?php echo $student->status_fee == 0 ? 'Chưa nộp' : 'Đã nộp'; ?></td>
                                         </tr>
                                         @endforeach
@@ -54,9 +54,12 @@ Into
                                 </div>
                                 <div style="float: right;">
                                     <h5>Tổng học phí (đã nộp): {{ number_format($sum, 0, ' ', ' ') }}</h5>
-                                    <h5>Học viên đã nộp: {{ $count }} / {{ count($students) }}</h5>
+                                    <h5>Học viên đã nộp: {{ $count }} / {{ $countStu }}</h5>
                                 </div>
                             </section>
+                        </div>
+                        <div>
+                            <button><a href="{{ url('/fees') }}">Back</a></button>
                         </div>
                     </div>
                 </div>

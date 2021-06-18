@@ -14,15 +14,6 @@ Into
     <div class="row">
         <div class="col-md-12">
             <div class="card card-block">
-                <div class="card-title-block">
-                    <form action="{{ url('/search/students_courses/students') }}" method="GET" style="float: right">
-                        <div class="input-container">
-                            <i class="fa fa-search"></i>
-                            <input type="text" name="search" placeholder="Search" value="{{ old('search') }}">
-                            <div class="underline"></div>
-                        </div>
-                    </form>
-                </div>
                 <section>
                     <div class="card-title-block" style="float:right">
                         <form role="search" >

@@ -15,15 +15,6 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <div class="card-title-block">
-                                <form role="search" style="text-align: right">
-                                    <div class="input-container">
-                                        <i class="fa fa-search"></i>
-                                        <input type="search" placeholder="Search">
-                                        <div class="underline"></div>
-                                    </div>
-                                </form>
-                            </div>
                             <section class="example">
                                 <div class="table-responsive">
                                     <form method="POST" action="{{url("/fees/{$students[0]->id_course}")}}">

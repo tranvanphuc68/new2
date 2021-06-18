@@ -23,7 +23,7 @@ Into
                                             <form method="GET" style="text-align: right">
                                                 <div class="input-container">
                                                     <i class="fa fa-search"></i>
-                                                    <input type="text" name="searchCourse" placeholder="Search">
+                                                    <input type="text" name="searchCourse" placeholder="Search" value="<?php if (isset($_GET['searchCourse'])) { echo $_GET['searchCourse'];} ?>">
                                                     <div class="underline"></div>
                                                 </div>
                                             </form>
@@ -48,7 +48,7 @@ Into
                                         </table>
                                             <div style="text-align: right;">
                                                 <h5>Tổng lương (đã nhận): {{ number_format($sum, 0, ' ', ' ') }}</p>
-                                                <p>Số lượng (đã nhận): {{ $count }} / {{ count($salaries) }}</p>
+                                                <p>Số lượng (đã nhận): {{ $received }} / {{ $count }}</p>
                                             </div>
                                     @endif
                                     
@@ -57,7 +57,7 @@ Into
                                             <form method="GET" style="text-align: right">
                                                 <div class="input-container">
                                                     <i class="fa fa-search"></i>
-                                                    <input type="text" name="searchTeacher" placeholder="Search">
+                                                    <input type="text" name="searchTeacher" placeholder="Search" value="<?php if (isset($_GET['searchTeacher'])) { echo $_GET['searchTeacher'];} ?>">
                                                     <div class="underline"></div>
                                                 </div>
                                             </form>

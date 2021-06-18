@@ -16,11 +16,11 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <section class="example">
-                                <p>Số lượng học viên: {{ count($students) }}/{{$course[0]->max_students}}</p>
-                                @if (count($students) != 0)
+                                <p>Số lượng học viên: {{ $countStu }}/{{$course[0]->max_students}}</p>
+                                @if ($countStu != 0)
                                 <div class="table-responsive">
                                     @if (Auth::user()->role == 'Admin')
-                                        @if (count($students) == $course[0]->max_students)
+                                        @if ( $countStu == $course[0]->max_students)
                                             <div class="card-title-block" style="float:left" >
                                                 <p>Số học viên đã tối đa</p>
                                             </div>
@@ -33,7 +33,7 @@ Into
                                     <div class="card-title-block" style="float:right">
                                         <form role="search" >
                                             <div  class="input-container">
-                                                <input type="text" class="search" name="search" placeholder="Search by last name" value="{{ old('search') }}">
+                                                <input type="text" class="search" name="search" placeholder="Search by last name" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">
                                                 <div class="underline"></div>
                                             </div>
                                         </form>
@@ -78,6 +78,9 @@ Into
                                 </div>
                             </section>
                             @endif
+                            <div>
+                                <button><a href="{{ url('/students_courses') }}">Back</a></button>
+                            </div>
                         </div>
                     </div>
                 </div>

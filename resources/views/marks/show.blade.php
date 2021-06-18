@@ -24,12 +24,12 @@ Into
                                 <div class="card-title-block">
                                     <form role="search" style="float:right">
                                         <div class="input-container">
-                                            <input type="text" class="search" name="search" placeholder="Search by last name" value="{{ old('search') }}">
+                                            <input type="text" class="search" name="search" placeholder="Search by last name" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>" }}">
                                             <div class="underline"></div>
                                         </div>
                                     </form>
                                 </div>
-                                @if (count($students) != 0)
+                                @if ($countStu != 0)
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover">
                                         <thead>
@@ -53,6 +53,9 @@ Into
                                 @else
                                 <p>Null</p>
                                 @endif
+                                <div>
+                                    <button><a href="{{ url('/marks') }}">Back</a></button>
+                                </div>
                             </section>
                         </div>
                     </div>
