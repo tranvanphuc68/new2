@@ -15,18 +15,18 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <div class="card-title-block">
-                                <form role="search" style="text-align: right">
-                                    <div class="input-container">
-                                        <input type="text" class="search" name="search" placeholder="Search by course name" value="{{ old('search') }}">
-                                        <div class="underline"></div>
-                                    </div>
-                                </form>
-                            </div>
                             <section class="example">
-                                <div class="table-responsive">
+                                @if (Auth::user()->role == 'Student')
+                                    <div class="card-title-block">
+                                        <form role="search" style="text-align: right">
+                                            <div class="input-container">
+                                                <input type="text" class="search" name="searchByStudent" placeholder="Search by course name" value="<?php if (isset($_GET['searchByStudent'])) { echo $_GET['searchByStudent'];} ?>">
+                                                <div class="underline"></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="table-responsive">
                                     <table class="table table-bordered table-hover">
-                                        @if (Auth::user()->role == 'Student')
                                             <thead>
                                                 <tr class="table-primary">
                                                     <th class="w10">ID</th>
@@ -46,36 +46,46 @@ Into
                                         @endif
 
                                         @if (Auth::user()->role == 'Admin')
-                                            <thead>
-                                                <tr class="table-primary">
-                                                    <th class="w15">ID</th>
-                                                    <th class="w40">Tên Khóa Học</th>
-                                                    <th class="w30">Tình Trạng</th>
-                                                    <th class="w15">Chi Tiết</th>
-                                                </tr>
-                                            </thead>
-                                            @foreach($courses as $course)
-                                                <tr>
-                                                    <td class="w15">{{ $course->id }}</td>
-                                                    <td class="w40">{{ $course->name }}</td>
-                                                    <td class="w30"><?php switch ($course->status) {
-                                                                            case '1':
-                                                                                echo 'Chưa Học';
-                                                                                break;
-                                                                            case '2':
-                                                                                echo 'Đang Học';
-                                                                                break;
-                                                                            case '3':
-                                                                                echo 'Đã Hoàn Thành';
-                                                                                break; 
-                                                                }?>
-                                                    </td>
-                                                    <td class="w15">
-                                                        <a href="{{ url("/fees/{$course->id}") }}">
-                                                            <i class="fa fa-eye icon-view"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                            <div class="card-title-block">
+                                                <form role="search" style="text-align: right">
+                                                    <div class="input-container">
+                                                        <input type="text" class="search" name="searchByAdmin" placeholder="Search by course name" value="<?php if (isset($_GET['searchByAdmin'])) { echo $_GET['searchByAdmin'];} ?>">
+                                                        <div class="underline"></div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="table-responsive">
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr class="table-primary">
+                                                        <th class="w15">ID</th>
+                                                        <th class="w40">Tên Khóa Học</th>
+                                                        <th class="w30">Tình Trạng</th>
+                                                        <th class="w15">Chi Tiết</th>
+                                                    </tr>
+                                                </thead>
+                                                @foreach($courses as $course)
+                                                    <tr>
+                                                        <td class="w15">{{ $course->id }}</td>
+                                                        <td class="w40">{{ $course->name }}</td>
+                                                        <td class="w30"><?php switch ($course->status) {
+                                                                                case '1':
+                                                                                    echo 'Chưa Học';
+                                                                                    break;
+                                                                                case '2':
+                                                                                    echo 'Đang Học';
+                                                                                    break;
+                                                                                case '3':
+                                                                                    echo 'Đã Hoàn Thành';
+                                                                                    break; 
+                                                                    }?>
+                                                        </td>
+                                                        <td class="w15">
+                                                            <a href="{{ url("/fees/{$course->id}") }}">
+                                                                <i class="fa fa-eye icon-view"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
                                             @endforeach
                                         @endif
                                     </table>

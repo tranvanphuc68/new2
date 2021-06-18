@@ -55,6 +55,9 @@ Into
                             </section>
                         </div>
                     </div>
+                    <div>
+                        <button><a href="{{ url('/feedbacks') }}">Back</a></button>
+                    </div>
                 </div>
             </div>
         </section>

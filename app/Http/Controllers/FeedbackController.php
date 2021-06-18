@@ -112,26 +112,39 @@ class FeedbackController extends Controller
         {   
             $courses = DB::table('courses')
             ->where('status','=','3')
+            ->where(function ($query) use ($courseName){
+                $query->where('name', 'LIKE', '%'.$courseName.'%')
+                    ->orWhere('id','LIKE', "%".$courseName."%");
+                })
             ->select('courses.*')
-            ->where('name', 'LIKE', '%'.$courseName.'%')
-            ->paginate(5)->withQueryString();
+            ->get();
         } 
         elseif( Auth::user()->role == 'Teacher' ){
             $courses = DB::table('courses')
             ->where('status','=','3')
             ->where('id_teacher', '=', "$id")
-            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->where(function ($query) use ($courseName){
+                $query->where('name', 'LIKE', '%'.$courseName.'%')
+                    ->orWhere('id','LIKE', "%".$courseName."%");
+                })
             ->select('courses.*')
-            ->paginate(5)->withQueryString();
+            ->get();
         }
         else{ 
-            $courses = DB::table('students_courses')
-            ->join('users', 'users.id', '=', 'students_courses.id_student')
-            ->join('courses', 'courses.id', '=', 'students_courses.id_course')
-            ->where('id_student', '=', "$id")
-            ->where('name', 'LIKE', '%'.$courseName.'%')
-            ->select('students_courses.*', 'users.first_name', 'users.last_name', 'courses.name', 'courses.id', 'courses.status')
-            ->paginate(5)->withQueryString();
+            $courses = DB::table('courses')
+            ->join('students_courses','students_courses.id_course','=','courses.id')
+            ->where(function($query) use ($id)
+                {
+                    $query->select(DB::raw(1))
+                    ->from('students_courses')
+                    ->whereRaw("students_courses.id_student = $id");
+                })
+            ->where(function ($query) use ($courseName){
+                $query->where('name', 'LIKE', '%'.$courseName.'%')
+                    ->orWhere('id','LIKE', "%".$courseName."%");
+                })
+            ->select('courses.*','students_courses.*')
+            ->get();
         }
         return view('feedbacks.index', [
             'courses' => $courses,

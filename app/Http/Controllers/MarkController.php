@@ -41,20 +41,52 @@ class MarkController extends Controller
                 ->where('id', '=', "$id_course")
                 ->select('courses.*')
                 ->get();
-        $students = DB::table('students_courses')
-        ->join('users','users.id','=','students_courses.id_student')
-        ->join('courses','courses.id','=','students_courses.id_course')
-        ->where('id_course','=',"$id_course")
-        ->select('students_courses.*','users.first_name', 'users.last_name','courses.name','users.dob')
-        ->orderBy('last_name')
-        ->get();
-        foreach($students as $student)
+        if(isset($_GET['search']))
         {
-            $student->dob = Controller::formatDate($student->dob);
+            $searchStudents = $_GET['search'];
+            $students = DB::table('users')
+            ->join('students_courses', 'students_courses.id_student', '=', 'users.id')
+            ->where('role', 'student')
+            ->whereExists(function($query) use ($id_course)
+                {
+                    $query->select(DB::raw(1))
+                    ->from('students_courses')
+                    ->whereRaw("students_courses.id_student = users.id");
+                })
+            ->where('id_course',"$id_course")
+            ->where(function ($query) use ($searchStudents){
+                $query->where('last_name','LIKE', "%".$searchStudents."%")
+                    ->orWhere('first_name','LIKE', "%".$searchStudents."%")
+                    ->orWhere('id','LIKE', "%".$searchStudents."%");
+                })
+            ->select('users.*','students_courses.*')
+            ->orderBy('last_name')
+            ->get();
+            foreach($students as $student)
+            {
+                $student->dob = Controller::formatDate($student->dob);
+            }
         }
+        else {
+            $students = DB::table('students_courses')
+            ->join('users','users.id','=','students_courses.id_student')
+            ->join('courses','courses.id','=','students_courses.id_course')
+            ->where('id_course','=',"$id_course")
+            ->select('students_courses.*','users.first_name', 'users.last_name','courses.name','users.dob')
+            ->orderBy('last_name')
+            ->get();
+            foreach($students as $student)
+            {
+                $student->dob = Controller::formatDate($student->dob);
+            }
+        }
+        $countStu = DB::table('students_courses')
+        ->where('id_course','=',"$id_course")
+        ->count('id_student');
         return view('marks.show', [
             'course' => $course,
             'students' => $students,
+            'countStu' => $countStu,
             'id_course' => $id_course
         ]);
     }
@@ -106,8 +138,9 @@ class MarkController extends Controller
         {   
             $adminView = DB::table('courses')
             ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->orWhere('id', 'LIKE', '%'.$courseName.'%')
             ->select('courses.*')
-            ->paginate(5)->withQueryString();
+            ->get();
             return view('marks.index', [
                 'adminView' => $adminView,
             ]);
@@ -115,22 +148,31 @@ class MarkController extends Controller
         elseif( Auth::user()->role == 'Teacher' ){
             $teacherView = DB::table('courses')
             ->where('id_teacher', "$id")
-            ->where('name', 'LIKE', '%'.$courseName.'%')
+            ->where(function ($query) use ($courseName){
+                $query->where('name', 'LIKE', '%'.$courseName.'%')
+                    ->orWhere('id','LIKE', "%".$courseName."%");
+                })
             ->select('courses.*')
-            ->paginate(5)->withQueryString();
+            ->get();
             return view('marks.index', [
                 'teacherView' => $teacherView,
             ]);
         }
         else{ 
-            $studentView = DB::table('students_courses')
-            ->join('users', 'users.id', '=', 'students_courses.id_student')
-            ->join('courses', 'courses.id', '=', 'students_courses.id_course')
-            ->where('id_student', '=', "$id")
-            ->where('name', 'LIKE', '%'.$courseName.'%')
-            ->select('students_courses.*', 'users.first_name', 'users.last_name', 'courses.name')
-            ->orderBy('last_name')
-            ->paginate(5)->withQueryString();
+            $studentView = DB::table('courses')
+            ->join('students_courses','students_courses.id_course','=','courses.id')
+            ->where(function($query) use ($id)
+                {
+                    $query->select(DB::raw(1))
+                    ->from('students_courses')
+                    ->whereRaw("students_courses.id_student = $id");
+                })
+            ->where(function ($query) use ($courseName){
+                $query->where('name', 'LIKE', '%'.$courseName.'%')
+                    ->orWhere('id','LIKE', "%".$courseName."%");
+                })
+            ->select('courses.*','students_courses.*')
+            ->get();
             return view('marks.index', [
                 'studentView' => $studentView,
             ]);
