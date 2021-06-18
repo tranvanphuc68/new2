@@ -5,14 +5,15 @@
 @endsection
 
 @section('content')
-<img src="{{ asset('assets/img/test2.gif') }}" style="position: fixed; top: 90px; left: 20px ; width:100px; border-radius: 50%; box-shadow: 0 2px 5px rgb(0 0 0 / 20%);">
+
 <main id="tt-pageContent" class="tt-offset-small">
+<img src="{{ asset('assets/img/test2.gif') }}" style="position: relative; top: 50px; left: 20px ; width:100px; border-radius: 50%; box-shadow: 0 2px 5px rgb(0 0 0 / 20%);">
     <div class="container">
         <!-- search -->
         <div class="mx-auto d-flex justify-content-end row mt-4">
             <form action="{{ url("/post/search") }}" method="GET" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control mr-3 search" name="search" placeholder="Search by post title" id="search">
+                    <input type="text" class="form-control mr-3" name="search" placeholder="Search by post title" id="search">
                     <button class="btn" type="submit" title="Search posts" style="background-color: #67b0d1;">
                         <span class="fa fa-search text-white"></span>
                     </button>
@@ -22,7 +23,7 @@
         <!-- /search -->
         <!-- index post -->
         <div class="tt-topic-list">
-            <div class="tt-topic-alert tt-alert-default" role="alert" style="margin-top: 50px;">
+            <div class="tt-topic-alert tt-alert-default" role="alert" style="margin-top: 30px;">
                 <a href="#" target="_blank">Xin chào ! </a> Đây là diễn đàn của INTO . Hãy cùng chúng tôi chia sẻ những kiến thức bổ ích nào!
             </div>
             @foreach ($posts as $post)

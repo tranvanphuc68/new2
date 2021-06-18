@@ -39,7 +39,26 @@
             font-family: Krub, sans-serif;
         }
         .search {
-            border-radius: 20px !important;
+        width: 105px;
+        border: 2px solid #ccc;
+        border-radius: 20px;
+        font-size: 16px;
+        background-color: white;
+        background-image: url('https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png');
+        background-size: 25px;
+        background-position: 10px 10px; 
+        background-repeat: no-repeat;
+        padding: 10px 15px 10px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+        cursor: pointer;
+    }
+        .search:focus {
+            width: 230px;
+            border: 2px solid #2ab7ca;
+        }
+        .search:hover {
+            border: 2px solid #2ab7ca;
         }
 
     </style>
