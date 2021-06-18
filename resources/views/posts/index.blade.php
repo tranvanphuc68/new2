@@ -38,7 +38,7 @@
             @endif
             @if ($countPost > 0)
                 @foreach ($posts as $post)
-                <div class="tt-item @if (($post->id_user == Auth::user()->id) && (Auth::user()->role == "Admin"))  tt-itemselect  @endif ">
+                <div class="tt-item @if ((Auth::check())&&($post->id_user == Auth::user()->id) && (Auth::user()->role == "Admin"))  tt-itemselect  @endif ">
                     <div class="tt-col-avatar">
                         <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                     </div>
