@@ -18,7 +18,7 @@ Into
                             <div class="card-title-block">
                                 <a style="float:left" href="{{ url("/users/student/create") }}" ><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm học viên</span></a>
                                 <form method="GET" style="float:right">
-                                    <div  class="input-container">
+                                    <div class="input-container">
                                         <input type="text" class="search" name="search" placeholder="Search by last name" value="{{ old('search') }}">
                                         <div class="underline"></div>
                                     </div>

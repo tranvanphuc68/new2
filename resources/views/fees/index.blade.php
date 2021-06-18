@@ -18,8 +18,7 @@ Into
                             <div class="card-title-block">
                                 <form role="search" style="text-align: right">
                                     <div class="input-container">
-                                        <i class="fa fa-search"></i>
-                                        <input type="search" placeholder="Search">
+                                        <input type="text" class="search" name="search" placeholder="Search by course name" value="{{ old('search') }}">
                                         <div class="underline"></div>
                                     </div>
                                 </form>

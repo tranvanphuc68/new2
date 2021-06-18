@@ -31,22 +31,22 @@ Into
                     </div>
                     <table class="table table-bordered table-hover">
                         <tr class="table-primary">
-                            <th style="width: 5%; text-align:center">Buổi</th>
-                            <th>Nội Dung</th>
-                            <th>Thời Khóa Biểu</th>
-                            <th>Ngày Học</th>
+                            <th class="w5">Buổi</th>
+                            <th class="w60">Nội Dung</th>
+                            <th class="w15">Thời Khóa Biểu</th>
+                            <th class="w15">Ngày Học</th>
                             @if (Auth::user()->role == 'Admin')
-                                <th style="width: 5%; text-align:center">Sửa</th>
+                                <th class="w5">Sửa</th>
                             @endif
                         </tr>   
                         @foreach($detail as $detail)
                             <tr>
-                                <td class="center">{{ $detail->number }}</td>
+                                <td class="w5">{{ $detail->number }}</td>
                                 <td>{{ $detail->content }}</td>
-                                <td>{{ $detail->timetable }}</td>
-                                <td>{{ $detail->date }}</td>
+                                <td class="w15">{{ $detail->timetable }}</td>
+                                <td class="w15">{{ $detail->date }}</td>
                                 @if (Auth::user()->role == 'Admin')
-                                    <td class="center">
+                                    <td class="w5">
                                         <a href="{{ url("/detail_course/{$detail->id_course}-{$detail->number}/edit") }}">
                                             <i class="fa fa-pencil icon-edit"></i>
                                         </a>

@@ -133,7 +133,7 @@ a {
     cursor: pointer;
 }
 .search:focus {
-    width: 200px;
+    width: 230px;
     border: 2px solid #2ab7ca;
 }
 .search:hover {

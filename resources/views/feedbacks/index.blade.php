@@ -19,8 +19,7 @@ Into
                             <div class="card-title-block">  
                                 <form action="{{ url('/search/feedbacks') }}" method="GET" style="float: right">
                                     <div class="input-container">
-                                        <i class="fa fa-search"></i>
-                                        <input type="text" name="search" placeholder="Search" value="{{ old('search') }}">
+                                        <input type="text" class="search" name="search" placeholder="Search by course name" value="{{ old('search') }}">
                                         <div class="underline"></div>
                                     </div>
                                 </form>
