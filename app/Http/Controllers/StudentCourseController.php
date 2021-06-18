@@ -90,20 +90,48 @@ class StudentCourseController extends Controller
 
     public function create($id_course)
     {
-        $students = DB::table('users')
-        ->where('role','Student')
-        ->whereNotExists(function($query) use ($id_course)
+        if(isset($_GET['search']))
         {
-            $query->select(DB::raw(1))
-            ->from('students_courses')
-            ->where('students_courses.id_course', "$id_course")
-            ->whereRaw('students_courses.id_student = users.id');
-        })
-        ->orderBy('last_name')
-        ->get();
-        foreach($students as $student)
-        {
-            $student->dob = Controller::formatDate($student->dob);
+            $searchStudents = $_GET['search'];
+            $students = DB::table('users')
+            ->where('role', 'student')
+            ->whereNotExists(function($query) use ($id_course)
+            {
+                $query->select(DB::raw(1))
+                ->from('students_courses')
+                ->where('students_courses.id_course', "$id_course")
+                ->whereRaw('students_courses.id_student = users.id');
+            })
+            ->where(function ($query) use ($searchStudents){
+                $query->where('last_name','LIKE', "%".$searchStudents."%")
+                    ->orWhere('first_name','LIKE', "%".$searchStudents."%")
+                    ->orWhere('id','LIKE', "%".$searchStudents."%");
+                })
+            ->select('users.*')
+            ->orderBy('last_name')
+            ->get();
+            foreach($students as $student)
+            {
+                $student->dob = Controller::formatDate($student->dob);
+            }
+        }
+        else {
+            $students = DB::table('users')
+            ->where('role','Student')
+            ->whereNotExists(function($query) use ($id_course)
+            {
+                $query->select(DB::raw(1))
+                ->from('students_courses')
+                ->where('students_courses.id_course', "$id_course")
+                ->whereRaw('students_courses.id_student = users.id');
+            })
+            ->orderBy('last_name')
+            ->get();
+            
+            foreach($students as $student)
+            {
+                $student->dob = Controller::formatDate($student->dob);
+            }
         }
         $course = DB::table('courses')
         ->where('id','=',"$id_course")

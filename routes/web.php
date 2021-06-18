@@ -16,6 +16,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportPostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -212,4 +213,11 @@ Route::get('/report_posts/{post}',[ReportPostController::class, 'show'])->middle
 Route::post('/report_posts/{post}', [ReportPostController::class, 'store']); 
 Route::delete('/report_posts/{report_post}', [ReportPostController::class, 'destroy'])->middleware('admin');
 Route::get('/report_post/search', [ReportPostController::class, 'search'])->name('search')->middleware('admin'); 
+});
+
+//Report
+Route::group(['middleware'=>'admin'], function(){
+    Route::get('/report',[ReportController::class, 'index']);
+    Route::get('/report/{year}',[ReportController::class, 'show']);
+    Route::get('/bonus',[ReportController::class, 'bonus']);
 });
