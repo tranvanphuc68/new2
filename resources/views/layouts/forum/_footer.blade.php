@@ -248,7 +248,7 @@ $(document).ready(function () {
 		  ['fontsize', ['fontsize']],
           ['color', ['color']],
           ['para', ['ul', 'ol', 'paragraph']],
-          ['insert', ['emoji', 'link']],
+          ['insert', ['emoji', 'link', 'picture', 'video']],
 		  ['tool', ['undo', 'redo']],
           ['view', ['fullscreen', 'help']],
         ],   

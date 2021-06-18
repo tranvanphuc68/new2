@@ -10957,6 +10957,21 @@ show post, index post
             height: auto;
         }
     }
+    
+    #a_post .icon_post {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .reply {
+        color: #15df77;
+        font-weight: 700;
+    }
+    
+    .report {
+        color: #d60606;
+        font-weight: 700;
+    }
     /*--------------------------------------------------------------
 index report post , create report post
 --------------------------------------------------------------*/
