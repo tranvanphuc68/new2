@@ -37,21 +37,21 @@
                         
                         <!-- create Comment -->
                         <a href="#reply" class="tt-icon-btn">
-                            <img src="{{ asset('assets/img/forum/comments.png') }}" class="icon_post"> 
+                            <img src="{{ asset('assets/img/forum/comments.png') }}" class="icon_post hi-icon"> 
                             <span class="reply">({{ $countComment }})</span>
                         </a>
 
                         <!-- Edit post -->
                         @if ($post->id_user == Auth::user()->id )
                             <a href="{{ url("/posts/$post->id/self_edit") }}" class="tt-icon-btn">
-                                <img src="{{ asset('assets/img/forum/edit (1).png') }}" class="icon_post">
+                                <img src="{{ asset('assets/img/forum/edit (1).png') }}" class="icon_post hi-icon">
                             </a>
                         @endif
 
                         <!-- Delete post -->
                         @if (($post->id_user == Auth::user()->id) || (Auth::user()->role == "Admin") )
                             <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" class="tt-icon-btn">
-                                <img src="{{ asset('assets/img/forum/delete (1).png') }}" class="icon_post">
+                                <img src="{{ asset('assets/img/forum/delete (1).png') }}" class="icon_post hi-icon">
                                 <form action='{{ url("/posts/$post->id") }}' method="POST" id="post-delete-{{$post->id }}">
                                     @method('DELETE')
                                     @csrf
@@ -61,7 +61,7 @@
 
                         <!-- Report post -->
                         <a href="{{ url("/report_posts/$post->id/create")}}" class="tt-icon-btn">
-                            <img src="{{ asset('assets/img/forum/warn.png') }}" class="icon_post"> 
+                            <img src="{{ asset('assets/img/forum/warn.png') }}" class="icon_post hi-icon"> 
                             <span class="report">({{ $countReportPost }})</span>
                         </a>
                     </div>
