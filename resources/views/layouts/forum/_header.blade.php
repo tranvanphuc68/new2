@@ -28,17 +28,6 @@
     <link rel="stylesheet" href="{{ asset('css/forum.css') }}" >
     <link rel="stylesheet"  href="{{ asset('css/vendor.css') }}">
 </head>
-<style>
-.hi-icon:hover {
-	background: rgba(255,255,255,0.05);
-	-webkit-transform: scale(0.93);
-	-moz-transform: scale(0.93);
-	-ms-transform: scale(0.93);
-	transform: scale(0.93);
-	color: #fff;
-}
-
-</style>
 <body>
 <!-- tt-mobile menu -->
 <nav class="panel-menu" id="mobile-menu">

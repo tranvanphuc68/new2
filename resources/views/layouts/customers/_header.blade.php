@@ -50,6 +50,16 @@
           <li><a href="#testimonials">Học viên</a></li>
           <li><a href="#team">Giảng viên</a></li>
           <li><a href="#contact">Liên hệ</a></li>
+          @if (Auth::check())
+          <!-- User -->
+          <li>
+            <a href="{{ url('/') }}">
+              @if (Auth::user()->role == "Admin") Admin @endif
+              @if (Auth::user()->role == "Teacher") Teacher @endif
+              @if (Auth::user()->role == "Student") Student @endif
+            </a>
+          </li>
+          @endif
           <li><a href="{{ url('/posts') }}">Diễn đàn</a></li>
           @if (Auth::check())
           <li class="profile dropdown" style="display: table-cell;">
@@ -60,8 +70,6 @@
             <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
               <a class="dropdown-item" href="{{ url("/users/self_show") }} ">
                 <i class="fa fa-user icon"></i> Profile </a>
-              <a class="dropdown-item" href="#">
-                <i class="fa fa-bell icon"></i> Notifications </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{url('/logout')}}">
                 <i class="fa fa-power-off icon"></i> Logout </a>

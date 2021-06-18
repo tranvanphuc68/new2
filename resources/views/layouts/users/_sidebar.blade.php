@@ -28,10 +28,10 @@
                         </a>
                         <ul class="sidebar-nav">
                             <li>
-                                <a href="{{ url("users/teacher") }}" name="teacher-link"> Giảng viên</a>
+                                <a href="{{ url("users/teacher") }}"> Giảng viên</a>
                             </li>
                             <li>
-                                <a href="{{ url("users/student") }}" name="student-link"> Học sinh </a>
+                                <a href="{{ url("users/student") }}"> Học sinh </a>
                             </li>
                         </ul>
                     </li>
@@ -41,26 +41,13 @@
                         </a>
                         <ul class="sidebar-nav">
                             <li>
-                                <a href="{{ url("/courses") }}" name="teacher-link"> Khóa học </a>
-                            </li>
-                            <li>
-                                <a href="{{ url("/students_courses") }}" name="student-link"> Danh sách học viên </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="fa fa-th-large"></i> Quản lí trang chủ <i class="fa arrow"></i>
-                        </a>
-                        <ul class="sidebar-nav">
-                            <li>
                                 <a href="{{ url("/review_course") }}"> Khóa học </a>
                             </li>
                             <li>
-                                <a href="{{ url("/review_teacher") }}" > Giảng viên </a>
+                                <a href="{{ url("/courses") }}"> Lớp học </a>
                             </li>
                             <li>
-                                <a href="{{ url("/review_feedback") }}"> Feedback </a>
+                                <a href="{{ url("/students_courses") }}"> Danh sách học viên </a>
                             </li>
                         </ul>
                     </li>
@@ -94,9 +81,6 @@
                         <ul class="sidebar-nav">
                             <li>
                                 <a href="{{ url("/report") }}"> Học sinh </a>
-                            </li>
-                            <li>
-                                <a href=""> Khen thưởng  </a>
                             </li>
                             <li>
                                 <a href=""> Tài chính  </a>

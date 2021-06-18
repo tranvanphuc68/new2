@@ -6,7 +6,7 @@
 
 @section('content')
 
-<main id="tt-pageContent" class="tt-offset-small">
+<main id="tt-pageContent" class="bg-main" >
     <img src="{{ asset('assets/img/test2.gif') }}" class="img_icon mb-3">
     <div class="container">
         @if ($countPost > 0)
