@@ -27,7 +27,22 @@
     <link rel="stylesheet" id="blue-style" href="{{ asset('css/app-blue.css') }}">
     <link rel="stylesheet" href="{{ asset('css/forum.css') }}" >
     <link rel="stylesheet"  href="{{ asset('css/vendor.css') }}">
+    <style>
+        body {
+            background-color: #f8f9fb;
+            font-family: Krub, sans-serif;
+            font-weight: 400;
+            color: #666f74;
+            text-align: left;
+        }
+        .font a {
+            font-family: Krub, sans-serif;
+        }
+        .search {
+            border-radius: 20px !important;
+        }
 
+    </style>
 </head>
 <body>
 <!-- tt-mobile menu -->
@@ -68,34 +83,30 @@
                 <!-- desktop menu -->
                  <div class="tt-desktop-menu">
                     <nav>
-                        <ul>
+                        <ul class="font">
                             <!-- Home -->
                             <li>
                                 <a href="{{ url('/home') }}">
-                                  <i class="fa fa-home">Home</i>
+                                    Home
                                 </a>
                             </li>
                             @if (Auth::check())
                             <!-- User -->
                             <li>
                                 <a href="{{ url('/') }}">
-                                    <i class="fa fa-dashboard">
                                     @if (Auth::user()->role == "Admin")  Admin  @endif 
                                     @if (Auth::user()->role == "Teacher")  Teacher  @endif 
                                     @if (Auth::user()->role == "Student")  Student  @endif 
-                                    </i> 
                                 </a>
                             </li>
                             <!-- Manage reportes posts -->
                             @if (Auth::user()->role == "Admin")
                             <li>
                                 <a href="{{ url('/report_posts') }}">
-                                    <i class="fa fa-bell-o"> 
                                         Reported posts
                                         <sup>
                                             {{ $countPostHadBeenReported }}
                                         </sup>
-                                    </i>
                                 </a>
                             </li>
                             @endif
