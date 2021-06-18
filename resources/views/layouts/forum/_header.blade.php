@@ -27,41 +27,7 @@
     <link rel="stylesheet" id="blue-style" href="{{ asset('css/app-blue.css') }}">
     <link rel="stylesheet" href="{{ asset('css/forum.css') }}" >
     <link rel="stylesheet"  href="{{ asset('css/vendor.css') }}">
-    <style>
-        body {
-            background-color: #f8f9fb;
-            font-family: Krub, sans-serif;
-            font-weight: 400;
-            color: #666f74;
-            text-align: left;
-        }
-        .font a {
-            font-family: Krub, sans-serif;
-        }
-        .search {
-        width: 105px;
-        border: 2px solid #ccc;
-        border-radius: 20px;
-        font-size: 16px;
-        background-color: white;
-        background-image: url('https://images.vexels.com/media/users/3/132068/isolated/preview/f9bb81e576c1a361c61a8c08945b2c48-search-icon-by-vexels.png');
-        background-size: 25px;
-        background-position: 10px 10px; 
-        background-repeat: no-repeat;
-        padding: 10px 15px 10px 40px;
-        -webkit-transition: width 0.4s ease-in-out;
-        transition: width 0.4s ease-in-out;
-        cursor: pointer;
-    }
-        .search:focus {
-            width: 230px;
-            border: 2px solid #2ab7ca;
-        }
-        .search:hover {
-            border: 2px solid #2ab7ca;
-        }
 
-    </style>
 </head>
 <body>
 <!-- tt-mobile menu -->
@@ -102,30 +68,34 @@
                 <!-- desktop menu -->
                  <div class="tt-desktop-menu">
                     <nav>
-                        <ul class="font">
+                        <ul>
                             <!-- Home -->
                             <li>
                                 <a href="{{ url('/home') }}">
-                                    Home
+                                  <i class="fa fa-home">Home</i>
                                 </a>
                             </li>
                             @if (Auth::check())
                             <!-- User -->
                             <li>
                                 <a href="{{ url('/') }}">
+                                    <i class="fa fa-dashboard">
                                     @if (Auth::user()->role == "Admin")  Admin  @endif 
                                     @if (Auth::user()->role == "Teacher")  Teacher  @endif 
                                     @if (Auth::user()->role == "Student")  Student  @endif 
+                                    </i> 
                                 </a>
                             </li>
                             <!-- Manage reportes posts -->
                             @if (Auth::user()->role == "Admin")
                             <li>
                                 <a href="{{ url('/report_posts') }}">
+                                    <i class="fa fa-bell-o"> 
                                         Reported posts
                                         <sup>
                                             {{ $countPostHadBeenReported }}
                                         </sup>
+                                    </i>
                                 </a>
                             </li>
                             @endif
