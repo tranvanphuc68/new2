@@ -6,12 +6,13 @@
 
 @section('content')
 <main id="tt-pageContent" class="tt-offset-small">
+    <img src="{{ asset('assets/img/test2.gif') }}" class="img_icon">
     <div class="container">
         <!-- search -->
         <div class="mx-auto d-flex justify-content-end row mt-4">
             <form action="{{ url("/post/search") }}" method="GET" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control mr-3" name="search" placeholder="Search by post title" id="search">
+                    <input type="text" class="form-control mr-3 search" name="search" placeholder="Search by post title" id="search">
                     <button class="btn btn-info" type="submit" title="Search posts">
                         <span class="fa fa-search text-white"></span>
                     </button>
@@ -21,6 +22,9 @@
         <!-- /search -->
         <!-- search post -->
         <div class="tt-topic-list">
+            <div class="tt-topic-alert tt-alert-default mt_30px" role="alert">
+                <a href="#" target="_blank">Xin chào ! </a> Đây là diễn đàn của INTO . Hãy cùng chúng tôi chia sẻ những kiến thức bổ ích nào!
+            </div>
             <div class="tt-list-header">
                 <div class="tt-col-topic">Topic</div>
                 <div class="tt-col-value hide-mobile">Day</div>
@@ -28,7 +32,7 @@
             </div>
 
             @foreach ($posts as $post)
-            <div class="tt-item">
+            <div class="tt-item @if (($post->id_user == Auth::user()->id) && (Auth::user()->role == "Admin"))  tt-itemselect  @endif">
                 <div class="tt-col-avatar">
                     <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                 </div>

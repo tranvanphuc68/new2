@@ -23,34 +23,35 @@
                                     <i class="tt-icon"><svg><use xlink:href="#icon-time"></use></svg></i>{{ $post->created_at }}
                                 </a>
                             </div>
-                            <div>
+                            <div class="reponsive">
                                 {!! $post->title !!}
                             </div>
                         </div>
-                        <div class="tt-item-description overflow_auto width_100">
+                        <div class="tt-item-description reponsive">
                             {!! $post->content !!}
                         </div>
                     </div>
 
                     @if (Auth::check())
-                    <div class="row justify-content-space-evenly">
+                    <div class="row justify-content-space-evenly" id="a_post">
                         
                         <!-- create Comment -->
-                        <a href="#reply" class="tt-icon-btn text-dark">
-                            <i class="fa fa-reply"> ({{ $countComment }})</i>
+                        <a href="#reply" class="tt-icon-btn">
+                            <img src="{{ asset('assets/img/forum/reply.png') }}" class="icon_post"> 
+                            <span class="reply">({{ $countComment }})</span>
                         </a>
 
                         <!-- Edit post -->
                         @if ($post->id_user == Auth::user()->id )
-                            <a href="{{ url("/posts/$post->id/self_edit") }}" class="tt-icon-btn text-dark">
-                                <i class="fa fa-pencil"></i>
+                            <a href="{{ url("/posts/$post->id/self_edit") }}" class="tt-icon-btn">
+                                <img src="{{ asset('assets/img/forum/edit (1).png') }}" class="icon_post">
                             </a>
                         @endif
 
                         <!-- Delete post -->
                         @if (($post->id_user == Auth::user()->id) || (Auth::user()->role == "Admin") )
-                            <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" class="tt-icon-btn text-dark">
-                                <i class="fa fa-trash"></i>
+                            <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('post-delete-{{ $post->id }}').submit()" class="tt-icon-btn">
+                                <img src="{{ asset('assets/img/forum/delete.png') }}" class="icon_post">
                                 <form action='{{ url("/posts/$post->id") }}' method="POST" id="post-delete-{{$post->id }}">
                                     @method('DELETE')
                                     @csrf
@@ -59,8 +60,9 @@
                         @endif
 
                         <!-- Report post -->
-                        <a href="{{ url("/report_posts/$post->id/create")}}" class="tt-icon-btn text-dark">
-                            <i class="fa fa-exclamation-circle"> ({{ $countReportPost }})</i>
+                        <a href="{{ url("/report_posts/$post->id/create")}}" class="tt-icon-btn">
+                            <img src="{{ asset('assets/img/forum/icon_report.png') }}" class="icon_post"> 
+                            <span class="report">({{ $countReportPost }})</span>
                         </a>
                     </div>
                     @endif
@@ -107,26 +109,12 @@
                             <div class="row size_10px">{{ $comment->created_at }}</div>
 
                             <div class="mt-2 mr-4 row"> 
-                                <div class="word-break">
+                                <div class="word-break reponsive">
                                     {!! $comment->content !!}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="media mt-2 ml-lg-5">
-                        <div class="round pt-2 ml-lg-5">
-                            <div class="margin-left: 40px;">
-
-                            </div>
-                        </div>
-                        <div  class="ml_30px mr-4">
-                            <div class="media-body overflow_auto">
-                                <div class="row word-break"> 
-                                    {!! $comment->content !!}
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                     @endforeach
                 </div>
             </div>
@@ -141,7 +129,7 @@
             <form method="POST" action="{{ url("/comments/{$post->id}") }}" >
                 @csrf
                 <div class="pt-editor form-default" id="reply">
-                    <h5 class="pt-title">Post Your Reply</h5>
+                    <h5 class="pt-title reply">Post Your Reply</h5>
 
                     <div class="form-group">
                         <textarea class="summernoteContentComment" name="content">
