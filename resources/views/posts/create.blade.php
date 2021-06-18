@@ -9,7 +9,7 @@
         <!-- create new post -->
         <form method="POST" action="{{ url("/posts") }}">
             @csrf
-            <main id="tt-pageContent">
+            <main id="tt-pageContent" class="bg-main">
                 <div class="container">
                     <div class="title-block">
                         <h3 class="title"> 
