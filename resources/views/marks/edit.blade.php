@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="mark">
         <div class="card">
-            <h1 class="text-IBM"> Cập nhật điểm khóa học {{ $students[0]->name}} </h1>
+            <h1 class="text-IBM"> Cập nhật điểm lớp học {{ $students[0]->name}} </h1>
         </div>
         <section class="section">
             <div class="row">

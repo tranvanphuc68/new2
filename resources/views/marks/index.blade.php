@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="fee">
         <div class="card">
-            <h1 class="text-IBM">Bảng điểm các khóa</h1>
+            <h1 class="text-IBM">Bảng điểm các lớp</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -30,8 +30,8 @@ Into
                                         @if (Auth::user()->role == 'Student')
                                             <thead>
                                                 <tr class="table-primary">
-                                                    <th class="w20">ID Khóa Học</th>
-                                                    <th class="w60">Tên Khóa Học</th>
+                                                    <th class="w20">ID Lớp Học</th>
+                                                    <th class="w60">Tên Lớp Học</th>
                                                     <th class="w20" >Điểm</th>
                                                 </tr>
                                             </thead>
@@ -46,8 +46,8 @@ Into
                                             @if (Auth::user()->role == 'Admin')
                                                 <thead>
                                                     <tr class="table-primary">
-                                                        <th class="w20">ID Khóa Học</th>
-                                                        <th class="w60">Tên Khóa Học</th>
+                                                        <th class="w20">ID Lớp Học</th>
+                                                        <th class="w60">Tên Lớp Học</th>
                                                         <th class="w20" >Xem Điểm</th>
                                                     </tr>
                                                 </thead>
@@ -65,8 +65,8 @@ Into
                                             @else  
                                                 <thead>
                                                     <tr class="table-primary">
-                                                        <th class="w20">ID Khóa Học</th>
-                                                        <th class="w60">Tên Khóa Học</th>
+                                                        <th class="w20">ID Lớp Học</th>
+                                                        <th class="w60">Tên Lớp Học</th>
                                                         <th class="w20">Điểm</th>
                                                     </tr>
                                                 </thead>

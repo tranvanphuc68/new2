@@ -21,7 +21,7 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <div id='content' class="card-title-block" style="display: flex; justify-content:space-between">
+                            <div id='content' class="card-title-block res" style="display: flex; justify-content:space-between; overflow: auto; width: 100%;">
                                 @foreach ($arr as $item)
                                         
                                     <div class="border border-secondary rounded" style="padding:0px 10px;margin:0px 5px; width: 17%">

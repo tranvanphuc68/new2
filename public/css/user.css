@@ -152,10 +152,16 @@ a {
     border: 2px solid #2ab7ca;
 }
 .right {
-    display: flex;
-    float: right;
+    text-align: right;
 }
 .left {
+    text-align: left;
+}
+.d-right {
+    display: flex;
+    float: left;
+}
+.d-left {
     display: flex;
     float: left;
 }

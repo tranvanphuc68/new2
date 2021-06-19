@@ -15,7 +15,7 @@ Into
                 <img style="max-width: 200px" class="mb-3" src="{{ asset("/uploads/avatars/$user->avatar") }}">
                 <table class="table">
                     <tr>
-                        <td class="w25">ID:</td>
+                        <td style="width: 25%">ID:</td>
                         <td> {{ $user->id }}</td>
                     </tr>
                     <tr>

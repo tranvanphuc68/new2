@@ -52,7 +52,7 @@ Into
                                     </table>
                                 </div>
                                 @else
-                                <p>Lớp chưa có học viên </p>
+                                <h5>Lớp chưa có học viên </h5>
                                 @endif
                             </section>
                         </div>

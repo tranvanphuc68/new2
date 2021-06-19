@@ -17,7 +17,7 @@ Into
                         <div class="card-block">
                             <div class="card-title-block">
                                 @if (Auth::user()->role == 'Admin')
-                                    <a class="left" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm khóa học</span></a>
+                                    <a class="d-left" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm khóa học</span></a>
                                 @endif
                                 <form action="{{ url('/search/courses') }}" method="GET" class="right">
                                 <div  class="input-container">
@@ -93,9 +93,9 @@ Into
                                 @else
                                     @if (Auth::user()->role == 'Teacher')
                                         <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover">
+                                        <table class="table table-bordered table-hover">
                                             <thead>
-                                                <tr>
+                                                <tr class="table-primary">
                                                     <th class="w3">ID</th>
                                                     <th class="w20">Tên Lớp Học</th>
                                                     <th class="w30">Mô Tả</th>
@@ -140,9 +140,9 @@ Into
                                     </div>
                                     @else
                                         <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover">
+                                        <table class="table table-bordered table-hover">
                                             <thead>
-                                                <tr>
+                                                <tr class="table-primary">
                                                     <th class="w5">ID</th>
                                                     <th class="w">Tên Lớp Học</th>
                                                     <th class="w">Tên Giảng Viên</th>

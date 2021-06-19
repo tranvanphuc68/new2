@@ -16,11 +16,10 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <a class="left" href="{{ url("/fees/edit/{$students[0]->id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Cập nhật học phí</span></a>
+                                <a class="d-left" href="{{ url("/fees/edit/{$students[0]->id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Cập nhật học phí</span></a>
                                 <form role="search" class="right">
                                     <div class="input-container">
-                                        <i class="fa fa-search"></i>
-                                        <input type="text" name="search" placeholder="Search" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">
+                                        <input type="text" class="search" name="search" placeholder="Search by last name" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">
                                         <div class="underline"></div>
                                     </div>
                                 </form>
@@ -52,14 +51,11 @@ Into
                                     <div>Null</div>
                                     @endif
                                 </div>
-                                <div style="float: right;">
+                                <div class="right">
                                     <h5>Tổng học phí (đã nộp): {{ number_format($sum, 0, ' ', ' ') }}</h5>
                                     <h5>Học viên đã nộp: {{ $count }} / {{ $countStu }}</h5>
                                 </div>
                             </section>
-                        </div>
-                        <div>
-                            <button><a href="{{ url('/fees') }}">Back</a></button>
                         </div>
                     </div>
                 </div>

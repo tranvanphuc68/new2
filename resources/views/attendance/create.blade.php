@@ -47,8 +47,8 @@ Into
 
                             @if (count($check) > 0)
                                 <div class="card-title-block">
-                                    <h3 class="left">Lớp đã điểm danh </h3>
-                                    <a class="right" href="{{ url("/attendance") }}" class="btn btn-primary">Quay lại</a>
+                                    <h3 class="d-left">Lớp đã điểm danh </h3>
+                                    <a class="d-right" href="{{ url("/attendance") }}" class="btn btn-primary">Quay lại</a>
                                 </div>
                             @endif
                             </section>

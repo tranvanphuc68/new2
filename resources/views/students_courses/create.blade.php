@@ -10,12 +10,12 @@ Into
     <div class="card">
         <h1 class="text-IBM" >Thêm học viên vào lớp học {{ $course[0]->name}}</h1>
     </div>
-    <p>Số lượng học viên hiện tại: {{ $countStu }}/{{$max}}</p>
     <div class="row">
         <div class="col-md-12">
             <div class="card card-block">
                 <section>
-                    <div class="card-title-block" class="right">
+                    <h5>Số lượng học viên hiện tại: {{ $countStu }}/{{$max}}</h5>
+                    <div class="card-title-block right">
                         <form role="search" >
                             <div  class="input-container">
                                 <input type="text" class="search" name="search" placeholder="Search by last name" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">

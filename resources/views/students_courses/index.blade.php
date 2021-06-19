@@ -19,7 +19,7 @@ Into
                             <div class="card-title-block">
                                 <form action="{{ url('/search/students_courses') }}" method="GET" class="right">
                                     <div class="input-container">
-                                        <input type="text" class="search" name="search" placeholder="Search by course name" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">
+                                        <input type="text" class="search" name="search" placeholder="Search course name, id" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">
                                         <div class="underline"></div>
                                     </div>
                                 </form>

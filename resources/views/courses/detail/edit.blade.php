@@ -7,7 +7,7 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="card">
-        <h1 class="text-IBM"> Cập nhật thông tin khóa học {{ $course->id_course }}, buổi học thứ {{$course->number}} </h1>
+        <h1 class="text-IBM"> Cập nhật thông tin lớp học {{ $course->id_course }}, buổi học thứ {{$course->number}} </h1>
     </div>
     <div class="row sameheight-container">
         <div class="col-md-12">

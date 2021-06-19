@@ -16,7 +16,7 @@ Into
                     <div class="row mb-3">
                         @if (Auth::user()->role == 'Admin')
                             <div>
-                                <a class="left" href="{{ url("/detail_course/create/{$id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm buổi học</span></a>
+                                <a class="d-left" href="{{ url("/detail_course/create/{$id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm buổi học</span></a>
                                 @error ('full')
                                 <div class="right" >
                                     <a class="text-IBM" style="color: red; background-color: white" href="">{{ $message }}</a>
