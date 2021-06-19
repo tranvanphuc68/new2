@@ -10928,11 +10928,40 @@ show post, index post
     
     .img_icon {
         position: relative;
-        top: 50px;
-        left: 20px;
-        width: 100px;
+        top: 0px;
+        margin-bottom: 0px;
+        left: 30px;
+        width: 90px;
         border-radius: 50%;
         box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
+    }
+    
+    @media (max-width: 700px) {
+        .img_icon {
+            position: relative;
+            top: 0px;
+            left: 10px;
+            margin-bottom: 0px;
+            width: 80px;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
+        }
+    }
+    
+    @media (max-width: 400px) {
+        .img_icon {
+            position: relative;
+            top: 0px;
+            left: 10px;
+            margin-bottom: 15px;
+            width: 50px;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
+        }
+    }
+    
+    .mt_10px {
+        margin-top: 10px;
     }
     
     .mt_30px {

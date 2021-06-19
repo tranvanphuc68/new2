@@ -24,7 +24,7 @@ class PostController extends Controller
             $search = $_GET['search'];
             $posts = DB::table('posts')
             ->join('users', 'users.id', '=', 'posts.id_user')
-            ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
+            ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar', 'users.role')
             ->where('posts.title', 'LIKE', "%".$search."%")
             ->latest()
             ->paginate(10)
@@ -38,7 +38,7 @@ class PostController extends Controller
             //full posts
         $posts = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.id_user')
-        ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar')
+        ->select('posts.*', 'users.first_name', 'users.last_name', 'users.avatar', 'users.role')
         ->latest()
         ->paginate(10)
         ->withQueryString();

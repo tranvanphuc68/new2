@@ -7,14 +7,14 @@
 @section('content')
 
 <main id="tt-pageContent" class="bg-main" >
-    <img src="{{ asset('assets/img/test2.gif') }}" class="img_icon mb-3">
+    <img src="{{ asset('assets/img/test2.gif') }}" class="img_icon">
     <div class="container">
         @if ($countPost > 0)
         <!-- search -->
-        <div class="mx-auto d-flex justify-content-end row mt-4">
+        <div class="mx-auto d-flex justify-content-end row">
             <form method="GET" >
                 <div class="input-group">
-                    <input type="text" class="form-control mr-3 search" name="search" value="{{ old('search') }}" placeholder="Search by post title" class="search">
+                    <input type="text" class="form-control mr-3 search center" name="search" value="{{ old('search') }}" placeholder="Search by post title" class="search">
                     <button class="btn btn-info" type="submit" title="Search posts">
                         <span class="fa fa-search text-white"></span>
                     </button>
@@ -25,7 +25,7 @@
         @endif 
         <!-- index post -->
         <div class="tt-topic-list">
-            <div class="tt-topic-alert tt-alert-default mt_30px" role="alert">
+            <div class="tt-topic-alert tt-alert-default mt_10px" role="alert">
                 Xin chào ! Đây là <a href="#" target="_blank"> diễn đàn của INTO</a> . Hãy cùng chúng tôi chia sẻ những kiến thức bổ ích nào!
             </div>
             @if ($countPost <= 0)
@@ -38,7 +38,7 @@
             @endif
             @if ($countPost > 0)
                 @foreach ($posts as $post)
-                <div class="tt-item @if ((Auth::check())&&($post->id_user == Auth::user()->id) && (Auth::user()->role == "Admin"))  tt-itemselect  @endif ">
+                <div class="tt-item @if ($post->role == "Admin")  tt-itemselect  @endif ">
                     <div class="tt-col-avatar">
                         <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                     </div>
