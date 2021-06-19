@@ -191,70 +191,73 @@
 <script src="{{ asset('js/vendor.js') }}"></script>
 <script src="{{ asset('js/bundle.js') }}"></script>
 <script src="{{ asset('vendor/summernote/summernote-bs4.js') }}"></script>
-
+<script src="{{ asset('vendor/summernote/summernote-audio.js') }}"></script>
+<script src="{{ asset('vendor/summernote/summernote-file.js') }}"></script>
 <!--include tam-emoji js-->
 <script src="{{ asset('vendor/tam-emoji/js/config.js') }}"></script>
 <script src="{{ asset('vendor/tam-emoji/js/tam-emoji.min.js') }}"></script>
-
+	
 <script>
 $(document).ready(function () {
+	
 	document.emojiType = 'unicode';
 	document.emojiSource = "{{ asset('vendor/tam-emoji/img') }}";
 	$('.summernoteTitle').summernote({
 		placeholder: 'Describe your post well, while keeping the subject as short as possible',
-        height: 100,
+    height: 100,
 		minHeight: null,             
 		maxHeight: null,             
 		focus: true,
 		toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'italic', 'clear']],
-		  ['fontname', ['fontname']],
-		  ['fontsize', ['fontsize']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-		  ['insert', ['emoji']],
-		  ['tool', ['undo', 'redo']],
-          ['view', ['fullscreen', 'help']],
+			['style', ['style']],
+			['font', ['bold', 'underline', 'italic', 'clear']],
+			['fontname', ['fontname']],
+			['fontsize', ['fontsize']],
+			['color', ['color']],
+			['para', ['ul', 'ol', 'paragraph']],
+			['insert', ['emoji']],
+			['tool', ['undo', 'redo']],
+			['view', ['fullscreen', 'codeview', 'help']],
         ],   
 	});
+
     $('.summernoteContent').summernote({
 		height: 300,                 
 		minHeight: null,             
 		maxHeight: null,             
 		focus: true,
 		toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'italic', 'clear']],
-		  ['fontname', ['fontname']],
-		  ['fontsize', ['fontsize']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-		  ['table', ['table']],
-          ['insert', ['emoji', 'link', 'picture', 'video']],
-		  ['tool', ['undo', 'redo']],
-          ['view', ['fullscreen', 'codeview', 'help']],
+			['style', ['style']],
+			['font', ['bold', 'underline', 'italic', 'clear']],
+			['fontname', ['fontname']],
+			['fontsize', ['fontsize']],
+			['color', ['color']],
+			['para', ['ul', 'ol', 'paragraph']],
+			['table', ['table']],
+			['insert', ['emoji', 'link', 'picture', 'video', 'audio']],
+			['tool', ['undo', 'redo']],
+			['view', ['fullscreen', 'codeview', 'help']],
         ],   
 	});
+
 	$('.summernoteContentComment').summernote({
 		height: 150,                 
 		minHeight: null,             
 		maxHeight: null,             
 		focus: false,
 		toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'italic', 'clear']],
-		  ['fontname', ['fontname']],
-		  ['fontsize', ['fontsize']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['insert', ['emoji', 'link', 'picture', 'video']],
-		  ['tool', ['undo', 'redo']],
-          ['view', ['fullscreen', 'help']],
-        ],   
+			['style', ['style']],
+			['font', ['bold', 'underline', 'italic', 'clear']],
+			['fontname', ['fontname']],
+			['fontsize', ['fontsize']],
+			['color', ['color']],
+			['para', ['ul', 'ol', 'paragraph']],
+			['insert', ['emoji', 'link', 'picture', 'video', 'audio']],
+			['tool', ['undo', 'redo']],
+			['view', ['fullscreen', 'help']],
+    ],  
 	});
 })
 </script>
-
 </body>
 </html>

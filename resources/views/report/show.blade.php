@@ -31,18 +31,18 @@ Into
         datasets:[{
           label:'Population',
           data:[
-            9000,
-            181045,
-            153060,
-            106519,
-            105162,
-            181045,
-            153060,
-            106519,
-            105162,
-            181045,
-            105162,
-            95072
+            {{ $january }},
+            {{ $february }},        
+            {{ $march }},
+            {{ $april }},
+            {{ $may }},
+            {{ $june }},
+            {{ $july }},
+            {{ $august }},
+            {{ $september }},
+            {{ $october }},
+            {{ $november }},
+            {{ $december }}
           ],
           //backgroundColor:'green',
           backgroundColor:[
@@ -68,7 +68,7 @@ Into
       options:{
         title:{
           display:true,
-          text:'Biểu đồ thống kê số học viên đã đăng kí năm 2020',
+          text:"Biểu đồ thống kê số học viên đã đăng kí năm {{ $year }}",
           fontSize:25
         },
         legend:{

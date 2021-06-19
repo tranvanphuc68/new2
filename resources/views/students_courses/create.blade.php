@@ -18,7 +18,7 @@ Into
                     <div class="card-title-block" style="float:right">
                         <form role="search" >
                             <div  class="input-container">
-                                <input type="text" class="search" name="search" placeholder="Search by last name" value="{{ old('search') }}">
+                                <input type="text" class="search" name="search" placeholder="Search by last name" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">
                                 <div class="underline"></div>
                             </div>
                         </form>

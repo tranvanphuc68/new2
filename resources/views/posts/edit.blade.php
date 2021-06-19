@@ -11,7 +11,7 @@
             <form  method="POST" action="{{url("/posts/$post->id")}}">
                 @csrf
                 @method('PUT')
-                <main id="tt-pageContent">
+                <main id="tt-pageContent" class="bg-main">
                     <div class="container">
                         <div class="title-block">
                             <h3 class="title"> 
@@ -34,7 +34,7 @@
                                     <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
                                     <div class="col-sm-10">
                                         <textarea class="summernoteTitle" name="title">
-                                            {{ $post->title }}
+                                            {!! $post->title !!}
                                         </textarea>
                                         @error('title')
                                         <div class="form-text text-danger">{{ $message }}</div>
@@ -46,7 +46,7 @@
                                     <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
                                     <div class="col-sm-10">
                                         <textarea class="summernoteContent" name="content">
-                                            {{ $post->content }}
+                                            {!! $post->content !!}
                                         </textarea>
                                         @error('content')
                                         <div class="form-text text-danger">{{ $message }}</div>
@@ -56,8 +56,8 @@
                                 <!-- Button -->
                                 <div class="row form-group">
                                     <div class="col-auto ml-md-auto">
-                                        <a href="{{ url("/posts/$post->id") }}" class="btn btn-secondary mr-3">Cancel</a>
                                         <button class="btn btn-primary btn-width-lg" type="submit">Edit</button>
+                                        <a href="{{ url("/posts/$post->id") }}" class="btn btn-secondary mr-3">Cancel</a>
                                     </div>
                                 </div>
                             </div>
