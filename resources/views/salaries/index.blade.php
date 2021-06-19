@@ -20,10 +20,9 @@ Into
                                 <div class="table-responsive">
                                     @if (Auth::user()->role == 'Teacher')
                                         <div class="card-title-block">
-                                            <form method="GET" style="text-align: right">
+                                            <form method="GET" class="right">
                                                 <div class="input-container">
-                                                    <i class="fa fa-search"></i>
-                                                    <input type="text" name="searchCourse" placeholder="Search" value="<?php if (isset($_GET['searchCourse'])) { echo $_GET['searchCourse'];} ?>">
+                                                    <input type="text" class="search" name="searchCourse" placeholder="Search" value="<?php if (isset($_GET['searchCourse'])) { echo $_GET['searchCourse'];} ?>">
                                                     <div class="underline"></div>
                                                 </div>
                                             </form>
@@ -46,7 +45,7 @@ Into
                                                 </tr>
                                             @endforeach
                                         </table>
-                                            <div style="text-align: right;">
+                                            <div class="right">
                                                 <h5>Tổng lương (đã nhận): {{ number_format($sum, 0, ' ', ' ') }}</p>
                                                 <p>Số lượng (đã nhận): {{ $received }} / {{ $count }}</p>
                                             </div>
@@ -54,10 +53,9 @@ Into
                                     
                                     @if (Auth::user()->role == 'Admin')
                                         <div class="card-title-block">
-                                            <form method="GET" style="text-align: right">
+                                            <form method="GET" class="right">
                                                 <div class="input-container">
-                                                    <i class="fa fa-search"></i>
-                                                    <input type="text" name="searchTeacher" placeholder="Search" value="<?php if (isset($_GET['searchTeacher'])) { echo $_GET['searchTeacher'];} ?>">
+                                                    <input type="text" class="search" name="searchTeacher" placeholder="Search" value="<?php if (isset($_GET['searchTeacher'])) { echo $_GET['searchTeacher'];} ?>">
                                                     <div class="underline"></div>
                                                 </div>
                                             </form>

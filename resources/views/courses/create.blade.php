@@ -6,7 +6,7 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="card col-md-12" style="padding: 0px;">
+    <div class="card">
         <h1 class="text-IBM">Tạo khóa học</h1>
     </div>
     <div class="row sameheight-container">
@@ -102,7 +102,7 @@ Into
                     @error('status')
                         <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
-                    <div style="text-align: right;">
+                    <div class="right"d>
                         <button type="submit" class="btn btn-primary" >Lưu thông tin</button>
                     </div>
                 </form>

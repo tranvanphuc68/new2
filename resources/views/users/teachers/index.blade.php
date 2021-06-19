@@ -16,10 +16,10 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <a style="float:left" href="{{ url("/users/teacher/create") }}"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm giảng viên</span></a>
-                                <form method="GET" style="float:right">
+                                <a class="left" href="{{ url("/users/teacher/create") }}"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm giảng viên</span></a>
+                                <form method="GET" class="right">
                                     <div  class="input-container">
-                                        <input type="text" class="search" name="search" placeholder="Search by last name" value="{{ old('search') }}">
+                                        <input type="text" class="search" name="search" placeholder="Search by last name" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">
                                         <div class="underline"></div>
                                     </div>
                                 </form>

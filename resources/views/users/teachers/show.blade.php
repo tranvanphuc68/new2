@@ -6,7 +6,7 @@ Into
 
 @section('content')
 <article class="content">
-    <div class="card col-md-12" style="padding: 0px;">
+    <div class="card">
         <h3 class="text-IBM" > Thông tin giảng viên ID : {{ $user->id }}     </h3>
     </div>
     <div class="row">
@@ -15,7 +15,7 @@ Into
                 <img style="max-width: 200px" class="mb-3" src="{{ asset("/uploads/avatars/$user->avatar") }}">
                 <table class="table">
                     <tr>
-                        <td style="width: 25%">ID:</td>
+                        <td class="w25">ID:</td>
                         <td> {{ $user->id }}</td>
                     </tr>
                     <tr>
@@ -54,8 +54,12 @@ Into
                         <td>Trình độ học vấn:</td>
                         <td> {{ $user->academic_level }}</td>
                     </tr>
+                    <tr>
+                        <td>Nơi làm việc:</td>
+                        <td> {{ $user->accomplishment }}</td>
+                    </tr>
                 </table>
-                <div style="text-align: right;">
+                <div class="right">
                     <a href='{{ url("/users/teacher/{$user->id}/edit") }}' class="btn btn-primary">Thay đổi thông tin</a>
                 </div>
             </div>

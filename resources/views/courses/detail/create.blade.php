@@ -32,7 +32,7 @@ Into
                     @error('date')
                         <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
-                    <div style="text-align: right;">
+                    <div class="right">
                         <button type="submit" class="btn btn-primary" >Lưu thông tin</button>
                     </div>
                 </form>

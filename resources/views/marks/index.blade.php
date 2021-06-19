@@ -7,7 +7,7 @@ Into
 
 @section('content')
 <article class="content responsive-tables-page">
-    <div class="mark">
+    <div class="fee">
         <div class="card">
             <h1 class="text-IBM">Bảng điểm các khóa</h1>
         </div>
@@ -17,7 +17,7 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <form action="{{ url('/search/marks') }}" method="GET" style="text-align: right">
+                                <form action="{{ url('/search/marks') }}" method="GET" style="float: right">
                                     <div class="input-container">
                                         <input type="text" class="search" name="search" placeholder="Search by course name" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">
                                         <div class="underline"></div>

@@ -18,7 +18,7 @@ Into
                             <section class="example">
                                 @if (Auth::user()->role == 'Student')
                                     <div class="card-title-block">
-                                        <form role="search" style="text-align: right">
+                                        <form role="search" class="right">
                                             <div class="input-container">
                                                 <input type="text" class="search" name="searchByStudent" placeholder="Search by course name" value="<?php if (isset($_GET['searchByStudent'])) { echo $_GET['searchByStudent'];} ?>">
                                                 <div class="underline"></div>
@@ -47,7 +47,7 @@ Into
 
                                         @if (Auth::user()->role == 'Admin')
                                             <div class="card-title-block">
-                                                <form role="search" style="text-align: right">
+                                                <form role="search" class="right">
                                                     <div class="input-container">
                                                         <input type="text" class="search" name="searchByAdmin" placeholder="Search by course name" value="<?php if (isset($_GET['searchByAdmin'])) { echo $_GET['searchByAdmin'];} ?>">
                                                         <div class="underline"></div>

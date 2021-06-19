@@ -15,7 +15,7 @@ Into
         <div class="col-md-12">
             <div class="card card-block">
                 <section>
-                    <div class="card-title-block" style="float:right">
+                    <div class="card-title-block" class="right">
                         <form role="search" >
                             <div  class="input-container">
                                 <input type="text" class="search" name="search" placeholder="Search by last name" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">
@@ -45,7 +45,7 @@ Into
                         </table>
                     </div> 
                 </section>
-                <div style="text-align: right;">
+                <div class="right">
                     <button type="submit" class="btn btn-primary" >Lưu thông tin</button>
                 </div>
             </div>

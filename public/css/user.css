@@ -46,13 +46,25 @@ a {
     color: #2ab7ca;
     padding: 5px;
 }
+.icon-view:hover {
+    color: #0b8292;
+    transform: scale(1.5);
+}
 .icon-edit {
     color: #fed766;
     padding: 5px;
 }
+.icon-edit:hover {
+    color: #c09820;
+    transform: scale(1.5);
+}
 .icon-delete {
     color: #fe4a49;
     padding: 5px;
+}
+.icon-delete:hover {
+    color: #b31717;
+    transform: scale(1.5);
 }
 .center {
     display: flex;  
@@ -138,4 +150,12 @@ a {
 }
 .search:hover {
     border: 2px solid #2ab7ca;
+}
+.right {
+    display: flex;
+    float: right;
+}
+.left {
+    display: flex;
+    float: left;
 }

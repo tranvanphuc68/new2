@@ -6,7 +6,7 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="card col-md-12" style="padding: 0px;">
+    <div class="card">
         <h1 class="text-IBM" >Cập nhật thông tin học viên ID : {{ $user->id }}</h1>
     </div>
     <div class="row sameheight-container">
@@ -89,7 +89,14 @@ Into
                     @error('academic_level')
                         <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
-                    <div style="text-align: right;">
+                    <div class="form-group">
+                        <label for="accomplishment">Nơi làm việc</label>
+                        <input type="text" name="accomplishment" id="accomplishment" class="form-control" placeholder="Work place" aria-describedby="helpId" value="{{ $user->accomplishment }}">
+                    </div>
+                    @error('accomplishment')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
+                    <div class="right">
                         <button type="submit" class="btn btn-primary">Lưu thông tin</button>
                     </div>
                 </form>

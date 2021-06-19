@@ -6,7 +6,7 @@ Into
 
 @section('content')
 <article class="content">
-    <div class="card col-md-12" style="padding: 0px;">
+    <div class="card">
         <h3 class="text-IBM"> Thông tin chi tiết khóa học {{ $course->name }}</h3>
     </div>
     <section class="example">
@@ -16,9 +16,9 @@ Into
                     <div class="row mb-3">
                         @if (Auth::user()->role == 'Admin')
                             <div>
-                                <a style="float:left" href="{{ url("/detail_course/create/{$id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm buổi học</span></a>
+                                <a class="left" href="{{ url("/detail_course/create/{$id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm buổi học</span></a>
                                 @error ('full')
-                                <div style="float:right; " >
+                                <div class="right" >
                                     <a class="text-IBM" style="color: red; background-color: white" href="">{{ $message }}</a>
                                 </div>
                                 @enderror

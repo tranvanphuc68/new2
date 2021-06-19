@@ -42,7 +42,7 @@ Into
                                     @else
                                         <p>{{ $feedbacks[0]->feedback}}</p>
                                         @if ($feedbacks[0]->status == 3)
-                                            <p class="mt-3" style="text-align: right;">
+                                            <p class="mt-3" class="right">
                                                 <a href="{{ url("/feedbacks/edit/{$id_course}") }}">
                                                     <i class="fa fa-pencil icon-edit"></i>
                                                 </a>

@@ -1,3 +1,4 @@
+
 @extends('layouts.users.app')
 
 @section('title')
@@ -53,9 +54,6 @@ Into
                                 @else
                                 <p>Null</p>
                                 @endif
-                                <div>
-                                    <button><a href="{{ url('/marks') }}">Back</a></button>
-                                </div>
                             </section>
                         </div>
                     </div>

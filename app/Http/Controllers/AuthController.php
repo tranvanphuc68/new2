@@ -30,6 +30,6 @@ class AuthController extends Controller
     {
         Auth::logout();
         Session::flush();
-        return redirect('/login');
+        return redirect('/home');
     }
 }

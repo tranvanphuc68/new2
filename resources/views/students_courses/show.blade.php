@@ -21,16 +21,16 @@ Into
                                 <div class="table-responsive">
                                     @if (Auth::user()->role == 'Admin')
                                         @if ( $countStu == $course[0]->max_students)
-                                            <div class="card-title-block" style="float:left" >
+                                            <div class="card-title-block" class="left" >
                                                 <p>Số học viên đã tối đa</p>
                                             </div>
                                         @else
-                                            <div class="card-title-block" style="float:left" >
+                                            <div class="card-title-block" class="left">
                                                 <a href="{{ url("/students_courses/create/{$students[0]->id_course}") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm học viên</span></a>
                                             </div>
                                         @endif
                                     @endif
-                                    <div class="card-title-block" style="float:right">
+                                    <div class="card-title-block" class="right">
                                         <form role="search" >
                                             <div  class="input-container">
                                                 <input type="text" class="search" name="search" placeholder="Search by last name" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">
@@ -73,14 +73,11 @@ Into
                                 <div>
                                     <h3 class="text-IBM">Lớp chưa có học viên</h3>
                                     <div class="card-title-block">
-                                        <a style="float:right" href="{{ url("/students_courses/create/{$id_course}") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm học viên</span></a>
+                                        <a class="right" href="{{ url("/students_courses/create/{$id_course}") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm học viên</span></a>
                                     </div>
                                 </div>
                             </section>
                             @endif
-                            <div>
-                                <button><a href="{{ url('/students_courses') }}">Back</a></button>
-                            </div>
                         </div>
                     </div>
                 </div>

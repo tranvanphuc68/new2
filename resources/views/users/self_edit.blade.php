@@ -102,6 +102,13 @@ Into
                     @error('academic_level')
                         <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
+                    <div class="form-group">
+                        <label for="accomplishment">Nơi làm việc</label>
+                        <input type="text" name="accomplishment" id="accomplishment" class="form-control" placeholder="Work place" aria-describedby="helpId" value="{{ $user->accomplishment }}">
+                    </div>
+                    @error('accomplishment')
+                        <div class="form-text text-danger">{{ $message }}</div>
+                    @enderror
                     <div style="text-align: right;">
                         <button type="submit" class="btn btn-primary">Lưu thông tin</button>
                     </div>

@@ -25,7 +25,7 @@ Into
                                             @error('feedback')
                                                 <div>{{ $message }}</div>
                                             @enderror
-                                            <div class="mt-3" style="text-align: right;">
+                                            <div class="mt-3 right" >
                                                 <button class="btn btn-primary" type="submit"> Cập Nhật</button>
                                             </div>
                                     </form>

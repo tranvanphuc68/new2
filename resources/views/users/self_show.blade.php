@@ -46,14 +46,18 @@ Into
             </tr>
             <tr>
                 <td>Số tài khoản:</td>
-                <td>  {{ $user->account }}</td>
+                <td> {{ $user->account }}</td>
             </tr>
             <tr>
                 <td>Trình độ học vấn:</td>
                 <td> {{ $user->academic_level }}</td>
             </tr>
+            <tr>
+                <td>Nơi làm việc:</td>
+                <td> {{ $user->accomplishment }}</td>
+            </tr>
         </table>
-        <div style="text-align: right;">
+        <div class="right">
             <a href='{{ url("/users/self_edit") }}' class="btn btn-primary"> Thay đổi thông tin</a>
         </div>
     </div>

@@ -31,6 +31,7 @@ class UpdateUserRequest extends FormRequest
             'hometown' => 'required',
             'id_card' => 'required|numeric',
             'academic_level' => 'required',
+            'accomplishment' => 'required',
             'account' => 'required|numeric',
             'phone' => 'required|numeric',
             'email' => 'required|email|unique:users,email,'.$this->id.',id'
@@ -48,6 +49,7 @@ class UpdateUserRequest extends FormRequest
             'id_card.required' => 'Không để trống',
             'id_card.numeric' => 'Không có kí tự',
             'academic_level.required' => 'Không để trống',
+            'accomplishment.required' => 'Không để trống',
             'account.required' => 'Không để trống',
             'account.numeric' => 'Không có kí tự',
             'phone.required' => 'Không để trống',

@@ -17,11 +17,11 @@ Into
                         <div class="card-block">
                             <div class="card-title-block">
                                 @if (Auth::user()->role == 'Admin')
-                                    <a style="float:left" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm khóa học</span></a>
+                                    <a class="left" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm khóa học</span></a>
                                 @endif
-                                <form action="{{ url('/search/courses') }}" method="GET" style="float:right">
+                                <form action="{{ url('/search/courses') }}" method="GET" class="right">
                                 <div  class="input-container">
-                                        <input type="text" class="search" name="search" placeholder="Search by course name" value="{{ old('search') }}">
+                                        <input type="text" class="search" name="search" placeholder="Search by course name" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">
                                         <div class="underline"></div>
                                     </div>
                                 </form>

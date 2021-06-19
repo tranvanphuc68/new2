@@ -31,7 +31,7 @@
                                 <a href="{{ url("users/teacher") }}"> Giảng viên</a>
                             </li>
                             <li>
-                                <a href="{{ url("users/student") }}"> Học sinh </a>
+                                <a href="{{ url("users/student") }}"> Học viên </a>
                             </li>
                         </ul>
                     </li>
@@ -80,7 +80,7 @@
                         </a>
                         <ul class="sidebar-nav">
                             <li>
-                                <a href="{{ url("/report") }}"> Học sinh </a>
+                                <a href="{{ url("/report") }}"> Học viên </a>
                             </li>
                             <li>
                                 <a href=""> Tài chính  </a>

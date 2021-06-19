@@ -8,7 +8,7 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="courses">
-        <div class="card col-md-12" style="padding: 0px;">
+        <div class="card">
             @if (Auth::user()->role == "Teacher")
                 <h1 class="text-IBM"> Lịch dạy </h1>
             @endif

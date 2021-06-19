@@ -17,7 +17,7 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <div class="card-title-block">
-                                <a style="float:left" href="{{ url("/salaries/edit/{$salaries[0]->id_teacher}") }}" name="edit"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Cập nhật lương</span></a>
+                                <a class="left" href="{{ url("/salaries/edit/{$salaries[0]->id_teacher}") }}" name="edit"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Cập nhật lương</span></a>
                             </div>
                             <section class="example">
                                 <div class="table-responsive">
@@ -40,14 +40,11 @@ Into
                                         @endforeach
                                     </table>
                                 </div>
-                                <div style="text-align: right;">
+                                <div class="right">
                                     <h5>Tổng lương (đã trả): {{ number_format($sum, 0, ' ', ' ') }}</p>
                                     <p>Số lượng (đã nhận): {{ $received }} / {{ $count }}</p>
                                 </div>
                             </section>
-                        </div>
-                        <div>
-                            <button><a href="{{ url('/salaries') }}">Back</a></button>
                         </div>
                     </div>
                 </div>

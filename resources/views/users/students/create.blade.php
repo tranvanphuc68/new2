@@ -7,7 +7,7 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <div class="card col-md-12" style="padding: 0px;">
+    <div class="card">
         <h1 class="text-IBM">Thêm học viên</h1>
     </div>
     <div class="row sameheight-container">
@@ -102,7 +102,7 @@ Into
                     @error('password')
                         <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
-                    <div style="text-align: right;">
+                    <div class="right">
                         <button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
                 </form>
             </div>

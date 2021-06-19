@@ -47,7 +47,7 @@ Into
                                                 </tr>
                                             @endforeach
                                         </table>
-                                        <div style="text-align: right;">
+                                        <div class="right">
                                             <button class="btn btn-primary" type="submit"> Cập Nhật Lương</button>
                                         </div>
                                     </form>
