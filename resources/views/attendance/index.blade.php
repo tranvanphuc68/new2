@@ -8,7 +8,7 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="courses">
-        <div class="card col-md-12" style="padding: 0px;">
+        <div class="card">
             <h1 class="text-IBM"> Điểm danh ngày {{ $today }} </h1>
         </div>
         <section class="section">
@@ -24,10 +24,10 @@ Into
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr class="table-primary">
-                                                <th class="w15">Tên Khóa Học</th>
-                                                <th class="w5">Buổi</th>
+                                                <th class="w15">Tên Lớp Học</th>
+                                                <th class="w5">Buổi Học</th>
                                                 <th class="w15">Thời gian</th>
-                                                <th style="text-align: center;" >Nội Dung</th>
+                                                <th class="center" >Nội Dung</th>
                                                 <th class="w10">Điểm Danh</th>
                                             </tr>
                                         </thead>
@@ -51,7 +51,7 @@ Into
                                     </table>
                                 </div>
                             @else
-                                <h5>HÔM NAY K CÓ LỚP ĐIỂM DANH</h5>
+                                <h5>HÔM NAY KHÔNG CÓ LỚP ĐIỂM DANH</h5>
                             @endif
                             </section>
                         </div>

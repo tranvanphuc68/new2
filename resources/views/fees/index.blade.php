@@ -30,7 +30,7 @@ Into
                                             <thead>
                                                 <tr class="table-primary">
                                                     <th class="w10">ID</th>
-                                                    <th class="w40">Tên Khóa Học</th>
+                                                    <th class="w40">Tên Lớp Học</th>
                                                     <th class="w25">Học Phí</th>
                                                     <th class="w25">Tình Trạng</th>
                                                 </tr>
@@ -59,7 +59,7 @@ Into
                                                 <thead>
                                                     <tr class="table-primary">
                                                         <th class="w15">ID</th>
-                                                        <th class="w40">Tên Khóa Học</th>
+                                                        <th class="w40">Tên Lớp Học</th>
                                                         <th class="w30">Tình Trạng</th>
                                                         <th class="w15">Chi Tiết</th>
                                                     </tr>

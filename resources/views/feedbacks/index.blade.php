@@ -29,8 +29,8 @@ Into
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr class="table-primary">
-                                                <th class="w15">ID Khóa Học</th>
-                                                <th class="w30">Tên Khóa Học</th>
+                                                <th class="w15">ID Lớp Học</th>
+                                                <th class="w30">Tên Lớp Học</th>
                                                 <th class="w40">Trạng Thái</th>
                                                 <th class="w15">Chi Tiết</th>
                                             </tr>

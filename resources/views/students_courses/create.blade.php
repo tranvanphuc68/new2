@@ -8,7 +8,7 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="card">
-        <h1 class="text-IBM" >Thêm học viên vào khóa học {{ $course[0]->name}}</h1>
+        <h1 class="text-IBM" >Thêm học viên vào lớp học {{ $course[0]->name}}</h1>
     </div>
     <p>Số lượng học viên hiện tại: {{ $countStu }}/{{$max}}</p>
     <div class="row">

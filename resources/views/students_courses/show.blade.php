@@ -16,13 +16,13 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <section class="example">
-                                <p>Số lượng học viên: {{ $countStu }}/{{$course[0]->max_students}}</p>
+                                <h5>Số lượng học viên: {{ $countStu }}/{{$course[0]->max_students}}</h5>
                                 @if ($countStu != 0)
                                 <div class="table-responsive">
                                     @if (Auth::user()->role == 'Admin')
                                         @if ( $countStu == $course[0]->max_students)
                                             <div class="card-title-block" class="left" >
-                                                <p>Số học viên đã tối đa</p>
+                                                <h5>Số học viên đã tối đa</h5>
                                             </div>
                                         @else
                                             <div class="card-title-block" class="left">
@@ -71,9 +71,9 @@ Into
                                 </div>
                                 @else
                                 <div>
-                                    <h3 class="text-IBM">Lớp chưa có học viên</h3>
+                                    <h5>Lớp chưa có học viên</h5>
                                     <div class="card-title-block">
-                                        <a class="right" href="{{ url("/students_courses/create/{$id_course}") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm học viên</span></a>
+                                        <a class="left" href="{{ url("/students_courses/create/{$id_course}") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm học viên</span></a>
                                     </div>
                                 </div>
                             </section>

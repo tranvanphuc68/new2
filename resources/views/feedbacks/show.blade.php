@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="feedback">
         <div class="card">
-            <h1 class="text-IBM">Feedback khóa học {{ $course[0]->name }}</h1>
+            <h1 class="text-IBM">Feedback lớp học {{ $course[0]->name }}</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -50,13 +50,10 @@ Into
                                         @endif 
                                     @endif
                                 @else
-                                    <h3>Null</h3>
+                                    <h5>Lớp chưa có feedbacks</h5>
                                 @endif
                             </section>
                         </div>
-                    </div>
-                    <div>
-                        <button><a href="{{ url('/feedbacks') }}">Back</a></button>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="feedback">
         <div class="card">
-            <h1 class="text-IBM"> Cập nhật feedback khóa học {{$students[0]->name}} </h1>
+            <h1 class="text-IBM"> Cập nhật feedback lớp học {{$students[0]->name}} </h1>
         </div>
         <section class="section">
             <div class="row">

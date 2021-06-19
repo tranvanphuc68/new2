@@ -7,7 +7,7 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="card">
-        <h1 class="text-IBM">Tạo khóa học</h1>
+        <h1 class="text-IBM">Tạo lớp học</h1>
     </div>
     <div class="row sameheight-container">
         <div class="col-md-12">
@@ -15,7 +15,7 @@ Into
                 <form action="{{ url("/courses") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="name">Tên khóa học</label>
+                        <label for="name">Tên lớp học</label>
                         <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control" placeholder="Name" aria-describedby="helpId" >
                     </div>
                     @error('name')

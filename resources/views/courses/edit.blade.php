@@ -7,7 +7,7 @@ Into
 @section('content')
 <article class="content forms-page">
     <div class="card">
-        <h1 class="text-IBM">Cập nhật khóa học {{ $course->name }}</h1>
+        <h1 class="text-IBM">Cập nhật lớp học {{ $course->name }}</h1>
     </div>
     <div class="row sameheight-container">
         <div class="col-md-12">
@@ -16,7 +16,7 @@ Into
                     @method('PUT')
                     @csrf
                     <div class="form-group">
-                        <label for="name">Tên khóa học</label>
+                        <label for="name">Tên lớp học</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Name" aria-describedby="helpId" value="{{ $course->name }}">
                     </div>
                     @error('name')

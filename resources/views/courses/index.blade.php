@@ -8,7 +8,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="courses">
         <div class="card">
-            <h1 class="text-IBM"> Danh sách khóa học </h1>
+            <h1 class="text-IBM"> Danh sách lớp học </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -33,7 +33,7 @@ Into
                                         <thead>
                                             <tr class="table-primary">
                                                 <th class="w3">ID</th>
-                                                <th class="w">Tên Khóa</th>
+                                                <th class="w">Tên Lớp Học</th>
                                                 <th class="w">Tên Giảng Viên</th>
                                                 <th class="w">Mô Tả</th>
                                                 <th class="w10">Thời Khóa Biểu</th>
@@ -97,7 +97,7 @@ Into
                                             <thead>
                                                 <tr>
                                                     <th class="w3">ID</th>
-                                                    <th class="w20">Tên Khóa</th>
+                                                    <th class="w20">Tên Lớp Học</th>
                                                     <th class="w30">Mô Tả</th>
                                                     <th class="w15">Thời Khóa Biểu</th>
                                                     <th class="w10">Học Viên Tối Đa</th>
@@ -144,7 +144,7 @@ Into
                                             <thead>
                                                 <tr>
                                                     <th class="w5">ID</th>
-                                                    <th class="w">Tên Khóa</th>
+                                                    <th class="w">Tên Lớp Học</th>
                                                     <th class="w">Tên Giảng Viên</th>
                                                     <th class="w">Mô Tả</th>
                                                     <th class="w">Thời Khóa Biểu</th>

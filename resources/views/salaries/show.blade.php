@@ -25,7 +25,7 @@ Into
                                         <thead>
                                             <tr class="table-primary">
                                                 <th class="w10">ID</th>
-                                                <th class="w50">Tên Khóa Học</th>
+                                                <th class="w50">Tên Lớp Học</th>
                                                 <th class="w20">Lương</th>
                                                 <th class="w20">Tình Trạng</th>
                                             </tr>
@@ -45,9 +45,6 @@ Into
                                     <p>Số lượng (đã nhận): {{ $received }} / {{ $count }}</p>
                                 </div>
                             </section>
-                        </div>
-                        <div>
-                            <button><a href="{{ url('/salaries') }}">Back</a></button>
                         </div>
                     </div>
                 </div>

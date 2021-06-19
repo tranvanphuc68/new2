@@ -9,7 +9,7 @@ Into
 <article class="content responsive-tables-page">
     <div class="fee">
         <div class="card">
-            <h1 class="text-IBM">Khóa học {{ $course[0]->name }}</h1>
+            <h1 class="text-IBM">Lớp học {{ $course[0]->name }}</h1>
         </div>
         <section class="section">
             <div class="row">
@@ -52,11 +52,8 @@ Into
                                     </table>
                                 </div>
                                 @else
-                                <p>Null</p>
+                                <p>Lớp chưa có học viên </p>
                                 @endif
-                                <div>
-                                    <button><a href="{{ url('/marks') }}">Back</a></button>
-                                </div>
                             </section>
                         </div>
                     </div>

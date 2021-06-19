@@ -7,7 +7,7 @@ Into
 @section('content')
 <article class="content">
     <div class="card">
-        <h3 class="text-IBM"> Thông tin chi tiết khóa học {{ $course->name }}</h3>
+        <h3 class="text-IBM"> Thông tin chi tiết lớp học {{ $course->name }}</h3>
     </div>
     <section class="example">
         <div class="row">

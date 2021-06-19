@@ -8,8 +8,8 @@ Into
 @section('content')
 <article class="content responsive-tables-page">
     <div class="courses">
-        <div class="card col-md-12" style="padding: 0px;">
-            <h1 class="text-IBM">Điểm danh khóa học {{ $data[0]->name }} buổi học thứ {{ $number }} </h1>
+        <div class="card">
+            <h1 class="text-IBM">Điểm danh lớp học {{ $data[0]->name }} buổi học thứ {{ $number }} </h1>
         </div>
         <section class="section">
             <div class="row">
@@ -40,15 +40,15 @@ Into
                                         @endforeach
                                     </table>
                                 </div>
-                                <div style="text-align: right;">
+                                <div class="right">
                                     <button class="btn btn-warning" name='but'>Lưu điểm danh</button>
                                 </div>
                             @endif
 
                             @if (count($check) > 0)
                                 <div class="card-title-block">
-                                    <h3 style="float:left">Lớp đã điểm danh </h3>
-                                    <a style="float:right" href="{{ url("/attendance") }}" class="btn btn-primary">Quay lại</a>
+                                    <h3 class="left">Lớp đã điểm danh </h3>
+                                    <a class="right" href="{{ url("/attendance") }}" class="btn btn-primary">Quay lại</a>
                                 </div>
                             @endif
                             </section>
