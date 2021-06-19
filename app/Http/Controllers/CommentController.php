@@ -13,7 +13,7 @@ class CommentController extends Controller
 {
    //
 public function store(CommentRequest $request, $post)
-{   
+{       
     $data = Comment::create([
         'id_post' => $post,
         'id_user' => Auth::user()->id,

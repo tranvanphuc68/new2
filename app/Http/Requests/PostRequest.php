@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Post;
+use App\Rules\Post as RulesPost;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PostRequest extends FormRequest
@@ -25,8 +27,8 @@ class PostRequest extends FormRequest
     {
         return [
             //
-            'title' => 'required',
-            'content' => 'required'
+            'title' => ['required', new RulesPost],
+            'content' => ['required', new RulesPost]
         ];
     }
 

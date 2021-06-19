@@ -12,9 +12,9 @@
         @if ($countPost > 0)
         <!-- search -->
         <div class="mx-auto d-flex justify-content-end row mt-4">
-            <form action="{{ url("/post/search") }}" method="GET" role="search">
+            <form method="GET" >
                 <div class="input-group">
-                    <input type="text" class="form-control mr-3 search" name="search" placeholder="Search by post title" id="search">
+                    <input type="text" class="form-control mr-3 search" name="search" value="{{ old('search') }}" placeholder="Search by post title" class="search">
                     <button class="btn btn-info" type="submit" title="Search posts">
                         <span class="fa fa-search text-white"></span>
                     </button>

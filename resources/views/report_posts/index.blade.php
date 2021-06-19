@@ -12,7 +12,7 @@
 
         <!-- Search -->
         <div class="mx-auto d-flex justify-content-end row">
-            <form action="{{ url("/report_post/search") }}" method="GET" role="search">
+            <form method="GET" >
                 <div class="input-group">
                     <input type="text" class="form-control mr-3" name="search" placeholder="Search by post title" id="search">
                     <button class="btn btn-info" type="submit" title="Search posts">

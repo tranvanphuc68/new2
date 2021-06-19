@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Comment;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CommentRequest extends FormRequest
@@ -25,7 +26,7 @@ class CommentRequest extends FormRequest
     {
         return [
             //
-            'content' => 'required'
+            'content' => ['required', new Comment]
         ];
     }
 
