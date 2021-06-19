@@ -37,10 +37,7 @@ class MarkController extends Controller
 
     public function show($id_course)
     {
-        $course = DB::table('courses')
-                ->where('id', '=', "$id_course")
-                ->select('courses.*')
-                ->get();
+        
         if(isset($_GET['search']))
         {
             $searchStudents = $_GET['search'];
@@ -80,6 +77,10 @@ class MarkController extends Controller
                 $student->dob = Controller::formatDate($student->dob);
             }
         }
+        $course = DB::table('courses')
+                ->where('id', '=', "$id_course")
+                ->select('courses.*')
+                ->get();
         $countStu = DB::table('students_courses')
         ->where('id_course','=',"$id_course")
         ->count('id_student');

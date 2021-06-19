@@ -17,11 +17,6 @@ Into
                     <div class="card">
                         <div class="card-block">
                             <section class="example">
-                                @if (Auth::user()->role == 'Teacher')
-                                <div class="mb-3">
-                                    <a class="btn btn-primary" href="{{ url("/marks/edit/{$students[0]->id_course}") }}">Cập nhật điểm</a>
-                                </div>
-                                @endif
                                 <div class="card-title-block">
                                     <form role="search" style="float:right">
                                         <div class="input-container">
@@ -31,6 +26,11 @@ Into
                                     </form>
                                 </div>
                                 @if ($countStu != 0)
+                                    @if (Auth::user()->role == 'Teacher')
+                                    <div class="mb-3">
+                                        <a class="btn btn-primary" href="{{ url("/marks/edit/{$course[0]->id}") }}">Cập nhật điểm</a>
+                                    </div>
+                                    @endif
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover">
                                         <thead>
