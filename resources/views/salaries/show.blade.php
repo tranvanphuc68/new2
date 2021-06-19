@@ -46,6 +46,9 @@ Into
                                 </div>
                             </section>
                         </div>
+                        <div>
+                            <button><a href="{{ url('/salaries') }}">Back</a></button>
+                        </div>
                     </div>
                 </div>
             </div>
