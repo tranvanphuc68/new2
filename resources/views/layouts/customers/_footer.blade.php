@@ -3,7 +3,7 @@
       <div class="container">
         <div class="row">
 
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4">
             <div class="footer-info" data-aos="fade-up" data-aos-delay="50">
               <h3>INTO</h3>
               <p class="pb-3"><em>Online English learning center</em></p>
@@ -23,14 +23,14 @@
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="150" style="margin-left: 150px;">
+          <div class="col-lg-4 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="150">
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#about">Giới thiệu</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#services">Khóa học</a></li>
             </ul>
           </div>
-          <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="150" >
+          <div class="col-lg-4 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="150" >
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#testimonials">Học viên</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#team">Giảng viên</a></li>
