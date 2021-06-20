@@ -45,9 +45,9 @@ Into
                     @enderror
                     <div class="form-group">
                         <label>Giới tính</label>
-                        <input type="radio" name="gender" id="male" value="Male" <?php echo $user->gender == 'Male' ? 'checked' :'' ?> />
+                        <input type="radio" name="gender" id="male" value="Nam" <?php echo $user->gender == 'Nam' ? 'checked' :'' ?> />
                         <label for="male">Nam</label>
-                        <input type="radio" name="gender" id="female" value="Female" <?php echo $user->gender == 'Female' ? 'checked' :'' ?> />
+                        <input type="radio" name="gender" id="female" value="Nữ" <?php echo $user->gender == 'Nữ' ? 'checked' :'' ?> />
                         <label for="female">Nữ</label>
                     </div>
                     @error('gender')
