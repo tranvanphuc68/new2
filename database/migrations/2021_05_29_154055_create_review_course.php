@@ -23,15 +23,15 @@ class CreateReviewCourse extends Migration
             $table->float('duration');
             $table->float('tuition', $total = 11);
             $table->text('target');
-            $table->string('student');
+            $table->text('student');
 
-            $table->string('skill_speaking');
-            $table->string('skill_writing');
-            $table->string('skill_listening');
-            $table->string('skill_reading');
-            $table->string('vocabulary');
-            $table->string('grammar');
-            $table->string('final_test');
+            $table->text('skill_speaking');
+            $table->text('skill_writing');
+            $table->text('skill_listening');
+            $table->text('skill_reading');
+            $table->text('vocabulary');
+            $table->text('grammar');
+            $table->text('final_test');
             $table->timestamps();
         });
     }
