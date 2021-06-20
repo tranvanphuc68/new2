@@ -11,14 +11,12 @@ Into
     <h2 style="font-size: 30px;">Chinh phục IELTS 6.5+ với hệ thống giáo dục trực tuyến tại INTO</h2>
     <a href="#about" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
   </div>
-</section>  <!-- End Hero -->
-
+</section> 
+<!-- End Hero -->
 <main id="main">
-
   <!-- ======= About us ======= -->
   <section id="about" class="about">
     <div class="container">
-
       <div class="row no-gutters">
         <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
           <div class="content">
@@ -53,12 +51,13 @@ Into
                 <p>Chủ động cải thiện tiếng Anh mọi nơi mọi lúc, trên bất cứ thiết bị điện tử nào có kết nối internet.</p>
               </div>
             </div>
-          </div><!-- End .content-->
+          </div>
         </div>
       </div>
 
     </div>
-  </section><!-- End About Section -->
+  </section>
+<!-- End About Section -->
 
 <!-- ======= course ======= -->
   <section id="services" class="ftco-section">
@@ -85,24 +84,19 @@ Into
                   </div>
                 </div>
             @endforeach
-            
           </div>
         </div>
       </div>
     </div>
   </section>
   
-<!-- End Services Section -->
-
-
+<!-- End Course -->
 
   <!-- ======= Counts Section ======= -->
 
   <section id="counts" class="counts  section-bg">
     <div class="container">
-
       <div class="row no-gutters">
-
         <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
             <i class="icofont-teacher"></i>
@@ -110,7 +104,6 @@ Into
             <p><strong>Giáo viên bản ngữ</strong></p>
           </div>
         </div>
-
         <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
             <i class="icofont-users-alt-5"></i>
@@ -118,7 +111,6 @@ Into
             <p><strong>Học viên đã tham gia</strong></p>
           </div>
         </div>
-
         <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
             <i class="icofont-simple-smile"></i>
@@ -128,7 +120,8 @@ Into
         </div>
       </div>
     </div>
-  </section><!-- End Counts Section -->
+  </section>
+  <!-- End Counts Section -->
 
   <!-- ======= Cta Section ======= -->
   <section id="cta" class="cta">
@@ -139,19 +132,16 @@ Into
         <p>Giới hạn về ngôn ngữ là giới hạn về nhận thức, về thế giới.</p>
         <a class="cta-btn" href="#">Call To Action</a>
       </div>
-
     </div>
-  </section><!-- End Cta Section -->
-
+  </section>
+  <!-- End Cta Section -->
 
   <!-- ======= Feedbacks Section ======= -->
   <section id="testimonials" class="testimonials section-bg">
     <div class="container">
-
       <div class="section-title" data-aos="fade-in" data-aos-delay="100">
         <h2>Học viên nói gì về INTO ?</h2>
       </div>
-
       <div class="owl-carousel testimonials-carousel">
         @foreach($students as $student)
         <div class="testimonial-item" data-aos="fade-up">
@@ -165,11 +155,10 @@ Into
           <h4>{{$student->accomplishment }}</h4>
         </div>
         @endforeach
-
       </div>
-
     </div>
-  </section><!-- End Testimonials Section -->
+  </section>
+  <!-- End Testimonials Section -->
 
   <!-- ======= Teachers Section ======= -->
   <section id="team" class="ftco-section team">
@@ -205,16 +194,14 @@ Into
     </div>
   </section>
 
-<!-- End Team Section -->
+<!-- End Teacher Section -->
 
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact section-bg">
     <div class="container">
-
       <div class="section-title" data-aos="fade-in" data-aos-delay="100">
         <h2>Contact</h2>
       </div>
-
       <div class="row" data-aos="fade-up" data-aos-delay="100">
         <div class="col-lg-6">
           <div class="info-box mb-4">
@@ -223,7 +210,6 @@ Into
             <p>Số 51, Đường Lê Đại Hành, Phường Lê Đại Hành, Quận Hai Bà Trưng, Hà Nội</p>
           </div>
         </div>
-
         <div class="col-lg-3 col-md-6">
           <div class="info-box  mb-4">
             <i class="bx bx-envelope"></i>
@@ -231,7 +217,6 @@ Into
             <p>intoieltsonline@gmail.com</p>
           </div>
         </div>
-
         <div class="col-lg-3 col-md-6">
           <div class="info-box  mb-4">
             <i class="bx bx-phone-call"></i>
@@ -239,21 +224,17 @@ Into
             <p>+84858712522</p>
           </div>
         </div>
-
       </div>
-
       <div class="row" data-aos="fade-up" data-aos-delay="200">
-
         <div class="col-lg-12 ">
           <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.499196683438!2d105.848478367625!3d21.01270284160628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab8bc402bd27%3A0x125318f068f125c9!2zVHJ1bmcgdMOibSBUaMawxqFuZyBt4bqhaSB2w6AgVsSDbiBwaMOybmcgVsOibiBI4buTLCA1MSBQaOG7kSBMw6ogxJDhuqFpIEjDoG5oLCBMw6ogxJDhuqFpIEjDoG5oLCBIYWkgQsOgIFRyxrBuZywgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1620641734188!5m2!1svi!2s" width="100%" height="384" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
-
       </div>
-
     </div>
-  </section><!-- End Contact Section -->
-
-</main><!-- End #main -->
+  </section>
+  <!-- End Contact Section -->
+</main>
+<!-- End #main -->
 
 
 @endsection

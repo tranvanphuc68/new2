@@ -6,11 +6,10 @@ Into
 
 @section('content')
 <main id="main">
-    <!-- ======= About Us Section ======= -->
+    <!-- ======= About Section ======= -->
     <section id="about-course" class="about-course" data-aos="fade-up" date-aos-delay="200">
         <div class="container">
             <div class="row">
-
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <img src="{{ asset("/uploads/courses/$review_course->image") }}" class="img-fluid">
                 </div>
@@ -26,7 +25,7 @@ Into
                             <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời lượng: {{ $review_course->duration }} giờ</li>
                             <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Học phí: {{ number_format($review_course->tuition) }} VNĐ</li>
                         </ul>
-                        <h4 class="border-bottom-blue" >Mục tiêu khóa học</h4>
+                        <h4 class="border-bottom-blue">Mục tiêu khóa học</h4>
                         <p>
                             {{ $review_course->target }}
                         </p>
@@ -35,16 +34,14 @@ Into
             </div>
         </div>
     </section>
-    <!-- End Why Us Section -->
+    <!-- End about Section -->
 
     <!-- ======= Features Section ======= -->
     <section id="courses" class="courses">
         <div class="container">
-
             <div class="section-title">
                 <h2>CHI TIẾT KHÓA HỌC</h2>
             </div>
-
             <div class="row" data-aos="fade-up">
                 <div class="col-md-5">
                     <img src="{{ asset('assets/img/icon/features-1.svg') }}" class="img-fluid" alt="">
@@ -54,14 +51,11 @@ Into
                     {{ $review_course->student }}
                 </div>
             </div>
-
-
-
         </div>
     </section>
     <!-- End Features Section -->
 
-
+    <!--Content-course-->
     <section id="fh5co-features" class="animate-box" data-aos="fade-up">
         <div class="container">
             <div class="services-padding">
@@ -82,7 +76,6 @@ Into
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="feature-left">
                             <span class="icon">
@@ -93,7 +86,6 @@ Into
                                 <p>{{ $review_course->skill_writing }}</p>
                             </div>
                         </div>
-
                     </div>
                     <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="300">
                         <div class="feature-left">
@@ -107,11 +99,8 @@ Into
                         </div>
                     </div>
                 </div>
-
-
                 <div class="row">
                     <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="400">
-
                         <div class="feature-left">
                             <span class="icon">
                                 <i class="fal fa-book-reader"></i>
@@ -121,9 +110,7 @@ Into
                                 <p>{{ $review_course->skill_reading }}</p>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="500">
                         <div class="feature-left">
                             <span class="icon">
@@ -134,7 +121,6 @@ Into
                                 <p>{{ $review_course->grammar }}</p>
                             </div>
                         </div>
-
                     </div>
                     <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="600">
                         <div class="feature-left">
@@ -151,7 +137,9 @@ Into
             </div>
         </div>
     </section>
+    <!--End Content-course-->
 
+    <!--commit-->
     <section id="commit">
         <div class="container">
             <div class="row" data-aos="fade-up">
@@ -168,7 +156,7 @@ Into
             </div>
         </div>
     </section>
-    <!-- End #main -->
+    <!-- End commit -->
 </main>
 <!-- End #main -->
 

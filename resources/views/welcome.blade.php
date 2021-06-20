@@ -6,6 +6,6 @@ Into
 
 @section('content')
 <article class="content forms-page">
-    <p>hi</p>
+    <div class="alert-hi">Chào mừng bạn đến với hệ thống đào tạo của INTO !</div>
 </article>
 @endsection

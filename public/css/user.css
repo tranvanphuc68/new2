@@ -176,6 +176,13 @@ a {
     margin:0px 5px;
     width: 17%;
 }
+.alert-hi {
+    color: #084298;
+    background-color: #cfe2ff;
+    border-color: #b6d4fe;
+    padding: 20px;
+    border-radius: 4px;
+}
 @media (max-width: 767.98px) {
     #report .report_chart {
         display: none;
