@@ -32,9 +32,9 @@ Into
                     @enderror
                     <div class="form-group">
                         <label>Giới tính</label>
-                        <input type="radio" name="gender" id="male" value="Nam" <?php echo $user->gender == 'Nam' ? 'checked' :'' ?> />
+                        <input type="radio" name="gender" id="male" value="Nam" @if(old('gender',$user->gender)=="Nam") checked @endif />
                         <label for="male">Nam</label>
-                        <input type="radio" name="gender" id="female" value="Nữ" <?php echo $user->gender == 'Nữ' ? 'checked' :'' ?> />
+                        <input type="radio" name="gender" id="female" value="Nữ" @if(old('gender',$user->gender)=="Nữ") checked @endif />
                         <label for="female">Nữ</label>
                     </div>
                     @error('gender')
@@ -42,56 +42,56 @@ Into
                     @enderror
                     <div class="form-group">
                         <label for="dob">Ngày sinh</label>
-                        <input type="date" name="dob" id="dob" class="form-control" placeholder="Date of birth" aria-describedby="helpId" value="{{ $user->dob }}">
+                        <input type="date" name="dob" id="dob" class="form-control" placeholder="Date of birth" aria-describedby="helpId" value="{{ old('dob',$user->dob) }}">
                     </div>
                     @error('dob')
                     <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
                     <div class="form-group">
                         <label for="hometown">Nơi sinh</label>
-                        <input type="text" name="hometown" id="hometown" class="form-control" placeholder="Hometown" aria-describedby="helpId" value="{{ $user->hometown }}">
+                        <input type="text" name="hometown" id="hometown" class="form-control" placeholder="Hometown" aria-describedby="helpId" value="{{ old('hometown',$user->hometown) }}">
                     </div>
                     @error('hometown')
                     <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
                     <div class="form-group">
                         <label for="id_card">Căn cước công dân</label>
-                        <input type="text" name="id_card" id="id_card" class="form-control" placeholder="id card" aria-describedby="helpId" value="{{ $user->id_card }}">
+                        <input type="text" name="id_card" id="id_card" class="form-control" placeholder="id card" aria-describedby="helpId" value="{{ old('id_card',$user->id_card) }}">
                     </div>
                     @error('id_card')
                     <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" name="email" id="email" class="form-control" placeholder="Email" aria-describedby="helpId" value="{{ $user->email }}">
+                        <input type="text" name="email" id="email" class="form-control" placeholder="Email" aria-describedby="helpId" value="{{ old('email',$user->email) }}">
                     </div>
                     @error('email')
                     <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
                     <div class="form-group">
                         <label for="phone">Số điện thoại</label>
-                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone number" aria-describedby="helpId" value="{{ $user->phone }}">
+                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone number" aria-describedby="helpId" value="{{ old('phone',$user->phone) }}">
                     </div>
                     @error('phone')
                         <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
                     <div class="form-group">
                         <label for="account">Số tài khoản</label>
-                        <input type="text" name="account" id="account" class="form-control" placeholder="Account" aria-describedby="helpId" value="{{ $user->account }}">
+                        <input type="text" name="account" id="account" class="form-control" placeholder="Account" aria-describedby="helpId" value="{{ old('account',$user->account) }}">
                     </div>
                     @error('account')
                         <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
                     <div class="form-group">
                         <label for="academic_level">Trình độ học vấn</label>
-                        <input type="text" name="academic_level" id="academic_level" class="form-control" placeholder="Academic level" aria-describedby="helpId" value="{{ $user->academic_level }}">
+                        <input type="text" name="academic_level" id="academic_level" class="form-control" placeholder="Academic level" aria-describedby="helpId" value="{{ old('academic_level',$user->academic_level) }}">
                     </div>
                     @error('academic_level')
                         <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
                     <div class="form-group">
                         <label for="accomplishment">Nơi làm việc</label>
-                        <input type="text" name="accomplishment" id="accomplishment" class="form-control" placeholder="Work place" aria-describedby="helpId" value="{{ $user->accomplishment }}">
+                        <input type="text" name="accomplishment" id="accomplishment" class="form-control" placeholder="Work place" aria-describedby="helpId" value="{{ old('accomplishment',$user->accomplishment) }}">
                     </div>
                     @error('accomplishment')
                         <div class="form-text text-danger">{{ $message }}</div>

@@ -33,7 +33,7 @@ class UserRequest extends FormRequest
             'academic_level' => 'required',
             'accomplishment' => 'required',
             'account' => 'required|numeric',
-            'phone' => 'required|digits:10',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
             'email' => 'required|email|unique:users,email',
             'password' => 'required'
         ];
@@ -54,7 +54,7 @@ class UserRequest extends FormRequest
             'account.required' => 'Không để trống',
             'account.numeric' => 'Không có kí tự',
             'phone.required' => 'Không để trống',
-            'phone.digits' => 'Vui lòng nhập đúng định dạng số điện thoại',
+            'phone.regex' => 'Vui lòng nhập đúng định dạng số điện thoại',
             'email.required' => 'Không được bỏ trống email',
             'email.email' => 'Bắt buộc phải là email',
             'email.unique' => 'Email đã tồn tại',

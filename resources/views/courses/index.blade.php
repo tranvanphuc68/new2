@@ -17,7 +17,7 @@ Into
                         <div class="card-block">
                             <div class="card-title-block">
                                 @if (Auth::user()->role == 'Admin')
-                                <a class="d-left" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm khóa học</span></a>
+                                <a class="d-left" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm lớp học</span></a>
                                 @endif
                                 <form action="{{ url('/search/courses') }}" method="GET" class="right">
                                     <div class="input-container">
@@ -58,8 +58,8 @@ Into
                                             <td class="w">{{ $course->max_students }}</td>
                                             <td class="w">{{ $course->sum_time }}</td>
                                             <td class="w">{{ $course->lessons }}</td>
-                                            <td class="w">{{ $course->salary }}</td>
-                                            <td class="w">{{ $course->fee }}</td>
+                                            <td class="w">{{ number_format($course->salary) }}</td>
+                                            <td class="w">{{ number_format($course->fee) }}</td>
                                             <td class="w"><?php switch ($course->status) {
                                                                 case '1':
                                                                     echo 'Chưa Học';
@@ -82,7 +82,7 @@ Into
                                                 <a href="javascript:void(0)" onclick="if (confirm('Bạn có chắc muốn xóa không?')) document.getElementById('course-delete-{{ $course->id }}').submit()">
                                                     <i class="fa fa-trash-o icon-delete"></i>
                                                 </a>
-                                                <form method="POST" id="course-delete-{{ $course->id }}" action="{{ url("/courses/$course->id") }} >
+                                                <form method="POST" id="course-delete-{{ $course->id }}" action="{{ url("/courses/$course->id") }}" >
                                                         @method('DELETE')
                                                         @csrf
                                                     </form>
