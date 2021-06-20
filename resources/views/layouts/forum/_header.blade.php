@@ -108,8 +108,8 @@
             <!-- User=>profile + logout -->
             <div class="col-auto ml-auto">
                 <div class="tt-user-info d-flex justify-content-center">
-                    <a class="nav-link dropdown-toggle" style="padding: 13px 15px;" data-toggle="dropdown" href="{{ url("") }}" role="button" aria-haspopup="true" aria-expanded="false">
-                      <img class="rounded-circle img" width="40px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
+                    <a class="nav-link dropdown-toggle p-3" data-toggle="dropdown" href="{{ url("") }}" role="button" aria-haspopup="true" aria-expanded="false">
+                      <img class="rounded-circle img" width="50px" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
                       <span class="name"> {{ Auth::user()->fullname }} </span>
                     </a>
                     <div class="dropdown-menu profile-dropdown-menu bg-blue" aria-labelledby="dropdownMenu1">

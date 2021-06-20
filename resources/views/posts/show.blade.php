@@ -5,7 +5,7 @@ Show Post
 @endsection
 
 @section('content')
-<main id="tt-pageContent" class="bg-main">
+<main id="tt-pageContent" class="bg-main mt-3">
     <div class="container">
         <div class="tt-single-topic-list">
             <!--Show post-->
@@ -14,7 +14,7 @@ Show Post
                     <div class="tt-item-header">
                         <div class="tt-item-info info-top">
                             <div class="tt-avatar-icon">
-                                <img class="rounded-circle img" width="40" src="{{ asset("/uploads/avatars/$post->avatar") }}">
+                                <img class="rounded-circle img" width="50" src="{{ asset("/uploads/avatars/$post->avatar") }}">
                             </div>
                             <div class="tt-avatar-title">
                                 {{ $post->first_name." ".$post->last_name }}
@@ -120,7 +120,13 @@ Show Post
                     </div>
                 </div>
                 @endforeach
+                <div class="mb-2 mt-5">
+                    <div class="d-flex justify-content-center row">
+                            {{ $comments->links() }}
+                    </div>
+                </div>
             </div>
+
         </div>
 
         <div class="tt-wrapper-inner">

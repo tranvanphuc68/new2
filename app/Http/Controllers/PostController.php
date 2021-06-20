@@ -60,7 +60,8 @@ class PostController extends Controller
         ->where('comments.id_post', '=', "$post")
         ->select('comments.*', 'users.first_name', 'users.last_name', 'users.avatar')
         ->latest()
-        ->get();
+        ->paginate(10)
+        ->withQueryString();
         $countComment = DB::table('comments')
         ->where('comments.id_post', '=', "$post")
         ->count();

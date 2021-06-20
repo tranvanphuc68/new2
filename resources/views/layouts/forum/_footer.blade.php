@@ -1,6 +1,6 @@
 <!--create post-->
 @if (Auth::check())
-<a href="{{ url('/posts/create') }}" class="tt-btn-create-topic">
+<a href="{{ url('/posts/create') }}" class="tt-btn-create-topic p-2">
     <span class="tt-icon">
         <svg>
           <use xlink:href="#icon-create_new"></use>
