@@ -34,12 +34,25 @@ class CourseController extends Controller
             ]);
         }
         else{ 
-            $courses = DB::table('courses')
-            ->join('students_courses', 'students_courses.id_course', '=', 'courses.id')
+            $classes = DB::table('students_courses')
             ->join('users', 'users.id', '=', 'students_courses.id_student')
-            ->where('users.id', '=', "$id")
-            ->select('courses.*', 'users.first_name', 'users.last_name')
-            ->paginate(5)->withQueryString();
+            ->join('courses', 'courses.id', '=', 'students_courses.id_course')
+            ->where('students_courses.id_student', '=', "$id")
+            ->select('students_courses.id_course')
+            ->get();
+            $courses = [];
+            foreach ($classes as $class) {
+                $query = DB::table('courses')
+                ->join('users', 'users.id', '=', 'courses.id_teacher')
+                ->where('courses.id', '=', "$class->id_course")
+                ->select('courses.*', 'users.first_name', 'users.last_name')
+                ->get();
+                array_push($courses, (array)$query);
+            }
+            foreach ($courses as $item) {
+                foreach ($item as $array) {
+                }
+            }
             return view('courses.index', [
                 'courses' => $courses
             ]);

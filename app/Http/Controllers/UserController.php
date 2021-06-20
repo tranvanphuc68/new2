@@ -99,7 +99,7 @@ class UserController extends Controller
 
     public function store_teacher(UserRequest $request)
     {   
-        if($request->gender == 'Male')
+        if($request->gender == 'Nam')
         {
             $avatar = 'defaultMale.jpg';
         }
@@ -128,7 +128,7 @@ class UserController extends Controller
     
     public function store_student(UserRequest $request)
     {
-        if($request->gender == 'Male')
+        if($request->gender == 'Nam')
         {
             $avatar = 'defaultMale.jpg';
         }
