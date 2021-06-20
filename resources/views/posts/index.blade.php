@@ -14,7 +14,7 @@
         <div class="mx-auto d-flex justify-content-end row">
             <form method="GET" >
                 <div class="input-group">
-                    <input type="text" class="form-control mr-3 search center" name="search" value="{{ old('search') }}" placeholder="Search by post title" class="search">
+                    <input type="text" class="form-control mr-3 search center" name="search" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>" placeholder="Search by post title" class="search">
                     <button class="btn btn-info" type="submit" title="Search posts">
                         <span class="fa fa-search text-white"></span>
                     </button>
