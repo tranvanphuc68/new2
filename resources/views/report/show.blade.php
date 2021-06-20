@@ -139,7 +139,6 @@ Into
                     },
                 }
             },
-
         });
     </script>
 </article>

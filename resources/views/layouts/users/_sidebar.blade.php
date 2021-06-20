@@ -66,12 +66,12 @@
                     </li>
                     <li>
                         <a href="{{ url("/feedbacks") }}">
-                            <i class="fa fa-building-o"></i> Feedback</i>
+                            <i class="fa fa-mail-reply"></i> Feedback</i>
                         </a>
                     </li>
                     <li>
                         <a href="{{ url("/marks") }}">
-                            <i class="fa fa-building-o"></i> Điểm của học viên </i>
+                            <i class="fa fa-check-square-o"></i> Điểm của học viên </i>
                         </a>
                     </li>
                     <li>
@@ -99,7 +99,7 @@
                     </li>
                     <li>
                         <a href="">
-                            <i class="fa fa-building-o"></i> Các lớp đang dạy <i class="fa arrow"></i>
+                            <i class="fa fa-th-large"></i> Các lớp đang dạy <i class="fa arrow"></i>
                         </a>
                         <ul class="sidebar-nav">
                             <li>
@@ -112,12 +112,12 @@
                     </li>
                     <li>
                         <a href="{{ url("/attendance") }}">
-                            <i class="fa fa-table"></i> Điểm danh </i>
+                            <i class="fa fa-sort-alpha-asc"></i> Điểm danh </i>
                         </a>
                     </li>
                     <li>
                         <a href="{{ url("/marks") }}">
-                            <i class="fa fa-table"></i> Nhập điểm </i>
+                            <i class="fa fa-check-square-o"></i> Nhập điểm </i>
                         </a>
                     </li>
                     <li>
@@ -127,12 +127,12 @@
                     </li>
                     <li>
                         <a href="{{ url("/salaries") }}">
-                            <i class="fa fa-table"></i> Lương </i>
+                            <i class="fa fa-usd"></i> Lương </i>
                         </a>
                     </li>
                     <li>
                         <a href="{{ url("/feedbacks") }}">
-                            <i class="fa fa-building-o"></i> Feedback</i>
+                            <i class="fa fa-mail-reply"></i> Feedback</i>
                         </a>
                     </li>
 
@@ -147,32 +147,27 @@
                     </li>
                     <li>
                         <a href="{{ url("/courses") }}">
-                            <i class="fa fa-group"></i> Các lớp đã đăng kí </i>
+                            <i class="fa fa-th-large"></i> Các lớp đã đăng kí </i>
                         </a>
                     </li>
                     <li>
                         <a href="{{ url("/marks") }}">
-                            <i class="fa fa-th-large"></i> Điểm </i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="fa fa-th-large"></i> Điểm danh </i>
+                            <i class="fa fa-check-square-o"></i>Điểm </i>
                         </a>
                     </li>
                     <li>
                         <a href="{{ url("/calendar/student") }}">
-                            <i class="fa fa-th-large"></i> Lịch học </i>
+                            <i class="fa fa-table"></i> Lịch học </i>
                         </a>
                     </li>
                     <li>
                         <a href="{{ url("/fees") }}">
-                            <i class="fa fa-building-o"></i> Học phí </i>
+                            <i class="fa fa-usd"></i> Học phí </i>
                         </a>
                     </li>
                     <li>
                         <a href="{{ url("/feedbacks") }}">
-                            <i class="fa fa-building-o"></i> Feedback</i>
+                            <i class="fa fa-mail-reply"></i> Feedback</i>
                         </a>
                     </li>
                 </ul>
