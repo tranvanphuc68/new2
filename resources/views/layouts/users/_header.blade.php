@@ -54,6 +54,7 @@
                                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <a class="dropdown-item" href="{{ url("/users/self_show") }} "> 
                                         <i class="fa fa-user icon"></i> Profile </a>
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{url('/logout')}}">
                                         <i class="fa fa-power-off icon"></i> Logout </a>
                                 </div>

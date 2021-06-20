@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('id_card');
             $table->string('academic_level');
             $table->string('accomplishment');
-            $table->string('account');
+            $table->string('account')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role',10);
