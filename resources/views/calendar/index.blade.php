@@ -21,10 +21,9 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <div id='content' class="card-title-block res" style="display: flex; justify-content:space-between; overflow: auto; width: 100%;">
+                            <div id='content' class="card-title-block res calender-block calender">
                                 @foreach ($arr as $item)
-                                        
-                                    <div class="border border-secondary rounded" style="padding:0px 10px;margin:0px 5px; width: 17%">
+                                    <div class="border border-secondary rounded calender-item">
                                         <h5>{{ $item }}</h5>
                                         @foreach ($data as $class)
                                             @if ($item == $class->date)
@@ -35,7 +34,6 @@ Into
                                             @endif
                                         @endforeach
                                     </div>
-
                                 @endforeach
                             </div>
                         </div>

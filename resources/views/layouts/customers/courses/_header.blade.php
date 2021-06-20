@@ -23,7 +23,8 @@
     <link href="{{ asset('vendor/venobox/venobox.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/aos/aos.css') }}" rel="stylesheet">
-
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- Template Main CSS File -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>

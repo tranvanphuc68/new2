@@ -165,13 +165,30 @@ a {
     display: flex;
     float: left;
 }
-
+.calender {
+    display: flex; 
+    justify-content:space-between; 
+    overflow: auto; 
+    width: 100%;
+}
+.calender-item {
+    padding:0px 10px;
+    margin:0px 5px;
+    width: 17%;
+}
 @media (max-width: 767.98px) {
     #report .report_chart {
         display: none;
     }
     #report .report_table {
         display: block;
+    }
+    .calender {
+        display: block;
+    }
+    .calender-item {
+        width: 70%;
+        margin-bottom: 20px;
     }
 }
 @media (min-width: 768px) {
