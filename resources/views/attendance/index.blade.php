@@ -27,7 +27,7 @@ Into
                                                 <th class="w15">Tên Lớp Học</th>
                                                 <th class="w5">Buổi Học</th>
                                                 <th class="w15">Thời gian</th>
-                                                <th class="center" >Nội Dung</th>
+                                                <th style="text-align: center;">Nội Dung</th>
                                                 <th class="w10">Điểm Danh</th>
                                             </tr>
                                         </thead>
@@ -36,7 +36,7 @@ Into
                                                 <td class="w15">{{ $data->name }}</td>
                                                 <td class="w5">{{ $data->number }}</td>
                                                 <td class="w15">{{ $data->timetable }}</td>
-                                                <td>{{ $data->content }}</td>
+                                                <td style="text-align: center;">{{ $data->content }}</td>
                                                 <td class="center">
                                                     @if ( $data->status == 0 )
                                                         <a href="{{ url("/attendance/{$data->id_course}-{$data->number}") }}">
