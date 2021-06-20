@@ -165,3 +165,18 @@ a {
     display: flex;
     float: left;
 }
+
+@media (max-width: 767.98px) {
+    #report .report_chart {
+        display: none;
+    }
+    #report .report_table {
+        display: block;
+    }
+}
+@media (min-width: 768px) {
+    
+    #report .report_table {
+        display: none;
+    }
+}
