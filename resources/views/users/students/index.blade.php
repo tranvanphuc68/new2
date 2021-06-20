@@ -15,8 +15,8 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <div class="card-title-block">
-                                <a class="d-left" href="{{ url("/users/student/create") }}" ><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm học viên</span></a>
+                            <div class="card-title-block" id="create">
+                                <a class="d-left" href="{{ url("/users/student/create") }}" ><img src="{{ asset('assets/img/icon-plus.png') }}" class="mw-45" alt=""><span class="fz-24">Thêm học viên</span></a>
                                 <form method="GET" class="right">
                                     <div class="input-container">
                                         <input type="text" class="search" name="search" placeholder="Search by last name" value="<?php if (isset($_GET['search'])) { echo $_GET['search'];} ?>">

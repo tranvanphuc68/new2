@@ -11158,6 +11158,12 @@ search
             .search {
                 border-radius: 20px !important;
             }
+            .search:focus {
+                width: 270px !important;
+            }
+            .search:hover {
+                border: 2px solid #6fadf3;
+            }
             /*--------------------------------------------------------------
 body
 --------------------------------------------------------------*/

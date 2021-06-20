@@ -13,10 +13,10 @@ Into
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-block">
-                    <div class="row mb-3">
+                    <div class="row mb-3" id="create">
                         @if (Auth::user()->role == 'Admin')
                             <div>
-                                <a class="d-left" href="{{ url("/detail_course/create/{$id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Thêm buổi học</span></a>
+                                <a class="d-left" href="{{ url("/detail_course/create/{$id_course}") }}"><img src="{{ asset('assets/img/icon-plus.png') }}" class="mw-45" alt=""><span class="fz-24">Thêm buổi học</span></a>
                                 @error ('full')
                                 <div class="right" >
                                     <a class="text-IBM" style="color: red; background-color: white" href="">{{ $message }}</a>

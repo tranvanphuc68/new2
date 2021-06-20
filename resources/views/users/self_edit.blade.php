@@ -15,7 +15,7 @@ Into
                 <form action="{{url("/users/update_avt/$user->id")}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <img style="border-radius: 7px;" class="mb-3" id="img" width="20%" src="{{ asset("/uploads/avatars/$user->avatar") }}">
+                    <img class="mw-200px mb-3" id="img"  src="{{ asset("/uploads/avatars/$user->avatar") }}">
                     <div class="row">
                         <div class="col-md-6">
                             <input type="file" name="avatar">
@@ -109,7 +109,7 @@ Into
                     @error('accomplishment')
                         <div class="form-text text-danger">{{ $message }}</div>
                     @enderror
-                    <div style="text-align: right;">
+                    <div class="right">
                         <button type="submit" class="btn btn-primary">Lưu thông tin</button>
                     </div>
                 </form>

@@ -204,3 +204,16 @@ a {
         display: none;
     }
 }
+#create .mw-45 {
+    max-width: 45px;    
+}
+#create .fz-24 {
+    font-size:24px;
+}
+.mw-200px {
+    max-width: 200px;
+    border-radius: 10px;
+}
+.w-25 {
+    width: 25%;
+}

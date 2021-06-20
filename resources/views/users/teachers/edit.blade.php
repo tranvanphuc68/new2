@@ -32,9 +32,9 @@ Into
                     @enderror
                     <div class="form-group">
                         <label>Giới tính</label>
-                        <input type="radio" name="gender" id="male" value="Nam" @if(old('gender',$user->gender)=="Nam") checked @endif />
+                        <input type="radio" name="gender" id="male" value="Nam" @if (old('gender', $user->gender) == "Nam") checked @endif />
                         <label for="male">Nam</label>
-                        <input type="radio" name="gender" id="female" value="Nữ" @if(old('gender',$user->gender)=="Nữ") checked @endif />
+                        <input type="radio" name="gender" id="female" value="Nữ" @if (old('gender', $user->gender )== "Nữ") checked @endif />
                         <label for="female">Nữ</label>
                     </div>
                     @error('gender')

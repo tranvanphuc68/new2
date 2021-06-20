@@ -16,8 +16,8 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <div class="card-title-block">
-                                <a class="left" href="{{ url("/salaries/edit/{$salaries[0]->id_teacher}") }}" name="edit"><img src="{{ asset('assets/img/icon-plus.png') }}"  style = "max-width: 45px"alt=""><span style="font-size:20px">Cập nhật lương</span></a>
+                            <div class="card-title-block" id="create">
+                                <a class="left" href="{{ url("/salaries/edit/{$salaries[0]->id_teacher}") }}" name="edit"><img src="{{ asset('assets/img/icon-plus.png') }}" class="mw-45" alt=""><span class="fz-24">Cập nhật lương</span></a>
                             </div>
                             <section class="example">
                                 <div class="table-responsive">

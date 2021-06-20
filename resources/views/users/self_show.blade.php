@@ -10,10 +10,10 @@ Into
         <h1 class="text-IBM"> Thông tin cá nhân</h1>
     </div>
     <div class="card card-block sameheight-item">
-        <img style="border-radius: 7px;" class="mb-3" width="20%" src="{{ asset("/uploads/avatars/$user->avatar") }}">
+        <img class="mw-200px mb-3" src="{{ asset("/uploads/avatars/$user->avatar") }}">
         <table class="table">
             <tr>
-                <td style="width: 25%">ID:</td>
+                <td class="w-25">ID:</td>
                 <td> {{ $user->id }}</td>
             </tr>
             <tr>

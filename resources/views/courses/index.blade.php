@@ -15,9 +15,9 @@ Into
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <div class="card-title-block">
+                            <div class="card-title-block" id="create">
                                 @if (Auth::user()->role == 'Admin')
-                                <a class="d-left" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm lớp học</span></a>
+                                <a class="d-left" href=" {{ url("/courses/create") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" class="mw-45" alt=""><span class="fz-24">Thêm lớp học</span></a>
                                 @endif
                                 <form action="{{ url('/search/courses') }}" method="GET" class="right">
                                     <div class="input-container">

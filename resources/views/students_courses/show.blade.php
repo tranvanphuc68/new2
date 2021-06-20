@@ -24,8 +24,8 @@ Into
                                             <h5>Số học viên đã tối đa</h5>
                                         </div>
                                     @else
-                                        <div class="card-title-block d-left">
-                                            <a href="{{ url("/students_courses/create/{$students[0]->id_course}") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" style="max-width: 45px" alt=""><span style="font-size:20px">Thêm học viên</span></a>
+                                        <div class="card-title-block d-left" id="create">
+                                            <a href="{{ url("/students_courses/create/{$students[0]->id_course}") }}" name="create"><img src="{{ asset('assets/img/icon-plus.png') }}" class="mw-45" alt=""><span class="fz-24">Thêm học viên</span></a>
                                         </div>
                                     @endif
                                 @endif

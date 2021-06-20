@@ -12,10 +12,10 @@ Into
     <div class="row">
         <div class="col-md-12">
             <div class="card card-block ">
-                <img style="max-width: 200px" class="mb-3" src="{{ asset("/uploads/avatars/$user->avatar") }}">
+                <img class="mw-200px mb-3" src="{{ asset("/uploads/avatars/$user->avatar") }}">
                 <table class="table">
                     <tr>
-                        <td style="width: 25%">ID:</td>
+                        <td class="w-25">ID:</td>
                         <td> {{ $user->id }}</td>
                     </tr>
                     <tr>
