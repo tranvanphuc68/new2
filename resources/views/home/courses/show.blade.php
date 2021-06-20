@@ -19,14 +19,14 @@ Into
                         <h2>{{ $review_course->course_name }}</h2>
                         <p class="description text-primary">
                             <span><i class="fad fa-file-certificate"></i> Đầu vào: {{ $review_course->input }} </span>
-                            <span class="ml-5"><i class="fad fa-graduation-cap"></i> Đầu ra: {{ $review_course->output }}+</span>
+                            <span style="float: right; " ><i class="fad fa-graduation-cap"></i> Đầu ra: {{ $review_course->output }}+</span>
                         </p>
                         <ul class="m-3">
                             <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời gian: {{ $review_course->time }} h/buổi </li>
                             <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Thời lượng: {{ $review_course->duration }} giờ</li>
                             <li><i class="fal fa-check-circle mr-2 text-primary"></i></i>Học phí: {{ number_format($review_course->tuition) }} VNĐ</li>
                         </ul>
-                        <h4>Mục tiêu khóa học</h4>
+                        <h4 class="border-bottom-blue" >Mục tiêu khóa học</h4>
                         <p>
                             {{ $review_course->target }}
                         </p>
