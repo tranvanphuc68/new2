@@ -48,6 +48,13 @@
                     <li><a href="#fh5co-features">Nội dung</a></li>
                     <li><a href="#commit">Cam kết</a></li>
                     @if (Auth::check())
+                    <li>
+                        <a href="{{ url('/') }}">
+                            @if (Auth::user()->role == "Admin") Admin @endif
+                            @if (Auth::user()->role == "Teacher") Teacher @endif
+                            @if (Auth::user()->role == "Student") Student @endif
+                        </a>
+                    </li>
                     <li class="profile dropdown" style="display: table-cell;">
                         <a class="nav-link dropdown-toggle" style="padding: 13px 15px;" data-toggle="dropdown" href="{{ url("") }}" role="button" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle img" width="20%" src="{{ asset("/uploads/avatars/".Auth::user()->avatar) }}">
