@@ -31,9 +31,9 @@ Into
                     @enderror
                     <div class="form-group">
                         <label>Giới tính</label>
-                        <input type="radio" name="gender" value="Male" />
+                        <input type="radio" name="gender" value="Nam" />
                         <label for="male">Nam</label>
-                        <input type="radio" name="gender" value="Female" />
+                        <input type="radio" name="gender" value="Nữ" />
                         <label for="female">Nữ</label>
                     </div>
                     @error('gender')

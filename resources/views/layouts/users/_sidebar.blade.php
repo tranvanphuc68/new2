@@ -83,7 +83,7 @@
                                 <a href="{{ url("/report") }}"> Học viên </a>
                             </li>
                             <li>
-                                <a href=""> Tài chính  </a>
+                                <a href="{{ url("/bonus") }}"> Khen thưởng </a>
                             </li>
                         </ul>
                     </li>
