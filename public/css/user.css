@@ -183,6 +183,11 @@ a {
     padding: 20px;
     border-radius: 4px;
 }
+.limit-img {
+    max-height: 300px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
 @media (max-width: 767.98px) {
     #report .report_chart {
         display: none;
