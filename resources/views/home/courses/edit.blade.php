@@ -17,7 +17,7 @@ Into
                     @csrf
                     <div class="form-group">
                         <label for="name">Ảnh mô tả</label>
-                        <div class="" ><img src="{{ asset("/uploads/courses/$review_course->image") }}" class="img-fluid limit-img"  id='img'></div>
+                        <div><img src="{{ asset("/uploads/courses/$review_course->image") }}" class="img-fluid limit-img"  id='img'></div>
                         <input type="file" name="image" value="{{ $review_course->image }}">
                     </div>
                     @error('image')
