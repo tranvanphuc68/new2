@@ -11164,6 +11164,10 @@ search
             .search:hover {
                 border: 2px solid #6fadf3;
             }
+            @media (max-width: 575px) {
+                .search:focus{
+                    width: 200px !important;
+                }
             /*--------------------------------------------------------------
 body
 --------------------------------------------------------------*/
