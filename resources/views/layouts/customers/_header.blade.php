@@ -44,7 +44,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="{{ url('/home') }}">Trang chủ</a></li>
+          <li class="active"><a href="{{ url('/') }}">Trang chủ</a></li>
           <li><a href="#about">Giới thiệu</a></li>
           <li><a href="#services">Khóa học</a></li>
           <li><a href="#testimonials">Học viên</a></li>
@@ -53,7 +53,7 @@
           @if (Auth::check())
           <!-- User -->
           <li>
-            <a href="{{ url('/') }}">
+            <a href="{{ url('/adminstration') }}">
               @if (Auth::user()->role == "Admin") Admin @endif
               @if (Auth::user()->role == "Teacher") Teacher @endif
               @if (Auth::user()->role == "Student") Student @endif

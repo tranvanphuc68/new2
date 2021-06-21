@@ -33,17 +33,17 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/report', function () {
-    return view('report.student');
-});
+Route::get('/', [HomeController::class, 'index']);
+
 Route::get('/about', function () {
     return view('home.about');
 });
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::group(['middleware'=>'auth'], function(){
+    Route::get('/adminstration', function () {
+    return view('welcome');
+    });
+});
 
 Route::group(['middleware'=>'admin'], function(){
     Route::get('/review_course', [ReviewCourseController::class, 'index']); 
@@ -62,8 +62,11 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 //-----------------------------------------------------------------------------------
 
-
+Route::group(['middleware'=>'auth'], function(){
     Route::get('/users/teacher', [UserController::class, 'index_teacher']);
+    Route::get('/users/student', [UserController::class, 'index_student']);
+});
+
 Route::group(['middleware'=>'admin'], function(){    
     Route::get('/users/teacher/create',[UserController::class, 'create_teacher']);   
     Route::post('/users/teacher', [UserController::class, 'store_teacher']);
@@ -73,7 +76,6 @@ Route::group(['middleware'=>'admin'], function(){
     Route::delete('/users/teacher/{user}', [UserController::class, 'destroy_teacher']);
 });
 
-    Route::get('/users/student', [UserController::class, 'index_student']);
 Route::group(['middleware'=>'admin'], function(){ 
     Route::get('/users/student/create',[UserController::class, 'create_student']);
     Route::post('/users/student', [UserController::class, 'store_student']);
@@ -139,7 +141,7 @@ Route::group(['middleware'=>'admin'], function(){
 
 // Salaries
 //------------------------------------------------------
-    Route::group(['middleware'=>'auth'], function(){
+Route::group(['middleware'=>'auth'], function(){
     Route::get('/salaries', [SalaryController::class, 'index']);  
 });
 

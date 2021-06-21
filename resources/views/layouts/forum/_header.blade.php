@@ -71,14 +71,14 @@
                         <ul class="font">
                             <!-- Home -->
                             <li>
-                                <a href="{{ url('/home') }}">
+                                <a href="{{ url('/') }}">
                                     Home
                                 </a>
                             </li>
                             @if (Auth::check())
                             <!-- User -->
                             <li>
-                                <a href="{{ url('/') }}">
+                                <a href="{{ url('/adminstration') }}">
                                     @if (Auth::user()->role == "Admin")  Admin  @endif 
                                     @if (Auth::user()->role == "Teacher")  Teacher  @endif 
                                     @if (Auth::user()->role == "Student")  Student  @endif 

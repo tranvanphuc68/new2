@@ -18,7 +18,7 @@ class CreateStudentsCoursesTable extends Migration
             $table->bigInteger('id_student')->unsigned();
             $table->float('mark')->default('0.0');
             $table->integer('status_fee')->default('0');
-            $table->text('feedback')->default('null');
+            $table->text('feedback');
             $table->timestamps();
             $table->primary(['id_course', 'id_student']);
 

@@ -34,7 +34,7 @@
                     <div class="header-block header-block-nav">
                         <ul class="nav-profile">
                             <li>
-                                <a href="{{ url('/home') }}" class="btn btn-sm header-btn">
+                                <a href="{{ url('/') }}" class="btn btn-sm header-btn">
                                     <i class="fa fa-home"></i>
                                     <span >Home</span>
                                 </a>
