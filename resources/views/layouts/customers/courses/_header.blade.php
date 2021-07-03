@@ -36,21 +36,21 @@
         <div class="container d-flex align-items-center">
 
             <div class="logo mr-auto">
-                <a href="{{ url('/home') }}"><span style=" font-family: 'Pattaya', sans-serif ; font-size: 40px; color: #fff ; margin-left: 6px">Into</span></a>
+                <a href="{{ url('/') }}"><span style=" font-family: 'Pattaya', sans-serif ; font-size: 40px; color: #fff ; margin-left: 6px">Into</span></a>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
-                    <li><a href="{{ url('/home') }}">Trang chủ</a></li>
+                    <li><a href="{{ url('/') }}">Trang chủ</a></li>
                     <li><a href="#about-course">Giới thiệu</a></li>
                     <li><a href="#courses">Đối tượng</a></li>
                     <li><a href="#fh5co-features">Nội dung</a></li>
                     <li><a href="#commit">Cam kết</a></li>
                     @if (Auth::check())
                     <li>
-                        <a href="{{ url('/') }}">
+                        <a href="{{ url('/adminstrator') }}">
                             @if (Auth::user()->role == "Admin") Admin @endif
                             @if (Auth::user()->role == "Teacher") Teacher @endif
                             @if (Auth::user()->role == "Student") Student @endif

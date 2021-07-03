@@ -168,7 +168,7 @@
         &copy; Copyright <strong><span>INTO</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        Designed by <a href="{{ url("/home")}}">Team 3</a>
+        Designed by <a href="{{ url("/")}}">Team 3</a>
       </div>
     </div>
   </footer>

@@ -35,10 +35,6 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/about', function () {
-    return view('home.about');
-});
-
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/adminstration', function () {
     return view('welcome');

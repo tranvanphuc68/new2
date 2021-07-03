@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\ReviewCourse;
 use App\Models\User;
 use App\Models\StudentCourse;
@@ -24,13 +25,15 @@ class HomeController extends Controller
         $count_teachers = User::where('role', 'teacher')->count();
         $count_students = User::where('role', 'student')->count();
         $count_courses =  ReviewCourse::all()->count();
+        $count_classes = Course::all()->count();
         return view('home.index', [
             'review_course' => $review_course,
             'teachers' => $teachers,
             'students' => $students,
             'count_teachers'=>  $count_teachers,
             'count_students'=>  $count_students,
-            'count_courses'=> $count_courses
+            'count_courses'=> $count_courses,
+            'count_classes'=> $count_classes
         ]);
     }
     

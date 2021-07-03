@@ -7,7 +7,7 @@
             <li> Design by Team 3
             </li>
             <li>
-                <a href="{{ url("/home")}}">INTO</a>
+                <a href="{{ url("/")}}">INTO</a>
             </li>
         </ul>
     </div>

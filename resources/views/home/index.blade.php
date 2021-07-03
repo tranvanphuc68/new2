@@ -97,25 +97,32 @@ Into
   <section id="counts" class="counts  section-bg">
     <div class="container">
       <div class="row no-gutters">
-        <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
             <i class="icofont-teacher"></i>
             <span data-toggle="counter-up">{{ $count_teachers }}</span>
             <p><strong>Giáo viên bản ngữ</strong></p>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
             <i class="icofont-users-alt-5"></i>
             <span data-toggle="counter-up">{{ $count_students}}</span>
             <p><strong>Học viên đã tham gia</strong></p>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
             <i class="icofont-simple-smile"></i>
             <span data-toggle="counter-up">{{ $count_courses }}</span>
             <p><strong>Khóa học tại INTO</strong></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+          <div class="count-box">
+            <i class="icofont-simple-smile"></i>
+            <span data-toggle="counter-up">{{ $count_classes }}</span>
+            <p><strong>Lớp học tại INTO</strong></p>
           </div>
         </div>
       </div>
