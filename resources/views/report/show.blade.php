@@ -63,7 +63,7 @@ Into
                     </tr>
                     <tr>
                         <td class="w50">10</td>
-                        <td class="w50">{{ $october }},</td>
+                        <td class="w50">{{ $october }}</td>
                     </tr>
                     <tr>
                         <td class="w50">11</td>

@@ -29,7 +29,7 @@ Show Post
                             {!! $post->title !!}
                         </div>
                     </div>
-                    <div class="tt-item-description reponsive">
+                    <div class="tt-item-description reponsive table-responsive">
                         {!! $post->content !!}
                     </div>
                 </div>
